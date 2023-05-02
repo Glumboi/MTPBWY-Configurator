@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <RootNamespace>MayThePerfromanceBeWithYou_Configurator</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Assets\MBTPBWY-Logo.ico</ApplicationIcon>
+    <Authors>Glumboi</Authors>
+    <Description>A tool for my mod MTPBWY</Description>
+    <Copyright>Glumboi (c) 2023</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\MBTPBWY-Logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\MBTPBWY-Logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1" />
+    <PackageReference Include="WPF-UI" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="PasteBinDataBaseManager">
+      <HintPath>Libs\PasteBinDataBaseManager.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
