@@ -8,15 +8,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="MainPage"
-    Background="#3333"
     d:DesignHeight="330"
     d:DesignWidth="800"
+    Background="#3333"
     mc:Ignorable="d">
 
     <Page.DataContext>
         <VM:MainPageViewModel />
     </Page.DataContext>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -45,32 +45,34 @@
                 Content="Browse Location"
                 Icon="Folder32" />
         </Grid>
-        
+
         <Grid Grid.Row="1">
             <StackPanel>
-                <ui:Button Content="Install Mod"
-                           VerticalAlignment="Stretch"
-                           HorizontalAlignment="Stretch"
-                           Margin=" 0 8 0 0"
-                           Icon="ArrowDownload48"
-                           Command="{Binding Path=InstallModCommand}"/>
-                
-                <ui:Button Content="Uninstall Mod"
-                            VerticalAlignment="Stretch"
-                            HorizontalAlignment="Stretch"
-                            Margin=" 0 4 0 0"
-                            Icon="BinFull24"
-                            Command="{Binding Path=UninstallModCommand}"/>
+                <ui:Button
+                    Margin="0,8,0,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Command="{Binding Path=InstallModCommand}"
+                    Content="Install Mod"
+                    Icon="ArrowDownload48" />
+
+                <ui:Button
+                    Margin="0,4,0,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Command="{Binding Path=UninstallModCommand}"
+                    Content="Uninstall Mod"
+                    Icon="BinFull24" />
             </StackPanel>
         </Grid>
-        
+
         <Grid Grid.Row="2">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <TextBlock
@@ -80,55 +82,70 @@
                 FontSize="17"
                 FontWeight="Bold"
                 Text="Customization" />
-            
+
             <StackPanel Grid.Row="1">
-                <TextBlock Text="Presets"
-                           FontWeight="Bold"
-                           FontSize="13"
-                           Margin="0 0 0 4"/>
-                <ComboBox 
-                          VerticalAlignment="Top"
-                          SelectedIndex="{Binding Path=SelectedPreset}"
-                          ItemsSource="{Binding Path=IniPresets}"
-                          DisplayMemberPath="Name">
-                </ComboBox>
+                <TextBlock
+                    Margin="0,0,0,4"
+                    FontSize="13"
+                    FontWeight="Bold"
+                    Text="Presets" />
+                <ComboBox
+                    VerticalAlignment="Top"
+                    DisplayMemberPath="Name"
+                    ItemsSource="{Binding Path=IniPresets}"
+                    SelectedIndex="{Binding Path=SelectedPreset}" />
             </StackPanel>
-            
+
             <Grid Grid.Row="2">
                 <StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
-                        <CheckBox Content="Potato Textures" Margin="0 0 8 0"
-                                  IsChecked="{Binding Path=PotatoTextures}"
-                                  Visibility="Collapsed"/>
-                        
-                        <CheckBox Content="Low quality TAA (Upscaling)" Margin="8 0 0 0"
-                                  IsChecked="{Binding Path=LqTAA}"/>
+                    <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                        <CheckBox
+                            Margin="8,0,0,0"
+                            Content="Low quality TAA (Upscaling)"
+                            IsChecked="{Binding Path=LqTAA}" />
+
+                        <CheckBox
+                            Margin="8,0,0,0"
+                            Content="Disable Bloom"
+                            IsChecked="{Binding Path=DisableBloom}" />
+
+                        <CheckBox
+                            Margin="8,0,0,0"
+                            Content="Disable Lens Flare"
+                            IsChecked="{Binding Path=DisableLensFlare}" />
+
+                        <CheckBox
+                            Margin="8,0,0,0"
+                            Content="Potato Textures"
+                            IsChecked="{Binding Path=PotatoTextures}" />
                     </StackPanel>
-                    <Grid Margin="0 6 0 0">
+                    <Grid Margin="0,6,0,0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <Slider Maximum="200"
-                                Minimum="1"
-                                Value="{Binding Path=TaaResolution}"/>
-                        <TextBlock Grid.Column="1" Text="{Binding Path=TaaResolution, StringFormat=TAA Resolution: {0}}" 
-                                   VerticalAlignment="Center"
-                                   FontWeight="Bold"
-                                   Margin="6 0 0 0"/>
+                        <Slider
+                            Maximum="200"
+                            Minimum="1"
+                            Value="{Binding Path=TaaResolution}" />
+                        <TextBlock
+                            Grid.Column="1"
+                            Margin="6,0,0,0"
+                            VerticalAlignment="Center"
+                            FontWeight="Bold"
+                            Text="{Binding Path=TaaResolution, StringFormat=TAA Resolution: {0}}" />
                     </Grid>
                 </StackPanel>
             </Grid>
-            <ui:Button Grid.Row="3" 
-                       Margin="0 6 0 0"
-                       Content="I want to edit the Mod myself"
-                       Icon="Open48"
-                       HorizontalAlignment="Stretch"
-                       Command="{Binding Path=EditIniCommand}"/>
+            <ui:Button
+                Grid.Row="3"
+                Margin="0,6,0,0"
+                HorizontalAlignment="Stretch"
+                Command="{Binding Path=EditIniCommand}"
+                Content="I want to edit the Mod myself"
+                Icon="Open48" />
         </Grid>
-        
-        <ui:Snackbar x:Name="NotificationBar_SnackBar" Grid.RowSpan="3">
-            
-        </ui:Snackbar>
+
+        <ui:Snackbar x:Name="NotificationBar_SnackBar" Grid.RowSpan="3" />
     </Grid>
 </ui:UiPage>

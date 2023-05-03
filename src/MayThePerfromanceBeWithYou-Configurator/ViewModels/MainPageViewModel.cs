@@ -47,6 +47,32 @@ internal class MainPageViewModel : ViewModelBase
                 SetProperty(ref _potatoTextures, value);
             }
         }
+    }         
+    
+    private bool _disableBloom = false;
+    public bool DisableBloom
+    {
+        get => _disableBloom;
+        set
+        {
+            if (value != _disableBloom)
+            {
+                SetProperty(ref _disableBloom, value);
+            }
+        }
+    }         
+    
+    private bool _disableLensFlare = false;
+    public bool DisableLensFlare
+    {
+        get => _disableLensFlare;
+        set
+        {
+            if (value != _disableLensFlare)
+            {
+                SetProperty(ref _disableLensFlare, value);
+            }
+        }
     }      
     
     private bool _lqTAA = false;
@@ -60,8 +86,8 @@ internal class MainPageViewModel : ViewModelBase
                 SetProperty(ref _lqTAA, value);
             }
         }
-    }    
-    
+    }
+
     private int _taaResolution = 70;
     public int TaaResolution
     {
@@ -182,7 +208,14 @@ internal class MainPageViewModel : ViewModelBase
 
     public void InstallMod()
     {
-        Mod.Install(_presetIni, GamePath, TaaResolution, LqTAA);
+        Mod.Install(
+            _presetIni, 
+            GamePath, 
+            TaaResolution, 
+            LqTAA, 
+            DisableBloom, 
+            DisableLensFlare, 
+            PotatoTextures);
         ShowNotification("Installed the Mod successfully!",SymbolRegular.Checkmark48);
     }
     

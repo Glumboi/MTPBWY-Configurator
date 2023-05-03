@@ -1,10 +1,29 @@
 ﻿using System.Diagnostics;
 using System.IO;
+using System.Windows.Shapes;
+using Path = System.IO.Path;
 
 namespace MayThePerfromanceBeWithYou_Configurator.Core;
 
 public class Mod
 {
+    private static string[] _potatoLines = new[]
+    {
+        "r.Streaming.MinMipForSplitRequest", "r.Streaming.HiddenPrimitiveScale",
+        "r.Streaming.AmortizeCPUToGPUCopy", "r.Streaming.MaxNumTexturesToStreamPerFrame",
+        "r.Streaming.NumStaticComponentsProcessedPerFrame", "r.Streaming.FramesForFullUpdate"
+    };
+
+    private static string[] _potatoVals = new[]
+    {
+        "0",
+        "0.5",
+        "1",
+        "2",
+        "2",
+        "1"
+    };
+    
     private static void ToggleLqTAA(bool enabled, ref IniFile ini)
     {
         if (enabled)
@@ -22,8 +41,49 @@ public class Mod
     {
         ini.Write("r.ScreenPercentage", screenPercentageValue.ToString(), "SystemSettings");
     }
-    
-    public static void Install(IniFile tempIni, string gameDir, int taaResolution, bool lqTaa)
+
+    private static void TogglePostProcessingEffect(
+        string key,
+        string section,
+        bool disabled,
+        ref IniFile ini)
+    {
+        if (disabled)
+        {
+            //r.BloomQuality=0
+            ini.Write(key, "0", section);
+        }
+        else
+        {
+            ini.DeleteKey(key, section);
+        }
+    }
+
+    private static void TogglePotatoTextures(bool enabled, ref IniFile ini)
+    {
+        if (enabled)
+        {
+            for (var index = 0; index < _potatoLines.Length; index++)
+            {
+                ini.Write(_potatoLines[index], _potatoVals[index], "SystemSettings");
+            }
+        }
+        else
+        {
+            for (var index = 0; index < _potatoLines.Length; index++)
+            {
+                ini.DeleteKey(_potatoLines[index], "SystemSettings");
+            }
+        }
+    }
+
+    public static void Install(
+        IniFile tempIni, 
+        string gameDir,
+        int taaResolution, 
+        bool lqTaa, 
+        bool disableBloom, 
+        bool disableLensFlare, bool potatoTextures)
     {
         string pakCreator = Path.Combine(tempIni.EXE, "PakCreator");
         string pakIniLocation = Path.Combine(pakCreator, @"\pakchunk99-Mods_MayThePerformanceBeWithYou_P\SwGame\Config");
@@ -33,6 +93,10 @@ public class Mod
         ChangeTAARes(taaResolution, ref tempIni);
         ToggleLqTAA(lqTaa, ref tempIni);
         
+        TogglePostProcessingEffect("r.BloomQuality", "SystemSettings", disableBloom, ref tempIni);
+        TogglePostProcessingEffect("r.LensFlareQuality", "SystemSettings", disableLensFlare, ref tempIni);
+        TogglePotatoTextures(potatoTextures, ref tempIni);
+    
         if(!File.Exists(tempIniPath)) return;
         
         File.Copy(tempIniPath, newIni , true);

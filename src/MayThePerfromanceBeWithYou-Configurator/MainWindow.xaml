@@ -9,8 +9,8 @@
     Title="MainWindow"
     Width="800"
     Height="390"
-    MaxHeight="390"
     MinHeight="390"
+    MaxHeight="390"
     Background="#2d2d2d"
     ExtendsContentIntoTitleBar="True"
     WindowBackdropType="Mica"
@@ -27,8 +27,8 @@
         <ui:TitleBar
             x:Name="TitleBar"
             Title="MTPBWY-Configurator"
-            UseSnapLayout="True" 
-            Icon="./Assets/MBTPBWY-Logo.png"/>
+            Icon="./Assets/MBTPBWY-Logo.png"
+            UseSnapLayout="True" />
         <Border Grid.Row="1" Padding="8">
             <Frame Source="./Pages/MainPage.xaml" />
         </Border>
