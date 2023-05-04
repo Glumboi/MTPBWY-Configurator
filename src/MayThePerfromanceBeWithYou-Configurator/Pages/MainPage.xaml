@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="MainPage"
-    d:DesignHeight="330"
+    d:DesignHeight="380"
     d:DesignWidth="800"
     Background="#3333"
     mc:Ignorable="d">
@@ -21,9 +21,19 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid>
+        <Grid Margin="0,0,0,4">
+            <TextBlock
+                FontSize="14"
+                FontWeight="Bold"
+                Text="Mod Installation State: ">
+                <Run Foreground="{Binding StateColor}" Text="{Binding Path=InstallationState}" />
+            </TextBlock>
+        </Grid>
+
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition Width="Auto" />
@@ -46,7 +56,7 @@
                 Icon="Folder32" />
         </Grid>
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="2">
             <StackPanel>
                 <ui:Button
                     Margin="0,8,0,0"
@@ -63,10 +73,18 @@
                     Command="{Binding Path=UninstallModCommand}"
                     Content="Uninstall Mod"
                     Icon="BinFull24" />
+
+                <ui:Button
+                    Margin="0,4,0,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Command="{Binding Path=BrowseSaveCommand}"
+                    Content="Take me to my Saves Location"
+                    Icon="Link48" />
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="3">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -102,22 +120,26 @@
                         <CheckBox
                             Margin="8,0,0,0"
                             Content="Low quality TAA (Upscaling)"
-                            IsChecked="{Binding Path=LqTAA}" />
+                            IsChecked="{Binding Path=LqTAA}"
+                            ToolTip="This option will toggle the TAA upscaling in Unreal Engine. You can increase the fidelity by raising the TAA Resolution." />
 
                         <CheckBox
                             Margin="8,0,0,0"
                             Content="Disable Bloom"
-                            IsChecked="{Binding Path=DisableBloom}" />
+                            IsChecked="{Binding Path=DisableBloom}"
+                            ToolTip="This option will toggle the Bloom of the game, checked=Bloom disabled Unchecked=Game manages the Bloom" />
 
                         <CheckBox
                             Margin="8,0,0,0"
                             Content="Disable Lens Flare"
-                            IsChecked="{Binding Path=DisableLensFlare}" />
+                            IsChecked="{Binding Path=DisableLensFlare}"
+                            ToolTip="This option will toggle the Lens Flare of the game, checked=Bloom disabled Unchecked=Game manages the Lens Flare" />
 
                         <CheckBox
                             Margin="8,0,0,0"
                             Content="Potato Textures"
-                            IsChecked="{Binding Path=PotatoTextures}" />
+                            IsChecked="{Binding Path=PotatoTextures}"
+                            ToolTip="This Option will toggle 'Potato Textures' which will drastically decrease the fidelity of all Textures in the Game while giving a performance boost." />
                     </StackPanel>
                     <Grid Margin="0,6,0,0">
                         <Grid.ColumnDefinitions>
@@ -146,6 +168,6 @@
                 Icon="Open48" />
         </Grid>
 
-        <ui:Snackbar x:Name="NotificationBar_SnackBar" Grid.RowSpan="3" />
+        <ui:Snackbar x:Name="NotificationBar_SnackBar" Grid.RowSpan="4" />
     </Grid>
 </ui:UiPage>

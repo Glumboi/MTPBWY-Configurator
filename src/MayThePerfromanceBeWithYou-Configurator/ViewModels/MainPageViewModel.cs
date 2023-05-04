@@ -5,6 +5,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 using MayThePerfromanceBeWithYou_Configurator.Core;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using Wpf.Ui.Common;
@@ -14,6 +15,8 @@ namespace MayThePerfromanceBeWithYou_Configurator.ViewModels;
 
 internal class MainPageViewModel : ViewModelBase
 {
+    private readonly string _saveLocation = System.Environment.GetEnvironmentVariable("USERPROFILE") +
+                                           @"\Saved Games\Respawn\JediSurvivor\";
     private PresetDataBase _database;
     private IniFile _presetIni;
 
@@ -32,6 +35,32 @@ internal class MainPageViewModel : ViewModelBase
             if (value != _gamePath)
             {
                 SetProperty(ref _gamePath, value);
+            }
+        }
+    }       
+    
+    private string _installationState = string.Empty;
+    public string InstallationState
+    {
+        get => _installationState;
+        set
+        {
+            if (value != _installationState)
+            {
+                SetProperty(ref _installationState, value);
+            }
+        }
+    }      
+    
+    private Brush _stateColor;
+    public Brush StateColor
+    {
+        get => _stateColor;
+        set
+        {
+            if (value != _stateColor)
+            {
+                SetProperty(ref _stateColor, value);
             }
         }
     }       
@@ -178,21 +207,48 @@ internal class MainPageViewModel : ViewModelBase
         UpdateUiFromPreset(false);
     }
     
+    public ICommand BrowseSaveCommand
+    {
+        get;
+        internal set;
+    }
+
+    private bool DoesSaveDirectoryExist()
+    {
+        return Directory.Exists(_saveLocation);
+    }
+    
+    private void CreateBrowseSaveCommandCommand()
+    {
+        BrowseSaveCommand = new RelayCommand(BrowseSaves, DoesSaveDirectoryExist);
+    }
+
+    private void BrowseSaves()
+    {
+        Process.Start("explorer.exe", _saveLocation);
+    }
+    
     public ICommand UninstallModCommand
     {
         get;
         internal set;
     }
 
+    private bool IsModAlreadyInstalled()
+    {
+        return Mod.IsModInstalled(GamePath);
+    }
+    
     private void CreateUninstallModCommand()
     {
-        UninstallModCommand = new RelayCommand(UninstallMod);
+        UninstallModCommand = new RelayCommand(UninstallMod, IsModAlreadyInstalled);
     }
 
     public void UninstallMod()
     {
         Mod.Uninstall(GamePath);
         ShowNotification("Uninstalled the Mod successfully!", SymbolRegular.BinFull24);
+        LoadInstallState();
     }
     
     public ICommand InstallModCommand
@@ -217,6 +273,7 @@ internal class MainPageViewModel : ViewModelBase
             DisableLensFlare, 
             PotatoTextures);
         ShowNotification("Installed the Mod successfully!",SymbolRegular.Checkmark48);
+        LoadInstallState();
     }
     
     public ICommand BrowseFolderCommand
@@ -247,6 +304,19 @@ internal class MainPageViewModel : ViewModelBase
         GamePath = Core.Game.GetJediSurvivorPath();
     }
 
+    private void LoadInstallState()
+    {
+        if (IsModAlreadyInstalled())
+        {
+            InstallationState = "Installed";
+            StateColor = Brushes.LightGreen;
+            return;
+        }
+
+        InstallationState = "Not Installed";         
+        StateColor = Brushes.IndianRed;
+    }
+    
     private void InitializeViewModel()
     {
         Task.Run(() =>
@@ -256,6 +326,8 @@ internal class MainPageViewModel : ViewModelBase
             CreateBrowseFolderCommand();
             LoadExternalValues();
             CreateEditIniCommand();
+            LoadInstallState();
+            CreateBrowseSaveCommandCommand();
             _database = new PresetDataBase("https://pastebin.com/raw/d0pvppae");
             IniPresets = _database.GetPresets();
             while (_presetIni == null)

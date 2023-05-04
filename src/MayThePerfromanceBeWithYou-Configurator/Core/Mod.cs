@@ -107,6 +107,12 @@ public class Mod
             Path.Combine(gameDir, @"SwGame\Content\Paks\pakchunk99-Mods_MayThePerformanceBeWithYou_P.pak"), true);
     }
 
+    public static bool IsModInstalled(string gameDir)
+    {
+        return File.Exists(Path.Combine(gameDir,
+            @"SwGame\Content\Paks\pakchunk99-Mods_MayThePerformanceBeWithYou_P.pak"));
+    }
+    
     public static void Uninstall(string gameDir)
     {
         File.Delete(Path.Combine(gameDir, @"SwGame\Content\Paks\pakchunk99-Mods_MayThePerformanceBeWithYou_P.pak"));
