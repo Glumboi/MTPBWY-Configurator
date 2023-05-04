@@ -8,7 +8,7 @@ namespace MayThePerfromanceBeWithYou_Configurator.Pages;
 /// </summary>
 public partial class MainPage : UiPage
 {
-    private readonly MainPageViewModel viewModel;
+    private MainPageViewModel viewModel;
 
     public MainPage()
     {

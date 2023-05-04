@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -131,6 +132,19 @@ internal class MainPageViewModel : ViewModelBase
         }
     }    
     
+    private int _toneMapperSharpening = 0;
+    public int ToneMapperSharpening
+    {
+        get => _toneMapperSharpening;
+        set
+        {
+            if (value != _toneMapperSharpening)
+            {
+                SetProperty(ref _toneMapperSharpening, value);
+            }
+        }
+    }    
+    
     private int _selectedPreset = 0;
     public int SelectedPreset
     {
@@ -154,8 +168,8 @@ internal class MainPageViewModel : ViewModelBase
             _presetIni = new IniFile(_iniPresets[_selectedPreset].IniUrl);
         }
 
-        TaaResolution = Int32.Parse(_presetIni.Read("r.ScreenPercentage", "SystemSettings"));
-
+        TaaResolution = ParseInt(_presetIni.Read("r.ScreenPercentage", "SystemSettings"));
+        ToneMapperSharpening = ParseInt(_presetIni.Read("r.Tonemapper.Sharpen", "SystemSettings")) * 10;
         LqTAA = ParseInt(_presetIni.Read("r.TemporalAA.Upsampling", "SystemSettings")) > 0;
         PotatoTextures = ParseInt(_presetIni.Read("r.Streaming.AmortizeCPUToGPUCopy", "SystemSettings")) > 0;
         DisableLensFlare = _presetIni.KeyExists("r.LensFlareQuality", "SystemSettings");
@@ -275,7 +289,8 @@ internal class MainPageViewModel : ViewModelBase
             LqTAA, 
             DisableBloom, 
             DisableLensFlare, 
-            PotatoTextures);
+            PotatoTextures,
+            ToneMapperSharpening);
         ShowNotification("Installed the Mod successfully!",SymbolRegular.Checkmark48);
         LoadInstallState();
     }
@@ -320,6 +335,21 @@ internal class MainPageViewModel : ViewModelBase
         InstallationState = "Not Installed";         
         StateColor = Brushes.IndianRed;
     }
+
+    private void InitializePresets()
+    {
+        _database = new PresetDataBase("https://pastebin.com/raw/d0pvppae");
+        try
+        {
+            IniPresets = _database.GetPresets();
+            _database.CreateLocalDatabase();
+        }
+        catch
+        {
+            _database = new PresetDataBase(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "LocalDatabase.txt"));
+            IniPresets = _database.GetPresets();
+        }
+    }
     
     private void InitializeViewModel()
     {
@@ -331,8 +361,8 @@ internal class MainPageViewModel : ViewModelBase
             LoadExternalValues();
             CreateEditIniCommand();
             CreateBrowseSaveCommandCommand();
-            _database = new PresetDataBase("https://pastebin.com/raw/d0pvppae");
-            IniPresets = _database.GetPresets();
+            InitializePresets();
+
             while (_presetIni == null)
             {
                 SelectedPreset = 1;

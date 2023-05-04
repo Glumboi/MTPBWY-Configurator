@@ -27,21 +27,9 @@ public class IniFile   // revision 11
     {
         if (IniPath.Contains("http"))
         {
-            using (WebClient client = new WebClient())
-            {
-                Stream stream = client.OpenRead(IniPath);
-                StreamReader streamReader = new StreamReader(stream);
-                Collection<string> stringCollection = new Collection<string>();
-                string line;
-
-                while ((line = streamReader.ReadLine()) != null)
-                {
-                    stringCollection.Add(line);
-                }
-                File.WriteAllLines("tempIni.ini", stringCollection);
-                Path = System.IO.Path.Combine(EXE, "tempIni.ini");
-                return;
-            }
+            Web.CreateLocalTextFileFromRawWebDoc(IniPath, "tempIni.ini");
+            Path = System.IO.Path.Combine(EXE, "tempIni.ini");
+            return;
         }
         Path = new FileInfo(IniPath ?? EXE + ".ini").FullName;
     }

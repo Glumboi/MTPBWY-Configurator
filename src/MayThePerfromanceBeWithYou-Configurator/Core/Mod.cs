@@ -42,6 +42,17 @@ public class Mod
         ini.Write("r.ScreenPercentage", screenPercentageValue.ToString(), "SystemSettings");
     }
 
+    private static void EditToneMapperSharpening(bool disabled, int value, ref IniFile ini)
+    {
+        if (disabled)
+        {
+            ini.DeleteKey("r.Tonemapper.Sharpen", "SystemSettings");
+            return;
+        }
+
+        ini.Write("r.Tonemapper.Sharpen", value.ToString(), "SystemSettings");
+    }
+    
     private static void TogglePostProcessingEffect(
         string key,
         string section,
@@ -81,18 +92,23 @@ public class Mod
         int taaResolution,
         bool lqTaa,
         bool disableBloom,
-        bool disableLensFlare, bool potatoTextures)
+        bool disableLensFlare, 
+        bool potatoTextures,
+        int toneMapperSharpening)
     {
         string pakCreator = Path.Combine(tempIni.EXE, "PakCreator");
         string pakIniLocation = Path.Combine(pakCreator, @"\pakchunk99-Mods_MayThePerformanceBeWithYou_P\SwGame\Config");
         string tempIniPath = tempIni.Path;
         string newIni = Path.Combine(pakCreator + pakIniLocation, "DefaultEngine.ini");
 
+        int trueToneMapperSharpening = toneMapperSharpening / 10;
+
         ChangeTAARes(taaResolution, ref tempIni);
         ToggleLqTAA(lqTaa, ref tempIni);
 
         TogglePostProcessingEffect("r.BloomQuality", "SystemSettings", disableBloom, ref tempIni);
         TogglePostProcessingEffect("r.LensFlareQuality", "SystemSettings", disableLensFlare, ref tempIni);
+        EditToneMapperSharpening(trueToneMapperSharpening < 1, trueToneMapperSharpening, ref tempIni);
         TogglePotatoTextures(potatoTextures, ref tempIni);
 
         if (!File.Exists(tempIniPath)) return;

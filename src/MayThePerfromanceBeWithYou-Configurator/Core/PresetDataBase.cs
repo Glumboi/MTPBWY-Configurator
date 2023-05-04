@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
+using System.Net;
+using System.Windows.Navigation;
 using PasteBinDataBaseManager;
 
 namespace MayThePerfromanceBeWithYou_Configurator.Core;
@@ -7,8 +11,10 @@ namespace MayThePerfromanceBeWithYou_Configurator.Core;
 public class PresetDataBase
 {
     private DataBase _dataBase;
+    private string _url;
     public PresetDataBase(string url)
     {
+        _url = url;
         _dataBase = new DataBase(new Entry[] { }, url);
     }
 
@@ -22,5 +28,10 @@ public class PresetDataBase
         }
 
         return result;
+    }
+
+    public void CreateLocalDatabase()
+    {
+        Web.CreateLocalTextFileFromRawWebDoc(_url, "LocalDatabase.txt");
     }
 }
