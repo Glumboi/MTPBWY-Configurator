@@ -23,7 +23,7 @@ public class Mod
         "2",
         "1"
     };
-    
+
     private static void ToggleLqTAA(bool enabled, ref IniFile ini)
     {
         if (enabled)
@@ -32,7 +32,7 @@ public class Mod
             ini.Write("r.TemporalAA.Algorithm", "1", "SystemSettings");
             return;
         }
-        
+
         ini.Write("r.TemporalAA.Upsampling", "0", "SystemSettings");
         ini.Write("r.TemporalAA.Algorithm", "0", "SystemSettings");
     }
@@ -52,11 +52,10 @@ public class Mod
         {
             //r.BloomQuality=0
             ini.Write(key, "0", section);
+            return;
         }
-        else
-        {
-            ini.DeleteKey(key, section);
-        }
+
+        ini.DeleteKey(key, section);
     }
 
     private static void TogglePotatoTextures(bool enabled, ref IniFile ini)
@@ -67,39 +66,38 @@ public class Mod
             {
                 ini.Write(_potatoLines[index], _potatoVals[index], "SystemSettings");
             }
+            return;
         }
-        else
+
+        for (var index = 0; index < _potatoLines.Length; index++)
         {
-            for (var index = 0; index < _potatoLines.Length; index++)
-            {
-                ini.DeleteKey(_potatoLines[index], "SystemSettings");
-            }
+            ini.DeleteKey(_potatoLines[index], "SystemSettings");
         }
     }
 
     public static void Install(
-        IniFile tempIni, 
+        IniFile tempIni,
         string gameDir,
-        int taaResolution, 
-        bool lqTaa, 
-        bool disableBloom, 
+        int taaResolution,
+        bool lqTaa,
+        bool disableBloom,
         bool disableLensFlare, bool potatoTextures)
     {
         string pakCreator = Path.Combine(tempIni.EXE, "PakCreator");
         string pakIniLocation = Path.Combine(pakCreator, @"\pakchunk99-Mods_MayThePerformanceBeWithYou_P\SwGame\Config");
         string tempIniPath = tempIni.Path;
         string newIni = Path.Combine(pakCreator + pakIniLocation, "DefaultEngine.ini");
-        
+
         ChangeTAARes(taaResolution, ref tempIni);
         ToggleLqTAA(lqTaa, ref tempIni);
-        
+
         TogglePostProcessingEffect("r.BloomQuality", "SystemSettings", disableBloom, ref tempIni);
         TogglePostProcessingEffect("r.LensFlareQuality", "SystemSettings", disableLensFlare, ref tempIni);
         TogglePotatoTextures(potatoTextures, ref tempIni);
-    
-        if(!File.Exists(tempIniPath)) return;
-        
-        File.Copy(tempIniPath, newIni , true);
+
+        if (!File.Exists(tempIniPath)) return;
+
+        File.Copy(tempIniPath, newIni, true);
 
         Process.Start(Path.Combine(tempIni.EXE, @"PakCreator\CreateMod.bat")).WaitForExit();
 
@@ -112,7 +110,7 @@ public class Mod
         return File.Exists(Path.Combine(gameDir,
             @"SwGame\Content\Paks\pakchunk99-Mods_MayThePerformanceBeWithYou_P.pak"));
     }
-    
+
     public static void Uninstall(string gameDir)
     {
         File.Delete(Path.Combine(gameDir, @"SwGame\Content\Paks\pakchunk99-Mods_MayThePerformanceBeWithYou_P.pak"));

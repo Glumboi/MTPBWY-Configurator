@@ -35,6 +35,7 @@ internal class MainPageViewModel : ViewModelBase
             if (value != _gamePath)
             {
                 SetProperty(ref _gamePath, value);
+                LoadInstallState();
             }
         }
     }       
@@ -152,11 +153,14 @@ internal class MainPageViewModel : ViewModelBase
         {
             _presetIni = new IniFile(_iniPresets[_selectedPreset].IniUrl);
         }
-                
+
         TaaResolution = Int32.Parse(_presetIni.Read("r.ScreenPercentage", "SystemSettings"));
-                
-        LqTAA = ParseInt(_presetIni.Read("r.TemporalAA.Upsampling", "SystemSettings") )> 0;
-        PotatoTextures = ParseInt(_presetIni.Read("r.Streaming.AmortizeCPUToGPUCopy", "SystemSettings") )> 0;
+
+        LqTAA = ParseInt(_presetIni.Read("r.TemporalAA.Upsampling", "SystemSettings")) > 0;
+        PotatoTextures = ParseInt(_presetIni.Read("r.Streaming.AmortizeCPUToGPUCopy", "SystemSettings")) > 0;
+        DisableLensFlare = _presetIni.KeyExists("r.LensFlareQuality", "SystemSettings");
+        DisableBloom = _presetIni.KeyExists("r.BloomQuality", "SystemSettings");
+
     }
 
     private int ParseInt(string src)
@@ -326,7 +330,6 @@ internal class MainPageViewModel : ViewModelBase
             CreateBrowseFolderCommand();
             LoadExternalValues();
             CreateEditIniCommand();
-            LoadInstallState();
             CreateBrowseSaveCommandCommand();
             _database = new PresetDataBase("https://pastebin.com/raw/d0pvppae");
             IniPresets = _database.GetPresets();
