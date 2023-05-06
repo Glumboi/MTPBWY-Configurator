@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="MainPage"
-    d:DesignHeight="410"
+    d:DesignHeight="490"
     d:DesignWidth="800"
     Background="#3333"
     mc:Ignorable="d">
@@ -22,8 +22,10 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+
         <Grid Margin="0,0,0,4">
             <TextBlock
                 FontSize="14"
@@ -116,51 +118,66 @@
 
             <Grid Grid.Row="2">
                 <StackPanel>
-                    <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
-                        <CheckBox
-                            Margin="8,0,0,0"
-                            Content="Low quality TAA (Upscaling)"
-                            IsChecked="{Binding Path=LqTAA}"
-                            ToolTip="This option will toggle the TAA upscaling in Unreal Engine. You can increase the fidelity by raising the TAA Resolution." />
+                    <WrapPanel Orientation="Vertical">
+                        <WrapPanel Margin="0,10,0,0" Orientation="Horizontal">
+                            <CheckBox
+                                Margin="8,0,0,0"
+                                Content="Low quality TAA (Upscaling)"
+                                IsChecked="{Binding Path=LqTAA}"
+                                ToolTip="This option will toggle the TAA upscaling in Unreal Engine. You can increase the fidelity by raising the TAA Resolution." />
 
-                        <CheckBox
-                            Margin="8,0,0,0"
-                            Content="Disable Bloom"
-                            IsChecked="{Binding Path=DisableBloom}"
-                            ToolTip="This option will toggle the Bloom of the game, checked=Bloom disabled Unchecked=Game manages the Bloom" />
+                            <CheckBox
+                                Margin="8,0,0,0"
+                                Content="Disable Bloom"
+                                IsChecked="{Binding Path=DisableBloom}"
+                                ToolTip="This option will toggle the Bloom of the game, checked=Bloom disabled Unchecked=Game manages the Bloom" />
 
-                        <CheckBox
-                            Margin="8,0,0,0"
-                            Content="Disable Lens Flare"
-                            IsChecked="{Binding Path=DisableLensFlare}"
-                            ToolTip="This option will toggle the Lens Flare of the game, checked=Bloom disabled Unchecked=Game manages the Lens Flare" />
+                            <CheckBox
+                                Margin="8,0,0,0"
+                                Content="Disable Lens Flare"
+                                IsChecked="{Binding Path=DisableLensFlare}"
+                                ToolTip="This option will toggle the Lens Flare of the game, checked=Bloom disabled Unchecked=Game manages the Lens Flare" />
 
-                        <CheckBox
-                            Margin="8,0,0,0"
-                            Content="Potato Textures"
-                            IsChecked="{Binding Path=PotatoTextures}"
-                            ToolTip="This Option will toggle 'Potato Textures' which will drastically decrease the fidelity of all Textures in the Game while giving a performance boost." />
-                    </StackPanel>
+                            <CheckBox
+                                Margin="8,0,0,0"
+                                Content="Potato Textures"
+                                IsChecked="{Binding Path=PotatoTextures}"
+                                ToolTip="This Option will toggle 'Potato Textures' which will drastically decrease the fidelity of all Textures in the Game while giving a performance boost." />
+                        </WrapPanel>
+
+                        <WrapPanel Margin="0,10,0,0" Orientation="Horizontal">
+                            <CheckBox
+                                Margin="8,0,0,0"
+                                Content="Disable Fog and Volumetric Fog"
+                                IsChecked="{Binding Path=DisableFog}"
+                                ToolTip="This option will toggle the Fog in the Game. Unchecked meaning let the game handle it and checked being forced off." />
+                            <CheckBox
+                                Margin="8,0,0,0"
+                                Content="Disable Depth of Field"
+                                IsChecked="{Binding Path=DisableDOF}"
+                                ToolTip="This option will toggle the Depth of Field. Unchecked meaning let the game handle it and checked being forced off." />
+                        </WrapPanel>
+                    </WrapPanel>
                     <Grid Margin="0,6,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        
+
                         <StackPanel>
-                            
+
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                
+
                                 <Slider
+                                    Margin="0,4"
                                     Maximum="200"
                                     Minimum="1"
-                                    Margin="0 4"
                                     Value="{Binding Path=TaaResolution}" />
-                                
+
                                 <TextBlock
                                     Grid.Column="1"
                                     Margin="6,0,0,0"
@@ -168,19 +185,19 @@
                                     FontWeight="Bold"
                                     Text="{Binding Path=TaaResolution, StringFormat=TAA Resolution: {0}}" />
                             </Grid>
-                            
-                 
+
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                
+
                                 <Slider
+                                    Margin="0,4"
                                     Maximum="100"
                                     Minimum="0"
                                     Value="{Binding Path=ToneMapperSharpening}" />
-                                
+
                                 <TextBlock
                                     Grid.Column="1"
                                     Margin="6,0,0,0"
@@ -188,21 +205,41 @@
                                     FontWeight="Bold"
                                     Text="{Binding Path=ToneMapperSharpening, StringFormat=ToneMapper Sharpening: {0}}" />
                             </Grid>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Slider
+                                    Margin="0,4"
+                                    Maximum="100"
+                                    Minimum="0"
+                                    Value="{Binding Path=ViewDistance}" />
+
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="6,0,0,0"
+                                    VerticalAlignment="Center"
+                                    FontWeight="Bold"
+                                    Text="{Binding Path=ViewDistance, StringFormat=View Distance: {0}}" />
+                            </Grid>
                         </StackPanel>
-                        
-                     
                     </Grid>
                 </StackPanel>
             </Grid>
-            <ui:Button
-                Grid.Row="3"
-                Margin="0,6,0,0"
-                HorizontalAlignment="Stretch"
-                Command="{Binding Path=EditIniCommand}"
-                Content="I want to edit the Mod myself"
-                Icon="Open48" />
         </Grid>
 
-        <ui:Snackbar x:Name="NotificationBar_SnackBar" Grid.RowSpan="4" />
+        <ui:Button
+            Grid.Row="4"
+            Margin="0,6,0,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Command="{Binding Path=EditIniCommand}"
+            Content="I want to edit the Mod myself"
+            Icon="Open48" />
+
+        <ui:Snackbar x:Name="NotificationBar_SnackBar" Grid.RowSpan="5" />
     </Grid>
 </ui:UiPage>

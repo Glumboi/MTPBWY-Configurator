@@ -104,8 +104,34 @@ internal class MainPageViewModel : ViewModelBase
                 SetProperty(ref _disableLensFlare, value);
             }
         }
-    }      
-    
+    }
+
+    private bool _disableDOF = false;
+    public bool DisableDOF
+    {
+        get => _disableDOF;
+        set
+        {
+            if (value != _disableDOF)
+            {
+                SetProperty(ref _disableDOF, value);
+            }
+        }
+    }
+
+    private bool _disableFog = false;
+    public bool DisableFog
+    {
+        get => _disableFog;
+        set
+        {
+            if (value != _disableFog)
+            {
+                SetProperty(ref _disableFog, value);
+            }
+        }
+    }
+
     private bool _lqTAA = false;
     public bool LqTAA
     {
@@ -143,6 +169,19 @@ internal class MainPageViewModel : ViewModelBase
                 SetProperty(ref _toneMapperSharpening, value);
             }
         }
+    }        
+    
+    private int _viewDistance = 0;
+    public int ViewDistance
+    {
+        get => _viewDistance;
+        set
+        {
+            if (value != _viewDistance)
+            {
+                SetProperty(ref _viewDistance, value);
+            }
+        }
     }    
     
     private int _selectedPreset = 0;
@@ -172,9 +211,12 @@ internal class MainPageViewModel : ViewModelBase
         ToneMapperSharpening = ParseInt(_presetIni.Read("r.Tonemapper.Sharpen", "SystemSettings")) * 10;
         LqTAA = ParseInt(_presetIni.Read("r.TemporalAA.Upsampling", "SystemSettings")) > 0;
         PotatoTextures = ParseInt(_presetIni.Read("r.Streaming.AmortizeCPUToGPUCopy", "SystemSettings")) > 0;
-        DisableLensFlare = _presetIni.KeyExists("r.LensFlareQuality", "SystemSettings");
-        DisableBloom = _presetIni.KeyExists("r.BloomQuality", "SystemSettings");
-
+        DisableLensFlare = ParseInt(_presetIni.Read("r.LensFlareQuality", "SystemSettings")) != 0;
+        DisableBloom = ParseInt(_presetIni.Read("r.BloomQuality", "SystemSettings")) != 0;
+        DisableFog = ParseInt(_presetIni.Read("r.VolumetricFog", "SystemSettings")) != 0  && 
+                     ParseInt(_presetIni.Read("r.Fog", "SystemSettings")) != 0;
+        DisableDOF = ParseInt(_presetIni.Read("r.DepthOfFieldQuality", "SystemSettings")) != 0;
+        ViewDistance = ParseInt(_presetIni.Read("r.ViewDistanceScale", "SystemSettings")) * 100;
     }
 
     private int ParseInt(string src)
@@ -290,7 +332,10 @@ internal class MainPageViewModel : ViewModelBase
             DisableBloom, 
             DisableLensFlare, 
             PotatoTextures,
-            ToneMapperSharpening);
+            ToneMapperSharpening,
+            DisableDOF,
+            DisableFog,
+            ViewDistance);
         ShowNotification("Installed the Mod successfully!",SymbolRegular.Checkmark48);
         LoadInstallState();
     }
