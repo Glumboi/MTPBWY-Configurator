@@ -10,7 +10,7 @@
     <Authors>Glumboi</Authors>
     <Description>A tool for my mod MTPBWY</Description>
     <Copyright>Glumboi (c) 2023</Copyright>
-    <Version>1.2.3</Version>
+    <Version>1.2.2</Version>
   </PropertyGroup>
 
   <ItemGroup>

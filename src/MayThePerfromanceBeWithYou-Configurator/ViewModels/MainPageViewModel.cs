@@ -118,6 +118,19 @@ internal class MainPageViewModel : ViewModelBase
             }
         }
     }
+    
+    private bool _experimentalStutterFix = false;
+    public bool ExperimentalStutterFix
+    {
+        get => _experimentalStutterFix;
+        set
+        {
+            if (value != _experimentalStutterFix)
+            {
+                SetProperty(ref _experimentalStutterFix, value);
+            }
+        }
+    }
 
     private bool _disableFog = false;
     public bool DisableFog
@@ -207,19 +220,22 @@ internal class MainPageViewModel : ViewModelBase
             _presetIni = new IniFile(_iniPresets[_selectedPreset].IniUrl);
         }
 
-        TaaResolution = ParseInt(_presetIni.Read("r.ScreenPercentage", "SystemSettings"));
-        ToneMapperSharpening = ParseInt(_presetIni.Read("r.Tonemapper.Sharpen", "SystemSettings")) * 10;
-        LqTAA = ParseInt(_presetIni.Read("r.TemporalAA.Upsampling", "SystemSettings")) > 0;
-        PotatoTextures = ParseInt(_presetIni.Read("r.Streaming.AmortizeCPUToGPUCopy", "SystemSettings")) > 0;
-        DisableLensFlare = ParseInt(_presetIni.Read("r.LensFlareQuality", "SystemSettings")) != 0;
-        DisableBloom = ParseInt(_presetIni.Read("r.BloomQuality", "SystemSettings")) != 0;
-        DisableFog = ParseInt(_presetIni.Read("r.VolumetricFog", "SystemSettings")) != 0  && 
-                     ParseInt(_presetIni.Read("r.Fog", "SystemSettings")) != 0;
-        DisableDOF = ParseInt(_presetIni.Read("r.DepthOfFieldQuality", "SystemSettings")) != 0;
-        ViewDistance = ParseInt(_presetIni.Read("r.ViewDistanceScale", "SystemSettings")) * 100;
+        TaaResolution = LoadSlider(_presetIni.Read("r.ScreenPercentage", "SystemSettings"));
+        ToneMapperSharpening = LoadSlider(_presetIni.Read("r.Tonemapper.Sharpen", "SystemSettings")) * 10;
+        ViewDistance = LoadSlider(_presetIni.Read("r.ViewDistanceScale", "SystemSettings")) * 100;
+
+        LqTAA = ParseInt(_presetIni.Read("r.TemporalAA.Upsampling", "SystemSettings")) != 9999;// 0;
+        PotatoTextures = ParseInt(_presetIni.Read("r.Streaming.AmortizeCPUToGPUCopy", "SystemSettings")) != 9999;
+        
+        DisableLensFlare = ParseInt(_presetIni.Read("r.LensFlareQuality", "SystemSettings")) == 0;
+        DisableBloom = ParseInt(_presetIni.Read("r.BloomQuality", "SystemSettings")) == 0;
+        DisableFog = ParseInt(_presetIni.Read("r.VolumetricFog", "SystemSettings")) == 0  && 
+                     ParseInt(_presetIni.Read("r.Fog", "SystemSettings")) == 0;
+        DisableDOF = ParseInt(_presetIni.Read("r.DepthOfFieldQuality", "SystemSettings")) == 0;
+        ExperimentalStutterFix = ParseInt(_presetIni.Read("s.ForceGCAfterLevelStreamedOut", "SystemSettings")) == 0;
     }
 
-    private int ParseInt(string src)
+    private int LoadSlider(string src)
     {
         int rtrn;
         if (Int32.TryParse(src, out rtrn))
@@ -228,6 +244,17 @@ internal class MainPageViewModel : ViewModelBase
         }
 
         return 0;
+    }
+    
+    private int ParseInt(string src)
+    {
+        int rtrn;
+        if (Int32.TryParse(src, out rtrn))
+        {
+            return rtrn;
+        }
+
+        return 9999;
     }
 
     private List<Preset> _iniPresets = new List<Preset>();
@@ -320,8 +347,8 @@ internal class MainPageViewModel : ViewModelBase
     private void CreateInstallModCommand()
     {
         InstallModCommand = new RelayCommand(InstallMod);
-    }
-
+    }    
+    
     public void InstallMod()
     {
         Mod.Install(
@@ -335,7 +362,8 @@ internal class MainPageViewModel : ViewModelBase
             ToneMapperSharpening,
             DisableDOF,
             DisableFog,
-            ViewDistance);
+            ViewDistance,
+            ExperimentalStutterFix);
         ShowNotification("Installed the Mod successfully!",SymbolRegular.Checkmark48);
         LoadInstallState();
     }
@@ -383,9 +411,9 @@ internal class MainPageViewModel : ViewModelBase
 
     private void InitializePresets()
     {
-        _database = new PresetDataBase("https://pastebin.com/raw/d0pvppae");
         try
         {
+            _database = new PresetDataBase("https://pastebin.com/raw/d0pvppae");
             IniPresets = _database.GetPresets();
             _database.CreateLocalDatabase();
         }
@@ -397,15 +425,15 @@ internal class MainPageViewModel : ViewModelBase
     }
     
     private void InitializeViewModel()
-    {
+    { 
         Task.Run(() =>
         {
             CreateInstallModCommand();
             CreateUninstallModCommand();
             CreateBrowseFolderCommand();
-            LoadExternalValues();
-            CreateEditIniCommand();
             CreateBrowseSaveCommandCommand();
+            CreateEditIniCommand();
+            LoadExternalValues();
             InitializePresets();
 
             while (_presetIni == null)

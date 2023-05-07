@@ -7,14 +7,14 @@ namespace MayThePerfromanceBeWithYou_Configurator.Core;
 
 public class Mod
 {
-    private static string[] _potatoLines = new[]
+    private static readonly string[] _potatoLines = new[]
     {
         "r.Streaming.MinMipForSplitRequest", "r.Streaming.HiddenPrimitiveScale",
         "r.Streaming.AmortizeCPUToGPUCopy", "r.Streaming.MaxNumTexturesToStreamPerFrame",
         "r.Streaming.NumStaticComponentsProcessedPerFrame", "r.Streaming.FramesForFullUpdate"
     };
 
-    private static string[] _potatoVals = new[]
+    private static readonly string[] _potatoVals = new[]
     {
         "0",
         "0.5",
@@ -22,7 +22,16 @@ public class Mod
         "2",
         "2",
         "1"
+    };    
+    
+    private static readonly string[] _experimentalStutterFixes = new[]
+    {
+        "s.ForceGCAfterLevelStreamedOut", 
+        "s.ContinuouslyIncrementalGCWhileLevelsPendingPurge",
+        "r.ShaderPipelineCache.PrecompileBatchTime"
     };
+
+    private static readonly string _experimentalStutterFixesVals = "0";
 
     private static void ToggleLqTAA(bool enabled, ref IniFile ini)
     {
@@ -93,6 +102,14 @@ public class Mod
         ToggleIniVariable("r.VolumetricFog", "SystemSettings", disabled, ref ini);
     }
 
+    private static void EnableExperimentalStutterFix(bool disabled, ref IniFile ini)
+    {
+        for (int i = 0; i < _experimentalStutterFixes.Length; i++)
+        {
+            ToggleIniVariable(_experimentalStutterFixes[i], "SystemSettings", disabled, ref ini);
+        }
+    }
+
     public static void Install(
         IniFile tempIni,
         string gameDir,
@@ -104,7 +121,8 @@ public class Mod
         int toneMapperSharpening,
         bool disableDOF,
         bool disableFog,
-        int viewDistance)
+        int viewDistance,
+        bool useExperimentalStutterFix)
     {
         string pakCreator = Path.Combine(tempIni.EXE, "PakCreator");
         string pakIniLocation = Path.Combine(pakCreator, @"\pakchunk99-Mods_MayThePerformanceBeWithYou_P\SwGame\Config");
@@ -120,6 +138,9 @@ public class Mod
         ToggleIniVariable("r.BloomQuality", "SystemSettings", disableBloom, ref tempIni);
         ToggleIniVariable("r.LensFlareQuality", "SystemSettings", disableLensFlare, ref tempIni);
         ToggleIniVariable("r.DepthOfFieldQuality", "SystemSettings", disableDOF, ref tempIni);
+        
+        EnableExperimentalStutterFix(useExperimentalStutterFix, ref tempIni);
+        
         DisableFog(disableFog, ref tempIni);
         
         ToggleIniValueFromSliderValue("r.Tonemapper.Sharpen", "SystemSettings",trueToneMapperSharpening.ToString(), 

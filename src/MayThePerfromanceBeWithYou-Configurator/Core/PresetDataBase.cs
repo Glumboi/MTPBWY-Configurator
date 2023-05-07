@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Net;
 using System.Windows.Navigation;
-using PasteBinDataBaseManager;
+using PasteBinDataBaseManager_Custom;
 
 namespace MayThePerfromanceBeWithYou_Configurator.Core;
 

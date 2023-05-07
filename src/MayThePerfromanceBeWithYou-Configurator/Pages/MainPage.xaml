@@ -75,7 +75,7 @@
                     Command="{Binding Path=UninstallModCommand}"
                     Content="Uninstall Mod"
                     Icon="BinFull24" />
-
+                
                 <ui:Button
                     Margin="0,4,0,0"
                     HorizontalAlignment="Stretch"
@@ -118,11 +118,10 @@
 
             <Grid Grid.Row="2">
                 <StackPanel>
-                    <WrapPanel Orientation="Vertical">
-                        <WrapPanel Margin="0,10,0,0" Orientation="Horizontal">
+                    <WrapPanel Orientation="Horizontal">
                             <CheckBox
                                 Margin="8,0,0,0"
-                                Content="Low quality TAA (Upscaling)"
+                                Content="TAA Gen 5 (Upscaling)"
                                 IsChecked="{Binding Path=LqTAA}"
                                 ToolTip="This option will toggle the TAA upscaling in Unreal Engine. You can increase the fidelity by raising the TAA Resolution." />
 
@@ -143,9 +142,7 @@
                                 Content="Potato Textures"
                                 IsChecked="{Binding Path=PotatoTextures}"
                                 ToolTip="This Option will toggle 'Potato Textures' which will drastically decrease the fidelity of all Textures in the Game while giving a performance boost." />
-                        </WrapPanel>
 
-                        <WrapPanel Margin="0,10,0,0" Orientation="Horizontal">
                             <CheckBox
                                 Margin="8,0,0,0"
                                 Content="Disable Fog and Volumetric Fog"
@@ -156,7 +153,12 @@
                                 Content="Disable Depth of Field"
                                 IsChecked="{Binding Path=DisableDOF}"
                                 ToolTip="This option will toggle the Depth of Field. Unchecked meaning let the game handle it and checked being forced off." />
-                        </WrapPanel>
+
+                            <CheckBox
+                                Margin="8,0,0,0"
+                                Content="Use Experimental Stutter Fixes"
+                                IsChecked="{Binding Path=ExperimentalStutterFix}"
+                                ToolTip="This option will toggle an experimental stutter Fix, depending on your System it might not do much. Please note that this Feature is not completely tested!" />
                     </WrapPanel>
                     <Grid Margin="0,6,0,0">
                         <Grid.ColumnDefinitions>
