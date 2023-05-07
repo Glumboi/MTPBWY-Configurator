@@ -18,6 +18,7 @@ internal class MainPageViewModel : ViewModelBase
 {
     private readonly string _saveLocation = System.Environment.GetEnvironmentVariable("USERPROFILE") +
                                            @"\Saved Games\Respawn\JediSurvivor\";
+
     private PresetDataBase _database;
     private IniFile _presetIni;
 
@@ -28,6 +29,7 @@ internal class MainPageViewModel : ViewModelBase
     }
 
     private string _gamePath = string.Empty;
+
     public string GamePath
     {
         get => _gamePath;
@@ -39,9 +41,10 @@ internal class MainPageViewModel : ViewModelBase
                 LoadInstallState();
             }
         }
-    }       
-    
+    }
+
     private string _installationState = string.Empty;
+
     public string InstallationState
     {
         get => _installationState;
@@ -52,9 +55,10 @@ internal class MainPageViewModel : ViewModelBase
                 SetProperty(ref _installationState, value);
             }
         }
-    }      
-    
+    }
+
     private Brush _stateColor;
+
     public Brush StateColor
     {
         get => _stateColor;
@@ -65,9 +69,10 @@ internal class MainPageViewModel : ViewModelBase
                 SetProperty(ref _stateColor, value);
             }
         }
-    }       
-    
+    }
+
     private bool _potatoTextures = false;
+
     public bool PotatoTextures
     {
         get => _potatoTextures;
@@ -78,9 +83,10 @@ internal class MainPageViewModel : ViewModelBase
                 SetProperty(ref _potatoTextures, value);
             }
         }
-    }         
-    
+    }
+
     private bool _disableBloom = false;
+
     public bool DisableBloom
     {
         get => _disableBloom;
@@ -91,9 +97,10 @@ internal class MainPageViewModel : ViewModelBase
                 SetProperty(ref _disableBloom, value);
             }
         }
-    }         
-    
+    }
+
     private bool _disableLensFlare = false;
+
     public bool DisableLensFlare
     {
         get => _disableLensFlare;
@@ -107,6 +114,7 @@ internal class MainPageViewModel : ViewModelBase
     }
 
     private bool _disableDOF = false;
+
     public bool DisableDOF
     {
         get => _disableDOF;
@@ -118,8 +126,9 @@ internal class MainPageViewModel : ViewModelBase
             }
         }
     }
-    
+
     private bool _experimentalStutterFix = false;
+
     public bool ExperimentalStutterFix
     {
         get => _experimentalStutterFix;
@@ -133,6 +142,7 @@ internal class MainPageViewModel : ViewModelBase
     }
 
     private bool _disableFog = false;
+
     public bool DisableFog
     {
         get => _disableFog;
@@ -146,6 +156,7 @@ internal class MainPageViewModel : ViewModelBase
     }
 
     private bool _lqTAA = false;
+
     public bool LqTAA
     {
         get => _lqTAA;
@@ -159,6 +170,7 @@ internal class MainPageViewModel : ViewModelBase
     }
 
     private int _taaResolution = 70;
+
     public int TaaResolution
     {
         get => _taaResolution;
@@ -169,9 +181,10 @@ internal class MainPageViewModel : ViewModelBase
                 SetProperty(ref _taaResolution, value);
             }
         }
-    }    
-    
+    }
+
     private int _toneMapperSharpening = 0;
+
     public int ToneMapperSharpening
     {
         get => _toneMapperSharpening;
@@ -182,9 +195,10 @@ internal class MainPageViewModel : ViewModelBase
                 SetProperty(ref _toneMapperSharpening, value);
             }
         }
-    }        
-    
+    }
+
     private int _viewDistance = 0;
+
     public int ViewDistance
     {
         get => _viewDistance;
@@ -195,9 +209,10 @@ internal class MainPageViewModel : ViewModelBase
                 SetProperty(ref _viewDistance, value);
             }
         }
-    }    
-    
+    }
+
     private int _selectedPreset = 0;
+
     public int SelectedPreset
     {
         get => _selectedPreset;
@@ -222,22 +237,35 @@ internal class MainPageViewModel : ViewModelBase
 
         TaaResolution = LoadSlider(_presetIni.Read("r.ScreenPercentage", "SystemSettings"));
         ToneMapperSharpening = LoadSlider(_presetIni.Read("r.Tonemapper.Sharpen", "SystemSettings")) * 10;
-        ViewDistance = LoadSlider(_presetIni.Read("r.ViewDistanceScale", "SystemSettings")) * 100;
+        ViewDistance = LoadSlider(_presetIni.Read("r.ViewDistanceScale", "SystemSettings"));
 
         LqTAA = ParseInt(_presetIni.Read("r.TemporalAA.Upsampling", "SystemSettings")) != 9999;// 0;
         PotatoTextures = ParseInt(_presetIni.Read("r.Streaming.AmortizeCPUToGPUCopy", "SystemSettings")) != 9999;
-        
+
         DisableLensFlare = ParseInt(_presetIni.Read("r.LensFlareQuality", "SystemSettings")) == 0;
         DisableBloom = ParseInt(_presetIni.Read("r.BloomQuality", "SystemSettings")) == 0;
-        DisableFog = ParseInt(_presetIni.Read("r.VolumetricFog", "SystemSettings")) == 0  && 
+        DisableFog = ParseInt(_presetIni.Read("r.VolumetricFog", "SystemSettings")) == 0 &&
                      ParseInt(_presetIni.Read("r.Fog", "SystemSettings")) == 0;
         DisableDOF = ParseInt(_presetIni.Read("r.DepthOfFieldQuality", "SystemSettings")) == 0;
         ExperimentalStutterFix = ParseInt(_presetIni.Read("s.ForceGCAfterLevelStreamedOut", "SystemSettings")) == 0;
     }
 
-    private int LoadSlider(string src)
+    public bool IsFloatOrInt(string value)
+    {
+        int intValue;
+        float floatValue;
+        return Int32.TryParse(value, out intValue);
+    }
+
+    public int LoadSlider(string src)
     {
         int rtrn;
+
+        if (!IsFloatOrInt(src)) //If src is a float
+        {
+            return (int)(ParseFloat(src));
+        }
+
         if (Int32.TryParse(src, out rtrn))
         {
             return rtrn;
@@ -245,7 +273,18 @@ internal class MainPageViewModel : ViewModelBase
 
         return 0;
     }
-    
+
+    private float ParseFloat(string src)
+    {
+        float rtrn;
+        if (float.TryParse(src, out rtrn))
+        {
+            return rtrn;
+        }
+
+        return 0f;
+    }
+
     private int ParseInt(string src)
     {
         int rtrn;
@@ -258,6 +297,7 @@ internal class MainPageViewModel : ViewModelBase
     }
 
     private List<Preset> _iniPresets = new List<Preset>();
+
     public List<Preset> IniPresets
     {
         get => _iniPresets;
@@ -269,7 +309,7 @@ internal class MainPageViewModel : ViewModelBase
             }
         }
     }
-    
+
     public ICommand EditIniCommand
     {
         get;
@@ -285,15 +325,15 @@ internal class MainPageViewModel : ViewModelBase
     {
         return File.Exists("tempIni.ini");
     }
-    
+
     public void EditIni()
     {
-        Process.Start("notepad.exe","tempIni.ini").WaitForExit();
+        Process.Start("notepad.exe", "tempIni.ini").WaitForExit();
 
         _presetIni = new IniFile(_presetIni.Path);
         UpdateUiFromPreset(false);
     }
-    
+
     public ICommand BrowseSaveCommand
     {
         get;
@@ -304,7 +344,7 @@ internal class MainPageViewModel : ViewModelBase
     {
         return Directory.Exists(_saveLocation);
     }
-    
+
     private void CreateBrowseSaveCommandCommand()
     {
         BrowseSaveCommand = new RelayCommand(BrowseSaves, DoesSaveDirectoryExist);
@@ -314,7 +354,7 @@ internal class MainPageViewModel : ViewModelBase
     {
         Process.Start("explorer.exe", _saveLocation);
     }
-    
+
     public ICommand UninstallModCommand
     {
         get;
@@ -325,7 +365,7 @@ internal class MainPageViewModel : ViewModelBase
     {
         return Mod.IsModInstalled(GamePath);
     }
-    
+
     private void CreateUninstallModCommand()
     {
         UninstallModCommand = new RelayCommand(UninstallMod, IsModAlreadyInstalled);
@@ -337,7 +377,7 @@ internal class MainPageViewModel : ViewModelBase
         ShowNotification("Uninstalled the Mod successfully!", SymbolRegular.BinFull24);
         LoadInstallState();
     }
-    
+
     public ICommand InstallModCommand
     {
         get;
@@ -347,27 +387,27 @@ internal class MainPageViewModel : ViewModelBase
     private void CreateInstallModCommand()
     {
         InstallModCommand = new RelayCommand(InstallMod);
-    }    
-    
+    }
+
     public void InstallMod()
     {
         Mod.Install(
-            _presetIni, 
-            GamePath, 
-            TaaResolution, 
-            LqTAA, 
-            DisableBloom, 
-            DisableLensFlare, 
+            _presetIni,
+            GamePath,
+            TaaResolution,
+            LqTAA,
+            DisableBloom,
+            DisableLensFlare,
             PotatoTextures,
             ToneMapperSharpening,
             DisableDOF,
             DisableFog,
             ViewDistance,
             ExperimentalStutterFix);
-        ShowNotification("Installed the Mod successfully!",SymbolRegular.Checkmark48);
+        ShowNotification("Installed the Mod successfully!", SymbolRegular.Checkmark48);
         LoadInstallState();
     }
-    
+
     public ICommand BrowseFolderCommand
     {
         get;
@@ -405,7 +445,7 @@ internal class MainPageViewModel : ViewModelBase
             return;
         }
 
-        InstallationState = "Not Installed";         
+        InstallationState = "Not Installed";
         StateColor = Brushes.IndianRed;
     }
 
@@ -413,7 +453,7 @@ internal class MainPageViewModel : ViewModelBase
     {
         try
         {
-            _database = new PresetDataBase("https://pastebin.com/raw/d0pvppae");
+            _database = new PresetDataBase("https://gistcdn.githack.com/Glumboi/074c19fabc18efc2b2df28009d91a036/raw/MTPBWY-Presets.txt");
             IniPresets = _database.GetPresets();
             _database.CreateLocalDatabase();
         }
@@ -423,9 +463,9 @@ internal class MainPageViewModel : ViewModelBase
             IniPresets = _database.GetPresets();
         }
     }
-    
+
     private void InitializeViewModel()
-    { 
+    {
         Task.Run(() =>
         {
             CreateInstallModCommand();
@@ -443,7 +483,7 @@ internal class MainPageViewModel : ViewModelBase
             }
         });
     }
-    
+
     private void ShowNotification(string content, SymbolRegular icon = SymbolRegular.Info28)
     {
         NotificationBar.Content = content;
@@ -457,7 +497,7 @@ internal class MainPageViewModel : ViewModelBase
         NotificationBar = notiBar;
         notiBar.FontWeight = FontWeights.Bold;
     }
-    
+
     public MainPageViewModel()
     {
         InitializeViewModel();

@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Net;
 using System.Windows.Navigation;
-using PasteBinDataBaseManager_Custom;
+using PasteBinDataBaseManager;
 
 namespace MayThePerfromanceBeWithYou_Configurator.Core;
 
@@ -12,6 +12,7 @@ public class PresetDataBase
 {
     private DataBase _dataBase;
     private string _url;
+
     public PresetDataBase(string url)
     {
         _url = url;
@@ -21,7 +22,7 @@ public class PresetDataBase
     public List<Preset> GetPresets()
     {
         List<Preset> result = new List<Preset>();
-        
+
         foreach (var entry in _dataBase.Entries)
         {
             result.Add(new Preset(entry.GetValueOfType("Link"), entry.GetIdentifier()));

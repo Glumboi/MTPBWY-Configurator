@@ -10,7 +10,7 @@
     <Authors>Glumboi</Authors>
     <Description>A tool for my mod MTPBWY</Description>
     <Copyright>Glumboi (c) 2023</Copyright>
-    <Version>1.2.3</Version>
+    <Version>1.2.5</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -45,10 +45,6 @@
 
   <ItemGroup>
     <Page Remove="PasteBinDataBaseManager_Custom\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="PasteBinDataBaseManager_Custom\PasteBinDataBaseManager_Custom.csproj" />
   </ItemGroup>
 
 </Project>
