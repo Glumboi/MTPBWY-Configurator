@@ -114,6 +114,18 @@
                     DisplayMemberPath="Name"
                     ItemsSource="{Binding Path=IniPresets}"
                     SelectedIndex="{Binding Path=SelectedPreset}" />
+                
+                <TextBlock
+                    Margin="0,4,0,4"
+                    FontSize="13"
+                    FontWeight="Bold"
+                    Text="GPU VRAM for Pool Size optimizations" />
+                <ComboBox
+                    Margin="0 0 0 4"
+                    VerticalAlignment="Top"
+                    DisplayMemberPath="VramSize"
+                    ItemsSource="{Binding Path=PoolSizes}"
+                    SelectedIndex="{Binding Path=SelectedPoolSize}" />
             </StackPanel>
 
             <Grid Grid.Row="2">
@@ -158,7 +170,19 @@
                                 Margin="8,0,0,0"
                                 Content="Use Experimental Stutter Fixes"
                                 IsChecked="{Binding Path=ExperimentalStutterFix}"
-                                ToolTip="This option will toggle an experimental stutter Fix, depending on your System it might not do much. Please note that this Feature is not completely tested!" />
+                                ToolTip="This option will toggle an experimental stutter Fix, depending on your System it might not do much. Please note that this Feature is not completely tested!" /> 
+                            
+                            <CheckBox
+                                Margin="8,0,0,0"
+                                Content="Disable Anti Aliasing"
+                                IsChecked="{Binding Path=DisableAntiAliasing}"
+                                ToolTip="This option will disable any Anti Aliasing in the game." />
+                            
+                            <CheckBox
+                                Margin="8,0,0,0"
+                                Content="Limit Pool to VRAM"
+                                IsChecked="{Binding Path=LimitPoolSizeToVram}"
+                                ToolTip="This option will toggle the limit Pool Size to VRAM feature. On low VRAM Systems, this can decrease RAM usage but might increase Stutters. High VRAM Systems could profit from this Option with less Stutters." />
                     </WrapPanel>
                     <Grid Margin="0,6,0,0">
                         <Grid.ColumnDefinitions>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
@@ -140,6 +141,34 @@ internal class MainPageViewModel : ViewModelBase
             }
         }
     }
+    
+    private bool _disableAntiAliasing = false;
+
+    public bool DisableAntiAliasing
+    {
+        get => _disableAntiAliasing;
+        set
+        {
+            if (value != _disableAntiAliasing)
+            {
+                SetProperty(ref _disableAntiAliasing, value);
+            }
+        }
+    }    
+    
+    private bool _limitPoolSizeToVram = false;
+
+    public bool LimitPoolSizeToVram
+    {
+        get => _limitPoolSizeToVram;
+        set
+        {
+            if (value != _limitPoolSizeToVram)
+            {
+                SetProperty(ref _limitPoolSizeToVram, value);
+            }
+        }
+    }
 
     private bool _disableFog = false;
 
@@ -210,7 +239,20 @@ internal class MainPageViewModel : ViewModelBase
             }
         }
     }
+    
+    private List<Preset> _iniPresets = new List<Preset>();
 
+    public List<Preset> IniPresets
+    {
+        get => _iniPresets;
+        set
+        {
+            if (value != _iniPresets)
+            {
+                SetProperty(ref _iniPresets, value);
+            }
+        }
+    }
     private int _selectedPreset = 0;
 
     public int SelectedPreset
@@ -228,13 +270,73 @@ internal class MainPageViewModel : ViewModelBase
         }
     }
 
+    private List<PoolSize> _poolSizes = new List<PoolSize>()
+    {
+        new PoolSize("Above 12 GB", 6144),
+        new PoolSize("12 GB | 11 GB", 4069),
+        new PoolSize("8 GB", 3072),
+        new PoolSize("6 GB", 2048),
+        new PoolSize("4 GB | 3 GB | 2 GB", 1024),
+    };
+
+    public List<PoolSize> PoolSizes
+    {
+        get => _poolSizes;
+        set
+        {
+            if (value != _poolSizes)
+            {
+                SetProperty(ref _poolSizes, value);
+            }
+        }
+    }
+    
+    
+    private int _selectedPoolSize = 0;
+
+    public int SelectedPoolSize
+    {
+        get => _selectedPoolSize;
+        set
+        {
+            if (value != _selectedPoolSize)
+            {
+                //Update settings UI
+                SetProperty(ref _selectedPoolSize, value);
+
+                UpdateUiFromPreset();
+            }
+        }
+    }
+
+    private void SelectProperVramConfig()
+    {
+        int systemVram = GPU.GetVramInGb();
+
+        switch (systemVram)
+        {
+            case > 12:
+                SelectedPoolSize = 0;
+                break;
+            case 8:
+                SelectedPoolSize = PoolSizes.Count - 3;
+                break;
+            case 6:
+                SelectedPoolSize = PoolSizes.Count - 2;
+                break;
+            case 4:
+                SelectedPoolSize = PoolSizes.Count - 1;
+                break;
+        }
+    }
+    
     private void UpdateUiFromPreset(bool useList = true)
     {
         if (useList)
         {
             _presetIni = new IniFile(_iniPresets[_selectedPreset].IniUrl);
         }
-
+        
         TaaResolution = LoadSlider(_presetIni.Read("r.ScreenPercentage", "SystemSettings"));
         ToneMapperSharpening = LoadSlider(_presetIni.Read("r.Tonemapper.Sharpen", "SystemSettings")) * 10;
         ViewDistance = LoadSlider(_presetIni.Read("r.ViewDistanceScale", "SystemSettings"));
@@ -248,6 +350,8 @@ internal class MainPageViewModel : ViewModelBase
                      ParseInt(_presetIni.Read("r.Fog", "SystemSettings")) == 0;
         DisableDOF = ParseInt(_presetIni.Read("r.DepthOfFieldQuality", "SystemSettings")) == 0;
         ExperimentalStutterFix = ParseInt(_presetIni.Read("s.ForceGCAfterLevelStreamedOut", "SystemSettings")) == 0;
+        DisableAntiAliasing = ParseInt(_presetIni.Read("r.PostProcessAAQuality", "SystemSettings")) == 0;
+        LimitPoolSizeToVram = ParseInt(_presetIni.Read("r.Streaming.LimitPoolSizeToVRAM", "SystemSettings")) == 1;
     }
 
     public bool IsFloatOrInt(string value)
@@ -294,20 +398,6 @@ internal class MainPageViewModel : ViewModelBase
         }
 
         return 9999;
-    }
-
-    private List<Preset> _iniPresets = new List<Preset>();
-
-    public List<Preset> IniPresets
-    {
-        get => _iniPresets;
-        set
-        {
-            if (value != _iniPresets)
-            {
-                SetProperty(ref _iniPresets, value);
-            }
-        }
     }
 
     public ICommand EditIniCommand
@@ -393,6 +483,7 @@ internal class MainPageViewModel : ViewModelBase
     {
         Mod.Install(
             _presetIni,
+            PoolSizes[SelectedPoolSize],
             GamePath,
             TaaResolution,
             LqTAA,
@@ -403,7 +494,9 @@ internal class MainPageViewModel : ViewModelBase
             DisableDOF,
             DisableFog,
             ViewDistance,
-            ExperimentalStutterFix);
+            ExperimentalStutterFix,
+            DisableAntiAliasing,
+            LimitPoolSizeToVram);
         ShowNotification("Installed the Mod successfully!", SymbolRegular.Checkmark48);
         LoadInstallState();
     }
@@ -475,6 +568,7 @@ internal class MainPageViewModel : ViewModelBase
             CreateEditIniCommand();
             LoadExternalValues();
             InitializePresets();
+            SelectProperVramConfig();
 
             while (_presetIni == null)
             {

@@ -10,7 +10,7 @@
     <Authors>Glumboi</Authors>
     <Description>A tool for my mod MTPBWY</Description>
     <Copyright>Glumboi (c) 2023</Copyright>
-    <Version>1.2.5</Version>
+    <Version>1.2.7</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="NvAPIWrapper.Net" Version="0.8.1.101" />
     <PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1" />
     <PackageReference Include="WPF-UI" Version="2.0.3" />
   </ItemGroup>
