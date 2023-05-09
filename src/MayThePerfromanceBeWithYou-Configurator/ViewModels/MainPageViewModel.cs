@@ -273,10 +273,10 @@ internal class MainPageViewModel : ViewModelBase
     private List<PoolSize> _poolSizes = new List<PoolSize>()
     {
         new PoolSize("Above 12 GB", 6144),
-        new PoolSize("12 GB | 11 GB", 4069),
-        new PoolSize("8 GB", 3072),
+        new PoolSize("11 GB - 12 GB", 4069),
+        new PoolSize("8 GB - 10 GB", 3072),
         new PoolSize("6 GB", 2048),
-        new PoolSize("4 GB | 3 GB | 2 GB", 1024),
+        new PoolSize("1 GB - 4 GB", 1024),
     };
 
     public List<PoolSize> PoolSizes
@@ -290,8 +290,7 @@ internal class MainPageViewModel : ViewModelBase
             }
         }
     }
-    
-    
+
     private int _selectedPoolSize = 0;
 
     public int SelectedPoolSize
@@ -319,12 +318,15 @@ internal class MainPageViewModel : ViewModelBase
                 SelectedPoolSize = 0;
                 break;
             case 8:
+            case < 8 and > 6:
                 SelectedPoolSize = PoolSizes.Count - 3;
                 break;
             case 6:
+            case < 6 and > 4:
                 SelectedPoolSize = PoolSizes.Count - 2;
                 break;
             case 4:
+            case < 4 and > 0:
                 SelectedPoolSize = PoolSizes.Count - 1;
                 break;
         }
