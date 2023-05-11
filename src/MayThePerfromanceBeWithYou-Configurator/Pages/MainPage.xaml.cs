@@ -8,12 +8,13 @@ namespace MayThePerfromanceBeWithYou_Configurator.Pages;
 /// </summary>
 public partial class MainPage : UiPage
 {
-    private MainPageViewModel viewModel;
-
+    private MainPageViewModel _viewModel;
+    public MainPageViewModel ViewModel => _viewModel;
+    
     public MainPage()
     {
         InitializeComponent();
-        viewModel = (MainPageViewModel)DataContext;
-        viewModel.AssignNotificationBar(ref NotificationBar_SnackBar);
+        _viewModel = (MainPageViewModel)DataContext;
+        _viewModel.AssignNotificationBar(ref NotificationBar_SnackBar);
     }
 }

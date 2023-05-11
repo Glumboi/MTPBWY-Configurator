@@ -4,23 +4,27 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using MayThePerfromanceBeWithYou_Configurator.Core;
+using MayThePerfromanceBeWithYou_Configurator.Pages;
+using MayThePerfromanceBeWithYou_Configurator.Windows;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 
 namespace MayThePerfromanceBeWithYou_Configurator.ViewModels;
 
-internal class MainPageViewModel : ViewModelBase
+public class MainPageViewModel : ViewModelBase
 {
     private readonly string _saveLocation = System.Environment.GetEnvironmentVariable("USERPROFILE") +
                                            @"\Saved Games\Respawn\JediSurvivor\";
 
     private PresetDataBase _database;
+    private CustomPresetsDataBase _customPresetDatabase;
     private IniFile _presetIni;
 
     private Snackbar NotificationBar
@@ -29,6 +33,20 @@ internal class MainPageViewModel : ViewModelBase
         set;
     }
 
+    private bool _contentLoaded = false;
+
+    public bool ContentLoaded
+    {
+        get => _contentLoaded;
+        set
+        {
+            if (value != _contentLoaded)
+            {
+                SetProperty(ref _contentLoaded, value);
+            }
+        }
+    }
+    
     private string _gamePath = string.Empty;
 
     public string GamePath
@@ -300,10 +318,7 @@ internal class MainPageViewModel : ViewModelBase
         {
             if (value != _selectedPoolSize)
             {
-                //Update settings UI
                 SetProperty(ref _selectedPoolSize, value);
-
-                UpdateUiFromPreset();
             }
         }
     }
@@ -401,7 +416,27 @@ internal class MainPageViewModel : ViewModelBase
 
         return 9999;
     }
+    
+    public ICommand SaveCustomPresetCommand
+    {
+        get;
+        internal set;
+    }
 
+    private void CreateSaveCustomPresetCommand()
+    {
+        SaveCustomPresetCommand = new RelayCommand(CreatePreset);
+    }
+
+    public void CreatePreset()
+    {
+        InstallMod(true, true); 
+        new CustomPresetCreatorWindow(_presetIni).ShowDialog();
+        SelectedPreset = 0;
+        Task.Run(InitializePresets);
+        ShowNotification("Reinitialized the Databases, if a custom Preset got created it should now be available!");
+    }
+    
     public ICommand EditIniCommand
     {
         get;
@@ -458,6 +493,11 @@ internal class MainPageViewModel : ViewModelBase
         return Mod.IsModInstalled(GamePath);
     }
 
+    private bool IsGamePathFilled()
+    {
+        return !string.IsNullOrWhiteSpace(GamePath);
+    }
+    
     private void CreateUninstallModCommand()
     {
         UninstallModCommand = new RelayCommand(UninstallMod, IsModAlreadyInstalled);
@@ -470,6 +510,17 @@ internal class MainPageViewModel : ViewModelBase
         LoadInstallState();
     }
 
+    public ICommand BuildModCommand
+    {
+        get;
+        internal set;
+    }
+
+    private void CreateBuildModCommand()
+    {
+        BuildModCommand = new RelayCommand(param => InstallMod(true));         
+    }
+    
     public ICommand InstallModCommand
     {
         get;
@@ -478,12 +529,14 @@ internal class MainPageViewModel : ViewModelBase
 
     private void CreateInstallModCommand()
     {
-        InstallModCommand = new RelayCommand(InstallMod);
+        InstallModCommand = new RelayCommand(param => InstallMod(false), IsGamePathFilled);         
     }
 
-    public void InstallMod()
+    public void InstallMod(bool buildOnly, bool iniOnly = false)
     {
         Mod.Install(
+            buildOnly,
+            iniOnly,
             _presetIni,
             PoolSizes[SelectedPoolSize],
             GamePath,
@@ -499,8 +552,15 @@ internal class MainPageViewModel : ViewModelBase
             ExperimentalStutterFix,
             DisableAntiAliasing,
             LimitPoolSizeToVram);
-        ShowNotification("Installed the Mod successfully!", SymbolRegular.Checkmark48);
+
+        if (iniOnly) return;
+        if (buildOnly)
+        {
+            ShowNotification("Mod built successfully!", SymbolRegular.Wrench24);
+            return;
+        }
         LoadInstallState();
+        ShowNotification("Installed the Mod successfully!", SymbolRegular.Checkmark48);
     }
 
     public ICommand BrowseFolderCommand
@@ -557,17 +617,22 @@ internal class MainPageViewModel : ViewModelBase
             _database = new PresetDataBase(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "LocalDatabase.txt"));
             IniPresets = _database.GetPresets();
         }
+
+        _customPresetDatabase = new CustomPresetsDataBase(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "CustomPresets.txt"));
+        IniPresets.AddRange( _customPresetDatabase.GetPresets()); 
     }
 
     private void InitializeViewModel()
     {
         Task.Run(() =>
         {
+            CreateSaveCustomPresetCommand();
             CreateInstallModCommand();
             CreateUninstallModCommand();
             CreateBrowseFolderCommand();
             CreateBrowseSaveCommandCommand();
             CreateEditIniCommand();
+            CreateBuildModCommand();
             LoadExternalValues();
             InitializePresets();
             SelectProperVramConfig();
@@ -577,6 +642,8 @@ internal class MainPageViewModel : ViewModelBase
                 SelectedPreset = 1;
                 SelectedPreset = 0;
             }
+
+            ContentLoaded = true;
         });
     }
 
@@ -592,6 +659,7 @@ internal class MainPageViewModel : ViewModelBase
     {
         NotificationBar = notiBar;
         notiBar.FontWeight = FontWeights.Bold;
+        notiBar.Timeout = 5000;
     }
 
     public MainPageViewModel()

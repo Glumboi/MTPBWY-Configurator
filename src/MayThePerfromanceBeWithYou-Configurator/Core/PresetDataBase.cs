@@ -8,31 +8,23 @@ using PasteBinDataBaseManager;
 
 namespace MayThePerfromanceBeWithYou_Configurator.Core;
 
-public class PresetDataBase
+public class PresetDataBase : PresetDataBase_Base
 {
-    private DataBase _dataBase;
-    private string _url;
+    public override DataBase PasteDataBase
+    {
+        get;
+        protected set;
+    }
 
+    public override string URL
+    {
+        get;
+        protected set;
+    }
+    
     public PresetDataBase(string url)
     {
-        _url = url;
-        _dataBase = new DataBase(new Entry[] { }, url);
-    }
-
-    public List<Preset> GetPresets()
-    {
-        List<Preset> result = new List<Preset>();
-
-        foreach (var entry in _dataBase.Entries)
-        {
-            result.Add(new Preset(entry.GetValueOfType("Link"), entry.GetIdentifier()));
-        }
-
-        return result;
-    }
-
-    public void CreateLocalDatabase()
-    {
-        Web.CreateLocalTextFileFromRawWebDoc(_url, "LocalDatabase.txt");
+        URL = url;
+        PasteDataBase = new DataBase(new Entry[] { }, url);
     }
 }

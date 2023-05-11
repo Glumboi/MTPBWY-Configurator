@@ -25,13 +25,16 @@ public class IniFile   // revision 11
 
     public IniFile(string IniPath = null)
     {
+        string tempIniPath = System.IO.Path.Combine(EXE, "tempIni.ini");
         if (IniPath.Contains("http"))
         {
             Web.CreateLocalTextFileFromRawWebDoc(IniPath, "tempIni.ini");
-            Path = System.IO.Path.Combine(EXE, "tempIni.ini");
+            Path = tempIniPath;
             return;
         }
-        Path = new FileInfo(IniPath ?? EXE + ".ini").FullName;
+
+        File.Copy(IniPath, System.IO.Path.Combine(EXE, "tempIni.ini"), true);
+        Path = tempIniPath;
     }
 
     public string Read(string Key, string Section = null)

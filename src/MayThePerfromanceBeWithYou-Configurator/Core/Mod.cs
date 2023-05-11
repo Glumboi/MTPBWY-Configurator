@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Shapes;
 using Path = System.IO.Path;
@@ -132,6 +133,8 @@ public class Mod
     }
 
     public static void Install(
+        bool buildOnly,
+        bool iniOnly,
         IniFile tempIni,
         PoolSize poolSize,
         string gameDir,
@@ -148,6 +151,8 @@ public class Mod
         bool disableAntiAliasing,
         bool enablePoolSizeToVramLimit)
     {
+        if(string.IsNullOrWhiteSpace(gameDir) && !buildOnly) return;
+        
         string pakCreator = Path.Combine(tempIni.EXE, "PakCreator");
         string pakIniLocation = Path.Combine(pakCreator, @"\pakchunk99-Mods_MayThePerformanceBeWithYou_P\SwGame\Config");
         string tempIniPath = tempIni.Path;
@@ -181,18 +186,31 @@ public class Mod
 
         if (!File.Exists(tempIniPath)) return;
 
+        if(iniOnly) return;
+
         File.Copy(tempIniPath, newIni, true);
 
         Process.Start(Path.Combine(tempIni.EXE, @"PakCreator\CreateMod.bat")).WaitForExit();
-
+        
+        if (buildOnly)
+        {
+            //"explorer.exe", _saveLocation
+            Process.Start("explorer.exe", Path.Combine(tempIni.EXE, @"PakCreator"));
+            return;
+        }
+        
         File.Copy(Path.Combine(tempIni.EXE, @"PakCreator\pakchunk99-Mods_MayThePerformanceBeWithYou_P.pak"),
             Path.Combine(gameDir, @"SwGame\Content\Paks\pakchunk99-Mods_MayThePerformanceBeWithYou_P.pak"), true);
     }
 
     public static bool IsModInstalled(string gameDir)
     {
-        return File.Exists(Path.Combine(gameDir,
-            @"SwGame\Content\Paks\pakchunk99-Mods_MayThePerformanceBeWithYou_P.pak"));
+        if (gameDir == null || string.IsNullOrWhiteSpace(gameDir))
+        {
+            return false;
+        }
+        
+        return File.Exists(Path.Combine(gameDir, @"SwGame\Content\Paks\pakchunk99-Mods_MayThePerformanceBeWithYou_P.pak"));
     }
 
     public static void Uninstall(string gameDir)

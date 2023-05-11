@@ -1,0 +1,58 @@
+﻿<ui:UiPage x:Class="MayThePerfromanceBeWithYou_Configurator.Pages.PresetCreatorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:VM="clr-namespace:MayThePerfromanceBeWithYou_Configurator.ViewModels"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:MayThePerfromanceBeWithYou_Configurator.Pages"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      Title="PresetCreator"
+      d:DesignHeight="90"
+      d:DesignWidth="800"
+      Background="#3333"
+      mc:Ignorable="d">
+    
+    
+    <Page.DataContext>
+        <VM:PresetCreatorPageViewModel />
+    </Page.DataContext>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <ui:TextBox VerticalAlignment="Stretch"
+                     HorizontalAlignment="Stretch"
+                     PlaceholderText="Custom Preset Name..."
+                     Margin="0 0 4 0"
+                     Text="{Binding Path=PresetName, UpdateSourceTrigger=PropertyChanged}"/>
+            
+            <ui:Button Grid.Column="1"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Stretch"
+                       Content="Save"
+                       Icon="SaveCopy24"
+                       Margin="4 0 0 0"
+                       Command="{Binding Path=SavePresetCommand}"/>
+        </Grid>
+        
+        <TextBlock Grid.Row="1" 
+                   Margin="0 6 0 0"
+                   TextWrapping="Wrap"
+                   FontWeight="Bold">
+            Custom Presets will be saved locally on your PC.
+            <LineBreak/>
+            They can be accessed through the 'CustomPresets' in the Configurator Install Directory or in the Presets Combobox.
+            <LineBreak/>
+            DO NOT use any special Characters, it will result into Crashes!
+        </TextBlock>
+    </Grid>
+</ui:UiPage>

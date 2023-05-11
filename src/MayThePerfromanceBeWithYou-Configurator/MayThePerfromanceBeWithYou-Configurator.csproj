@@ -10,7 +10,7 @@
     <Authors>Glumboi</Authors>
     <Description>A tool for my mod MTPBWY</Description>
     <Copyright>Glumboi (c) 2023</Copyright>
-    <Version>1.2.8</Version>
+    <Version>1.3.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,12 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="PasteBinDataBaseManager">
-      <HintPath>Libs\PasteBinDataBaseManager.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Remove="PasteBinDataBaseManager_Custom\**" />
   </ItemGroup>
 
@@ -46,6 +40,12 @@
 
   <ItemGroup>
     <Page Remove="PasteBinDataBaseManager_Custom\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="PasteBinDataBaseManager">
+      <HintPath>Libs\PasteBinDataBaseManager.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

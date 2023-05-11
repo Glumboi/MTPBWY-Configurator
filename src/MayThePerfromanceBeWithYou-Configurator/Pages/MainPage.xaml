@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="MainPage"
-    d:DesignHeight="490"
+    d:DesignHeight="650"
     d:DesignWidth="800"
     Background="#3333"
     mc:Ignorable="d">
@@ -25,7 +25,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
+        
         <Grid Margin="0,0,0,4">
             <TextBlock
                 FontSize="14"
@@ -46,7 +46,7 @@
                 Margin="0,0,2,0"
                 VerticalAlignment="Stretch"
                 PlaceholderText="Game Path here"
-                Text="{Binding Path=GamePath, Mode=TwoWay}" />
+                Text="{Binding Path=GamePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
             <ui:Button
                 Grid.Column="1"
@@ -67,9 +67,17 @@
                     Command="{Binding Path=InstallModCommand}"
                     Content="Install Mod"
                     Icon="ArrowDownload48" />
+                
+                <ui:Button
+                    Margin="0,6,0,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Command="{Binding Path=BuildModCommand}"
+                    Content="Build Mod"
+                    Icon="Wrench24" />
 
                 <ui:Button
-                    Margin="0,4,0,0"
+                    Margin="0,6,0,0"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
                     Command="{Binding Path=UninstallModCommand}"
@@ -77,7 +85,7 @@
                     Icon="BinFull24" />
                 
                 <ui:Button
-                    Margin="0,4,0,0"
+                    Margin="0,6,0,0"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
                     Command="{Binding Path=BrowseSaveCommand}"
@@ -257,14 +265,29 @@
             </Grid>
         </Grid>
 
-        <ui:Button
-            Grid.Row="4"
-            Margin="0,6,0,0"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            Command="{Binding Path=EditIniCommand}"
-            Content="I want to edit the Mod myself"
-            Icon="Open48" />
+        <Grid Grid.Row="4">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <ui:Button
+                Margin="0,6,4,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Command="{Binding Path=EditIniCommand}"
+                Content="I want to edit the Mod myself"
+                Icon="Open48" />     
+            
+            <ui:Button Grid.Column="1"
+                Margin="4,6,0,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Command="{Binding Path=SaveCustomPresetCommand}"
+                Content="Save custom Preset"
+                Icon="SaveCopy24" />
+        </Grid>
 
         <ui:Snackbar x:Name="NotificationBar_SnackBar" Grid.RowSpan="5" />
     </Grid>
