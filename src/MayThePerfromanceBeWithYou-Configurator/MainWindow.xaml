@@ -8,29 +8,29 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="MainWindow"
     Width="800"
-    Height="680"
+    Height="700"
     Background="#2d2d2d"
     ExtendsContentIntoTitleBar="True"
+    Loaded="MainWindow_OnLoaded"
     WindowBackdropType="Mica"
     WindowCornerPreference="Round"
     WindowStartupLocation="CenterScreen"
-    mc:Ignorable="d"
-    Loaded="MainWindow_OnLoaded">
+    mc:Ignorable="d">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        
+
         <ui:TitleBar
             x:Name="TitleBar"
             Title="MTPBWY-Configurator"
             Icon="./Assets/MBTPBWY-Logo.png"
             UseSnapLayout="True" />
-        
+
         <Border Grid.Row="1" Padding="10">
-            <Frame x:Name="WindowFrame"/>
+            <Frame x:Name="WindowFrame" />
         </Border>
     </Grid>
 </ui:UiWindow>

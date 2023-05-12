@@ -38,13 +38,7 @@ public class MainPageViewModel : ViewModelBase
     public bool ContentLoaded
     {
         get => _contentLoaded;
-        set
-        {
-            if (value != _contentLoaded)
-            {
-                SetProperty(ref _contentLoaded, value);
-            }
-        }
+        set => SetProperty(ref _contentLoaded, value);
     }
     
     private string _gamePath = string.Empty;
@@ -54,11 +48,8 @@ public class MainPageViewModel : ViewModelBase
         get => _gamePath;
         set
         {
-            if (value != _gamePath)
-            {
-                SetProperty(ref _gamePath, value);
-                LoadInstallState();
-            }
+            SetProperty(ref _gamePath, value);
+            LoadInstallState();
         }
     }
 
@@ -67,13 +58,7 @@ public class MainPageViewModel : ViewModelBase
     public string InstallationState
     {
         get => _installationState;
-        set
-        {
-            if (value != _installationState)
-            {
-                SetProperty(ref _installationState, value);
-            }
-        }
+        set => SetProperty(ref _installationState, value);
     }
 
     private Brush _stateColor;
@@ -81,13 +66,7 @@ public class MainPageViewModel : ViewModelBase
     public Brush StateColor
     {
         get => _stateColor;
-        set
-        {
-            if (value != _stateColor)
-            {
-                SetProperty(ref _stateColor, value);
-            }
-        }
+        set => SetProperty(ref _stateColor, value);
     }
 
     private bool _potatoTextures = false;
@@ -95,13 +74,7 @@ public class MainPageViewModel : ViewModelBase
     public bool PotatoTextures
     {
         get => _potatoTextures;
-        set
-        {
-            if (value != _potatoTextures)
-            {
-                SetProperty(ref _potatoTextures, value);
-            }
-        }
+        set => SetProperty(ref _potatoTextures, value);
     }
 
     private bool _disableBloom = false;
@@ -109,13 +82,7 @@ public class MainPageViewModel : ViewModelBase
     public bool DisableBloom
     {
         get => _disableBloom;
-        set
-        {
-            if (value != _disableBloom)
-            {
-                SetProperty(ref _disableBloom, value);
-            }
-        }
+        set => SetProperty(ref _disableBloom, value);
     }
 
     private bool _disableLensFlare = false;
@@ -123,13 +90,7 @@ public class MainPageViewModel : ViewModelBase
     public bool DisableLensFlare
     {
         get => _disableLensFlare;
-        set
-        {
-            if (value != _disableLensFlare)
-            {
-                SetProperty(ref _disableLensFlare, value);
-            }
-        }
+        set => SetProperty(ref _disableLensFlare, value);
     }
 
     private bool _disableDOF = false;
@@ -137,13 +98,7 @@ public class MainPageViewModel : ViewModelBase
     public bool DisableDOF
     {
         get => _disableDOF;
-        set
-        {
-            if (value != _disableDOF)
-            {
-                SetProperty(ref _disableDOF, value);
-            }
-        }
+        set => SetProperty(ref _disableDOF, value);
     }
 
     private bool _experimentalStutterFix = false;
@@ -151,13 +106,7 @@ public class MainPageViewModel : ViewModelBase
     public bool ExperimentalStutterFix
     {
         get => _experimentalStutterFix;
-        set
-        {
-            if (value != _experimentalStutterFix)
-            {
-                SetProperty(ref _experimentalStutterFix, value);
-            }
-        }
+        set => SetProperty(ref _experimentalStutterFix, value);
     }
     
     private bool _disableAntiAliasing = false;
@@ -167,11 +116,13 @@ public class MainPageViewModel : ViewModelBase
         get => _disableAntiAliasing;
         set
         {
-            if (value != _disableAntiAliasing)
+            if (value)
             {
-                SetProperty(ref _disableAntiAliasing, value);
+                TAAGen5 = !value;
+                TAAUpscaling = !value;
             }
-        }
+            SetProperty(ref _disableAntiAliasing, value);
+        } 
     }    
     
     private bool _limitPoolSizeToVram = false;
@@ -179,13 +130,7 @@ public class MainPageViewModel : ViewModelBase
     public bool LimitPoolSizeToVram
     {
         get => _limitPoolSizeToVram;
-        set
-        {
-            if (value != _limitPoolSizeToVram)
-            {
-                SetProperty(ref _limitPoolSizeToVram, value);
-            }
-        }
+        set => SetProperty(ref _limitPoolSizeToVram, value);
     }
 
     private bool _disableFog = false;
@@ -193,27 +138,30 @@ public class MainPageViewModel : ViewModelBase
     public bool DisableFog
     {
         get => _disableFog;
+        set => SetProperty(ref _disableFog, value);
+    }
+
+    private bool _taaUpscaling = false;
+
+    public bool TAAUpscaling
+    {
+        get => _taaUpscaling;
         set
         {
-            if (value != _disableFog)
+            SetProperty(ref _taaUpscaling, value);
+            if (value == true)
             {
-                SetProperty(ref _disableFog, value);
+                TAAGen5 = value;
             }
         }
     }
+   
+    private bool _taaGen5 = false;
 
-    private bool _lqTAA = false;
-
-    public bool LqTAA
+    public bool TAAGen5
     {
-        get => _lqTAA;
-        set
-        {
-            if (value != _lqTAA)
-            {
-                SetProperty(ref _lqTAA, value);
-            }
-        }
+        get => _taaGen5;
+        set => SetProperty(ref _taaGen5, value);
     }
 
     private int _taaResolution = 70;
@@ -221,13 +169,7 @@ public class MainPageViewModel : ViewModelBase
     public int TaaResolution
     {
         get => _taaResolution;
-        set
-        {
-            if (value != _taaResolution)
-            {
-                SetProperty(ref _taaResolution, value);
-            }
-        }
+        set => SetProperty(ref _taaResolution, value);
     }
 
     private int _toneMapperSharpening = 0;
@@ -235,13 +177,7 @@ public class MainPageViewModel : ViewModelBase
     public int ToneMapperSharpening
     {
         get => _toneMapperSharpening;
-        set
-        {
-            if (value != _toneMapperSharpening)
-            {
-                SetProperty(ref _toneMapperSharpening, value);
-            }
-        }
+        set => SetProperty(ref _toneMapperSharpening, value);
     }
 
     private int _viewDistance = 0;
@@ -249,27 +185,15 @@ public class MainPageViewModel : ViewModelBase
     public int ViewDistance
     {
         get => _viewDistance;
-        set
-        {
-            if (value != _viewDistance)
-            {
-                SetProperty(ref _viewDistance, value);
-            }
-        }
+        set => SetProperty(ref _viewDistance, value);
     }
-    
+
     private List<Preset> _iniPresets = new List<Preset>();
 
     public List<Preset> IniPresets
     {
         get => _iniPresets;
-        set
-        {
-            if (value != _iniPresets)
-            {
-                SetProperty(ref _iniPresets, value);
-            }
-        }
+        set => SetProperty(ref _iniPresets, value);
     }
     private int _selectedPreset = 0;
 
@@ -278,13 +202,10 @@ public class MainPageViewModel : ViewModelBase
         get => _selectedPreset;
         set
         {
-            if (value != _selectedPreset)
-            {
-                //Update settings UI
-                SetProperty(ref _selectedPreset, value);
+            //Update settings UI
+            SetProperty(ref _selectedPreset, value);
 
-                UpdateUiFromPreset();
-            }
+            UpdateUiFromPreset();
         }
     }
 
@@ -300,13 +221,7 @@ public class MainPageViewModel : ViewModelBase
     public List<PoolSize> PoolSizes
     {
         get => _poolSizes;
-        set
-        {
-            if (value != _poolSizes)
-            {
-                SetProperty(ref _poolSizes, value);
-            }
-        }
+        set => SetProperty(ref _poolSizes, value);
     }
 
     private int _selectedPoolSize = 0;
@@ -314,13 +229,7 @@ public class MainPageViewModel : ViewModelBase
     public int SelectedPoolSize
     {
         get => _selectedPoolSize;
-        set
-        {
-            if (value != _selectedPoolSize)
-            {
-                SetProperty(ref _selectedPoolSize, value);
-            }
-        }
+        set => SetProperty(ref _selectedPoolSize, value);
     }
 
     private void SelectProperVramConfig()
@@ -354,11 +263,12 @@ public class MainPageViewModel : ViewModelBase
             _presetIni = new IniFile(_iniPresets[_selectedPreset].IniUrl);
         }
         
-        TaaResolution = LoadSlider(_presetIni.Read("r.ScreenPercentage", "SystemSettings"));
-        ToneMapperSharpening = LoadSlider(_presetIni.Read("r.Tonemapper.Sharpen", "SystemSettings")) * 10;
-        ViewDistance = LoadSlider(_presetIni.Read("r.ViewDistanceScale", "SystemSettings"));
+        TaaResolution = LoadSlider(_presetIni.Read("r.ScreenPercentage", "SystemSettings"), 100);
+        ToneMapperSharpening = LoadSlider(_presetIni.Read("r.Tonemapper.Sharpen", "SystemSettings"), 0) * 10;
+        ViewDistance = LoadSlider(_presetIni.Read("r.ViewDistanceScale", "SystemSettings"), 0);
 
-        LqTAA = ParseInt(_presetIni.Read("r.TemporalAA.Upsampling", "SystemSettings")) != 9999;// 0;
+        TAAUpscaling = ParseInt(_presetIni.Read("r.TemporalAA.Upsampling", "SystemSettings"), true) != 0;// ;
+        TAAGen5 = ParseInt(_presetIni.Read("r.TemporalAA.Algorithm", "SystemSettings"), true) != 0;// 0;
         PotatoTextures = ParseInt(_presetIni.Read("r.Streaming.AmortizeCPUToGPUCopy", "SystemSettings")) != 9999;
 
         DisableLensFlare = ParseInt(_presetIni.Read("r.LensFlareQuality", "SystemSettings")) == 0;
@@ -378,10 +288,12 @@ public class MainPageViewModel : ViewModelBase
         return Int32.TryParse(value, out intValue);
     }
 
-    public int LoadSlider(string src)
+    public int LoadSlider(string src, int defaultValue)
     {
-        int rtrn;
+        int rtrn = 0;
 
+        if (string.IsNullOrWhiteSpace(src)) return defaultValue;
+        
         if (!IsFloatOrInt(src)) //If src is a float
         {
             return (int)(ParseFloat(src));
@@ -392,7 +304,7 @@ public class MainPageViewModel : ViewModelBase
             return rtrn;
         }
 
-        return 0;
+        return defaultValue;
     }
 
     private float ParseFloat(string src)
@@ -406,7 +318,7 @@ public class MainPageViewModel : ViewModelBase
         return 0f;
     }
 
-    private int ParseInt(string src)
+    private int ParseInt(string src, bool useNullAsReturn = false)
     {
         int rtrn;
         if (Int32.TryParse(src, out rtrn))
@@ -414,6 +326,7 @@ public class MainPageViewModel : ViewModelBase
             return rtrn;
         }
 
+        if (useNullAsReturn) return 0;
         return 9999;
     }
     
@@ -457,7 +370,7 @@ public class MainPageViewModel : ViewModelBase
     {
         Process.Start("notepad.exe", "tempIni.ini").WaitForExit();
 
-        _presetIni = new IniFile(_presetIni.Path);
+        _presetIni = new IniFile(_presetIni.Path, true);
         UpdateUiFromPreset(false);
     }
 
@@ -541,7 +454,8 @@ public class MainPageViewModel : ViewModelBase
             PoolSizes[SelectedPoolSize],
             GamePath,
             TaaResolution,
-            LqTAA,
+            TAAUpscaling,
+            TAAGen5,
             DisableBloom,
             DisableLensFlare,
             PotatoTextures,

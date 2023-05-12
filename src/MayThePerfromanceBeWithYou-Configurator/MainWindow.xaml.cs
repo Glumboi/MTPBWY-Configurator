@@ -31,32 +31,27 @@ public partial class MainWindow : UiWindow
         InitializeComponent();
     }
 
-    private void CheckLoadCompleted()
+    private async void CheckLoadCompleted()
     {
         mainPage = new MainPage();
+        var tcs = new TaskCompletionSource<bool>();
 
-        Task.Run(() =>
+        // Poll the ContentLoaded property until it becomes true
+        while (!mainPage.ViewModel.ContentLoaded)
         {
-            while (!mainPage.ViewModel.ContentLoaded)
-            {
-                continue;
-            }
+            await Task.Delay(100);
+        }
 
-            splashPage.Dispatcher.Invoke(() =>
-            {
-                splashPage.FadeOutAnimation.Begin();
-            });
+        // Start the fade-out animation
+        splashPage.Dispatcher.Invoke(() => splashPage.FadeOutAnimation.Begin());
 
-            while (!splashPage.IsFadeOutDone)
-            {
-                continue;
-            }
+        // Wait for the fade-out animation to complete
+        tcs = new TaskCompletionSource<bool>();
+        splashPage.FadeOutAnimation.Completed += (sender, e) => tcs.SetResult(true);
+        await tcs.Task;
 
-            WindowFrame.Dispatcher.Invoke(() =>
-            {
-                WindowFrame.Navigate(mainPage);
-            });
-        });
+        // Navigate to the main page
+        WindowFrame.Dispatcher.Invoke(() => WindowFrame.Navigate(mainPage));
     }
 
     private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)

@@ -33,19 +33,23 @@ public class Mod
     };
 
     private static readonly string _experimentalStutterFixesVals = "0";
-
-    private static void ToggleLqTAA(bool enabled, ref IniFile ini)
+    
+    
+    private static void ToggleTAAGen5(bool enabled, ref IniFile ini)
     {
-        if (enabled)
-        {
-            ini.Write("r.TemporalAA.Upsampling", "1", "SystemSettings");
-            ini.Write("r.TemporalAA.Algorithm", "1", "SystemSettings");
-            return;
-        }
-
-        ini.Write("r.TemporalAA.Upsampling", "0", "SystemSettings");
-        ini.Write("r.TemporalAA.Algorithm", "0", "SystemSettings");
+        ini.Write("r.TemporalAA.Algorithm", enabled ? "1" : "0", "SystemSettings");
     }
+    
+    private static void ToggleTAAUpscaling(bool enabled, ref IniFile ini)
+    {
+        ini.Write("r.TemporalAA.Upsampling", enabled ? "1" : "0", "SystemSettings");
+    }
+    
+    private static void ToggleTAASettings(bool enabledGen5, bool enabledUpscaling, ref IniFile ini)
+    {
+        ToggleTAAGen5(enabledGen5, ref ini);
+        ToggleTAAUpscaling(enabledUpscaling, ref ini);
+    }  
 
     private static void ChangeTAARes(int screenPercentageValue, ref IniFile ini)
     {
@@ -139,7 +143,8 @@ public class Mod
         PoolSize poolSize,
         string gameDir,
         int taaResolution,
-        bool lqTaa,
+        bool taaUpscaling,
+        bool taaGen5,
         bool disableBloom,
         bool disableLensFlare, 
         bool potatoTextures,
@@ -177,11 +182,13 @@ public class Mod
         
         ToggleIniValueFromSliderValue("r.ViewDistanceScale", "SystemSettings", trueViewDistance.ToString("0.00").Replace(',', '.'), 
             trueViewDistance == 0, ref tempIni);
-        
+
         TogglePotatoTextures(potatoTextures, ref tempIni);
         
         ChangeTAARes(taaResolution, ref tempIni);
-        ToggleLqTAA(lqTaa, ref tempIni);
+
+        ToggleTAASettings(taaGen5, taaUpscaling, ref tempIni);
+        
         EnableLimitPoolSizeToVram(!enablePoolSizeToVramLimit, ref tempIni);
 
         if (!File.Exists(tempIniPath)) return;

@@ -141,9 +141,15 @@
                     <WrapPanel Orientation="Horizontal">
                             <CheckBox
                                 Margin="8,0,0,0"
-                                Content="TAA Gen 5 (Upscaling)"
-                                IsChecked="{Binding Path=LqTAA}"
-                                ToolTip="This option will toggle the TAA upscaling in Unreal Engine. You can increase the fidelity by raising the TAA Resolution." />
+                                Content="TAA Upscaling"
+                                IsChecked="{Binding Path=TAAUpscaling}"
+                                ToolTip="(Option will automatically enable TAA Gen 5) This option will toggle the TAA upscaling in Unreal Engine. You can increase the fidelity by raising the TAA Resolution." />
+                            
+                            <CheckBox
+                                Margin="8,0,0,0"
+                                Content="TAA Gen 5"
+                                IsChecked="{Binding Path=TAAGen5}"
+                                ToolTip="This option will toggle the TAA Gen 5 Feature in Unreal Engine. You can increase the fidelity by raising the TAA Resolution." />
 
                             <CheckBox
                                 Margin="8,0,0,0"
@@ -258,6 +264,20 @@
                                     VerticalAlignment="Center"
                                     FontWeight="Bold"
                                     Text="{Binding Path=ViewDistance, StringFormat=View Distance: {0}}" />
+                            </Grid>
+                            
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="6,0,0,0"
+                                    VerticalAlignment="Center"
+                                    FontWeight="Bold"
+                                    Text="{Binding Path=TaaSampleCount, StringFormat=TAA Sample Count: {0}}" />
                             </Grid>
                         </StackPanel>
                     </Grid>

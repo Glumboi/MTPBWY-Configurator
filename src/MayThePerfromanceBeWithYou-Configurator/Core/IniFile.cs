@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Reflection;
@@ -23,7 +25,7 @@ public class IniFile   // revision 11
     [DllImport("kernel32", CharSet = CharSet.Unicode)]
     static extern int GetPrivateProfileString(string Section, string Key, string Default, StringBuilder RetVal, int Size, string FilePath);
 
-    public IniFile(string IniPath = null)
+    public IniFile(string IniPath = null, bool keepOriginalFile = false)
     {
         string tempIniPath = System.IO.Path.Combine(EXE, "tempIni.ini");
         if (IniPath.Contains("http"))
@@ -33,7 +35,10 @@ public class IniFile   // revision 11
             return;
         }
 
-        File.Copy(IniPath, System.IO.Path.Combine(EXE, "tempIni.ini"), true);
+        if (!keepOriginalFile)
+        {
+            File.Copy(IniPath, System.IO.Path.Combine(EXE, "tempIni.ini"), true);
+        }
         Path = tempIniPath;
     }
 
