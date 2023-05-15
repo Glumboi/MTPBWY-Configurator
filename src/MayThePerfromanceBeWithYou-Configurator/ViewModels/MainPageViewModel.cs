@@ -267,26 +267,21 @@ public class MainPageViewModel : ViewModelBase
         ToneMapperSharpening = LoadSlider(_presetIni.Read("r.Tonemapper.Sharpen", "SystemSettings"), 0) * 10;
         ViewDistance = LoadSlider(_presetIni.Read("r.ViewDistanceScale", "SystemSettings"), 0);
 
-        TAAUpscaling = ParseInt(_presetIni.Read("r.TemporalAA.Upsampling", "SystemSettings"), true) != 0;// ;
-        TAAGen5 = ParseInt(_presetIni.Read("r.TemporalAA.Algorithm", "SystemSettings"), true) != 0;// 0;
-        PotatoTextures = ParseInt(_presetIni.Read("r.Streaming.AmortizeCPUToGPUCopy", "SystemSettings")) != 9999;
+        TAAUpscaling = MathHelpers.ParseInt(_presetIni.Read("r.TemporalAA.Upsampling", "SystemSettings"), true) != 0;// ;
+        TAAGen5 = MathHelpers.ParseInt(_presetIni.Read("r.TemporalAA.Algorithm", "SystemSettings"), true) != 0;// 0;
+        PotatoTextures = MathHelpers.ParseInt(_presetIni.Read("r.Streaming.AmortizeCPUToGPUCopy", "SystemSettings")) != 9999;
 
-        DisableLensFlare = ParseInt(_presetIni.Read("r.LensFlareQuality", "SystemSettings")) == 0;
-        DisableBloom = ParseInt(_presetIni.Read("r.BloomQuality", "SystemSettings")) == 0;
-        DisableFog = ParseInt(_presetIni.Read("r.VolumetricFog", "SystemSettings")) == 0 &&
-                     ParseInt(_presetIni.Read("r.Fog", "SystemSettings")) == 0;
-        DisableDOF = ParseInt(_presetIni.Read("r.DepthOfFieldQuality", "SystemSettings")) == 0;
-        ExperimentalStutterFix = ParseInt(_presetIni.Read("s.ForceGCAfterLevelStreamedOut", "SystemSettings")) == 0;
-        DisableAntiAliasing = ParseInt(_presetIni.Read("r.PostProcessAAQuality", "SystemSettings")) == 0;
-        LimitPoolSizeToVram = ParseInt(_presetIni.Read("r.Streaming.LimitPoolSizeToVRAM", "SystemSettings")) == 1;
+        DisableLensFlare = MathHelpers.ParseInt(_presetIni.Read("r.LensFlareQuality", "SystemSettings")) == 0;
+        DisableBloom = MathHelpers.ParseInt(_presetIni.Read("r.BloomQuality", "SystemSettings")) == 0;
+        DisableFog = MathHelpers.ParseInt(_presetIni.Read("r.VolumetricFog", "SystemSettings")) == 0 &&
+                     MathHelpers.ParseInt(_presetIni.Read("r.Fog", "SystemSettings")) == 0;
+        DisableDOF = MathHelpers.ParseInt(_presetIni.Read("r.DepthOfFieldQuality", "SystemSettings")) == 0;
+        ExperimentalStutterFix = MathHelpers.ParseInt(_presetIni.Read("s.ForceGCAfterLevelStreamedOut", "SystemSettings")) == 0;
+        DisableAntiAliasing = MathHelpers.ParseInt(_presetIni.Read("r.PostProcessAAQuality", "SystemSettings")) == 0;
+        LimitPoolSizeToVram = MathHelpers.ParseInt(_presetIni.Read("r.Streaming.LimitPoolSizeToVRAM", "SystemSettings")) == 1;
     }
 
-    public bool IsFloatOrInt(string value)
-    {
-        int intValue;
-        float floatValue;
-        return Int32.TryParse(value, out intValue);
-    }
+
 
     public int LoadSlider(string src, int defaultValue)
     {
@@ -294,9 +289,9 @@ public class MainPageViewModel : ViewModelBase
 
         if (string.IsNullOrWhiteSpace(src)) return defaultValue;
         
-        if (!IsFloatOrInt(src)) //If src is a float
+        if (!MathHelpers.IsFloatOrInt(src)) //If src is a float
         {
-            return (int)(ParseFloat(src));
+            return (int)(MathHelpers.ParseFloat(src));
         }
 
         if (Int32.TryParse(src, out rtrn))
@@ -307,29 +302,6 @@ public class MainPageViewModel : ViewModelBase
         return defaultValue;
     }
 
-    private float ParseFloat(string src)
-    {
-        float rtrn;
-        if (float.TryParse(src, out rtrn))
-        {
-            return rtrn;
-        }
-
-        return 0f;
-    }
-
-    private int ParseInt(string src, bool useNullAsReturn = false)
-    {
-        int rtrn;
-        if (Int32.TryParse(src, out rtrn))
-        {
-            return rtrn;
-        }
-
-        if (useNullAsReturn) return 0;
-        return 9999;
-    }
-    
     public ICommand SaveCustomPresetCommand
     {
         get;
@@ -531,9 +503,9 @@ public class MainPageViewModel : ViewModelBase
             _database = new PresetDataBase(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "LocalDatabase.txt"));
             IniPresets = _database.GetPresets();
         }
-
+        
         _customPresetDatabase = new CustomPresetsDataBase(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "CustomPresets.txt"));
-        IniPresets.AddRange( _customPresetDatabase.GetPresets()); 
+        IniPresets.AddRange(_customPresetDatabase.GetPresets());
     }
 
     private void InitializeViewModel()
@@ -548,14 +520,18 @@ public class MainPageViewModel : ViewModelBase
             CreateEditIniCommand();
             CreateBuildModCommand();
             LoadExternalValues();
-            InitializePresets();
             SelectProperVramConfig();
 
-            while (_presetIni == null)
+            do
+            {
+                InitializePresets();
+            } while (_customPresetDatabase == null || _database == null);
+
+            do
             {
                 SelectedPreset = 1;
                 SelectedPreset = 0;
-            }
+            } while (_presetIni == null);
 
             ContentLoaded = true;
         });

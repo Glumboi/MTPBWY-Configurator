@@ -28,7 +28,7 @@ public abstract class PresetDataBase_Base
 
         return result;
     }
-    
+
     public virtual void CreateLocalDatabase()
     {
         Web.CreateLocalTextFileFromRawWebDoc(URL, "LocalDatabase.txt");

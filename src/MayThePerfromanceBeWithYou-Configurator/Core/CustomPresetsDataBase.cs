@@ -22,8 +22,8 @@ public class CustomPresetsDataBase : PresetDataBase_Base
 
     public CustomPresetsDataBase(string path)
     {
-        if (!File.Exists(path)) File.Create(path).Close(); 
-        
+        if (!File.Exists(path)) File.Create(path).Close();
+
         URL = path;
         PasteDataBase = new DataBase(new Entry[] { }, path);
     }
