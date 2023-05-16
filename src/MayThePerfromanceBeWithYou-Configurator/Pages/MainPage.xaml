@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="MainPage"
-    d:DesignHeight="650"
+    d:DesignHeight="640"
     d:DesignWidth="800"
     Background="#3333"
     mc:Ignorable="d">
@@ -16,7 +16,7 @@
     <Page.DataContext>
         <VM:MainPageViewModel />
     </Page.DataContext>
-
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -25,7 +25,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
+
         <Grid Margin="0,0,0,4">
             <TextBlock
                 FontSize="14"
@@ -67,7 +67,7 @@
                     Command="{Binding Path=InstallModCommand}"
                     Content="Install Mod"
                     Icon="ArrowDownload48" />
-                
+
                 <ui:Button
                     Margin="0,6,0,0"
                     HorizontalAlignment="Stretch"
@@ -83,7 +83,7 @@
                     Command="{Binding Path=UninstallModCommand}"
                     Content="Uninstall Mod"
                     Icon="BinFull24" />
-                
+
                 <ui:Button
                     Margin="0,6,0,0"
                     HorizontalAlignment="Stretch"
@@ -104,7 +104,7 @@
             </Grid.RowDefinitions>
 
             <TextBlock
-                Margin="0,10,0,10"
+                Margin="0,4,0,0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
                 FontSize="17"
@@ -122,14 +122,14 @@
                     DisplayMemberPath="Name"
                     ItemsSource="{Binding Path=IniPresets}"
                     SelectedIndex="{Binding Path=SelectedPreset}" />
-                
+
                 <TextBlock
                     Margin="0,4,0,4"
                     FontSize="13"
                     FontWeight="Bold"
                     Text="GPU VRAM for Pool Size optimizations" />
                 <ComboBox
-                    Margin="0 0 0 4"
+                    Margin="0,0,0,4"
                     VerticalAlignment="Top"
                     DisplayMemberPath="VramSize"
                     ItemsSource="{Binding Path=PoolSizes}"
@@ -139,64 +139,64 @@
             <Grid Grid.Row="2">
                 <StackPanel>
                     <WrapPanel Orientation="Horizontal">
-                            <CheckBox
-                                Margin="8,0,0,0"
-                                Content="TAA Upscaling"
-                                IsChecked="{Binding Path=TAAUpscaling}"
-                                ToolTip="(Option will automatically enable TAA Gen 5) This option will toggle the TAA upscaling in Unreal Engine. You can increase the fidelity by raising the TAA Resolution." />
-                            
-                            <CheckBox
-                                Margin="8,0,0,0"
-                                Content="TAA Gen 5"
-                                IsChecked="{Binding Path=TAAGen5}"
-                                ToolTip="This option will toggle the TAA Gen 5 Feature in Unreal Engine. You can increase the fidelity by raising the TAA Resolution." />
+                        <CheckBox
+                            Margin="8,0,0,0"
+                            Content="TAA Upscaling"
+                            IsChecked="{Binding Path=TAAUpscaling}"
+                            ToolTip="(Option will automatically enable TAA Gen 5) This option will toggle the TAA upscaling in Unreal Engine. You can increase the fidelity by raising the TAA Resolution." />
 
-                            <CheckBox
-                                Margin="8,0,0,0"
-                                Content="Disable Bloom"
-                                IsChecked="{Binding Path=DisableBloom}"
-                                ToolTip="This option will toggle the Bloom of the game, checked=Bloom disabled Unchecked=Game manages the Bloom" />
+                        <CheckBox
+                            Margin="8,0,0,0"
+                            Content="TAA Gen 5"
+                            IsChecked="{Binding Path=TAAGen5}"
+                            ToolTip="This option will toggle the TAA Gen 5 Feature in Unreal Engine. You can increase the fidelity by raising the TAA Resolution." />
 
-                            <CheckBox
-                                Margin="8,0,0,0"
-                                Content="Disable Lens Flare"
-                                IsChecked="{Binding Path=DisableLensFlare}"
-                                ToolTip="This option will toggle the Lens Flare of the game, checked=Bloom disabled Unchecked=Game manages the Lens Flare" />
+                        <CheckBox
+                            Margin="8,0,0,0"
+                            Content="Disable Bloom"
+                            IsChecked="{Binding Path=DisableBloom}"
+                            ToolTip="This option will toggle the Bloom of the game, checked=Bloom disabled Unchecked=Game manages the Bloom" />
 
-                            <CheckBox
-                                Margin="8,0,0,0"
-                                Content="Potato Textures"
-                                IsChecked="{Binding Path=PotatoTextures}"
-                                ToolTip="This Option will toggle 'Potato Textures' which will drastically decrease the fidelity of all Textures in the Game while giving a performance boost." />
+                        <CheckBox
+                            Margin="8,0,0,0"
+                            Content="Disable Lens Flare"
+                            IsChecked="{Binding Path=DisableLensFlare}"
+                            ToolTip="This option will toggle the Lens Flare of the game, checked=Bloom disabled Unchecked=Game manages the Lens Flare" />
 
-                            <CheckBox
-                                Margin="8,0,0,0"
-                                Content="Disable Fog and Volumetric Fog"
-                                IsChecked="{Binding Path=DisableFog}"
-                                ToolTip="This option will toggle the Fog in the Game. Unchecked meaning let the game handle it and checked being forced off." />
-                            <CheckBox
-                                Margin="8,0,0,0"
-                                Content="Disable Depth of Field"
-                                IsChecked="{Binding Path=DisableDOF}"
-                                ToolTip="This option will toggle the Depth of Field. Unchecked meaning let the game handle it and checked being forced off." />
+                        <CheckBox
+                            Margin="8,0,0,0"
+                            Content="Potato Textures"
+                            IsChecked="{Binding Path=PotatoTextures}"
+                            ToolTip="This Option will toggle 'Potato Textures' which will drastically decrease the fidelity of all Textures in the Game while giving a performance boost." />
 
-                            <CheckBox
-                                Margin="8,0,0,0"
-                                Content="Use Experimental Stutter Fixes"
-                                IsChecked="{Binding Path=ExperimentalStutterFix}"
-                                ToolTip="This option will toggle an experimental stutter Fix, depending on your System it might not do much. Please note that this Feature is not completely tested!" /> 
-                            
-                            <CheckBox
-                                Margin="8,0,0,0"
-                                Content="Disable Anti Aliasing"
-                                IsChecked="{Binding Path=DisableAntiAliasing}"
-                                ToolTip="This option will disable any Anti Aliasing in the game." />
-                            
-                            <CheckBox
-                                Margin="8,0,0,0"
-                                Content="Limit Pool to VRAM"
-                                IsChecked="{Binding Path=LimitPoolSizeToVram}"
-                                ToolTip="This option will toggle the limit Pool Size to VRAM feature. On low VRAM Systems, this can decrease RAM usage but might increase Stutters. High VRAM Systems could profit from this Option with less Stutters." />
+                        <CheckBox
+                            Margin="8,0,0,0"
+                            Content="Disable Fog and Volumetric Fog"
+                            IsChecked="{Binding Path=DisableFog}"
+                            ToolTip="This option will toggle the Fog in the Game. Unchecked meaning let the game handle it and checked being forced off." />
+                        <CheckBox
+                            Margin="8,0,0,0"
+                            Content="Disable Depth of Field"
+                            IsChecked="{Binding Path=DisableDOF}"
+                            ToolTip="This option will toggle the Depth of Field. Unchecked meaning let the game handle it and checked being forced off." />
+
+                        <CheckBox
+                            Margin="8,0,0,0"
+                            Content="Use Experimental Stutter Fixes"
+                            IsChecked="{Binding Path=ExperimentalStutterFix}"
+                            ToolTip="This option will toggle an experimental stutter Fix, depending on your System it might not do much. Please note that this Feature is not completely tested!" />
+
+                        <CheckBox
+                            Margin="8,0,0,0"
+                            Content="Disable Anti Aliasing"
+                            IsChecked="{Binding Path=DisableAntiAliasing}"
+                            ToolTip="This option will disable any Anti Aliasing in the game." />
+
+                        <CheckBox
+                            Margin="8,0,0,0"
+                            Content="Limit Pool to VRAM"
+                            IsChecked="{Binding Path=LimitPoolSizeToVram}"
+                            ToolTip="This option will toggle the limit Pool Size to VRAM feature. On low VRAM Systems, this can decrease RAM usage but might increase Stutters. High VRAM Systems could profit from this Option with less Stutters." />
                     </WrapPanel>
                     <Grid Margin="0,6,0,0">
                         <Grid.ColumnDefinitions>
@@ -265,7 +265,7 @@
                                     FontWeight="Bold"
                                     Text="{Binding Path=ViewDistance, StringFormat=View Distance: {0}}" />
                             </Grid>
-                            
+
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
@@ -286,21 +286,22 @@
         </Grid>
 
         <Grid Grid.Row="4">
-            
+
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            
+
             <ui:Button
                 Margin="0,6,4,0"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
                 Command="{Binding Path=EditIniCommand}"
                 Content="I want to edit the Mod myself"
-                Icon="Open48" />     
-            
-            <ui:Button Grid.Column="1"
+                Icon="Open48" />
+
+            <ui:Button
+                Grid.Column="1"
                 Margin="4,6,0,0"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"

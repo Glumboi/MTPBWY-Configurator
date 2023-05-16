@@ -4,13 +4,13 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Net;
 using System.Windows.Navigation;
-using PasteBinDataBaseManager;
+using PasteBinDatabaseManager;
 
 namespace MayThePerfromanceBeWithYou_Configurator.Core;
 
-public class PresetDataBase : PresetDataBase_Base
+public class PresetDatabase : PresetDatabase_Base
 {
-    public override DataBase PasteDataBase
+    public override Database PasteDatabase
     {
         get;
         protected set;
@@ -21,10 +21,10 @@ public class PresetDataBase : PresetDataBase_Base
         get;
         protected set;
     }
-    
-    public PresetDataBase(string url)
+
+    public PresetDatabase(string url)
     {
         URL = url;
-        PasteDataBase = new DataBase(new Entry[] { }, url);
+        PasteDatabase = new Database(new Entry[] { }, url);
     }
 }

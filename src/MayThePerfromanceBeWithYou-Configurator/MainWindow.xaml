@@ -3,12 +3,13 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:VM="clr-namespace:MayThePerfromanceBeWithYou_Configurator.ViewModels"
     xmlns:local="clr-namespace:MayThePerfromanceBeWithYou_Configurator"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="MainWindow"
     Width="800"
-    Height="700"
+    Height="680"
     Background="#2d2d2d"
     ExtendsContentIntoTitleBar="True"
     Loaded="MainWindow_OnLoaded"
@@ -17,6 +18,39 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
+    <Window.DataContext>
+        <VM:MainPageViewModel />
+    </Window.DataContext>
+    
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding Path=SaveCustomPresetCommand}" 
+                    Key="S" 
+                    Modifiers="Control"/>
+        
+        <KeyBinding Command="{Binding Path=EditIniCommand}" 
+                    Key="E" 
+                    Modifiers="Control"/>
+        
+        <KeyBinding Command="{Binding Path=BrowseFolderCommand}" 
+                    Key="O" 
+                    Modifiers="Control"/>
+        
+        <KeyBinding Command="{Binding Path=BuildModCommand}" 
+                    Key="B" 
+                    Modifiers="Control"/>
+        
+        <KeyBinding Command="{Binding Path=InstallModCommand}" 
+                    Key="I" 
+                    Modifiers="Control"/>
+        
+        <KeyBinding Command="{Binding Path=UninstallModCommand}" 
+                    Key="U" 
+                    Modifiers="Control"/>
+        
+        <KeyBinding Command="{Binding Path=BrowseSaveCommand}" 
+                    Key="F2"/>
+    </Window.InputBindings>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -30,7 +64,7 @@
             UseSnapLayout="True" />
 
         <Border Grid.Row="1" Padding="10">
-            <Frame x:Name="WindowFrame" />
+            <Frame x:Name="WindowFrame" Focusable="True"/>
         </Border>
     </Grid>
 </ui:UiWindow>

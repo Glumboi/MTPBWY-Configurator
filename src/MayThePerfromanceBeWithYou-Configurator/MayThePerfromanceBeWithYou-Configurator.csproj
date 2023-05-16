@@ -10,7 +10,7 @@
     <Authors>Glumboi</Authors>
     <Description>A tool for my mod MTPBWY</Description>
     <Copyright>Glumboi (c) 2023</Copyright>
-    <Version>1.3.4</Version>
+    <Version>1.3.5</Version>
     <StartupObject>MayThePerfromanceBeWithYou_Configurator.App</StartupObject>
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>

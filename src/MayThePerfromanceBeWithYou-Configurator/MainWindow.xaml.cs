@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MayThePerfromanceBeWithYou_Configurator.Pages;
+using MayThePerfromanceBeWithYou_Configurator.ViewModels;
 using Wpf.Ui.Controls;
 
 namespace MayThePerfromanceBeWithYou_Configurator;
@@ -33,7 +34,7 @@ public partial class MainWindow : UiWindow
 
     private async void CheckLoadCompleted()
     {
-        mainPage = new MainPage();
+        mainPage = new MainPage((ViewModelBase)DataContext);
         var tcs = new TaskCompletionSource<bool>();
 
         // Poll the ContentLoaded property until it becomes true
@@ -51,12 +52,17 @@ public partial class MainWindow : UiWindow
         await tcs.Task;
 
         // Navigate to the main page
-        WindowFrame.Dispatcher.Invoke(() => WindowFrame.Navigate(mainPage));
+        NavigateToPage(mainPage);
     }
 
+    private void NavigateToPage(UiPage page)
+    {
+        WindowFrame.Dispatcher.Invoke(() => WindowFrame.Navigate(page));
+    }
+    
     private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
     {
-        WindowFrame.Navigate(splashPage);
+        NavigateToPage(splashPage);
         CheckLoadCompleted();
     }
 }

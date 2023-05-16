@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Input;
 using MayThePerfromanceBeWithYou_Configurator.ViewModels;
 using Wpf.Ui.Controls;
 
@@ -11,10 +12,11 @@ public partial class MainPage : UiPage
     private MainPageViewModel _viewModel;
     public MainPageViewModel ViewModel => _viewModel;
     
-    public MainPage()
+    public MainPage(ViewModelBase viewModel)
     {
         InitializeComponent();
-        _viewModel = (MainPageViewModel)DataContext;
+        DataContext = (MainPageViewModel)viewModel;
+        _viewModel = (MainPageViewModel)viewModel;
         _viewModel.AssignNotificationBar(ref NotificationBar_SnackBar);
     }
 }

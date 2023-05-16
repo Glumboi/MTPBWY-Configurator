@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using PasteBinDataBaseManager;
+using PasteBinDatabaseManager;
 
 namespace MayThePerfromanceBeWithYou_Configurator.Core;
 
-public abstract class PresetDataBase_Base
+public abstract class PresetDatabase_Base
 {
-    public abstract DataBase PasteDataBase
+    public abstract Database PasteDatabase
     {
         get;
         protected set;
@@ -21,7 +21,7 @@ public abstract class PresetDataBase_Base
     {
         List<Preset> result = new List<Preset>();
 
-        foreach (var entry in PasteDataBase.Entries)
+        foreach (var entry in PasteDatabase.Entries)
         {
             result.Add(new Preset(entry.GetValueOfType("Link"), entry.GetIdentifier()));
         }

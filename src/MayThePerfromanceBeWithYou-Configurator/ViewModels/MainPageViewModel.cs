@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using MayThePerfromanceBeWithYou_Configurator.Core;
-using MayThePerfromanceBeWithYou_Configurator.Pages;
 using MayThePerfromanceBeWithYou_Configurator.Windows;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using Wpf.Ui.Common;
@@ -23,8 +20,8 @@ public class MainPageViewModel : ViewModelBase
     private readonly string _saveLocation = System.Environment.GetEnvironmentVariable("USERPROFILE") +
                                            @"\Saved Games\Respawn\JediSurvivor\";
 
-    private PresetDataBase _database;
-    private CustomPresetsDataBase _customPresetDatabase;
+    private PresetDatabase _database;
+    private CustomPresetsDatabase _customPresetDatabase;
     private IniFile _presetIni;
 
     private Snackbar NotificationBar
@@ -40,7 +37,7 @@ public class MainPageViewModel : ViewModelBase
         get => _contentLoaded;
         set => SetProperty(ref _contentLoaded, value);
     }
-    
+
     private string _gamePath = string.Empty;
 
     public string GamePath
@@ -108,7 +105,7 @@ public class MainPageViewModel : ViewModelBase
         get => _experimentalStutterFix;
         set => SetProperty(ref _experimentalStutterFix, value);
     }
-    
+
     private bool _disableAntiAliasing = false;
 
     public bool DisableAntiAliasing
@@ -122,9 +119,9 @@ public class MainPageViewModel : ViewModelBase
                 TAAUpscaling = !value;
             }
             SetProperty(ref _disableAntiAliasing, value);
-        } 
-    }    
-    
+        }
+    }
+
     private bool _limitPoolSizeToVram = false;
 
     public bool LimitPoolSizeToVram
@@ -155,7 +152,7 @@ public class MainPageViewModel : ViewModelBase
             }
         }
     }
-   
+
     private bool _taaGen5 = false;
 
     public bool TAAGen5
@@ -195,6 +192,7 @@ public class MainPageViewModel : ViewModelBase
         get => _iniPresets;
         set => SetProperty(ref _iniPresets, value);
     }
+
     private int _selectedPreset = 0;
 
     public int SelectedPreset
@@ -241,28 +239,31 @@ public class MainPageViewModel : ViewModelBase
             case > 12:
                 SelectedPoolSize = 0;
                 break;
+
             case 8:
             case < 8 and > 6:
                 SelectedPoolSize = PoolSizes.Count - 3;
                 break;
+
             case 6:
             case < 6 and > 4:
                 SelectedPoolSize = PoolSizes.Count - 2;
                 break;
+
             case 4:
             case < 4 and > 0:
                 SelectedPoolSize = PoolSizes.Count - 1;
                 break;
         }
     }
-    
+
     private void UpdateUiFromPreset(bool useList = true)
     {
         if (useList)
         {
             _presetIni = new IniFile(_iniPresets[_selectedPreset].IniUrl);
         }
-        
+
         TaaResolution = LoadSlider(_presetIni.Read("r.ScreenPercentage", "SystemSettings"), 100);
         ToneMapperSharpening = LoadSlider(_presetIni.Read("r.Tonemapper.Sharpen", "SystemSettings"), 0) * 10;
         ViewDistance = LoadSlider(_presetIni.Read("r.ViewDistanceScale", "SystemSettings"), 0);
@@ -281,14 +282,12 @@ public class MainPageViewModel : ViewModelBase
         LimitPoolSizeToVram = MathHelpers.ParseInt(_presetIni.Read("r.Streaming.LimitPoolSizeToVRAM", "SystemSettings")) == 1;
     }
 
-
-
     public int LoadSlider(string src, int defaultValue)
     {
         int rtrn = 0;
 
         if (string.IsNullOrWhiteSpace(src)) return defaultValue;
-        
+
         if (!MathHelpers.IsFloatOrInt(src)) //If src is a float
         {
             return (int)(MathHelpers.ParseFloat(src));
@@ -315,13 +314,13 @@ public class MainPageViewModel : ViewModelBase
 
     public void CreatePreset()
     {
-        InstallMod(true, true); 
+        InstallMod(true, true);
         new CustomPresetCreatorWindow(_presetIni).ShowDialog();
         SelectedPreset = 0;
         Task.Run(InitializePresets);
         ShowNotification("Reinitialized the Databases, if a custom Preset got created it should now be available!");
     }
-    
+
     public ICommand EditIniCommand
     {
         get;
@@ -382,7 +381,7 @@ public class MainPageViewModel : ViewModelBase
     {
         return !string.IsNullOrWhiteSpace(GamePath);
     }
-    
+
     private void CreateUninstallModCommand()
     {
         UninstallModCommand = new RelayCommand(UninstallMod, IsModAlreadyInstalled);
@@ -403,9 +402,9 @@ public class MainPageViewModel : ViewModelBase
 
     private void CreateBuildModCommand()
     {
-        BuildModCommand = new RelayCommand(param => InstallMod(true));         
+        BuildModCommand = new RelayCommand(param => InstallMod(true));
     }
-    
+
     public ICommand InstallModCommand
     {
         get;
@@ -414,7 +413,7 @@ public class MainPageViewModel : ViewModelBase
 
     private void CreateInstallModCommand()
     {
-        InstallModCommand = new RelayCommand(param => InstallMod(false), IsGamePathFilled);         
+        InstallModCommand = new RelayCommand(param => InstallMod(false), IsGamePathFilled);
     }
 
     public void InstallMod(bool buildOnly, bool iniOnly = false)
@@ -494,17 +493,17 @@ public class MainPageViewModel : ViewModelBase
     {
         try
         {
-            _database = new PresetDataBase("https://gistcdn.githack.com/Glumboi/074c19fabc18efc2b2df28009d91a036/raw/MTPBWY-Presets.txt");
+            _database = new PresetDatabase("https://gistcdn.githack.com/Glumboi/074c19fabc18efc2b2df28009d91a036/raw/MTPBWY-Presets.txt");
             IniPresets = _database.GetPresets();
             _database.CreateLocalDatabase();
         }
         catch
         {
-            _database = new PresetDataBase(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "LocalDatabase.txt"));
+            _database = new PresetDatabase(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "LocalDatabase.txt"));
             IniPresets = _database.GetPresets();
         }
-        
-        _customPresetDatabase = new CustomPresetsDataBase(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "CustomPresets.txt"));
+
+        _customPresetDatabase = new CustomPresetsDatabase(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "CustomPresets.txt"));
         IniPresets.AddRange(_customPresetDatabase.GetPresets());
     }
 
