@@ -1,7 +1,5 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.IO;
-using System.Windows.Shapes;
 using Path = System.IO.Path;
 
 namespace MayThePerfromanceBeWithYou_Configurator.Core;
@@ -23,33 +21,32 @@ public class Mod
         "2",
         "2",
         "1"
-    };    
-    
+    };
+
     private static readonly string[] _experimentalStutterFixes = new[]
     {
-        "s.ForceGCAfterLevelStreamedOut", 
+        "s.ForceGCAfterLevelStreamedOut",
         "s.ContinuouslyIncrementalGCWhileLevelsPendingPurge",
         "r.ShaderPipelineCache.PrecompileBatchTime"
     };
 
     private static readonly string _experimentalStutterFixesVals = "0";
-    
-    
+
     private static void ToggleTAAGen5(bool enabled, ref IniFile ini)
     {
         ini.Write("r.TemporalAA.Algorithm", enabled ? "1" : "0", "SystemSettings");
     }
-    
+
     private static void ToggleTAAUpscaling(bool enabled, ref IniFile ini)
     {
         ini.Write("r.TemporalAA.Upsampling", enabled ? "1" : "0", "SystemSettings");
     }
-    
+
     private static void ToggleTAASettings(bool enabledGen5, bool enabledUpscaling, ref IniFile ini)
     {
         ToggleTAAGen5(enabledGen5, ref ini);
         ToggleTAAUpscaling(enabledUpscaling, ref ini);
-    }  
+    }
 
     private static void ChangeTAARes(int screenPercentageValue, ref IniFile ini)
     {
@@ -66,8 +63,7 @@ public class Mod
 
         ini.Write(key, value, section);
     }
-    
-    
+
     private static void SetIniVariable(
         string key,
         string section,
@@ -146,7 +142,7 @@ public class Mod
         bool taaUpscaling,
         bool taaGen5,
         bool disableBloom,
-        bool disableLensFlare, 
+        bool disableLensFlare,
         bool potatoTextures,
         int toneMapperSharpening,
         bool disableDOF,
@@ -156,8 +152,8 @@ public class Mod
         bool disableAntiAliasing,
         bool enablePoolSizeToVramLimit)
     {
-        if(string.IsNullOrWhiteSpace(gameDir) && !buildOnly) return;
-        
+        if (string.IsNullOrWhiteSpace(gameDir) && !buildOnly) return;
+
         string pakCreator = Path.Combine(tempIni.EXE, "PakCreator");
         string pakIniLocation = Path.Combine(pakCreator, @"\pakchunk99-Mods_MayThePerformanceBeWithYou_P\SwGame\Config");
         string tempIniPath = tempIni.Path;
@@ -172,40 +168,34 @@ public class Mod
         ToggleIniVariable("r.PostProcessAAQuality", "SystemSettings", disableAntiAliasing, ref tempIni);
 
         SetIniVariable("r.Streaming.PoolSize", "SystemSettings", poolSize.PoolSizeMatchingVram.ToString(), false, ref tempIni);
-
         EnableExperimentalStutterFix(useExperimentalStutterFix, ref tempIni);
-        
         DisableFog(disableFog, ref tempIni);
-        
-        ToggleIniValueFromSliderValue("r.Tonemapper.Sharpen", "SystemSettings",trueToneMapperSharpening.ToString(), 
-            trueToneMapperSharpening < 1, ref tempIni);     
-        
-        ToggleIniValueFromSliderValue("r.ViewDistanceScale", "SystemSettings", trueViewDistance.ToString("0.00").Replace(',', '.'), 
+
+        ToggleIniValueFromSliderValue("r.Tonemapper.Sharpen", "SystemSettings", trueToneMapperSharpening.ToString(),
+            trueToneMapperSharpening < 1, ref tempIni);
+        ToggleIniValueFromSliderValue("r.ViewDistanceScale", "SystemSettings", trueViewDistance.ToString("0.00").Replace(',', '.'),
             trueViewDistance == 0, ref tempIni);
 
         TogglePotatoTextures(potatoTextures, ref tempIni);
-        
         ChangeTAARes(taaResolution, ref tempIni);
-
         ToggleTAASettings(taaGen5, taaUpscaling, ref tempIni);
-        
         EnableLimitPoolSizeToVram(!enablePoolSizeToVramLimit, ref tempIni);
 
         if (!File.Exists(tempIniPath)) return;
 
-        if(iniOnly) return;
+        if (iniOnly) return;
 
         File.Copy(tempIniPath, newIni, true);
 
         Process.Start(Path.Combine(tempIni.EXE, @"PakCreator\CreateMod.bat")).WaitForExit();
-        
+
         if (buildOnly)
         {
             //"explorer.exe", _saveLocation
             Process.Start("explorer.exe", Path.Combine(tempIni.EXE, @"PakCreator"));
             return;
         }
-        
+
         File.Copy(Path.Combine(tempIni.EXE, @"PakCreator\pakchunk99-Mods_MayThePerformanceBeWithYou_P.pak"),
             Path.Combine(gameDir, @"SwGame\Content\Paks\pakchunk99-Mods_MayThePerformanceBeWithYou_P.pak"), true);
     }
@@ -216,7 +206,7 @@ public class Mod
         {
             return false;
         }
-        
+
         return File.Exists(Path.Combine(gameDir, @"SwGame\Content\Paks\pakchunk99-Mods_MayThePerformanceBeWithYou_P.pak"));
     }
 

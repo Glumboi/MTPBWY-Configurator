@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Net;
-using System.Windows.Navigation;
-using PasteBinDatabaseManager;
+﻿using PasteBinDatabaseManager;
 
 namespace MayThePerfromanceBeWithYou_Configurator.Core;
 

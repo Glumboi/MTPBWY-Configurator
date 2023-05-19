@@ -23,6 +23,7 @@ public class MainPageViewModel : ViewModelBase
     private PresetDatabase _database;
     private CustomPresetsDatabase _customPresetDatabase;
     private IniFile _presetIni;
+    private JediSurvivorGame _jediSurvivorGame;
 
     private Snackbar NotificationBar
     {
@@ -38,14 +39,13 @@ public class MainPageViewModel : ViewModelBase
         set => SetProperty(ref _contentLoaded, value);
     }
 
-    private string _gamePath = string.Empty;
-
     public string GamePath
     {
-        get => _gamePath;
+        get => string.IsNullOrWhiteSpace(_jediSurvivorGame.Path) ? "" : _jediSurvivorGame.Path;
         set
         {
-            SetProperty(ref _gamePath, value);
+            _jediSurvivorGame.Path = value;
+            OnPropertyChanged();
             LoadInstallState();
         }
     }
@@ -268,8 +268,8 @@ public class MainPageViewModel : ViewModelBase
         ToneMapperSharpening = LoadSlider(_presetIni.Read("r.Tonemapper.Sharpen", "SystemSettings"), 0) * 10;
         ViewDistance = LoadSlider(_presetIni.Read("r.ViewDistanceScale", "SystemSettings"), 0);
 
-        TAAUpscaling = MathHelpers.ParseInt(_presetIni.Read("r.TemporalAA.Upsampling", "SystemSettings"), true) != 0;// ;
-        TAAGen5 = MathHelpers.ParseInt(_presetIni.Read("r.TemporalAA.Algorithm", "SystemSettings"), true) != 0;// 0;
+        TAAUpscaling = MathHelpers.ParseInt(_presetIni.Read("r.TemporalAA.Upsampling", "SystemSettings"), true) != 0;
+        TAAGen5 = MathHelpers.ParseInt(_presetIni.Read("r.TemporalAA.Algorithm", "SystemSettings"), true) != 0;
         PotatoTextures = MathHelpers.ParseInt(_presetIni.Read("r.Streaming.AmortizeCPUToGPUCopy", "SystemSettings")) != 9999;
 
         DisableLensFlare = MathHelpers.ParseInt(_presetIni.Read("r.LensFlareQuality", "SystemSettings")) == 0;
@@ -286,19 +286,26 @@ public class MainPageViewModel : ViewModelBase
     {
         int rtrn = 0;
 
-        if (string.IsNullOrWhiteSpace(src)) return defaultValue;
+        return string.IsNullOrWhiteSpace(src) ? defaultValue :
+            !MathHelpers.IsFloatOrInt(src) ? (int)(MathHelpers.ParseFloat(src)) :
+            Int32.TryParse(src, out rtrn) ? rtrn : defaultValue;
+    }
 
-        if (!MathHelpers.IsFloatOrInt(src)) //If src is a float
-        {
-            return (int)(MathHelpers.ParseFloat(src));
-        }
+    public ICommand LaunchGameCommand
+    {
+        get;
+        internal set;
+    }
 
-        if (Int32.TryParse(src, out rtrn))
-        {
-            return rtrn;
-        }
+    private void CreateLaunchGamCommand()
+    {
+        LaunchGameCommand = new RelayCommand(LaunchGame, IsGamePathFilled);
+    }
 
-        return defaultValue;
+    public void LaunchGame()
+    {
+        _jediSurvivorGame.Launch();
+        ShowNotification("Launching Game ...");
     }
 
     public ICommand SaveCustomPresetCommand
@@ -438,7 +445,11 @@ public class MainPageViewModel : ViewModelBase
             DisableAntiAliasing,
             LimitPoolSizeToVram);
 
-        if (iniOnly) return;
+        if (iniOnly)
+        {
+            return;
+        }
+
         if (buildOnly)
         {
             ShowNotification("Mod built successfully!", SymbolRegular.Wrench24);
@@ -461,19 +472,12 @@ public class MainPageViewModel : ViewModelBase
 
     public void BrowseFolder()
     {
-        using (var openDialog = new CommonOpenFileDialog())
+        using var openDialog = new CommonOpenFileDialog();
+        openDialog.IsFolderPicker = true;
+        if (openDialog.ShowDialog() == CommonFileDialogResult.Ok)
         {
-            openDialog.IsFolderPicker = true;
-            if (openDialog.ShowDialog() == CommonFileDialogResult.Ok)
-            {
-                GamePath = openDialog.FileName;
-            }
+            GamePath = openDialog.FileName;
         }
-    }
-
-    private void LoadExternalValues()
-    {
-        GamePath = Core.Game.GetJediSurvivorPath();
     }
 
     private void LoadInstallState()
@@ -507,18 +511,25 @@ public class MainPageViewModel : ViewModelBase
         IniPresets.AddRange(_customPresetDatabase.GetPresets());
     }
 
+    private void LoadGame()
+    {
+        _jediSurvivorGame = new JediSurvivorGame();
+    }
+
     private void InitializeViewModel()
     {
         Task.Run(() =>
         {
+            LoadGame();
+            LoadInstallState();
             CreateSaveCustomPresetCommand();
             CreateInstallModCommand();
+            CreateLaunchGamCommand();
             CreateUninstallModCommand();
             CreateBrowseFolderCommand();
             CreateBrowseSaveCommandCommand();
             CreateEditIniCommand();
             CreateBuildModCommand();
-            LoadExternalValues();
             SelectProperVramConfig();
 
             do

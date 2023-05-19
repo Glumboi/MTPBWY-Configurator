@@ -25,7 +25,7 @@ namespace MayThePerfromanceBeWithYou_Configurator;
 public partial class MainWindow : UiWindow
 {
     private MainPage mainPage;
-    private readonly SplashScreenPage splashPage = new SplashScreenPage();
+    private SplashScreenPage splashPage;
 
     public MainWindow()
     {
@@ -62,6 +62,7 @@ public partial class MainWindow : UiWindow
     
     private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
     {
+        splashPage = new SplashScreenPage((ViewModelBase)DataContext);
         NavigateToPage(splashPage);
         CheckLoadCompleted();
     }

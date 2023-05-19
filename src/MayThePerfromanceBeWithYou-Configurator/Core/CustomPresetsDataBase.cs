@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using System.Threading;
-using System.Windows.Shapes;
 using PasteBinDatabaseManager;
 
 namespace MayThePerfromanceBeWithYou_Configurator.Core;

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.IO;
-using System.Net;
+﻿using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -17,13 +12,14 @@ public class IniFile   // revision 11
         get;
         private set;
     }
+
     public string EXE => System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
     [DllImport("kernel32", CharSet = CharSet.Unicode)]
-    static extern long WritePrivateProfileString(string Section, string Key, string Value, string FilePath);
+    private static extern long WritePrivateProfileString(string Section, string Key, string Value, string FilePath);
 
     [DllImport("kernel32", CharSet = CharSet.Unicode)]
-    static extern int GetPrivateProfileString(string Section, string Key, string Default, StringBuilder RetVal, int Size, string FilePath);
+    private static extern int GetPrivateProfileString(string Section, string Key, string Default, StringBuilder RetVal, int Size, string FilePath);
 
     public IniFile(string IniPath = null, bool keepOriginalFile = false)
     {

@@ -16,7 +16,7 @@
     <Page.DataContext>
         <VM:MainPageViewModel />
     </Page.DataContext>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -48,14 +48,28 @@
                 PlaceholderText="Game Path here"
                 Text="{Binding Path=GamePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-            <ui:Button
-                Grid.Column="1"
-                Margin="2,0,0,0"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                Command="{Binding Path=BrowseFolderCommand}"
-                Content="Browse Location"
-                Icon="Folder32" />
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <ui:Button
+                    Margin="2,0,0,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Command="{Binding Path=BrowseFolderCommand}"
+                    Content="Browse Location"
+                    Icon="Folder32" />
+
+                <ui:Button
+                    Margin="4,0,0,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Command="{Binding Path=LaunchGameCommand}">
+                    <Grid>
+                        <Image
+                            Height="15"
+                            RenderOptions.BitmapScalingMode="HighQuality"
+                            Source="/Assets/play.png" />
+                    </Grid>
+                </ui:Button>
+            </StackPanel>
         </Grid>
 
         <Grid Grid.Row="2">
