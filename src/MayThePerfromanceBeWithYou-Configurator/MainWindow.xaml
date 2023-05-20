@@ -9,18 +9,16 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="MainWindow"
     Width="800"
-    Height="680"
+    Height="570"
     Background="#2d2d2d"
     ExtendsContentIntoTitleBar="True"
     Loaded="MainWindow_OnLoaded"
     WindowBackdropType="Mica"
     WindowCornerPreference="Round"
     WindowStartupLocation="CenterScreen"
-    mc:Ignorable="d">
-
-    <Window.DataContext>
-        <VM:MainPageViewModel />
-    </Window.DataContext>
+    Closed="MainWindow_OnClosed"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignInstance Type=VM:MainPageViewModel, IsDesignTimeCreatable=False}" >
 
     <Window.InputBindings>
         <KeyBinding
@@ -54,7 +52,6 @@
             Modifiers="Control" />
 
         <KeyBinding Key="F2" Command="{Binding Path=BrowseSaveCommand}" />
-
         <KeyBinding Key="F5" Command="{Binding Path=LaunchGameCommand}" />
     </Window.InputBindings>
 

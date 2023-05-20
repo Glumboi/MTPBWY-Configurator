@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="MainPage"
-    d:DesignHeight="640"
+    d:DesignHeight="650"
     d:DesignWidth="800"
     Background="#3333"
     mc:Ignorable="d">
@@ -74,37 +74,59 @@
 
         <Grid Grid.Row="2">
             <StackPanel>
-                <ui:Button
-                    Margin="0,8,0,0"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Command="{Binding Path=InstallModCommand}"
-                    Content="Install Mod"
-                    Icon="ArrowDownload48" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <ui:Button
+                        Margin="0,6,2,0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Command="{Binding Path=InstallModCommand}"
+                        Content="Install Mod"
+                        Icon="ArrowDownload48" />
 
+                    <ui:Button Grid.Column="1"
+                        Margin="2,6,0,0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Command="{Binding Path=BuildModCommand}"
+                        Content="Build Mod"
+                        Icon="Wrench24" />
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <ui:Button
+                        Margin="0,6,2,0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Command="{Binding Path=UninstallModCommand}"
+                        Content="Uninstall Mod"
+                        Icon="BinFull24" />
+
+                    <ui:Button
+                        Grid.Column="1"
+                        Margin="2,6,0,0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Command="{Binding Path=BrowseSaveCommand}"
+                        Content="Take me to my Saves Location"
+                        Icon="Link48" />
+                </Grid>
+                
                 <ui:Button
                     Margin="0,6,0,0"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
-                    Command="{Binding Path=BuildModCommand}"
-                    Content="Build Mod"
-                    Icon="Wrench24" />
-
-                <ui:Button
-                    Margin="0,6,0,0"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Command="{Binding Path=UninstallModCommand}"
-                    Content="Uninstall Mod"
-                    Icon="BinFull24" />
-
-                <ui:Button
-                    Margin="0,6,0,0"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Command="{Binding Path=BrowseSaveCommand}"
-                    Content="Take me to my Saves Location"
-                    Icon="Link48" />
+                    Command="{Binding Path=OpenSettingsViewerCommand}"
+                    Content="View current Mod Settings"
+                    Icon="Bug24" />
             </StackPanel>
         </Grid>
 
@@ -116,38 +138,41 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
+            
 
-            <TextBlock
-                Margin="0,4,0,0"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Top"
-                FontSize="17"
-                FontWeight="Bold"
-                Text="Customization" />
+            <StackPanel Grid.Row="1" Margin="0 8 0 4">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <StackPanel Margin="0 0 2 0">
+                        <TextBlock
+                            Padding="4"
+                            FontSize="13"
+                            FontWeight="Bold"
+                            Text="Presets" />
+                        <ComboBox
+                            VerticalAlignment="Top"
+                            DisplayMemberPath="Name"
+                            ItemsSource="{Binding Path=IniPresets}"
+                            SelectedIndex="{Binding Path=SelectedPreset}" />
+                    </StackPanel>
 
-            <StackPanel Grid.Row="1">
-                <TextBlock
-                    Margin="0,0,0,4"
-                    FontSize="13"
-                    FontWeight="Bold"
-                    Text="Presets" />
-                <ComboBox
-                    VerticalAlignment="Top"
-                    DisplayMemberPath="Name"
-                    ItemsSource="{Binding Path=IniPresets}"
-                    SelectedIndex="{Binding Path=SelectedPreset}" />
-
-                <TextBlock
-                    Margin="0,4,0,4"
-                    FontSize="13"
-                    FontWeight="Bold"
-                    Text="GPU VRAM for Pool Size optimizations" />
-                <ComboBox
-                    Margin="0,0,0,4"
-                    VerticalAlignment="Top"
-                    DisplayMemberPath="VramSize"
-                    ItemsSource="{Binding Path=PoolSizes}"
-                    SelectedIndex="{Binding Path=SelectedPoolSize}" />
+                    <StackPanel Grid.Column="1" Margin="2 0 0 0">
+                        <TextBlock
+                            Padding="4"
+                            FontSize="13"
+                            FontWeight="Bold"
+                            Text="GPU VRAM for Pool Size optimizations" />
+                        <ComboBox
+                            VerticalAlignment="Top"
+                            DisplayMemberPath="VramSize"
+                            ItemsSource="{Binding Path=PoolSizes}"
+                            SelectedIndex="{Binding Path=SelectedPoolSize}" />
+                    </StackPanel>
+                </Grid>
             </StackPanel>
 
             <Grid Grid.Row="2">

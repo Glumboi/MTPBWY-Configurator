@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,17 +25,17 @@ namespace MayThePerfromanceBeWithYou_Configurator;
 /// </summary>
 public partial class MainWindow : UiWindow
 {
-    private MainPage mainPage;
+    private MainPage mainPage = new MainPage();
     private SplashScreenPage splashPage;
 
     public MainWindow()
     {
+        DataContext = mainPage.DataContext;
         InitializeComponent();
     }
 
     private async void CheckLoadCompleted()
     {
-        mainPage = new MainPage((ViewModelBase)DataContext);
         var tcs = new TaskCompletionSource<bool>();
 
         // Poll the ContentLoaded property until it becomes true
@@ -65,5 +66,10 @@ public partial class MainWindow : UiWindow
         splashPage = new SplashScreenPage((ViewModelBase)DataContext);
         NavigateToPage(splashPage);
         CheckLoadCompleted();
+    }
+
+    private void MainWindow_OnClosed(object? sender, EventArgs e)
+    {
+        Environment.Exit(0);
     }
 }

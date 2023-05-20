@@ -24,6 +24,7 @@ public class MainPageViewModel : ViewModelBase
     private CustomPresetsDatabase _customPresetDatabase;
     private IniFile _presetIni;
     private JediSurvivorGame _jediSurvivorGame;
+    private ModSettings _modSettings;
 
     private Snackbar NotificationBar
     {
@@ -146,9 +147,10 @@ public class MainPageViewModel : ViewModelBase
         set
         {
             SetProperty(ref _taaUpscaling, value);
-            if (value == true)
+            if (value)
             {
                 TAAGen5 = value;
+                DisableAntiAliasing = false; 
             }
         }
     }
@@ -158,7 +160,11 @@ public class MainPageViewModel : ViewModelBase
     public bool TAAGen5
     {
         get => _taaGen5;
-        set => SetProperty(ref _taaGen5, value);
+        set
+        {
+            SetProperty(ref _taaGen5, value);
+            if (DisableAntiAliasing) DisableAntiAliasing = false;
+        }
     }
 
     private int _taaResolution = 70;
@@ -425,25 +431,15 @@ public class MainPageViewModel : ViewModelBase
 
     public void InstallMod(bool buildOnly, bool iniOnly = false)
     {
+        LoadModSettings();
+        
         Mod.Install(
             buildOnly,
             iniOnly,
             _presetIni,
             PoolSizes[SelectedPoolSize],
             GamePath,
-            TaaResolution,
-            TAAUpscaling,
-            TAAGen5,
-            DisableBloom,
-            DisableLensFlare,
-            PotatoTextures,
-            ToneMapperSharpening,
-            DisableDOF,
-            DisableFog,
-            ViewDistance,
-            ExperimentalStutterFix,
-            DisableAntiAliasing,
-            LimitPoolSizeToVram);
+            _modSettings);
 
         if (iniOnly)
         {
@@ -457,6 +453,23 @@ public class MainPageViewModel : ViewModelBase
         }
         LoadInstallState();
         ShowNotification("Installed the Mod successfully!", SymbolRegular.Checkmark48);
+    }
+
+    public ICommand OpenSettingsViewerCommand
+    {
+        get;
+        internal set;
+    }
+
+    private void CreateOpenSettingsViewerCommand()
+    {
+        OpenSettingsViewerCommand = new RelayCommand(OpenSettingsViewer);
+    }
+
+    private void OpenSettingsViewer()
+    {
+        LoadModSettings();
+        new ModSettingsViewerWindow(_modSettings, LoadModSettings).Show();
     }
 
     public ICommand BrowseFolderCommand
@@ -480,6 +493,29 @@ public class MainPageViewModel : ViewModelBase
         }
     }
 
+    private ModSettings LoadModSettings()
+    {
+        return _modSettings = new ModSettings
+        {
+            EnablePoolSizeToVramLimit = LimitPoolSizeToVram,
+            DisableAntiAliasing = DisableAntiAliasing,
+            ToneMapperSharpening = ToneMapperSharpening,
+            DisableBloom = DisableBloom,
+            DisableLensFlare = DisableLensFlare,
+            PotatoTextures = PotatoTextures,
+            DisableFog = DisableFog,
+            ViewDistance = ViewDistance,
+            DisableDof = DisableDOF,
+            TaaSettings = new TAASettings
+            {
+                TaaResolution = TaaResolution,
+                TaaGen5 = TAAGen5,
+                TaaUpscaling = TAAUpscaling
+            },
+            UseExperimentalStutterFix = ExperimentalStutterFix
+        };
+    }
+    
     private void LoadInstallState()
     {
         if (IsModAlreadyInstalled())
@@ -524,6 +560,7 @@ public class MainPageViewModel : ViewModelBase
             LoadInstallState();
             CreateSaveCustomPresetCommand();
             CreateInstallModCommand();
+            CreateOpenSettingsViewerCommand();
             CreateLaunchGamCommand();
             CreateUninstallModCommand();
             CreateBrowseFolderCommand();

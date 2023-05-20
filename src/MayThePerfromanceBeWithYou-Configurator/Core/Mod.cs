@@ -138,19 +138,7 @@ public class Mod
         IniFile tempIni,
         PoolSize poolSize,
         string gameDir,
-        int taaResolution,
-        bool taaUpscaling,
-        bool taaGen5,
-        bool disableBloom,
-        bool disableLensFlare,
-        bool potatoTextures,
-        int toneMapperSharpening,
-        bool disableDOF,
-        bool disableFog,
-        int viewDistance,
-        bool useExperimentalStutterFix,
-        bool disableAntiAliasing,
-        bool enablePoolSizeToVramLimit)
+        ModSettings modSettings)
     {
         if (string.IsNullOrWhiteSpace(gameDir) && !buildOnly) return;
 
@@ -159,27 +147,27 @@ public class Mod
         string tempIniPath = tempIni.Path;
         string newIni = Path.Combine(pakCreator + pakIniLocation, "DefaultEngine.ini");
 
-        int trueToneMapperSharpening = toneMapperSharpening / 10;
-        float trueViewDistance = viewDistance / 100f;
+        int trueToneMapperSharpening = modSettings.ToneMapperSharpening / 10;
+        float trueViewDistance = modSettings.ViewDistance / 100f;
 
-        ToggleIniVariable("r.BloomQuality", "SystemSettings", disableBloom, ref tempIni);
-        ToggleIniVariable("r.LensFlareQuality", "SystemSettings", disableLensFlare, ref tempIni);
-        ToggleIniVariable("r.DepthOfFieldQuality", "SystemSettings", disableDOF, ref tempIni);
-        ToggleIniVariable("r.PostProcessAAQuality", "SystemSettings", disableAntiAliasing, ref tempIni);
+        ToggleIniVariable("r.BloomQuality", "SystemSettings", modSettings.DisableBloom, ref tempIni);
+        ToggleIniVariable("r.LensFlareQuality", "SystemSettings", modSettings.DisableLensFlare, ref tempIni);
+        ToggleIniVariable("r.DepthOfFieldQuality", "SystemSettings", modSettings.DisableDof, ref tempIni);
+        ToggleIniVariable("r.PostProcessAAQuality", "SystemSettings", modSettings.DisableAntiAliasing, ref tempIni);
 
         SetIniVariable("r.Streaming.PoolSize", "SystemSettings", poolSize.PoolSizeMatchingVram.ToString(), false, ref tempIni);
-        EnableExperimentalStutterFix(useExperimentalStutterFix, ref tempIni);
-        DisableFog(disableFog, ref tempIni);
+        EnableExperimentalStutterFix(modSettings.UseExperimentalStutterFix, ref tempIni);
+        DisableFog(modSettings.DisableFog, ref tempIni);
 
         ToggleIniValueFromSliderValue("r.Tonemapper.Sharpen", "SystemSettings", trueToneMapperSharpening.ToString(),
             trueToneMapperSharpening < 1, ref tempIni);
         ToggleIniValueFromSliderValue("r.ViewDistanceScale", "SystemSettings", trueViewDistance.ToString("0.00").Replace(',', '.'),
             trueViewDistance == 0, ref tempIni);
 
-        TogglePotatoTextures(potatoTextures, ref tempIni);
-        ChangeTAARes(taaResolution, ref tempIni);
-        ToggleTAASettings(taaGen5, taaUpscaling, ref tempIni);
-        EnableLimitPoolSizeToVram(!enablePoolSizeToVramLimit, ref tempIni);
+        TogglePotatoTextures(modSettings.PotatoTextures, ref tempIni);
+        ChangeTAARes(modSettings.TaaSettings.TaaResolution, ref tempIni);
+        ToggleTAASettings(modSettings.TaaSettings.TaaGen5, modSettings.TaaSettings.TaaUpscaling, ref tempIni);
+        EnableLimitPoolSizeToVram(!modSettings.EnablePoolSizeToVramLimit, ref tempIni);
 
         if (!File.Exists(tempIniPath)) return;
 

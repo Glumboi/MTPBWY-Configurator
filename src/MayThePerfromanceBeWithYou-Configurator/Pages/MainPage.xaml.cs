@@ -12,11 +12,10 @@ public partial class MainPage : UiPage
     private MainPageViewModel _viewModel;
     public MainPageViewModel ViewModel => _viewModel;
     
-    public MainPage(ViewModelBase viewModel)
+    public MainPage()
     {
         InitializeComponent();
-        DataContext = (MainPageViewModel)viewModel;
-        _viewModel = (MainPageViewModel)viewModel;
+        _viewModel = (MainPageViewModel)DataContext;
         _viewModel.AssignNotificationBar(ref NotificationBar_SnackBar);
     }
 }
