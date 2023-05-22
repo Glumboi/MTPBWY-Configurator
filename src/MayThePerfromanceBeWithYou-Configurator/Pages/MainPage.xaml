@@ -8,9 +8,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="MainPage"
-    d:DesignHeight="650"
+    d:DesignHeight="500"
     d:DesignWidth="800"
-    Background="#3333"
+    Background="Black"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -76,8 +76,8 @@
             <StackPanel>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <ui:Button
                         Margin="0,6,2,0"
@@ -87,7 +87,8 @@
                         Content="Install Mod"
                         Icon="ArrowDownload48" />
 
-                    <ui:Button Grid.Column="1"
+                    <ui:Button
+                        Grid.Column="1"
                         Margin="2,6,0,0"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
@@ -98,10 +99,10 @@
 
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    
+
                     <ui:Button
                         Margin="0,6,2,0"
                         HorizontalAlignment="Stretch"
@@ -119,7 +120,7 @@
                         Content="Take me to my Saves Location"
                         Icon="Link48" />
                 </Grid>
-                
+
                 <ui:Button
                     Margin="0,6,0,0"
                     HorizontalAlignment="Stretch"
@@ -138,16 +139,15 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            
 
-            <StackPanel Grid.Row="1" Margin="0 8 0 4">
+            <StackPanel Grid.Row="1" Margin="0,8,0,4">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    
-                    <StackPanel Margin="0 0 2 0">
+
+                    <StackPanel Margin="0,0,2,0">
                         <TextBlock
                             Padding="4"
                             FontSize="13"
@@ -160,7 +160,7 @@
                             SelectedIndex="{Binding Path=SelectedPreset}" />
                     </StackPanel>
 
-                    <StackPanel Grid.Column="1" Margin="2 0 0 0">
+                    <StackPanel Grid.Column="1" Margin="2,0,0,0">
                         <TextBlock
                             Padding="4"
                             FontSize="13"
@@ -304,20 +304,6 @@
                                     FontWeight="Bold"
                                     Text="{Binding Path=ViewDistance, StringFormat=View Distance: {0}}" />
                             </Grid>
-
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-
-                                <TextBlock
-                                    Grid.Column="1"
-                                    Margin="6,0,0,0"
-                                    VerticalAlignment="Center"
-                                    FontWeight="Bold"
-                                    Text="{Binding Path=TaaSampleCount, StringFormat=TAA Sample Count: {0}}" />
-                            </Grid>
                         </StackPanel>
                     </Grid>
                 </StackPanel>
@@ -326,27 +312,40 @@
 
         <Grid Grid.Row="4">
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
+            <Grid>
 
-            <ui:Button
-                Margin="0,6,4,0"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                Command="{Binding Path=EditIniCommand}"
-                Content="I want to edit the Mod myself"
-                Icon="Open48" />
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
 
-            <ui:Button
-                Grid.Column="1"
-                Margin="4,6,0,0"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                Command="{Binding Path=SaveCustomPresetCommand}"
-                Content="Save custom Preset"
-                Icon="SaveCopy24" />
+                <ui:Button
+                    Margin="0,6,0,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Command="{Binding Path=EditIniCommand}"
+                    Content="I want to edit the Mod myself"
+                    Icon="Open48" />
+
+                <ui:Button
+                    Grid.Column="1"
+                    Margin="4,6,0,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Command="{Binding Path=SaveCustomPresetCommand}"
+                    Content="Save custom Preset"
+                    Icon="SaveCopy24" />
+
+                <ui:Button
+                    Grid.Column="2"
+                    Margin="4,6,0,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Command="{Binding Path=ReinitializePresetsCommand}"
+                    Content="Reinitialize Presets"
+                    Icon="Database24" />
+            </Grid>
         </Grid>
 
         <ui:Snackbar x:Name="NotificationBar_SnackBar" Grid.RowSpan="5" />

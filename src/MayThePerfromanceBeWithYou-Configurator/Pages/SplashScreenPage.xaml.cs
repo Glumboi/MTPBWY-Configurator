@@ -21,7 +21,7 @@ public partial class SplashScreenPage : UiPage
     {
         InitializeComponent();
         FadeOutAnimation.Completed += FadeOutAnimation_Completed;
-        _viewModel = (MainPageViewModel)viewModel;
+        ViewModelHelpers.SetViewModel<UiPage>(this, _viewModel);
     }
 
     private void FadeOutAnimation_Completed(object? sender, System.EventArgs e)

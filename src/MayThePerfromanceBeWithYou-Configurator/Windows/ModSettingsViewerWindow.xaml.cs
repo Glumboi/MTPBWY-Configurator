@@ -14,8 +14,11 @@ public partial class ModSettingsViewerWindow : UiWindow
     public ModSettingsViewerWindow(ModSettings modSettings, Func<ModSettings> reloadModSettingsFunction)
     {
         InitializeComponent();
-        var vm = (ModSettingsViewerViewModel)_page.DataContext;
-        vm.InitializeViewModel(modSettings, reloadModSettingsFunction);
+        ModSettingsViewerViewModel viewModel = _page.DataContext as ModSettingsViewerViewModel;
+        ViewModelHelpers.SetViewModel<UiWindow>(this, viewModel, () =>
+        {
+            viewModel.InitializeViewModel(modSettings, reloadModSettingsFunction);
+        });
         WindowFrame.Navigate(_page);
     }
 }

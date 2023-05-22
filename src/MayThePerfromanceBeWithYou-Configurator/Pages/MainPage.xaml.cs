@@ -9,13 +9,15 @@ namespace MayThePerfromanceBeWithYou_Configurator.Pages;
 /// </summary>
 public partial class MainPage : UiPage
 {
-    private MainPageViewModel _viewModel;
+    private readonly MainPageViewModel _viewModel = new MainPageViewModel();
     public MainPageViewModel ViewModel => _viewModel;
     
     public MainPage()
     {
         InitializeComponent();
-        _viewModel = (MainPageViewModel)DataContext;
-        _viewModel.AssignNotificationBar(ref NotificationBar_SnackBar);
+        ViewModelHelpers.SetViewModel<UiPage>(this, _viewModel, () =>
+        {
+            _viewModel.AssignNotificationBar(ref NotificationBar_SnackBar);
+        });
     }
 }

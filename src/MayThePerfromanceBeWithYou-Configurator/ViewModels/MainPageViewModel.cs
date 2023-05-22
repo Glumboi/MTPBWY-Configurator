@@ -150,7 +150,7 @@ public class MainPageViewModel : ViewModelBase
             if (value)
             {
                 TAAGen5 = value;
-                DisableAntiAliasing = false; 
+                DisableAntiAliasing = false;
             }
         }
     }
@@ -314,6 +314,24 @@ public class MainPageViewModel : ViewModelBase
         ShowNotification("Launching Game ...");
     }
 
+    public ICommand ReinitializePresetsCommand
+    {
+        get;
+        internal set;
+    }
+
+    private void CreateReinitializePresetsCommand()
+    {
+        ReinitializePresetsCommand = new RelayCommand(ReInitializePresets);
+    }
+
+    private void ReInitializePresets()
+    {
+        SelectedPreset = 0;
+        Task.Run(InitializePresets);
+        ShowNotification("Reinitialized the Databases!");
+    }
+
     public ICommand SaveCustomPresetCommand
     {
         get;
@@ -432,7 +450,7 @@ public class MainPageViewModel : ViewModelBase
     public void InstallMod(bool buildOnly, bool iniOnly = false)
     {
         LoadModSettings();
-        
+
         Mod.Install(
             buildOnly,
             iniOnly,
@@ -515,7 +533,7 @@ public class MainPageViewModel : ViewModelBase
             UseExperimentalStutterFix = ExperimentalStutterFix
         };
     }
-    
+
     private void LoadInstallState()
     {
         if (IsModAlreadyInstalled())
@@ -567,6 +585,7 @@ public class MainPageViewModel : ViewModelBase
             CreateBrowseSaveCommandCommand();
             CreateEditIniCommand();
             CreateBuildModCommand();
+            CreateReinitializePresetsCommand();
             SelectProperVramConfig();
 
             do
@@ -599,8 +618,5 @@ public class MainPageViewModel : ViewModelBase
         notiBar.Timeout = 5000;
     }
 
-    public MainPageViewModel()
-    {
-        InitializeViewModel();
-    }
+    public MainPageViewModel() => InitializeViewModel();
 }

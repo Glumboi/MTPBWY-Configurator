@@ -1,4 +1,5 @@
-﻿using PasteBinDatabaseManager;
+﻿using System.Collections.Generic;
+using PasteBinDatabaseManager;
 
 namespace MayThePerfromanceBeWithYou_Configurator.Core;
 
@@ -19,6 +20,6 @@ public class PresetDatabase : PresetDatabase_Base
     public PresetDatabase(string url)
     {
         URL = url;
-        PasteDatabase = new Database(new Entry[] { }, url);
+        PasteDatabase = new Database(new List<Entry>(), url);
     }
 }

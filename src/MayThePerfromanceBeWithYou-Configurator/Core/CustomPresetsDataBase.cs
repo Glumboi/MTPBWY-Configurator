@@ -23,7 +23,7 @@ public class CustomPresetsDatabase : PresetDatabase_Base
         if (!File.Exists(path)) File.Create(path).Close();
 
         URL = path;
-        PasteDatabase = new Database(new Entry[] { }, path);
+        PasteDatabase = new Database(new List<Entry>(), path);
     }
 
     public override List<Preset> GetPresets()

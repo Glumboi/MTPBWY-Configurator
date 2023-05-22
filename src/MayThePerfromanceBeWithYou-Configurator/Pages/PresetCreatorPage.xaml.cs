@@ -12,7 +12,9 @@ public partial class PresetCreatorPage : UiPage
     public PresetCreatorPage(IniFile iniFile)
     {
         InitializeComponent();
-        this.DataContext = _viewModel;
-        _viewModel.CustomIniFile = iniFile;
+        ViewModelHelpers.SetViewModel<UiPage>(this, _viewModel, () =>
+        {
+            _viewModel.CustomIniFile = iniFile;
+        });
     }
 }

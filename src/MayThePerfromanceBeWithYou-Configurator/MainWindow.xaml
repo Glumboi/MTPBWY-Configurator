@@ -9,7 +9,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="MainWindow"
     Width="800"
-    Height="570"
+    Height="550"
     Background="#2d2d2d"
     ExtendsContentIntoTitleBar="True"
     Loaded="MainWindow_OnLoaded"
@@ -18,7 +18,7 @@
     WindowStartupLocation="CenterScreen"
     Closed="MainWindow_OnClosed"
     mc:Ignorable="d"
-    d:DataContext="{d:DesignInstance Type=VM:MainPageViewModel, IsDesignTimeCreatable=False}" >
+    d:DataContext="{d:DesignInstance Type=VM:MainPageViewModel, IsDesignTimeCreatable=False}">
 
     <Window.InputBindings>
         <KeyBinding
