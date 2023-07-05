@@ -8,16 +8,22 @@ public static class ViewModelHelpers
 {
     public static void SetViewModel<T>(T target, ViewModelBase viewModel, Action onInitialization = null)
     {
-        if (target is Page)
+        switch (target)
         {
-            var page = target as Page;
-            page.DataContext = viewModel;
-        }
-
-        if (target is Window)
-        {
-            var window = target as Window;
-            window.DataContext = viewModel;
+            case Page page1:
+            {
+                var page = page1;
+                page.DataContext = viewModel;
+                break;
+            }
+            case Window window1:
+            {
+                var window = window1;
+                window.DataContext = viewModel;
+                break;
+            }
+            default:
+                return;
         }
 
         if (onInitialization != null) onInitialization.Invoke();

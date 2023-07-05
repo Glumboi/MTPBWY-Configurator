@@ -130,6 +130,15 @@ public class MainPageViewModel : ViewModelBase
         get => _limitPoolSizeToVram;
         set => SetProperty(ref _limitPoolSizeToVram, value);
     }
+    
+    
+    private bool _rtFixes = false;
+
+    public bool RtFixes
+    {
+        get => _rtFixes;
+        set => SetProperty(ref _rtFixes, value);
+    }
 
     private bool _disableFog = false;
 
@@ -286,6 +295,7 @@ public class MainPageViewModel : ViewModelBase
         ExperimentalStutterFix = MathHelpers.ParseInt(_presetIni.Read("s.ForceGCAfterLevelStreamedOut", "SystemSettings")) == 0;
         DisableAntiAliasing = MathHelpers.ParseInt(_presetIni.Read("r.PostProcessAAQuality", "SystemSettings")) == 0;
         LimitPoolSizeToVram = MathHelpers.ParseInt(_presetIni.Read("r.Streaming.LimitPoolSizeToVRAM", "SystemSettings")) == 1;
+        RtFixes = MathHelpers.ParseInt(_presetIni.Read("r.HZBOcclusion", "SystemSettings")) == 1;
     }
 
     public int LoadSlider(string src, int defaultValue)
@@ -530,7 +540,8 @@ public class MainPageViewModel : ViewModelBase
                 TaaGen5 = TAAGen5,
                 TaaUpscaling = TAAUpscaling
             },
-            UseExperimentalStutterFix = ExperimentalStutterFix
+            UseExperimentalStutterFix = ExperimentalStutterFix,
+            RtFixes = RtFixes
         };
     }
 

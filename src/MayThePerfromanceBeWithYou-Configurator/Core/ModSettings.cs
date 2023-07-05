@@ -18,7 +18,7 @@ public struct ModSettings
         get;
         set;
     }
-    
+
     public bool DisableLensFlare    
     {
         get;
@@ -71,6 +71,12 @@ public struct ModSettings
     {
         get;
         set;
+    }    
+   
+    public bool RtFixes    
+    {
+        get;
+        set;
     }
 
     private PropertyInfo[] _properties;
@@ -86,6 +92,7 @@ public struct ModSettings
         bool potatoTextures, 
         bool disableLensFlare, 
         bool disableBloom, 
+        bool rtFixes,
         TAASettings taaSettings)
     {
         EnablePoolSizeToVramLimit = enablePoolSizeToVramLimit;
@@ -98,6 +105,7 @@ public struct ModSettings
         DisableLensFlare = disableLensFlare;
         DisableBloom = disableBloom;
         TaaSettings = taaSettings;
+        RtFixes = rtFixes;
     }
 
     public List<string> GetSettingsInfo()

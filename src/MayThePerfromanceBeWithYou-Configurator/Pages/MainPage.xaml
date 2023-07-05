@@ -79,6 +79,7 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
+
                     <ui:Button
                         Margin="0,6,2,0"
                         HorizontalAlignment="Stretch"
@@ -236,6 +237,12 @@
                             Content="Limit Pool to VRAM"
                             IsChecked="{Binding Path=LimitPoolSizeToVram}"
                             ToolTip="This option will toggle the limit Pool Size to VRAM feature. On low VRAM Systems, this can decrease RAM usage but might increase Stutters. High VRAM Systems could profit from this Option with less Stutters." />
+
+                        <CheckBox
+                            Margin="8,0,0,0"
+                            Content="AO Culling and RT Crash Fixes"
+                            IsChecked="{Binding Path=RtFixes}"
+                            ToolTip="This option will toggle the fix for RT white culling problems as well as fixing the crashes." />
                     </WrapPanel>
                     <Grid Margin="0,6,0,0">
                         <Grid.ColumnDefinitions>

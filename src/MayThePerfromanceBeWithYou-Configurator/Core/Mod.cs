@@ -118,6 +118,21 @@ public class Mod
         ToggleIniVariable("r.Fog", "SystemSettings", disabled, ref ini);
         ToggleIniVariable("r.VolumetricFog", "SystemSettings", disabled, ref ini);
     }
+    
+    private static void ToggleRtFixes(bool enabled, ref IniFile ini)
+    {
+        if (enabled)
+        {
+            ini.Write("r.RayTracing.Geometry.Landscape", "0", "SystemSettings");
+            ini.Write("r.HZBOcclusion", "1", "SystemSettings");
+            ini.Write("r.AllowOcclusionQueries", "1", "SystemSettings");
+            return;
+        }
+        
+        ini.DeleteKey("r.RayTracing.Geometry.Landscape");
+        ini.DeleteKey("r.HZBOcclusion");
+        ini.DeleteKey("r.AllowOcclusionQueries");
+    }
 
     private static void EnableLimitPoolSizeToVram(bool disabled, ref IniFile ini)
     {
@@ -168,6 +183,7 @@ public class Mod
         ChangeTAARes(modSettings.TaaSettings.TaaResolution, ref tempIni);
         ToggleTAASettings(modSettings.TaaSettings.TaaGen5, modSettings.TaaSettings.TaaUpscaling, ref tempIni);
         EnableLimitPoolSizeToVram(!modSettings.EnablePoolSizeToVramLimit, ref tempIni);
+        ToggleRtFixes(modSettings.RtFixes, ref tempIni);
 
         if (!File.Exists(tempIniPath)) return;
 

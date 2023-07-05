@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MayThePerfromanceBeWithYou_Configurator.Pages;
 using MayThePerfromanceBeWithYou_Configurator.ViewModels;
+using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
 
 namespace MayThePerfromanceBeWithYou_Configurator;
@@ -32,6 +33,7 @@ public partial class MainWindow : UiWindow
     {
         DataContext = mainPage.DataContext;
         InitializeComponent();
+        Accent.ApplySystemAccent();
     }
 
     private async void CheckLoadCompleted()
@@ -60,7 +62,7 @@ public partial class MainWindow : UiWindow
     {
         WindowFrame.Dispatcher.Invoke(() => WindowFrame.Navigate(page));
     }
-    
+
     private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
     {
         splashPage = new SplashScreenPage((ViewModelBase)DataContext);

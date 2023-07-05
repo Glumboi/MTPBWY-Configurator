@@ -10,7 +10,8 @@ public partial class SplashScreenPage : UiPage
 {
     public Storyboard FadeOutAnimation => (Storyboard)TryFindResource("FadeOutAnimation");
 
-    private MainPageViewModel _viewModel;
+    private readonly MainPageViewModel _viewModel = new MainPageViewModel();
+
     public bool IsFadeOutDone
     {
         get;
