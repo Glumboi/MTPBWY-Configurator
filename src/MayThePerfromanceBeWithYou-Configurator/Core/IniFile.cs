@@ -5,13 +5,9 @@ using System.Text;
 
 namespace MayThePerfromanceBeWithYou_Configurator.Core;
 
-public class IniFile   // revision 11
+public class IniFile // revision 11
 {
-    public string Path
-    {
-        get;
-        private set;
-    }
+    public string Path { get; private set; }
 
     public string EXE => System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
@@ -19,23 +15,24 @@ public class IniFile   // revision 11
     private static extern long WritePrivateProfileString(string Section, string Key, string Value, string FilePath);
 
     [DllImport("kernel32", CharSet = CharSet.Unicode)]
-    private static extern int GetPrivateProfileString(string Section, string Key, string Default, StringBuilder RetVal, int Size, string FilePath);
+    private static extern int GetPrivateProfileString(string Section, string Key, string Default, StringBuilder RetVal,
+        int Size, string FilePath);
 
     public IniFile(string IniPath = null, bool keepOriginalFile = false)
     {
         string tempIniPath = System.IO.Path.Combine(EXE, "tempIni.ini");
-        if (IniPath.Contains("http"))
+        bool isWebFile = IniPath.Contains("http");
+        if (isWebFile)
         {
-            Web.CreateLocalTextFileFromRawWebDoc(IniPath, "tempIni.ini");
-            Path = tempIniPath;
-            return;
+            Web.CreateLocalTextFileFromRawWebDoc(IniPath,  keepOriginalFile ? IniPath : "tempIni.ini");
         }
 
-        if (!keepOriginalFile)
+        if (!keepOriginalFile && !isWebFile)
         {
             File.Copy(IniPath, System.IO.Path.Combine(EXE, "tempIni.ini"), true);
         }
-        Path = tempIniPath;
+
+        Path = keepOriginalFile ? IniPath : tempIniPath;
     }
 
     public string Read(string Key, string Section = null)
