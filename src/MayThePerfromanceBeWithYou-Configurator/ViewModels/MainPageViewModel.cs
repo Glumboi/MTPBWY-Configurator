@@ -419,7 +419,7 @@ public class MainPageViewModel : ViewModelBase
 
     private bool IsModAlreadyInstalled()
     {
-        return Plugins[SelectedPlugin].IsModInstalled(GamePath); //Mod.IsModInstalled(GamePath);
+        return Mod.IsModInstalled(GamePath);
     }
 
     private bool IsGamePathFilled()
@@ -434,8 +434,8 @@ public class MainPageViewModel : ViewModelBase
 
     public void UninstallMod()
     {
-        //Plugins[SelectedPlugin].Uninstall(GamePath);
-        Mod.Uninstall(GamePath);
+        Plugins[SelectedPlugin].Uninstall(GamePath);
+        //Mod.Uninstall(GamePath);
         ShowNotification("Uninstalled the Mod successfully!", SymbolRegular.BinFull24);
         LoadInstallState();
     }
@@ -458,21 +458,21 @@ public class MainPageViewModel : ViewModelBase
     {
         LoadModSettings();
 
-        /*Plugins[SelectedPlugin].Install(
-            buildOnly,
-            iniOnly,
-            _presetIni,
-            PoolSizes[SelectedPoolSize],
-            GamePath,
-            _modSettings);*/
-
-        Mod.Install(
+        Plugins[SelectedPlugin].Install(
             buildOnly,
             iniOnly,
             _presetIni,
             PoolSizes[SelectedPoolSize],
             GamePath,
             _modSettings);
+
+       /* Mod.Install(
+            buildOnly,
+            iniOnly,
+            _presetIni,
+            PoolSizes[SelectedPoolSize],
+            GamePath,
+            _modSettings);*/
 
         if (iniOnly)
         {

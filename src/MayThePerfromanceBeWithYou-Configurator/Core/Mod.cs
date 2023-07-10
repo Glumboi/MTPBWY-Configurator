@@ -32,28 +32,29 @@ public class Mod
 
     private static readonly string _experimentalStutterFixesVals = "0";
 
-    private static void ToggleTAAGen5(bool enabled, ref IniFile ini)
+    private static void ToggleTAAGen5(bool enabled, IniFile ini)
     {
         ini.Write("r.TemporalAA.Algorithm", enabled ? "1" : "0", "SystemSettings");
     }
 
-    private static void ToggleTAAUpscaling(bool enabled, ref IniFile ini)
+    private static void ToggleTAAUpscaling(bool enabled, IniFile ini)
     {
         ini.Write("r.TemporalAA.Upsampling", enabled ? "1" : "0", "SystemSettings");
     }
 
-    private static void ToggleTAASettings(bool enabledGen5, bool enabledUpscaling, ref IniFile ini)
+    private static void ToggleTAASettings(bool enabledGen5, bool enabledUpscaling, IniFile ini)
     {
-        ToggleTAAGen5(enabledGen5, ref ini);
-        ToggleTAAUpscaling(enabledUpscaling, ref ini);
+        ToggleTAAGen5(enabledGen5, ini);
+        ToggleTAAUpscaling(enabledUpscaling, ini);
     }
 
-    private static void ChangeTAARes(int screenPercentageValue, ref IniFile ini)
+    private static void ChangeTAARes(int screenPercentageValue, IniFile ini)
     {
         ini.Write("r.ScreenPercentage", screenPercentageValue.ToString(), "SystemSettings");
     }
 
-    private static void ToggleIniValueFromSliderValue(string key, string section, string value, bool disabled, ref IniFile ini)
+    private static void ToggleIniValueFromSliderValue(string key, string section, string value, bool disabled,
+        IniFile ini)
     {
         if (disabled)
         {
@@ -69,7 +70,7 @@ public class Mod
         string section,
         string value,
         bool disabled,
-        ref IniFile ini)
+        IniFile ini)
     {
         if (disabled)
         {
@@ -84,7 +85,7 @@ public class Mod
         string key,
         string section,
         bool disabled,
-        ref IniFile ini)
+        IniFile ini)
     {
         if (disabled)
         {
@@ -96,7 +97,7 @@ public class Mod
         ini.DeleteKey(key, section);
     }
 
-    private static void TogglePotatoTextures(bool enabled, ref IniFile ini)
+    private static void TogglePotatoTextures(bool enabled, IniFile ini)
     {
         if (enabled)
         {
@@ -104,6 +105,7 @@ public class Mod
             {
                 ini.Write(_potatoLines[index], _potatoVals[index], "SystemSettings");
             }
+
             return;
         }
 
@@ -113,13 +115,13 @@ public class Mod
         }
     }
 
-    private static void DisableFog(bool disabled, ref IniFile ini)
+    private static void DisableFog(bool disabled, IniFile ini)
     {
-        ToggleIniVariable("r.Fog", "SystemSettings", disabled, ref ini);
-        ToggleIniVariable("r.VolumetricFog", "SystemSettings", disabled, ref ini);
+        ToggleIniVariable("r.Fog", "SystemSettings", disabled, ini);
+        ToggleIniVariable("r.VolumetricFog", "SystemSettings", disabled, ini);
     }
-    
-    private static void ToggleRtFixes(bool enabled, ref IniFile ini)
+
+    private static void ToggleRtFixes(bool enabled, IniFile ini)
     {
         if (enabled)
         {
@@ -128,22 +130,22 @@ public class Mod
             ini.Write("r.AllowOcclusionQueries", "1", "SystemSettings");
             return;
         }
-        
+
         ini.DeleteKey("r.RayTracing.Geometry.Landscape");
         ini.DeleteKey("r.HZBOcclusion");
         ini.DeleteKey("r.AllowOcclusionQueries");
     }
 
-    private static void EnableLimitPoolSizeToVram(bool disabled, ref IniFile ini)
+    private static void EnableLimitPoolSizeToVram(bool disabled, IniFile ini)
     {
-        SetIniVariable("r.Streaming.LimitPoolSizeToVRAM", "SystemSettings", "1", disabled, ref ini);
+        SetIniVariable("r.Streaming.LimitPoolSizeToVRAM", "SystemSettings", "1", disabled, ini);
     }
 
-    private static void EnableExperimentalStutterFix(bool disabled, ref IniFile ini)
+    private static void EnableExperimentalStutterFix(bool disabled, IniFile ini)
     {
         for (int i = 0; i < _experimentalStutterFixes.Length; i++)
         {
-            ToggleIniVariable(_experimentalStutterFixes[i], "SystemSettings", disabled, ref ini);
+            ToggleIniVariable(_experimentalStutterFixes[i], "SystemSettings", disabled, ini);
         }
     }
 
@@ -158,32 +160,35 @@ public class Mod
         if (string.IsNullOrWhiteSpace(gameDir) && !buildOnly) return;
 
         string pakCreator = Path.Combine(tempIni.EXE, "PakCreator");
-        string pakIniLocation = Path.Combine(pakCreator, @"\pakchunk99-Mods_MayThePerformanceBeWithYou_P\SwGame\Config");
+        string pakIniLocation =
+            Path.Combine(pakCreator, @"\pakchunk99-Mods_MayThePerformanceBeWithYou_P\SwGame\Config");
         string tempIniPath = tempIni.Path;
         string newIni = Path.Combine(pakCreator + pakIniLocation, "DefaultEngine.ini");
 
         int trueToneMapperSharpening = modSettings.ToneMapperSharpening / 10;
         float trueViewDistance = modSettings.ViewDistance / 100f;
 
-        ToggleIniVariable("r.BloomQuality", "SystemSettings", modSettings.DisableBloom, ref tempIni);
-        ToggleIniVariable("r.LensFlareQuality", "SystemSettings", modSettings.DisableLensFlare, ref tempIni);
-        ToggleIniVariable("r.DepthOfFieldQuality", "SystemSettings", modSettings.DisableDof, ref tempIni);
-        ToggleIniVariable("r.PostProcessAAQuality", "SystemSettings", modSettings.DisableAntiAliasing, ref tempIni);
+        ToggleIniVariable("r.BloomQuality", "SystemSettings", modSettings.DisableBloom, tempIni);
+        ToggleIniVariable("r.LensFlareQuality", "SystemSettings", modSettings.DisableLensFlare, tempIni);
+        ToggleIniVariable("r.DepthOfFieldQuality", "SystemSettings", modSettings.DisableDof, tempIni);
+        ToggleIniVariable("r.PostProcessAAQuality", "SystemSettings", modSettings.DisableAntiAliasing, tempIni);
 
-        SetIniVariable("r.Streaming.PoolSize", "SystemSettings", poolSize.PoolSizeMatchingVram.ToString(), false, ref tempIni);
-        EnableExperimentalStutterFix(modSettings.UseExperimentalStutterFix, ref tempIni);
-        DisableFog(modSettings.DisableFog, ref tempIni);
+        SetIniVariable("r.Streaming.PoolSize", "SystemSettings", poolSize.PoolSizeMatchingVram.ToString(), false,
+            tempIni);
+        EnableExperimentalStutterFix(modSettings.UseExperimentalStutterFix, tempIni);
+        DisableFog(modSettings.DisableFog, tempIni);
 
         ToggleIniValueFromSliderValue("r.Tonemapper.Sharpen", "SystemSettings", trueToneMapperSharpening.ToString(),
-            trueToneMapperSharpening < 1, ref tempIni);
-        ToggleIniValueFromSliderValue("r.ViewDistanceScale", "SystemSettings", trueViewDistance.ToString("0.00").Replace(',', '.'),
-            trueViewDistance == 0, ref tempIni);
+            trueToneMapperSharpening < 1, tempIni);
+        ToggleIniValueFromSliderValue("r.ViewDistanceScale", "SystemSettings",
+            trueViewDistance.ToString("0.00").Replace(',', '.'),
+            trueViewDistance == 0, tempIni);
 
-        TogglePotatoTextures(modSettings.PotatoTextures, ref tempIni);
-        ChangeTAARes(modSettings.TaaSettings.TaaResolution, ref tempIni);
-        ToggleTAASettings(modSettings.TaaSettings.TaaGen5, modSettings.TaaSettings.TaaUpscaling, ref tempIni);
-        EnableLimitPoolSizeToVram(!modSettings.EnablePoolSizeToVramLimit, ref tempIni);
-        ToggleRtFixes(modSettings.RtFixes, ref tempIni);
+        TogglePotatoTextures(modSettings.PotatoTextures, tempIni);
+        ChangeTAARes(modSettings.TaaSettings.TaaResolution, tempIni);
+        ToggleTAASettings(modSettings.TaaSettings.TaaGen5, modSettings.TaaSettings.TaaUpscaling, tempIni);
+        EnableLimitPoolSizeToVram(!modSettings.EnablePoolSizeToVramLimit, tempIni);
+        ToggleRtFixes(modSettings.RtFixes, tempIni);
 
         if (!File.Exists(tempIniPath)) return;
 
@@ -211,7 +216,8 @@ public class Mod
             return false;
         }
 
-        return File.Exists(Path.Combine(gameDir, @"SwGame\Content\Paks\pakchunk99-Mods_MayThePerformanceBeWithYou_P.pak"));
+        return File.Exists(Path.Combine(gameDir,
+            @"SwGame\Content\Paks\pakchunk99-Mods_MayThePerformanceBeWithYou_P.pak"));
     }
 
     public static void Uninstall(string gameDir)

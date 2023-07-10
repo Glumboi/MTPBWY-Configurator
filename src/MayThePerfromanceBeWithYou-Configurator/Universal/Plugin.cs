@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 using MayThePerfromanceBeWithYou_Configurator.Core;
 
 namespace MayThePerfromanceBeWithYou_Configurator.Universal;
@@ -9,17 +10,13 @@ namespace MayThePerfromanceBeWithYou_Configurator.Universal;
 public class Plugin : IPlugin
 {
     public string DisplayName => _pluginNamespace;
-    
+
     private IniFile _pluginIni;
     private string _pluginDll;
     private string _pluginClass;
     private string _pluginNamespace;
     private object[] _pluginParams;
-    Assembly assembly;
-    private Type _funcType;
-    public Action<bool, bool, IniFile, PoolSize, string, ModSettings> _installFunc;
-    public Action<string> _uninstallFunc;
-    public Func<string, bool> _installedFunc;
+    private Assembly _assembly;
 
     public Plugin(string ini)
     {
@@ -27,60 +24,39 @@ public class Plugin : IPlugin
         _pluginClass = _pluginIni.Read("Class", "Plugin");
         _pluginNamespace = _pluginIni.Read("Namespace", "Plugin");
         _pluginDll = Path.Combine(_pluginIni.EXE, _pluginIni.Read("DllPath", "Plugin"));
-        assembly = Assembly.LoadFile(_pluginDll);
-        _funcType = assembly.GetType($"{_pluginNamespace}.{_pluginClass}");
+        _assembly = Assembly.LoadFile(_pluginDll);
         LoadParams();
         FireEntryPoint();
-        LoadCommonFunctions();
     }
-    
+
     private void LoadParams()
     {
-        string[] paramsOfIni = _pluginIni.Read("Params", "Plugin").Split(',');
+        string paramsString = _pluginIni.Read("Params", "Plugin");
+        _pluginParams = paramsString.Split(',');
+    }
 
-        List<object> objects = new List<object>();
-
-        foreach (object parameter in paramsOfIni)
+    private void FireEntryPoint()
+    {
+        var entryPointMethod = _assembly.GetType($"{_pluginNamespace}.{_pluginClass}")?.GetMethod("EntryPoint");
+        if (entryPointMethod != null)
         {
-            objects.Add(parameter);
+            object instance = Activator.CreateInstance(entryPointMethod.DeclaringType);
+            entryPointMethod.Invoke(instance, new object[] { _pluginParams });
         }
-
-        _pluginParams = objects.ToArray();
     }
 
-    private (MethodInfo, object) GetMethodFromPlugin(string name)
+    private Type GetFunctionType()
     {
-        Type type = _funcType;
-        object obj = Activator.CreateInstance(type);
-        return (type.GetMethod("EntryPoint"), obj);
+        return _assembly.GetType($"{_pluginNamespace}.{_pluginClass}");
     }
-    
-    public void FireEntryPoint()
+
+    private (MethodInfo, object) GetFunctionFromPlugin(string name)
     {
-        var entryPoint = GetMethodFromPlugin("EntryPoint");
-        entryPoint.Item1.Invoke(entryPoint.Item2, new object[] { _pluginParams });
+        Type functionType = GetFunctionType();
+        object obj = Activator.CreateInstance(functionType);
+        MethodInfo methodInfo = functionType.GetMethod(name);
+        return (methodInfo, obj);
     }
-
-    private void LoadCommonFunctions()
-    {
-        Type pluginType = typeof(Plugin);
-
-        // Get the Install method
-        MethodInfo installMethod = pluginType.GetMethod("Install");
-        _installFunc = (Action<bool, bool, IniFile, PoolSize, string, ModSettings>)Delegate.CreateDelegate(
-            typeof(Action<bool, bool, IniFile, PoolSize, string, ModSettings>), this, installMethod);
-
-        // Get the IsModInstalled method
-        MethodInfo isModInstalledMethod = pluginType.GetMethod("IsModInstalled");
-        _installedFunc = (Func<string, bool>)Delegate.CreateDelegate(
-            typeof(Func<string, bool>), this, isModInstalledMethod);
-
-        // Get the Uninstall method
-        MethodInfo uninstallMethod = pluginType.GetMethod("Uninstall");
-        _uninstallFunc = (Action<string>)Delegate.CreateDelegate(
-            typeof(Action<string>), this, uninstallMethod);
-    }
-
 
     public void Install(
         bool buildOnly,
@@ -90,16 +66,20 @@ public class Plugin : IPlugin
         string gameDir,
         ModSettings modSettings)
     {
-        _installFunc.Invoke(buildOnly, iniOnly, tempIni, poolSize, gameDir, modSettings);
+        var parameters = new List<object> { buildOnly, iniOnly, tempIni, poolSize, gameDir, modSettings };
+        var func = GetFunctionFromPlugin("Install");
+        func.Item1.Invoke(func.Item2, parameters.ToArray());
     }
 
     public bool IsModInstalled(string gameDir)
     {
-        return _installedFunc.Invoke(gameDir);
+        var func = GetFunctionFromPlugin("IsModInstalled");
+        return (bool)func.Item1.Invoke(func.Item2, new object[] { gameDir });
     }
 
     public void Uninstall(string gameDir)
     {
-        _uninstallFunc.Invoke(gameDir);
+        var func = GetFunctionFromPlugin("Uninstall");
+        func.Item1.Invoke(func.Item2, new object[] { gameDir });
     }
 }
