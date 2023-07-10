@@ -9,7 +9,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="MainWindow"
     Width="800"
-    Height="550"
+    Height="610"
     Background="#2d2d2d"
     ExtendsContentIntoTitleBar="True"
     Loaded="MainWindow_OnLoaded"

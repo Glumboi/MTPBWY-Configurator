@@ -130,14 +130,16 @@
                     Content="View current Mod Settings"
                     Icon="Bug24" />
 
-                <TextBlock FontSize="14"
-                           Padding="4"
-                           FontWeight="Bold"
-                           Text="Installer Config" />
+                <TextBlock
+                    Padding="4"
+                    FontSize="14"
+                    FontWeight="Bold"
+                    Text="Installer Config" />
 
-                <ComboBox ItemsSource="{Binding Path=Plugins}" 
-                          SelectedIndex="{Binding Path=SelectedPlugin}"
-                          DisplayMemberPath="DisplayName" />
+                <ComboBox
+                    DisplayMemberPath="DisplayName"
+                    ItemsSource="{Binding Path=Plugins}"
+                    SelectedIndex="{Binding Path=SelectedPlugin}" />
             </StackPanel>
         </Grid>
 

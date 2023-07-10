@@ -18,13 +18,10 @@ namespace MayThePerfromanceBeWithYou_Configurator.ViewModels;
 
 public class MainPageViewModel : ViewModelBase
 {
-    private readonly string _saveLocation = System.Environment.GetEnvironmentVariable("USERPROFILE") +
-                                            @"\Saved Games\Respawn\JediSurvivor\";
-
     private PresetDatabase _database;
     private CustomPresetsDatabase _customPresetDatabase;
     private IniFile _presetIni;
-    private JediSurvivorGame _jediSurvivorGame;
+    private string _unrealEngineGamePath;
     private ModSettings _modSettings;
 
     private Snackbar NotificationBar { get; set; }
@@ -39,10 +36,10 @@ public class MainPageViewModel : ViewModelBase
 
     public string GamePath
     {
-        get => string.IsNullOrWhiteSpace(_jediSurvivorGame.Path) ? "" : _jediSurvivorGame.Path;
+        get => string.IsNullOrWhiteSpace(_unrealEngineGamePath) ? "" : _unrealEngineGamePath;
         set
         {
-            _jediSurvivorGame.Path = value;
+            _unrealEngineGamePath = value;
             OnPropertyChanged();
             LoadInstallState();
         }
@@ -221,11 +218,7 @@ public class MainPageViewModel : ViewModelBase
     }
 
 
-    private List<Plugin> _plugins = new List<Plugin>()
-    {
-        new Plugin(
-            @"D:\Github\MTPBWY-Configurator\src\MayThePerfromanceBeWithYou-Configurator\bin\Debug\net7.0-windows\Plugins\MTPBWY-U_PluginTemplate\MTPBWY-U_PluginTemplate.ini")
-    };
+    private List<Plugin> _plugins = new List<Plugin>();
 
     public List<Plugin> Plugins
     {
@@ -344,7 +337,7 @@ public class MainPageViewModel : ViewModelBase
 
     public void LaunchGame()
     {
-        _jediSurvivorGame.Launch();
+        Plugins[_selectedPlugin].LaunchGame();
         ShowNotification("Launching Game ...");
     }
 
@@ -402,7 +395,7 @@ public class MainPageViewModel : ViewModelBase
 
     private bool DoesSaveDirectoryExist()
     {
-        return Directory.Exists(_saveLocation);
+        return Plugins[SelectedPlugin].DoesSaveDirectoryExist();
     }
 
     private void CreateBrowseSaveCommandCommand()
@@ -412,7 +405,7 @@ public class MainPageViewModel : ViewModelBase
 
     private void BrowseSaves()
     {
-        Process.Start("explorer.exe", _saveLocation);
+        Plugins[SelectedPlugin].OpenGameSaveLocation();
     }
 
     public ICommand UninstallModCommand { get; internal set; }
@@ -435,7 +428,6 @@ public class MainPageViewModel : ViewModelBase
     public void UninstallMod()
     {
         Plugins[SelectedPlugin].Uninstall(GamePath);
-        //Mod.Uninstall(GamePath);
         ShowNotification("Uninstalled the Mod successfully!", SymbolRegular.BinFull24);
         LoadInstallState();
     }
@@ -465,14 +457,6 @@ public class MainPageViewModel : ViewModelBase
             PoolSizes[SelectedPoolSize],
             GamePath,
             _modSettings);
-
-       /* Mod.Install(
-            buildOnly,
-            iniOnly,
-            _presetIni,
-            PoolSizes[SelectedPoolSize],
-            GamePath,
-            _modSettings);*/
 
         if (iniOnly)
         {
@@ -580,13 +564,14 @@ public class MainPageViewModel : ViewModelBase
 
     private void LoadGame()
     {
-        _jediSurvivorGame = new JediSurvivorGame();
+        _unrealEngineGamePath = Plugins[SelectedPlugin].GetGamePath();
     }
 
     private void InitializeViewModel()
     {
         Task.Run(() =>
         {
+            Plugins = Plugin.GetPlugins();
             LoadGame();
             LoadInstallState();
             CreateSaveCustomPresetCommand();
@@ -600,7 +585,7 @@ public class MainPageViewModel : ViewModelBase
             CreateBuildModCommand();
             CreateReinitializePresetsCommand();
             SelectProperVramConfig();
-
+            
             do
             {
                 InitializePresets();

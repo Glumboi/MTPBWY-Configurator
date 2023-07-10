@@ -15,4 +15,12 @@ public interface IPlugin
     public bool IsModInstalled(string gameDir);
 
     public void Uninstall(string gameDir);
+
+    public string GetGamePath();
+
+    public void LaunchGame();
+
+    public void OpenGameSaveLocation();
+
+    public bool DoesSaveDirectoryExist();
 }

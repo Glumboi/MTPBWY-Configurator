@@ -82,4 +82,55 @@ public class Plugin : IPlugin
         var func = GetFunctionFromPlugin("Uninstall");
         func.Item1.Invoke(func.Item2, new object[] { gameDir });
     }
+
+    public string GetGamePath()
+    {
+        var func = GetFunctionFromPlugin("GetGamePath");
+        try
+        {
+            return (string)func.Item1.Invoke(func.Item2, new object[]{});
+
+        }
+        catch
+        {
+            return string.Empty;
+        }
+    }
+
+    public void LaunchGame()
+    {
+        var func = GetFunctionFromPlugin("LaunchGame");
+        func.Item1.Invoke(func.Item2, new object[]{});
+    }
+
+    public void OpenGameSaveLocation()
+    {
+        var func = GetFunctionFromPlugin("OpenGameSaveLocation");
+        func.Item1.Invoke(func.Item2, new object[]{});
+    }
+
+    public bool DoesSaveDirectoryExist()
+    {
+        var func = GetFunctionFromPlugin("DoesSaveDirectoryExist");
+        return (bool)func.Item1.Invoke(func.Item2, new object[]{});
+    }
+
+    public static List<Plugin> GetPlugins()
+    {
+        List<Plugin> rtn = new List<Plugin>();
+        var dirs = Directory.GetDirectories(Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Plugins"));
+        foreach (var dir in dirs)
+        {
+            var files = Directory.GetFiles(dir);
+            foreach (var file in files)
+            {
+                if (file.EndsWith(".ini"))
+                {
+                    rtn.Add(new Plugin(file));
+                }
+            }
+        }
+
+        return rtn;
+    }
 }

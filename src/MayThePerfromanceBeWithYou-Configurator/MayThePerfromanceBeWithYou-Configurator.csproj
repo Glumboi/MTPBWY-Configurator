@@ -1,63 +1,69 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net7.0-windows</TargetFramework>
-    <RootNamespace>MayThePerfromanceBeWithYou_Configurator</RootNamespace>
-    <Nullable>enable</Nullable>
-    <UseWPF>true</UseWPF>
-    <ApplicationIcon>Assets\MBTPBWY-Logo.ico</ApplicationIcon>
-    <Authors>Glumboi</Authors>
-    <Description>A tool for my mod MTPBWY</Description>
-    <Copyright>Glumboi (c) 2023</Copyright>
-    <Version>1.4.1</Version>
-    <StartupObject>MayThePerfromanceBeWithYou_Configurator.App</StartupObject>
-    <PlatformTarget>x64</PlatformTarget>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net7.0-windows</TargetFramework>
+		<RootNamespace>MayThePerfromanceBeWithYou_Configurator</RootNamespace>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+		<ApplicationIcon>Assets\MBTPBWY-Logo.ico</ApplicationIcon>
+		<Authors>Glumboi</Authors>
+		<Description>A tool for my mod MTPBWY</Description>
+		<Copyright>Glumboi (c) 2023</Copyright>
+		<Version>1.4.1</Version>
+		<StartupObject>MayThePerfromanceBeWithYou_Configurator.App</StartupObject>
+		<PlatformTarget>x64</PlatformTarget>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <Optimize>False</Optimize>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<Optimize>False</Optimize>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <Optimize>True</Optimize>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<Optimize>True</Optimize>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Assets\MBTPBWY-Logo.png" />
-    <None Remove="Assets\play.png" />
-    <None Remove="PasteBinDataBaseManager_Custom\**" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="Assets\MBTPBWY-Logo.png" />
+		<None Remove="Assets\play.png" />
+		<None Remove="Plugins\MTPBWY_JediSurvivor\MTPBWY_JediSurvivor.ini" />
+		<None Remove="PasteBinDataBaseManager_Custom\**" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Resource Include="Assets\MBTPBWY-Logo.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Assets\play.png" />
-  </ItemGroup>
+	<ItemGroup>
+		<Resource Include="Assets\MBTPBWY-Logo.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\play.png" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="NvAPIWrapper.Net" Version="0.8.1.101" />
-    <PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1" />
-    <PackageReference Include="WPF-UI" Version="2.0.3" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="NvAPIWrapper.Net" Version="0.8.1.101" />
+		<PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1" />
+		<PackageReference Include="WPF-UI" Version="2.0.3" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="PasteBinDataBaseManager_Custom\**" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="PasteBinDataBaseManager_Custom\**" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Remove="PasteBinDataBaseManager_Custom\**" />
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Remove="PasteBinDataBaseManager_Custom\**" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Page Remove="PasteBinDataBaseManager_Custom\**" />
-  </ItemGroup>
+	<ItemGroup>
+		<Page Remove="PasteBinDataBaseManager_Custom\**" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="PasteBinDataBaseManager">
-      <HintPath>Libs\PasteBinDataBaseManager.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="Plugins\**">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
 
+	<ItemGroup>
+		<Reference Include="PasteBinDataBaseManager">
+			<HintPath>Libs\PasteBinDataBaseManager.dll</HintPath>
+		</Reference>
+	</ItemGroup>
 </Project>
