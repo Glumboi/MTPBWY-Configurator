@@ -126,7 +126,6 @@ public class MainPageViewModel : ViewModelBase
         set => SetProperty(ref _limitPoolSizeToVram, value);
     }
 
-
     private bool _rtFixes = false;
 
     public bool RtFixes
@@ -216,7 +215,6 @@ public class MainPageViewModel : ViewModelBase
             UpdateUiFromPreset();
         }
     }
-
 
     private List<Plugin> _plugins = new List<Plugin>();
 
@@ -545,7 +543,7 @@ public class MainPageViewModel : ViewModelBase
         try
         {
             _database = new PresetDatabase(
-                "https://gistcdn.githack.com/Glumboi/074c19fabc18efc2b2df28009d91a036/raw/MTPBWY-Presets.txt");
+                "https://gistcdn.githack.com/Glumboi/957d2376a5e85b865b4a5d9e362cd0e5/raw/2e818a83119de68a781576c67be8ec6570b4e257/MTPBWY-U-Presets.txt");
             IniPresets = _database.GetPresets();
             _database.CreateLocalDatabase();
         }
@@ -585,7 +583,7 @@ public class MainPageViewModel : ViewModelBase
             CreateBuildModCommand();
             CreateReinitializePresetsCommand();
             SelectProperVramConfig();
-            
+
             do
             {
                 InitializePresets();

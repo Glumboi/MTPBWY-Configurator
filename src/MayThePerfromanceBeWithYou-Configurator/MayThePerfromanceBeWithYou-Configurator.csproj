@@ -27,6 +27,8 @@
 		<None Remove="Assets\MBTPBWY-Logo.png" />
 		<None Remove="Assets\play.png" />
 		<None Remove="Plugins\MTPBWY_JediSurvivor\MTPBWY_JediSurvivor.ini" />
+		<None Remove="Plugins\MTPBWY_U_JediSurvivor\MTPBWY_U_JediSurvivor.dll" />
+		<None Remove="Plugins\MTPBWY_U_JediSurvivor\MTPBWY_U_JediSurvivor.ini" />
 		<None Remove="PasteBinDataBaseManager_Custom\**" />
 	</ItemGroup>
 
