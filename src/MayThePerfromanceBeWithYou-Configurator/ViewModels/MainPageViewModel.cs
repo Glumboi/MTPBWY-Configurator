@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using MayThePerfromanceBeWithYou_Configurator.Core;
+using MayThePerfromanceBeWithYou_Configurator.Universal;
 using MayThePerfromanceBeWithYou_Configurator.Windows;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using Wpf.Ui.Common;
@@ -17,20 +18,13 @@ namespace MayThePerfromanceBeWithYou_Configurator.ViewModels;
 
 public class MainPageViewModel : ViewModelBase
 {
-    private readonly string _saveLocation = System.Environment.GetEnvironmentVariable("USERPROFILE") +
-                                           @"\Saved Games\Respawn\JediSurvivor\";
-
     private PresetDatabase _database;
     private CustomPresetsDatabase _customPresetDatabase;
     private IniFile _presetIni;
-    private JediSurvivorGame _jediSurvivorGame;
+    private string _unrealEngineGamePath;
     private ModSettings _modSettings;
 
-    private Snackbar NotificationBar
-    {
-        get;
-        set;
-    }
+    private Snackbar NotificationBar { get; set; }
 
     private bool _contentLoaded = false;
 
@@ -42,10 +36,10 @@ public class MainPageViewModel : ViewModelBase
 
     public string GamePath
     {
-        get => string.IsNullOrWhiteSpace(_jediSurvivorGame.Path) ? "" : _jediSurvivorGame.Path;
+        get => string.IsNullOrWhiteSpace(_unrealEngineGamePath) ? "" : _unrealEngineGamePath;
         set
         {
-            _jediSurvivorGame.Path = value;
+            _unrealEngineGamePath = value;
             OnPropertyChanged();
             LoadInstallState();
         }
@@ -119,6 +113,7 @@ public class MainPageViewModel : ViewModelBase
                 TAAGen5 = !value;
                 TAAUpscaling = !value;
             }
+
             SetProperty(ref _disableAntiAliasing, value);
         }
     }
@@ -130,8 +125,7 @@ public class MainPageViewModel : ViewModelBase
         get => _limitPoolSizeToVram;
         set => SetProperty(ref _limitPoolSizeToVram, value);
     }
-    
-    
+
     private bool _rtFixes = false;
 
     public bool RtFixes
@@ -222,6 +216,28 @@ public class MainPageViewModel : ViewModelBase
         }
     }
 
+    private List<Plugin> _plugins = new List<Plugin>();
+
+    public List<Plugin> Plugins
+    {
+        get => _plugins;
+        set => SetProperty(ref _plugins, value);
+    }
+
+    private int _selectedPlugin = 0;
+
+    public int SelectedPlugin
+    {
+        get => _selectedPlugin;
+        set
+        {
+            //Update settings UI
+            SetProperty(ref _selectedPlugin, value);
+
+            UpdateUiFromPreset();
+        }
+    }
+
     private List<PoolSize> _poolSizes = new List<PoolSize>()
     {
         new PoolSize("Above 12 GB", 6144),
@@ -285,16 +301,19 @@ public class MainPageViewModel : ViewModelBase
 
         TAAUpscaling = MathHelpers.ParseInt(_presetIni.Read("r.TemporalAA.Upsampling", "SystemSettings"), true) != 0;
         TAAGen5 = MathHelpers.ParseInt(_presetIni.Read("r.TemporalAA.Algorithm", "SystemSettings"), true) != 0;
-        PotatoTextures = MathHelpers.ParseInt(_presetIni.Read("r.Streaming.AmortizeCPUToGPUCopy", "SystemSettings")) != 9999;
+        PotatoTextures = MathHelpers.ParseInt(_presetIni.Read("r.Streaming.AmortizeCPUToGPUCopy", "SystemSettings")) !=
+                         9999;
 
         DisableLensFlare = MathHelpers.ParseInt(_presetIni.Read("r.LensFlareQuality", "SystemSettings")) == 0;
         DisableBloom = MathHelpers.ParseInt(_presetIni.Read("r.BloomQuality", "SystemSettings")) == 0;
         DisableFog = MathHelpers.ParseInt(_presetIni.Read("r.VolumetricFog", "SystemSettings")) == 0 &&
                      MathHelpers.ParseInt(_presetIni.Read("r.Fog", "SystemSettings")) == 0;
         DisableDOF = MathHelpers.ParseInt(_presetIni.Read("r.DepthOfFieldQuality", "SystemSettings")) == 0;
-        ExperimentalStutterFix = MathHelpers.ParseInt(_presetIni.Read("s.ForceGCAfterLevelStreamedOut", "SystemSettings")) == 0;
+        ExperimentalStutterFix =
+            MathHelpers.ParseInt(_presetIni.Read("s.ForceGCAfterLevelStreamedOut", "SystemSettings")) == 0;
         DisableAntiAliasing = MathHelpers.ParseInt(_presetIni.Read("r.PostProcessAAQuality", "SystemSettings")) == 0;
-        LimitPoolSizeToVram = MathHelpers.ParseInt(_presetIni.Read("r.Streaming.LimitPoolSizeToVRAM", "SystemSettings")) == 1;
+        LimitPoolSizeToVram =
+            MathHelpers.ParseInt(_presetIni.Read("r.Streaming.LimitPoolSizeToVRAM", "SystemSettings")) == 1;
         RtFixes = MathHelpers.ParseInt(_presetIni.Read("r.HZBOcclusion", "SystemSettings")) == 1;
     }
 
@@ -307,11 +326,7 @@ public class MainPageViewModel : ViewModelBase
             Int32.TryParse(src, out rtrn) ? rtrn : defaultValue;
     }
 
-    public ICommand LaunchGameCommand
-    {
-        get;
-        internal set;
-    }
+    public ICommand LaunchGameCommand { get; internal set; }
 
     private void CreateLaunchGamCommand()
     {
@@ -320,15 +335,11 @@ public class MainPageViewModel : ViewModelBase
 
     public void LaunchGame()
     {
-        _jediSurvivorGame.Launch();
+        Plugins[_selectedPlugin].LaunchGame();
         ShowNotification("Launching Game ...");
     }
 
-    public ICommand ReinitializePresetsCommand
-    {
-        get;
-        internal set;
-    }
+    public ICommand ReinitializePresetsCommand { get; internal set; }
 
     private void CreateReinitializePresetsCommand()
     {
@@ -342,11 +353,7 @@ public class MainPageViewModel : ViewModelBase
         ShowNotification("Reinitialized the Databases!");
     }
 
-    public ICommand SaveCustomPresetCommand
-    {
-        get;
-        internal set;
-    }
+    public ICommand SaveCustomPresetCommand { get; internal set; }
 
     private void CreateSaveCustomPresetCommand()
     {
@@ -362,11 +369,7 @@ public class MainPageViewModel : ViewModelBase
         ShowNotification("Reinitialized the Databases, if a custom Preset got created it should now be available!");
     }
 
-    public ICommand EditIniCommand
-    {
-        get;
-        internal set;
-    }
+    public ICommand EditIniCommand { get; internal set; }
 
     private void CreateEditIniCommand()
     {
@@ -386,15 +389,11 @@ public class MainPageViewModel : ViewModelBase
         UpdateUiFromPreset(false);
     }
 
-    public ICommand BrowseSaveCommand
-    {
-        get;
-        internal set;
-    }
+    public ICommand BrowseSaveCommand { get; internal set; }
 
     private bool DoesSaveDirectoryExist()
     {
-        return Directory.Exists(_saveLocation);
+        return Plugins[SelectedPlugin].DoesSaveDirectoryExist();
     }
 
     private void CreateBrowseSaveCommandCommand()
@@ -404,14 +403,10 @@ public class MainPageViewModel : ViewModelBase
 
     private void BrowseSaves()
     {
-        Process.Start("explorer.exe", _saveLocation);
+        Plugins[SelectedPlugin].OpenGameSaveLocation();
     }
 
-    public ICommand UninstallModCommand
-    {
-        get;
-        internal set;
-    }
+    public ICommand UninstallModCommand { get; internal set; }
 
     private bool IsModAlreadyInstalled()
     {
@@ -430,27 +425,19 @@ public class MainPageViewModel : ViewModelBase
 
     public void UninstallMod()
     {
-        Mod.Uninstall(GamePath);
+        Plugins[SelectedPlugin].Uninstall(GamePath);
         ShowNotification("Uninstalled the Mod successfully!", SymbolRegular.BinFull24);
         LoadInstallState();
     }
 
-    public ICommand BuildModCommand
-    {
-        get;
-        internal set;
-    }
+    public ICommand BuildModCommand { get; internal set; }
 
     private void CreateBuildModCommand()
     {
         BuildModCommand = new RelayCommand(param => InstallMod(true));
     }
 
-    public ICommand InstallModCommand
-    {
-        get;
-        internal set;
-    }
+    public ICommand InstallModCommand { get; internal set; }
 
     private void CreateInstallModCommand()
     {
@@ -461,7 +448,7 @@ public class MainPageViewModel : ViewModelBase
     {
         LoadModSettings();
 
-        Mod.Install(
+        Plugins[SelectedPlugin].Install(
             buildOnly,
             iniOnly,
             _presetIni,
@@ -479,15 +466,12 @@ public class MainPageViewModel : ViewModelBase
             ShowNotification("Mod built successfully!", SymbolRegular.Wrench24);
             return;
         }
+
         LoadInstallState();
         ShowNotification("Installed the Mod successfully!", SymbolRegular.Checkmark48);
     }
 
-    public ICommand OpenSettingsViewerCommand
-    {
-        get;
-        internal set;
-    }
+    public ICommand OpenSettingsViewerCommand { get; internal set; }
 
     private void CreateOpenSettingsViewerCommand()
     {
@@ -500,11 +484,7 @@ public class MainPageViewModel : ViewModelBase
         new ModSettingsViewerWindow(_modSettings, LoadModSettings).Show();
     }
 
-    public ICommand BrowseFolderCommand
-    {
-        get;
-        internal set;
-    }
+    public ICommand BrowseFolderCommand { get; internal set; }
 
     private void CreateBrowseFolderCommand()
     {
@@ -562,29 +542,34 @@ public class MainPageViewModel : ViewModelBase
     {
         try
         {
-            _database = new PresetDatabase("https://gistcdn.githack.com/Glumboi/074c19fabc18efc2b2df28009d91a036/raw/MTPBWY-Presets.txt");
+            _database = new PresetDatabase(
+                "https://gistcdn.githack.com/Glumboi/957d2376a5e85b865b4a5d9e362cd0e5/raw/2e818a83119de68a781576c67be8ec6570b4e257/MTPBWY-U-Presets.txt");
             IniPresets = _database.GetPresets();
             _database.CreateLocalDatabase();
         }
         catch
         {
-            _database = new PresetDatabase(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "LocalDatabase.txt"));
+            _database = new PresetDatabase(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
+                "LocalDatabase.txt"));
             IniPresets = _database.GetPresets();
         }
 
-        _customPresetDatabase = new CustomPresetsDatabase(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "CustomPresets.txt"));
+        _customPresetDatabase =
+            new CustomPresetsDatabase(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
+                "CustomPresets.txt"));
         IniPresets.AddRange(_customPresetDatabase.GetPresets());
     }
 
     private void LoadGame()
     {
-        _jediSurvivorGame = new JediSurvivorGame();
+        _unrealEngineGamePath = Plugins[SelectedPlugin].GetGamePath();
     }
 
     private void InitializeViewModel()
     {
         Task.Run(() =>
         {
+            Plugins = Plugin.GetPlugins();
             LoadGame();
             LoadInstallState();
             CreateSaveCustomPresetCommand();

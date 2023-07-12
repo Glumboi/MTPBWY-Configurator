@@ -129,6 +129,17 @@
                     Command="{Binding Path=OpenSettingsViewerCommand}"
                     Content="View current Mod Settings"
                     Icon="Bug24" />
+
+                <TextBlock
+                    Padding="4"
+                    FontSize="14"
+                    FontWeight="Bold"
+                    Text="Installer Config" />
+
+                <ComboBox
+                    DisplayMemberPath="DisplayName"
+                    ItemsSource="{Binding Path=Plugins}"
+                    SelectedIndex="{Binding Path=SelectedPlugin}" />
             </StackPanel>
         </Grid>
 
