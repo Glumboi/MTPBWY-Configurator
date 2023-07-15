@@ -110,7 +110,7 @@
                         VerticalAlignment="Stretch"
                         Command="{Binding Path=UninstallModCommand}"
                         Content="Uninstall Mod"
-                        Icon="BinFull24" />
+                        Icon="Recycle32" />
 
                     <ui:Button
                         Grid.Column="1"
@@ -119,7 +119,7 @@
                         VerticalAlignment="Stretch"
                         Command="{Binding Path=BrowseSaveCommand}"
                         Content="Take me to my Saves Location"
-                        Icon="Link48" />
+                        Icon="Save24" />
                 </Grid>
 
                 <ui:Button
@@ -177,7 +177,7 @@
                             Padding="4"
                             FontSize="13"
                             FontWeight="Bold"
-                            Text="GPU VRAM for Pool Size optimizations" />
+                            Text="GPU VRAM for Pool Size Optimizations" />
                         <ComboBox
                             VerticalAlignment="Top"
                             DisplayMemberPath="VramSize"
@@ -213,7 +213,6 @@
                             Content="Disable Lens Flare"
                             IsChecked="{Binding Path=DisableLensFlare}"
                             ToolTip="This option will toggle the Lens Flare of the game, checked=Bloom disabled Unchecked=Game manages the Lens Flare" />
-
                         <CheckBox
                             Margin="8,0,0,0"
                             Content="Potato Textures"

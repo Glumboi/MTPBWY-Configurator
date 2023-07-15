@@ -1,0 +1,6 @@
+[Normal] Link: https://gistcdn.githack.com/Glumboi/27507813c187512b2c1384c3dfec0f3d/raw/d12aeb91f0894b79e45998fe4f411395ea8243f9/MTPBW-U-Standard%20Preset.ini,
+[Normal 80%] Link: https://gistcdn.githack.com/Glumboi/404479149fcc0dd5dda7ed476c09428d/raw/8642d79d18b1b0139826a05b1be8839872d968d7/MTPBWY-U-Standard-80%20Preset.ini,
+[Normal Potato Textures] Link: https://gistcdn.githack.com/Glumboi/e6b4b207b54d0fddf05b779473477792/raw/2892145ad7e93eace16f692b94232cca3ba276d7/MTPBWY-U-Normal%20Potato%20Preset.ini,
+[Potato PC] Link: https://gistcdn.githack.com/Glumboi/2386b78e97ffd3302675955c04e3dd18/raw/5729181c472752bb6e08f48aa49f2f568902219d/MTPBWY-U-Potato%20Preset.ini,
+[Steam Deck] Link: https://gistcdn.githack.com/Glumboi/40a51d1c98d358134b99c9b822b5df0d/raw/497eb4fff1116c7c5a80a09baef3b69ff835fdd0/MTPBWY-Steam%20Deck%20Preset.ini,
+[Glumbois Preset] Link: https://gistcdn.githack.com/Glumboi/7629b9c10ac3a31ceeaadeb6b616ab2e/raw/d0121a8488e43b4499bf74eba2973c4f94c34d53/MTPBWY-Glumbois%20Preset.ini,

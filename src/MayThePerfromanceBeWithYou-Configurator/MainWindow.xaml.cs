@@ -26,8 +26,9 @@ namespace MayThePerfromanceBeWithYou_Configurator;
 /// </summary>
 public partial class MainWindow : UiWindow
 {
-    private MainPage mainPage = new MainPage();
-    private SplashScreenPage splashPage;
+    public MainPage mainPage = new MainPage();
+    public ConfigSelectionPage configPage;
+    public SplashScreenPage splashPage;
 
     public MainWindow()
     {
@@ -54,11 +55,14 @@ public partial class MainWindow : UiWindow
         splashPage.FadeOutAnimation.Completed += (sender, e) => tcs.SetResult(true);
         await tcs.Task;
 
-        // Navigate to the main page
-        NavigateToPage(mainPage);
+        configPage = new ConfigSelectionPage(
+            mainPage.ViewModel.Plugins,
+            mainPage.ViewModel.SelectedPlugin,
+            this);
+        NavigateToPage(configPage);
     }
 
-    private void NavigateToPage(UiPage page)
+    public void NavigateToPage(UiPage page)
     {
         WindowFrame.Dispatcher.Invoke(() => WindowFrame.Navigate(page));
     }
