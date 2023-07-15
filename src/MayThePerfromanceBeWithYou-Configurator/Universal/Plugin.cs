@@ -15,6 +15,7 @@ public class Plugin : IPlugin
     private string _pluginDll;
     private string _pluginClass;
     private string _pluginNamespace;
+    private string _coverUrl;
     private object[] _pluginParams;
     private Assembly _assembly;
 
@@ -23,6 +24,7 @@ public class Plugin : IPlugin
         _pluginIni = new IniFile(ini, true);
         _pluginClass = _pluginIni.Read("Class", "Plugin");
         _pluginNamespace = _pluginIni.Read("Namespace", "Plugin");
+        _coverUrl = _pluginIni.Read("GameCover", "Plugin");
         _pluginDll = Path.Combine(_pluginIni.EXE, _pluginIni.Read("DllPath", "Plugin"));
         _assembly = Assembly.LoadFile(_pluginDll);
         LoadParams();
@@ -94,6 +96,11 @@ public class Plugin : IPlugin
         {
             return string.Empty;
         }
+    }
+
+    public string GetGameCover()
+    {
+        return _coverUrl;
     }
 
     public void LaunchGame()

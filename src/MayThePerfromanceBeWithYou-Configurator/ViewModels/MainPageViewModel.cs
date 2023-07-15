@@ -1,4 +1,8 @@
-﻿using System;
+﻿using MayThePerfromanceBeWithYou_Configurator.Core;
+using MayThePerfromanceBeWithYou_Configurator.Universal;
+using MayThePerfromanceBeWithYou_Configurator.Windows;
+using Microsoft.WindowsAPICodePack.Dialogs;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -7,10 +11,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
-using MayThePerfromanceBeWithYou_Configurator.Core;
-using MayThePerfromanceBeWithYou_Configurator.Universal;
-using MayThePerfromanceBeWithYou_Configurator.Windows;
-using Microsoft.WindowsAPICodePack.Dialogs;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 
@@ -233,8 +233,7 @@ public class MainPageViewModel : ViewModelBase
         {
             //Update settings UI
             SetProperty(ref _selectedPlugin, value);
-
-            UpdateUiFromPreset();
+            GamePath = Plugins[value].GetGamePath();
         }
     }
 
