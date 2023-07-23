@@ -20,7 +20,7 @@ public interface IPlugin
 
     public string GetGamePath();
 
-    public void LaunchGame();
+    public void LaunchGame(string gameDir);
 
     public void OpenGameSaveLocation();
 

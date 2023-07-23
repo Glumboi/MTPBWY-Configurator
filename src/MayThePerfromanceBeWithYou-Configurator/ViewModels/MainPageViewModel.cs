@@ -328,14 +328,14 @@ public class MainPageViewModel : ViewModelBase
 
     public ICommand LaunchGameCommand { get; internal set; }
 
-    private void CreateLaunchGamCommand()
+    private void CreateLaunchGameCommand()
     {
         LaunchGameCommand = new RelayCommand(LaunchGame, IsGamePathFilled);
     }
 
     public void LaunchGame()
     {
-        Plugins[_selectedPlugin].LaunchGame();
+        Plugins[_selectedPlugin].LaunchGame(GamePath);
         ShowNotification("Launching Game ...");
     }
 
@@ -410,7 +410,7 @@ public class MainPageViewModel : ViewModelBase
 
     private bool IsModAlreadyInstalled()
     {
-        return Mod.IsModInstalled(GamePath);
+        return Plugins[SelectedPlugin].IsModInstalled(GamePath);
     }
 
     private bool IsGamePathFilled()
@@ -575,7 +575,7 @@ public class MainPageViewModel : ViewModelBase
             CreateSaveCustomPresetCommand();
             CreateInstallModCommand();
             CreateOpenSettingsViewerCommand();
-            CreateLaunchGamCommand();
+            CreateLaunchGameCommand();
             CreateUninstallModCommand();
             CreateBrowseFolderCommand();
             CreateBrowseSaveCommandCommand();

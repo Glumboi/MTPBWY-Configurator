@@ -1,6 +1,4 @@
-﻿using System;
-using System.Windows.Input;
-using MayThePerfromanceBeWithYou_Configurator.ViewModels;
+﻿using MayThePerfromanceBeWithYou_Configurator.ViewModels;
 using Wpf.Ui.Controls;
 
 namespace MayThePerfromanceBeWithYou_Configurator.Pages;

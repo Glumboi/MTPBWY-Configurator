@@ -1,19 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using MayThePerfromanceBeWithYou_Configurator.Pages;
 using MayThePerfromanceBeWithYou_Configurator.ViewModels;
 using Wpf.Ui.Appearance;
@@ -59,7 +47,9 @@ public partial class MainWindow : UiWindow
             mainPage.ViewModel.Plugins,
             mainPage.ViewModel.SelectedPlugin,
             this);
+        
         NavigateToPage(configPage);
+        BackButton.Visibility = Visibility.Visible;
     }
 
     public void NavigateToPage(UiPage page)
@@ -77,5 +67,18 @@ public partial class MainWindow : UiWindow
     private void MainWindow_OnClosed(object? sender, EventArgs e)
     {
         Environment.Exit(0);
+    }
+
+    private void BackButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        WindowFrame.Navigate(configPage);
+    }
+
+    private void WindowFrame_OnNavigating(object sender, NavigatingCancelEventArgs e)
+    {
+        if (e.NavigationMode == NavigationMode.Back)
+        {
+            e.Cancel = true;
+        }
     }
 }

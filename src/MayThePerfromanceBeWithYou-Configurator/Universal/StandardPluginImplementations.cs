@@ -37,11 +37,10 @@ public abstract class StandardPluginImplementations : IPlugin
 
     public virtual string GetGamePath()
     {
-        NotImplementedLogMsg("GetGamePath");
         return "";
     }
 
-    public virtual void LaunchGame()
+    public virtual void LaunchGame(string gameDir)
     {
         NotImplementedLogMsg("LaunchGame");
     }
@@ -65,13 +64,16 @@ public abstract class StandardPluginImplementations : IPlugin
 
         if (!Directory.Exists(gameStructureLocation)) Directory.CreateDirectory(gameStructureLocation);
 
-        string[] dirsToClear = Directory.GetDirectories(gameStructureLocation);
-        for (int i = 0; i < dirsToClear.Length; i++)
+        DirectoryInfo di = new DirectoryInfo(gameStructureLocation);
+        foreach (FileInfo file in di.GetFiles())
         {
-            string[] files = Directory.GetFiles(dirsToClear[i]);
-            for (int j = 0; j < files.Length; j++) File.Delete(files[j]);
+            file.Delete(); 
         }
-
+        foreach (DirectoryInfo dir in di.GetDirectories())
+        {
+            dir.Delete(true); 
+        }
+        
         string? lastCreated = null;
         for (int i = 0; i < subFolders.Length; i++)
         {

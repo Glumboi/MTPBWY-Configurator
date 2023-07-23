@@ -9,7 +9,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="MainWindow"
     Width="800"
-    Height="610"
+    Height="640"
     Background="#2d2d2d"
     ExtendsContentIntoTitleBar="True"
     Loaded="MainWindow_OnLoaded"
@@ -66,9 +66,25 @@
             Title="MTPBWY-Configurator"
             Icon="./Assets/MBTPBWY-Logo.png"
             UseSnapLayout="True" />
-
         <Border Grid.Row="1" Padding="10">
-            <Frame x:Name="WindowFrame" Focusable="True" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <ui:Button
+                    Content="Go back to the configs"
+                    Padding="4"
+                    Icon="Backspace24"
+                    x:Name="BackButton"
+                    Click="BackButton_OnClick" 
+                    Visibility="Collapsed" />
+                <Frame Grid.Row="1" 
+                       x:Name="WindowFrame" 
+                       Focusable="True"
+                       Navigating="WindowFrame_OnNavigating"/>
+            </Grid>
+
         </Border>
     </Grid>
 </ui:UiWindow>

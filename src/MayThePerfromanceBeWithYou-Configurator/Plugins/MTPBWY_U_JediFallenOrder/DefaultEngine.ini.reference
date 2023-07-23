@@ -1,0 +1,1029 @@
+[URL]
+GameName=SwGame
+
+[SystemSettings]
+rs.EnableAbilitySystem=1
+rs.EnableRootMotionSlopeSweeps=0
+rs.CCDDisable=0
+rs.WorldMap.EnableBPErrorReporting=0
+
+[/Script/Engine.Engine]
+GameViewportClientClassName=/Script/RsDevNetRT.RsDevNetViewport
+NavigationSystemClassName=/Script/RsGameTechRT.RsNavigationSystem
+GameUserSettingsClassName=/Script/SwGame.SWGameUserSettings
+NavigationSystemConfigClassName=/Script/Engine.NavigationSystemConfig
+AssetManagerClassName=/Script/SwGame.SwAssetManager
++ActiveClassRedirects=(OldClassName="SwBTTask_AttackAnimation",NewClassName="/Script/SwGame.SwBTTask_PlayAttackAnimation")
++ActiveClassRedirects=(OldClassName="RsBuddyOwner", NewClassName="SwBuddyOwnerComponent")
++ActiveClassRedirects=(OldClassName="RsPOI", NewClassName="RsAIPOI")
++ActiveClassRedirects=(OldClassName="RsWorldRegionTagUserData", NewClassName="/Script/RsGameTechRT.RsMapSectionTagUserData")
++ActiveClassRedirects=(OldClassName="RsPlayerController",NewClassName="/Script/RsGameTechRT.RsPlayerController")
++ActiveClassRedirects=(OldClassName="R4GameplayLibrary",NewClassName="/Script/SwGame.R4GameplayLibrary")
++ActiveClassRedirects=(OldClassName="R4GameplayTagActor",NewClassName="/Script/SwGame.R4GameplayTagActor")
++ActiveClassRedirects=(OldClassName="R4PlayerController",NewClassName="/Script/SwGame.R4PlayerController")
++ActiveClassRedirects=(OldClassName="R4CameraBehavior_AlignRotationWithFocus",NewClassName="/Script/SwGame.R4CameraBehavior_AlignRotationWithFocus")
++ActiveClassRedirects=(OldClassName="R4CameraBehavior_AnchorToEyeLocation",NewClassName="/Script/SwGame.R4CameraBehavior_AnchorToEyeLocation")
++ActiveClassRedirects=(OldClassName="R4CameraBehavior_AnchorToFocusLocation",NewClassName="/Script/SwGame.R4CameraBehavior_AnchorToFocusLocation")
++ActiveClassRedirects=(OldClassName="UDEPRECATED_R4CameraBehavior_Blueprintable",NewClassName="/Script/SwGame.UDEPRECATED_R4CameraBehavior_Blueprintable")
++ActiveClassRedirects=(OldClassName="R4CameraBehavior_CameraActor",NewClassName="/Script/SwGame.R4CameraBehavior_CameraActor")
++ActiveClassRedirects=(OldClassName="R4CameraBehavior_CollisionTrace",NewClassName="/Script/SwGame.R4CameraBehavior_CollisionTrace")
++ActiveClassRedirects=(OldClassName="R4CameraBehavior_FOV",NewClassName="/Script/SwGame.R4CameraBehavior_FOV")
++ActiveClassRedirects=(OldClassName="R4CameraBehavior_LimitPitch",NewClassName="/Script/SwGame.R4CameraBehavior_LimitPitch")
++ActiveClassRedirects=(OldClassName="R4CameraBehavior_LookAtFocus",NewClassName="/Script/SwGame.R4CameraBehavior_LookAtFocus")
++ActiveClassRedirects=(OldClassName="R4CameraBehavior_LookInput",NewClassName="/Script/SwGame.R4CameraBehavior_LookInput")
++ActiveClassRedirects=(OldClassName="R4CameraBehavior_LookInputAdjustedByDistanceToFocus",NewClassName="/Script/SwGame.R4CameraBehavior_LookInputAdjustedByDistanceToFocus")
++ActiveClassRedirects=(OldClassName="R4CameraBehavior_MaintainOffsets",NewClassName="/Script/SwGame.R4CameraBehavior_MaintainOffsets")
++ActiveClassRedirects=(OldClassName="R4CameraBehavior_MotionSmoothing",NewClassName="/Script/SwGame.R4CameraBehavior_MotionSmoothing")
++ActiveClassRedirects=(OldClassName="R4CameraBehavior_Offset",NewClassName="/Script/SwGame.R4CameraBehavior_Offset")
++ActiveClassRedirects=(OldClassName="R4CameraBehavior_OffsetByCharacterFacing",NewClassName="/Script/SwGame.R4CameraBehavior_OffsetByCharacterFacing")
++ActiveClassRedirects=(OldClassName="R4CameraBehavior_OffsetByDistanceFromAnchorToFocus",NewClassName="/Script/SwGame.R4CameraBehavior_OffsetByDistanceFromAnchorToFocus")
++ActiveClassRedirects=(OldClassName="R4CameraBehavior_OffsetWhenIdle",NewClassName="/Script/SwGame.R4CameraBehavior_OffsetWhenIdle")
++ActiveClassRedirects=(OldClassName="R4CameraBehavior_OrientRelativeToFocusNormal",NewClassName="/Script/SwGame.R4CameraBehavior_OrientRelativeToFocusNormal")
++ActiveClassRedirects=(OldClassName="R4CameraBehavior_RotationHinge",NewClassName="/Script/SwGame.R4CameraBehavior_RotationHinge")
++ActiveClassRedirects=(OldClassName="R4CameraBehavior_RotationSmoothing",NewClassName="/Script/SwGame.R4CameraBehavior_RotationSmoothing")
++ActiveClassRedirects=(OldClassName="R4CameraBehavior_TetherToAnchor",NewClassName="/Script/SwGame.R4CameraBehavior_TetherToAnchor")
++ActiveClassRedirects=(OldClassName="RsActorLedgeComponent", NewClassName="/Script/RsGameTechRT.RsActorLedgeComponent")
++ActiveClassRedirects=(OldClassName="ERsLedgeMode", NewClassName="/Script/RsGameTechRT.ERsLedgeMode")
++ActiveClassRedirects=(OldClassName="RsRopeActor", NewClassName="/Script/RsGameTechRT.RsRopeActor")
++ActiveClassRedirects=(OldClassName="RsRopeComponent", NewClassName="/Script/RsGameTechRT.RsRopeComponent")
++ActiveClassRedirects=(OldClassName="RsRopeAttachmentComponent", NewClassName="/Script/RsGameTechRT.RsRopeAttachmentComponent")
++ActiveClassRedirects=(OldClassName="ERsRopeSegmentAttachmentAutoUpdateMode", NewClassName="/Script/RsGameTechRT.ERsRopeSegmentAttachmentAutoUpdateMode")
++ActiveClassRedirects=(OldClassName="ERsHeroState", NewClassName="/Script/RsGameTechRT.ERsNavState")
++ActiveClassRedirects=(OldClassName="AnimNotifyState_DisableRsIKinema", NewClassName="/Script/RsGameTechRT.RsAnimNotifyState_DisableRsIK")
++ActiveClassRedirects=(OldClassName="AnimNotifyState_DisableRsIKinemaFootAdjusts", NewClassName="/Script/RsGameTechRT.RsAnimNotifyState_DisableRsIKFootAdjusts")
++ActiveClassRedirects=(OldClassName="RsButton", NewClassName="/Script/RsGameTechRT.RsUiButton")
++ActiveClassRedirects=(OldClassName="SwAnimNotifyState_AIMoveTransitionAim", NewClassName="/Script/RsGameTechRT.RsAnimNotifyState_AIMoveTransitionFocusTracking")
++ActiveClassRedirects=(OldClassName="URsBTService_LockActiveGoal", NewClassName="/Script/RsGameTechRT.RsBTService_LockGoals")
++ActiveClassRedirects=(OldClassName="RsAILeashingBounds", NewClassName="/Script/RsGameTechRT.RsAILeashingBox")
++ActiveGameNameRedirects=(OldGameName="/Script/R3CoreBP",NewGameName="/Script/RsTechRT")
++ActiveGameNameRedirects=(OldGameName="/Script/R3CoreED",NewGameName="/Script/RsTechED")
++ActiveGameNameRedirects=(OldGameName="/Script/r4",NewGameName="/Script/SwGame")
++ActiveGameNameRedirects=(OldGameName="/Script/r4Editor",NewGameName="/Script/SwEditor")
++ActiveGameNameRedirects=(OldGameName="/Script/Respawn", NewGameName="/Script/Engine")
++ActiveStructRedirects=(OldStructName="RsTweaks", NewStructName="RsTweaks_DEPRECATED")
++ActiveStructRedirects=(OldStructName="RsFootEffect", NewStructName="RsSurfaceEffect")
++ActiveStructRedirects=(OldStructName="FireProjectileParameter", NewStructName="RsFireProjectileParameter")
++ActiveStructRedirects=(OldStructName="RsWorldRegionTag",NewStructName="RsMapSectionTag")
++ActiveStructRedirects=(OldStructName="ButtonMashSyncGroupData",NewStructName="ButtonMashSyncGroupParameters")
++ActiveStructRedirects=(OldStructName="FRsAIPlayAnimationData", NewStructName="FRsCharacterAnimationData")
++ActiveStructRedirects=(OldStructName="FRsAIPlayAnimationSoftReferencingData", NewStructName="FRsCharacterAnimSoftReferencingData")
++K2FieldRedirects=(OldFieldName="RsActorMotion.SetMotionParm_Deprecated",NewFieldName="RsActorMotion.SetMotionParm")
++K2FieldRedirects=(OldFieldName="RsActorMotion.PushMotionParm_Deprecated",NewFieldName="RsActorMotion.PushMotionParm")
++K2FieldRedirects=(OldFieldName="RsActorMotion.PopMotionParm_Deprecated",NewFieldName="RsActorMotion.PopMotionParm")
++K2FieldRedirects=(OldFieldName="RsActor.SetClampToNavMesh",NewFieldName="RsActor.SetClampToNavMesh_BluePrint")
++K2FieldRedirects=(OldFieldName="RsAICharacter.GetCombatState",NewFieldName="RsCharacter.GetCombatState")
++K2FieldRedirects=(OldFieldName="RsAICharacter.SetCombatState",NewFieldName="RsCharacter.SetCombatState")
++K2FieldRedirects=(OldFieldName="RsHero.OnAnyHeroStateChange",NewFieldName="RsCharacter.OnAnyNavStateChanged")
++K2FieldRedirects=(OldFieldName="RsHero.SetHeroState",NewFieldName="RsCharacter.SetNavState")
++K2FieldRedirects=(OldFieldName="RsHero.ResetToBestHeroState",NewFieldName="RsCharacter.ResetToBestNavState")
++K2FieldRedirects=(OldFieldName="RsHero.GetCurrentHeroState",NewFieldName="RsCharacter.GetCurrentNavState")
++K2FieldRedirects=(OldFieldName="RsHero.GetPreviousHeroState",NewFieldName="RsCharacter.GetPreviousNavState")
++K2FieldRedirects=(OldFieldName="RsHero.IsHeroState",NewFieldName="RsCharacter.IsNavState")
++K2FieldRedirects=(OldFieldName="RsHero.WasHeroState",NewFieldName="RsCharacter.WasNavState")
++K2FieldRedirects=(OldFieldName="RsHero.RegisterOnHeroStateEntered",NewFieldName="RsCharacter.RegisterOnNavStateEntered")
++K2FieldRedirects=(OldFieldName="RsHero.UnregisterOnHeroStateEntered",NewFieldName="RsCharacter.UnregisterOnNavStateEntered")
++K2FieldRedirects=(OldFieldName="RsHero.RegisterOnHeroStateExited",NewFieldName="RsCharacter.RegisterOnNavStateExited")
++K2FieldRedirects=(OldFieldName="RsHero.UnregisterOnHeroStateExited",NewFieldName="RsCharacter.UnregisterOnHeroStateExited")
++K2FieldRedirects=(OldFieldName="RsAbilityEffectVictimComponent.IsImmuneToEffect",NewFieldName="RsAbilityEffectVictimComponent.HasOverridenEffect")
++K2FieldRedirects=(OldFieldName="RsAbilityEffectVictimComponent.AddImmunityToEffect",NewFieldName="RsAbilityEffectVictimComponent.AddOverrideForEffect")
++K2FieldRedirects=(OldFieldName="RsAbilityEffectVictimComponent.RemoveImmunityToEffect",NewFieldName="RsAbilityEffectVictimComponent.RemoveOverrideForEffect")
++K2FieldRedirects=(OldFieldName="INT_Abilities.OnForcePushFailed",NewFieldName="INT_Abilities.OnForcePushOverriden")
++K2FieldRedirects=(OldFieldName="INT_Abilities.OnForcePullFailed",NewFieldName="INT_Abilities.OnForcePullOverriden")
++K2FieldRedirects=(OldFieldName="INT_Abilities.OnForceSlowFailed",NewFieldName="INT_Abilities.OnForceSlowOverriden")
++K2FieldRedirects=(OldFieldName="SwAICharacter.ReactionParried",NewFieldName="SwAICharacter.K2_ReactionParried")
++K2FieldRedirects=(OldFieldName="RsMapSectionTagUserData.WorldRegionTag",NewFieldName="RsMapSectionTagUserData.MapSectionTag")
++K2FieldRedirects=(OldFieldName="RsMapSectionVolume.WorldRegionTag",NewFieldName="RsMapSectionVolume.MapSectionTag")
++K2FieldRedirects=(OldFieldName="RsAIGameStateManager.OnAIGameStateChangedEvent",NewFieldName="RsAIGameStateManager.OnGameStateChangedEvent")
++K2FieldRedirects=(OldFieldName="notify_SetHitCollision.CollisionParts",NewFieldName="SwAnimNotifyState_SetHitCollision.CollisionParts")
++K2FieldRedirects=(OldFieldName="Actor.DistanceReducedTickRate",NewFieldName="Actor.DistanceReducedTickInterval")
++K2FieldRedirects=(OldFieldName="ActorComponent.DistanceReducedTickRate",NewFieldName="ActorComponent.DistanceReducedTickInterval")
++K2ParamRedirects=(NodeName="/Script/BlueprintGraph.K2Node_CallFunction", OldParamName="RsGameplayStatics.SetMapSectionExplored.WorldRegionTag", NewParamName="MapSectionTag")
++K2ParamRedirects=(NodeName="/Script/BlueprintGraph.K2Node_CallFunction", OldParamName="RsGameplayStatics.SetMapSectionHidden.WorldRegionTag", NewParamName="MapSectionTag")
++K2ParamRedirects=(NodeName="/Script/BlueprintGraph.K2Node_CallFunction", OldParamName="RsGameplayStatics.IsMapSectionExplored.WorldRegionTag", NewParamName="MapSectionTag")
++K2ParamRedirects=(NodeName="/Script/BlueprintGraph.K2Node_CallFunction", OldParamName="RsGameplayStatics.GetMapSectionCentroidPosition.WorldRegionTag", NewParamName="MapSectionTag")
++K2ParamRedirects=(NodeName="/Script/BlueprintGraph.K2Node_CallFunction", OldParamName="RsGameplayStatics.GetMapSectionInteriorLevel.WorldRegionTag", NewParamName="MapSectionTag")
++K2ParamRedirects=(NodeName="/Script/BlueprintGraph.K2Node_CallFunction", OldParamName="RsCharacter.TriggerReaction.OtherActor", NewParamName="Attacker")
++K2ParamRedirects=(NodeName="/Script/BlueprintGraph.K2Node_CallFunction", OldParamName="RsCharacter.AddPhysicalAnimationTickDependency.FacialRig", NewParamName="NewDependent")
++TaggedPropertyRedirects=(ClassName="AnimState_Hero",OldPropertyName="PreviousHeroState",NewPropertyName="PreviousNavState")
++TaggedPropertyRedirects=(ClassName="AnimState_Hero",OldPropertyName="CurrentHeroState",NewPropertyName="CurrentNavState")
++TaggedPropertyRedirects=(ClassName="RsCharacter",OldPropertyName="GameplayTags",NewPropertyName="InitialAttributeTags")
++TaggedPropertyRedirects=(ClassName="RsCharacter",OldPropertyName="AttributeTags",NewPropertyName="InitialAttributeTags")
++TaggedPropertyRedirects=(ClassName="SwAbilityEffectVictimData",OldPropertyName="ForcePushMaxDistance",NewPropertyName="ForcePushDistance")
++TaggedPropertyRedirects=(ClassName="SwAbilityEffectVictimData",OldPropertyName="ForcePushMaxTimeToDestination",NewPropertyName="ForcePushTimeToDestination")
++TaggedPropertyRedirects=(ClassName="SwForcePushAbility",OldPropertyName="GroundNavAnimation",NewPropertyName="GroundNavRightAnimation")
++TaggedPropertyRedirects=(ClassName="RsAbilityEffectVictimComponent",OldPropertyName="EffectImmunityList",NewPropertyName="EffectOverrideList")
++TaggedPropertyRedirects=(ClassName="RsAIPOI",OldPropertyName="OnInteractionBegin",NewPropertyName="OnApproachingPOI")
++TaggedPropertyRedirects=(ClassName="RsAIPOI",OldPropertyName="OnInteractionEnd",NewPropertyName="OnLeavingPOI")
++TaggedPropertyRedirects=(ClassName="RsAIPOI",OldPropertyName="RefractoryPeriod",NewPropertyName="CooldownDuration")
++TaggedPropertyRedirects=(ClassName="RsAIPOI",OldPropertyName="BroadcastRadius",NewPropertyName="Radius")
++TaggedPropertyRedirects=(ClassName="RsTargetableComponent",OldPropertyName="FactionTag",NewPropertyName="DefaultFactionTag")
++TaggedPropertyRedirects=(ClassName="RsAISenseComponent",OldPropertyName="SensorDefinitions",NewPropertyName="DefaultSensorDefinitions")
++DynamicShadowCostColors=(R=0.0,G=0.0,B=0.0,A=1.0)
++DynamicShadowCostColors=(R=0.0,G=0.0,B=0.4,A=1.0)
++DynamicShadowCostColors=(R=0.0,G=0.3,B=1.0,A=1.0)
++DynamicShadowCostColors=(R=0.0,G=0.7,B=0.4,A=1.0)
++DynamicShadowCostColors=(R=0.0,G=1.0,B=0.0,A=1.0)
++DynamicShadowCostColors=(R=0.8,G=0.8,B=0.0,A=1.0)
++DynamicShadowCostColors=(R=1.0,G=0.3,B=0.0,A=1.0)
++DynamicShadowCostColors=(R=0.7,G=0.0,B=0.0,A=1.0)
++DynamicShadowCostColors=(R=0.5,G=0.0,B=0.5,A=1.0)
++DynamicShadowCostColors=(R=0.7,G=0.3,B=0.7,A=1.0)
++DynamicShadowCostColors=(R=1.0,G=0.9,B=0.9,A=1.0)
++ReflectionCostColors=(R=0.0,G=0.0,B=0.0,A=1.0)
++ReflectionCostColors=(R=0.0,G=0.0,B=0.4,A=1.0)
++ReflectionCostColors=(R=0.0,G=0.3,B=1.0,A=1.0)
++ReflectionCostColors=(R=0.0,G=0.7,B=0.4,A=1.0)
++ReflectionCostColors=(R=0.0,G=1.0,B=0.0,A=1.0)
++ReflectionCostColors=(R=0.8,G=0.8,B=0.0,A=1.0)
++ReflectionCostColors=(R=1.0,G=0.3,B=0.0,A=1.0)
++ReflectionCostColors=(R=0.7,G=0.0,B=0.0,A=1.0)
++ReflectionCostColors=(R=0.5,G=0.0,B=0.5,A=1.0)
++ReflectionCostColors=(R=0.7,G=0.3,B=0.7,A=1.0)
++ReflectionCostColors=(R=1.0,G=0.9,B=0.9,A=1.0)
+-LODColorationColors=(R=1.0,G=1.0,B=1.0,A=1.0) ; white (LOD 0)
+-LODColorationColors=(R=1.0,G=0.0,B=0.0,A=1.0) ; red (LOD 1)
+-LODColorationColors=(R=0.0,G=1.0,B=0.0,A=1.0) ; green (etc...)
+-LODColorationColors=(R=0.0,G=0.0,B=1.0,A=1.0) ; blue
+-LODColorationColors=(R=1.0,G=1.0,B=0.0,A=1.0) ; yellow
+-LODColorationColors=(R=1.0,G=0.0,B=1.0,A=1.0) ; fuchsia (bright purple)
+-LODColorationColors=(R=0.0,G=1.0,B=1.0,A=1.0) ; cyan
+-LODColorationColors=(R=0.5,G=0.0,B=0.5,A=1.0) ; purple
++LODColorationColors=(R=1.0,G=1.0,B=1.0,A=1.0) ; white (LOD 0)
++LODColorationColors=(R=0.0,G=1.0,B=0.0,A=1.0) ; green (LOD 1)
++LODColorationColors=(R=0.0,G=0.0,B=1.0,A=1.0) ; blue  (LOD 2)
++LODColorationColors=(R=1.0,G=1.0,B=0.0,A=1.0) ; yellow(LOD 3)
++LODColorationColors=(R=0.0,G=1.0,B=1.0,A=1.0) ; cyan  (LOD 4)
++LODColorationColors=(R=0.5,G=0.0,B=0.5,A=1.0) ; purple(LOD 5)
++LODColorationColors=(R=1.0,G=0.0,B=0.0,A=1.0) ; red (No LODs)
+MaxTextureAdditiveComplexityCount=18
++TextureComplexityColors=(R=0.0,G=0.0,B=0.0,A=1.0)
++TextureComplexityColors=(R=0.0,G=0.3,B=1.0,A=1.0)
++TextureComplexityColors=(R=0.0,G=0.7,B=0.4,A=1.0)
++TextureComplexityColors=(R=0.0,G=1.0,B=0.0,A=1.0)
++TextureComplexityColors=(R=0.8,G=0.8,B=0.0,A=1.0)
++TextureComplexityColors=(R=1.0,G=0.3,B=0.0,A=1.0)
++TextureComplexityColors=(R=0.7,G=0.0,B=0.0,A=1.0)
++TextureComplexityColors=(R=0.5,G=0.0,B=0.5,A=1.0)
++TextureComplexityColors=(R=0.7,G=0.3,B=0.7,A=1.0)
++TextureComplexityColors=(R=1.0,G=0.9,B=0.9,A=1.0)
+PhysicsCollisionHandlerClassName=/Game/GlobalData/SwPhysicsCollisionHandler.SwPhysicsCollisionHandler_C
+FilmGrainTextureName=/Game/Lighting/LightTextures/T_filmgrain_01.T_filmgrain_01
+DefaultBloomKernelTextureName=/Engine/EngineResources/DefaultTexture.DefaultTexture
+bSubtitlesEnabled=False
+MaxDeltaTime=0.0625 ; 16Hz
+
+[Engine.StartupPackages]
+-Package=/Engine/EngineMaterials/DefaultBloomKernel
+
+[CoreRedirects]
++ClassRedirects=(OldName="RsActionDescription", NewName="RsCombatState")
++ClassRedirects=(OldName="RsActionStateMachine", NewName="RsCombatStateMachine")
++ClassRedirects=(OldName="RsReactionDescription", NewName="RsReactionState")
++ClassRedirects=(OldName="SwReactionDescription", NewName="SwReactionState")
++ClassRedirects=(OldName="SwDefenseDescription", NewName="SwDefenseState")
++ClassRedirects=(OldName="SwAttackDescription", NewName="SwAttackState")
++ClassRedirects=(OldName="SwPlayerReactionDescription", NewName="SwPlayerReactionState")
++ClassRedirects=(OldName="SwPlayerDefenseDescription", NewName="SwPlayerDefenseState")
++ClassRedirects=(OldName="notify_SetSkipReaction_C", NewName="/Script/SwGame.SwAnimNotify_SetSkipReaction", OverrideClassName="/Script/CoreUObject.Class")
++ClassRedirects=(OldName="notify_AI_DisableBlock_C", NewName="/Script/RsGameTechRT.RsAnimNotifyState_DisableBlock", OverrideClassName="/Script/CoreUObject.Class")
++ClassRedirects=(OldName="Shared_GrabWhiff_Description_C", NewName="/Script/SwGame.SwGrabWhiffAttackState", OverrideClassName="/Script/CoreUObject.Class", InstanceOnly=true)
++ClassRedirects=(OldName="Shared_GrabButtonMash_Description_C", NewName="/Script/SwGame.SwGrabButtonMashState", OverrideClassName="/Script/CoreUObject.Class", InstanceOnly=true)
++ClassRedirects=(OldName="Croakodile_Tongue_Description_C", NewName="/Script/SwGame.SwGrabButtonMashState", OverrideClassName="/Script/CoreUObject.Class", InstanceOnly=true)
++ClassRedirects=(OldName="RsSingleDeathData", NewName="RsSingleAnimData")
++ClassRedirects=(OldName="RsSwingDirectionBasedDeathData", NewName="RsSwingDirectionBasedAnimData")
++ClassRedirects=(OldName="RsAttackerDirectionBasedDeathData", NewName="RsAttackerDirectionBasedAnimData")
++ClassRedirects=(OldName="RsSingleSyncDeathData", NewName="RsSingleSyncData")
++ClassRedirects=(OldName="RsAttackerDirectionBasedSyncDeathData", NewName="RsAttackerDirectionBasedSyncData")
++ClassRedirects=(OldName="RsSingleReactionData", NewName="RsSingleAnimData")
++ClassRedirects=(OldName="RsSwingDirectionBasedReactionData", NewName="RsSwingDirectionBasedAnimData")
++ClassRedirects=(OldName="RsAttackerDirectionBasedReactionData", NewName="RsAttackerDirectionBasedAnimData")
++ClassRedirects=(OldName="RsSingleSyncReactionData", NewName="RsSingleSyncData")
++ClassRedirects=(OldName="RsAttackerDirectionBasedSyncReactionData", NewName="RsAttackerDirectionBasedSyncData")
++ClassRedirects=(OldName="RsSwingDirectionBasedSyncReactionData", NewName="RsSwingDirectionBasedSyncData")
++ClassRedirects=(OldName="RsNestedAttackerDirectionReactionData", NewName="RsNestedAttackerDirectionAnimData")
++StructRedirects=(OldName="RsCharacterAnimData", NewName="RsCharacterAnimationData")
++StructRedirects=(OldName="RsPlayAnimationDataBase", NewName="RsCharacterAnimDataBase")
++StructRedirects=(OldName="RsAIPlayAnimationData", NewName="RsCharacterAnimationData")
++StructRedirects=(OldName="RsAIPlayAnimationSoftReferencingData", NewName="RsCharacterAnimSoftReferencingData")
++EnumRedirects=(OldName="/Game/GlobalData/Enums/Enum_AI_CombatStates.Enum_AI_CombatStates",NewName="/Script/RsGameTechRT.ERsCombatState", ValueChanges=(("NewEnumerator4","ERsCombatState::Nuetral"),("NewEnumerator0","ERsCombatState::Attacking"),("NewEnumerator1","ERsCombatState::Reaction"),("NewEnumerator2","ERsCombatState::Blocking"),("NewEnumerator7","ERsCombatState::Parrying"),("NewEnumerator3","ERsCombatState::Evading"),("NewEnumerator6","ERsCombatState::Stunned"),("NewEnumerator8","ERsCombatState::Telekinesis")), OverrideClassName="/Script/CoreUObject.Enum")
++EnumRedirects=(OldName="/Game/GlobalData/Enums/Enum_DamageValues.Enum_DamageValues",NewName="/Script/RsGameTechRT.ERsDamageValueLevel", ValueChanges=(("NewEnumerator0","ERsDamageValueLevel::dmg_Small"), ("NewEnumerator1","ERsDamageValueLevel::dmg_Medium"), ("NewEnumerator2","ERsDamageValueLevel::dmg_Large"), ("NewEnumerator3","ERsDamageValueLevel::dmg_XLarge"), ("NewEnumerator4","ERsDamageValueLevel::dmg_Extreme")), OverrideClassName="/Script/CoreUObject.Enum")
++EnumRedirects=(OldName="Enum_CollisionParts",NewName="/Script/RsGameTechRT.ERsCharacterColliders", ValueChanges=(("NewEnumerator0","ERsCharacterColliders::weaponRight_Collision"),("NewEnumerator3","ERsCharacterColliders::weaponLeft_Collision"),("NewEnumerator4","ERsCharacterColliders::weaponOther_Collision"),("NewEnumerator10","ERsCharacterColliders::weaponOtherLeft_Collision"),("NewEnumerator5","ERsCharacterColliders::body_Collision"),("NewEnumerator6","ERsCharacterColliders::barehandedRight_Collision"),("NewEnumerator7","ERsCharacterColliders::barehandedLeft_Collision"),("NewEnumerator8","ERsCharacterColliders::barehandedRightFoot_Collision"),("NewEnumerator9","ERsCharacterColliders::barehandedLeftFoot_Collision")), OverrideClassName="/Script/CoreUObject.Enum")
++PackageRedirects=(OldName="/Game/Levels/VerticalSlice1/",NewName="/Game/Levels/Zeffo/VerticalSlice/",MatchSubstring=true)
++PropertyRedirects=(OldName="SwBTTask_PlayAttackAnimation.AttackDescription",NewName="SwBTTask_PlayAttackAnimation.AttackTemplate")
++PropertyRedirects=(OldName="RsCharacterAnimDataBase.bBlendOutOnAbort", NewName="RsCharacterAnimDataBase.bStopAnimOnAbort")
++PropertyRedirects=(OldName="RsBTTask_PlayAnimationBase.bBlendOutOnAbort", NewName="RsBTTask_PlayAnimationBase.bStopAnimOnAbort")
++PropertyRedirects=(OldName="RsCharacterAnimDataBase.Animation", NewName="AnimAsset")
++PropertyRedirects=(OldName="RsCharacterAnimDataBase.AnimationSlot", NewName="SlotNodeName")
++PropertyRedirects=(OldName="RsCharacterAnimDataBase.StartPosition", NewName="StartTime")
++FunctionRedirects=(OldName="RsCharacter.TriggerReaction", NewName="K2_TriggerReaction")
++FunctionRedirects=(OldName="RsCharacter.RegisterFacialRig", NewName="AddPhysicalAnimationTickDependency")
+
+[AssetRegistry]
+bSerializeAssetRegistry=false
+
+[EnumRemap]
+TEXTUREGROUP_Project01.DisplayName=World Map
+TEXTUREGROUP_Project01.ToolTip=Texture group for all world hologram map textures, uses point filtering
+
+[/Script/Engine.AISystemBase]
+AISystemClassName=/Script/SWGame.SwAISystem
+
+[/Script/RsGameTechRT.RsAISystem]
+ResourceSystemClassName=/Game/Characters/_Shared/Logic/Resources/BP_AIResourceSystem.BP_AIResourceSystem_C
+
+[/Script/RsGameTechRT.RsCameraSettings]
+CameraManagerDefinition=/Game/GlobalData/Camera/CameraManagerDefinition.CameraManagerDefinition
+
+[UnrealEd.EditorEngine]
++EditPackages=SwGame
+
+[/Script/UnrealEd.UnrealEdEngine]
+-TemplateMapInfos=(ThumbnailTexture=Texture2D'/Engine/Maps/Templates/Thumbnails/Default.Default',Map="/Engine/Maps/Templates/Template_Default")
+-TemplateMapInfos=(ThumbnailTexture=Texture2D'/Engine/Maps/Templates/Thumbnails/VR-Basic.VR-Basic',Map="/Engine/Maps/Templates/VR-Basic")
++TemplateMapInfos=(ThumbnailTexture=Texture2D'/Engine/Maps/Templates/Thumbnails/Default.Default',Map="/Game/zDoNotShip/Editor/Template_Default")
+
+[Launch]
+Module=SwGame
+
+[/Script/Engine.UObjectPackages]
++NativePackages=SwGame
+
+[/Script/Engine.UserInterfaceSettings]
+RenderFocusRule=Never
+DefaultCursor=None
+TextEditBeamCursor=None
+CrosshairsCursor=None
+GrabHandCursor=None
+GrabHandClosedCursor=None
+SlashedCircleCursor=None
+ApplicationScale=1.000000
+UIScaleRule=ShortestSide
+CustomScalingRuleClass=None
+UIScaleCurve=(EditorCurveData=(PreInfinityExtrap=RCCE_Constant,PostInfinityExtrap=RCCE_Constant,DefaultValue=340282346638528859811704183484516925440.000000,Keys=((Time=360.000000,Value=0.250000),(Time=720.000000,Value=0.500000),(Time=1410.000000,Value=1.000000),(Time=1440.000000,Value=1.000000),(Time=2160.000000,Value=1.500000))),ExternalCurve=None)
+
+[/Script/Engine.RendererSettings]
+r.ForceDebugViewModes=1
+r.AllowHDR=True
+r.MobileHDR=True
+r.AllowOcclusionQueries=True
+r.MinScreenRadiusForLights=0.030000
+r.MinScreenRadiusForDepthPrepass=0.030000
+r.PrecomputedVisibilityWarning=False
+r.TextureStreaming=True
+Compat.UseDXT5NormalMaps=False
+r.AllowStaticLighting=True
+r.NormalMapsForStaticLighting=False
+r.GenerateMeshDistanceFields=False
+r.GenerateLandscapeGIData=True
+r.Shadow.DistanceFieldPenumbraSize=0.050000
+r.TessellationAdaptivePixelsPerTriangle=48.000000
+r.SeparateTranslucency=True
+r.SeparateTranslucency=0
+r.TranslucentSortPolicy=0
+TranslucentSortAxis=(X=0.000000,Y=-1.000000,Z=0.000000)
+r.CustomDepth=3
+r.DefaultFeature.Bloom=True
+r.DefaultFeature.AmbientOcclusion=True
+r.DefaultFeature.AmbientOcclusionStaticFraction=True
+r.DefaultFeature.AutoExposure=True
+r.DefaultFeature.MotionBlur=True
+r.DefaultFeature.LensFlare=False
+r.DefaultFeature.AntiAliasing=2
+r.EarlyZPass=3
+r.EarlyZPassMovable=False
+r.DBuffer=True
+r.ClearSceneMethod=1
+r.BasePassOutputsVelocity=True
+r.WireframeCullThreshold=5.000000
+r.VolumetricFog.DepthDistributionScale=16
+r.VolumetricFog.HistoryWeight=0.97
+UIScaleRule=ShortestSide
+UIScaleCurve=(EditorCurveData=(Keys=),ExternalCurve=None)
+r.SkinCache.CompileShaders=True
+r.SkinCache.Mode=2
+foliage.ASyncInstaneBufferConversion=0
+r.ReflectionEnvironmentLightmapMixBasedOnRoughness=True
+r.SelectiveBasePassOutputs=0
+r.AmbientOcclusion.Compute=0
+r.GPUCrashDebugging=False
+r.UsePreExposure=True
+r.DefaultFeature.AutoExposure.Method=1
+r.Shadow.Preshadows=0
+r.Shadow.FilterMethod=1
+r.ReflectionEnvironmentLightmapMixing=0
+r.ClearCoatNormal=True
+r.DefaultFeature.AutoExposure.ExtendDefaultLuminanceRange=True
+r.TiledDeferredShading.MinimumCount=1000000
+r.Shadow.CacheWPOPrimitives=1
+r.Shadow.CSMDepthBoundsTest=0
+r.TranslucentLightingVolume=0
+r.TranslucencyLightingVolumeInnerDistance=3000
+r.TranslucencyLightingVolumeOuterDistance=30000
+r.StencilForLODDither=1
+r.EarlyZPassOnlyMaterialMasking=1
+r.ParticleLightQuality=1
+r.AmbientOcclusionLevels=1
+r.AmbientOcclusionRadiusScale=2
+r.SupportReversedIndexBuffers=0
+r.SupportDepthOnlyIndexBuffers=0
+r.SupportLowQualityLightmaps=0
+r.IndirectLightingCache=0
+
+[/Script/EngineSettings.GameMapsSettings]
+EditorStartupMap=/Game/zDoNotShip/Testbeds/TB_Metrics.TB_Metrics
+GameDefaultMap=/Game/Levels/TitleScreen/TTL_World.TTL_World
+LocalMapOptions=
+TransitionMap=
+bUseSplitscreen=True
+TwoPlayerSplitscreenLayout=Horizontal
+ThreePlayerSplitscreenLayout=FavorTop
+GameInstanceClass=/Game/GlobalData/r4GameInstance.r4GameInstance_C
+ServerDefaultMap=/Engine/Maps/Entry
+GlobalDefaultGameMode=/Game/GlobalData/SwGameMode.SwGameMode_C
+GlobalDefaultServerGameMode=None
+
+[/Script/Engine.GarbageCollectionSettings]
+gc.NumRetriesBeforeForcingGC=0
+gc.MergeGCClusters=False
+gc.CreateGCClusters=True
+gc.TimeBetweenPurgingPendingKillObjects=60.000000
+gc.ActorClusteringEnabled=True
+gc.BlueprintClusteringEnabled=False
+gc.FlushStreamingOnGC=False
+
+[/Script/NavigationSystem.RecastNavMesh]
+AgentRadius=35.000000
+AgentHeight=144.000000
+RuntimeGeneration=DynamicModifiersOnly
+bFixedTilePoolSize=True
+TilePoolSize=8196
+bSortNavigationAreasByCost=True
+
+[/Script/Engine.SkinnedMeshComponent]
+VisibilityBasedAnimTickOption=OnlyTickPoseWhenRendered
+
+[/Script/Engine.SkeletalMeshComponent]
+VisibilityBasedAnimTickOption=OnlyTickPoseWhenRendered
+
+[/Script/Engine.LocalPlayer]
+AspectRatioAxisConstraint=AspectRatio_MaintainYFOV
+
+[/Script/RsDevNetRT.RsDevNetSettings]
+ProjectName=BIR
+BuildName=
+DevNetHostname=devnet2-re.respawn.net
+DevNetIP=10.65.4.198
+DevNetPort=20021
+DisableDevnet=False
+DisableScreenshots=False
+DebounceErrors=False
+DebounceTimer=0.000000
+WhitelistedErrorsOnly=False
+AskToReport=False
++ErrorFilterList=BlueprintLog
++ErrorFilterList=LogFbx
++ErrorFilterList=LogBlueprint
++ErrorFilterList=LogProperty
++ErrorFilterList=BlueprintEditorCompileResults
++ErrorFilterList=PIE
++ErrorFilterList=SourceControl
++ErrorFilterList=LogSourceControl
++ErrorFilterList=LogSavePackage
++ErrorFilterList=MaterialEditorStats
++ErrorFilterList=LogPackageName
++ErrorFilterList=LoadErrors
++Whitelist=RsCore
++Whitelist=RsTech
++Whitelist=RsDevNet
++Whitelist=RsGameTech
++Whitelist=Game\SW
+
+[/Script/WindowsTargetPlatform.WindowsTargetSettings]
+Compiler=Default
+-TargetedRHIs=PCD3D_SM5
+-TargetedRHIs=PCD3D_SM4
++TargetedRHIs=PCD3D_SM5
+MinimumOSVersion=MSOS_Vista
+AudioDevice=
+
+[MemReportCommands]
++Cmd=rs.stat cpu_cross gpu_pc
++Cmd=rs.stat.export cpu_cross gpu_pc -filename=MemoryOverview.csv
+
+[MemReportFullCommands]
++Cmd=DumpMaterialShaders -filename=MaterialShaders.csv
+
+[DerivedDataBackendGraph]
+MinimumDaysToKeepFile=7
+Root=(Type=KeyLength, Length=120, Inner=AsyncPut)
+AsyncPut=(Type=AsyncPut, Inner=Hierarchy)
+Hierarchy=(Type=Hierarchical, Inner=Boot, Inner=Pak, Inner=EnginePak, Inner=Local, Inner=Shared)
+Boot=(Type=Boot, Filename=%GAMEDIR%DerivedDataCache/Boot.ddc, MaxCacheSize=256)
+Local=(Type=FileSystem, ReadOnly=false, Clean=false, Flush=false, PurgeTransient=true, DeleteUnused=true, UnusedFileAge=17, FoldersToClean=-1, Path=../../../Engine/DerivedDataCache)
+Shared=(Type=FileSystem, ReadOnly=false, Clean=false, Flush=false, DeleteUnused=true, UnusedFileAge=19, FoldersToClean=-1, Path=\\r4-ddc-re\ddc, EnvPathOverride=UE-SharedDataCachePath)
+Pak=(Type=ReadPak, Filename=%GAMEDIR%DerivedDataCache/DDC.ddp)
+EnginePak=(Type=ReadPak, Filename=../../../Engine/DerivedDataCache/DDC.ddp)
+
+[InstalledDerivedDataBackendGraph]
+MinimumDaysToKeepFile=7
+Root=(Type=KeyLength, Length=120, Inner=AsyncPut)
+AsyncPut=(Type=AsyncPut, Inner=Hierarchy)
+Hierarchy=(Type=Hierarchical, Inner=Boot, Inner=Pak, Inner=EnginePak, Inner=Local, Inner=Shared)
+Boot=(Type=Boot, Filename=%GAMEDIR%DerivedDataCache/Boot.ddc, MaxCacheSize=256)
+Local=(Type=FileSystem, ReadOnly=false, Clean=false, Flush=false, PurgeTransient=true, DeleteUnused=true, UnusedFileAge=17, FoldersToClean=-1, Path=../../../Engine/DerivedDataCache)
+Shared=(Type=FileSystem, ReadOnly=false, Clean=false, Flush=false, DeleteUnused=true, UnusedFileAge=19, FoldersToClean=-1, Path=\\r4-ddc-re\ddc, EnvPathOverride=UE-SharedDataCachePath)
+Pak=(Type=ReadPak, Filename=%GAMEDIR%DerivedDataCache/DDC.ddp)
+EnginePak=(Type=ReadPak, Filename=../../../Engine/DerivedDataCache/DDC.ddp)
+
+[/Script/RenderDocPlugin.RenderDocPluginSettings]
+renderdoc.CaptureAllActivity=False
+renderdoc.CaptureCallstacks=True
+renderdoc.ReferenceAllResources=False
+renderdoc.SaveAllInitials=False
+renderdoc.ShowHelpOnStartup=False
+renderdoc.EnableCrashHandler=False
+renderdoc.BinaryPath=C:\Program Files\RenderDoc
+renderdoc.Enabled=True
+
+[/Script/AIModule.CrowdManager]
+MaxAgents=70
+
+[/Script/Engine.RsCharacterMarksSettings]
+FadeTime=33.000000
+RenderTargetSize=512
+MinFadeValue=0.600000
+MaxMarksRenderTargets=8
+
+[/Script/Engine.ProxyLODMeshSimplificationSettings]
+r.ProxyLODMeshReductionModule=ProxyLODMeshReduction
+
+[StaticMeshLODSettings]
+-LevelArchitecture=(NumLODs=4,LightMapResolution=32,LODPercentTriangles=50,PixelError=12,SilhouetteImportance=4,Name=LOCTEXT("LevelArchitectureLOD","Level Architecture"))
+-SmallProp=(NumLODs=4,LODPercentTriangles=50,PixelError=10,Name=LOCTEXT("SmallPropLOD","Small Prop"))
+-LargeProp=(NumLODs=4,LODPercentTriangles=50,PixelError=10,Name=LOCTEXT("LargePropLOD","Large Prop"))
+-Deco=(NumLODs=4,LODPercentTriangles=50,PixelError=10,Name=LOCTEXT("DecoLOD","Deco"))
+-Vista=(NumLODs=1,Name=LOCTEXT("VistaLOD","Vista"))
+-Foliage=(NumLODs=1,Name=LOCTEXT("FoliageLOD","Foliage"))
+-HighDetail=(NumLODs=6,LODPercentTriangles=50,PixelError=6,Name=LOCTEXT("HighDetailLOD","High Detail"))
+LevelArchitecture=(NumLODs=3,LightMapResolution=32,LODPercentTriangles=50,PixelError=12,SilhouetteImportance=4,Name=LOCTEXT("LevelArchitectureLOD","Level Architecture"))
+SmallProp=(NumLODs=4,LODPercentTriangles=50,PixelError=10,Name=LOCTEXT("SmallPropLOD","Small Prop"))
+LargeProp=(NumLODs=3,LODPercentTriangles=50,PixelError=10,Name=LOCTEXT("LargePropLOD","Large Prop"))
+Foliage=(NumLODs=4,LODPercentTriangles=50,PixelError=10,Name=LOCTEXT("FoliageLOD","Foliage"))
+Tree=(NumLODs=5,LODPercentTriangles=70,PixelError=10,Name=LOCTEXT("TreeLOD","Tree"))
+SplineMeshes=(NumLODs=4,LODPercentTriangles=50,Name=LOCTEXT("SplineMeshLOD","Spline Mesh"))
+Vista=(NumLODs=1,Name=LOCTEXT("VistaLOD","Vista"))
+
+[/Script/Engine.RsProxyLODSettings]
+PreviewProxySettings=(ScreenSize=300,bOverrideVoxelSize=False,VoxelSize=3.000000,MaterialSettings=(TextureSize=(X=512,Y=512),TextureSizingType=TextureSizingType_UseSingleTextureSize,GutterSpace=4.000000,bNormalMap=False,bMetallicMap=False,MetallicConstant=0.000000,bRoughnessMap=False,RoughnessConstant=0.500000,bSpecularMap=False,SpecularConstant=0.500000,bEmissiveMap=False,bOpacityMap=False,OpacityConstant=1.000000,bOpacityMaskMap=False,OpacityMaskConstant=1.000000,bAmbientOcclusionMap=False,AmbientOcclusionConstant=1.000000,DiffuseTextureSize=(X=1024,Y=1024),NormalTextureSize=(X=1024,Y=1024),MetallicTextureSize=(X=1024,Y=1024),RoughnessTextureSize=(X=1024,Y=1024),SpecularTextureSize=(X=1024,Y=1024),EmissiveTextureSize=(X=1024,Y=1024),OpacityTextureSize=(X=1024,Y=1024),OpacityMaskTextureSize=(X=1024,Y=1024),AmbientOcclusionTextureSize=(X=1024,Y=1024),MaterialMergeType=MaterialMergeType_Simplygon,BlendMode=BLEND_Opaque),TextureWidth=512,TextureHeight=512,bExportNormalMap=True,bExportMetallicMap=False,bExportRoughnessMap=False,bExportSpecularMap=False,bCalculateCorrectLODModel=True,MergeDistance=8.000000,HardAngleThreshold=80.000000,LightMapResolution=64,bComputeLightMapResolution=True,bRecalculateNormals=True,bBakeVertexData=False,bUseLandscapeCulling=False,LandscapeCullingPrecision=High,bAllowAdjacency=False,bAllowDistanceField=False)
+ProductionProxySettings=(ScreenSize=300,bOverrideVoxelSize=False,VoxelSize=3.000000,MaterialSettings=(TextureSize=(X=2048,Y=2048),TextureSizingType=TextureSizingType_UseAutomaticBiasedSizes,GutterSpace=4.000000,bNormalMap=True,bMetallicMap=True,MetallicConstant=0.000000,bRoughnessMap=True,RoughnessConstant=0.500000,bSpecularMap=True,SpecularConstant=0.500000,bEmissiveMap=False,bOpacityMap=False,OpacityConstant=1.000000,bOpacityMaskMap=False,OpacityMaskConstant=1.000000,bAmbientOcclusionMap=False,AmbientOcclusionConstant=1.000000,DiffuseTextureSize=(X=1024,Y=1024),NormalTextureSize=(X=1024,Y=1024),MetallicTextureSize=(X=1024,Y=1024),RoughnessTextureSize=(X=1024,Y=1024),SpecularTextureSize=(X=1024,Y=1024),EmissiveTextureSize=(X=1024,Y=1024),OpacityTextureSize=(X=1024,Y=1024),OpacityMaskTextureSize=(X=1024,Y=1024),AmbientOcclusionTextureSize=(X=1024,Y=1024),MaterialMergeType=MaterialMergeType_Simplygon,BlendMode=BLEND_Opaque),TextureWidth=512,TextureHeight=512,bExportNormalMap=True,bExportMetallicMap=False,bExportRoughnessMap=False,bExportSpecularMap=False,bCalculateCorrectLODModel=True,MergeDistance=8.000000,UnresolvedGeometryColor=(B=0,G=0,R=0,A=255),bOverrideTransferDistance=False,MaxRayCastDist=20.000000,bUseHardAngleThreshold=False,HardAngleThreshold=80.000000,NormalCalculationMethod=AngleWeighted,LightMapResolution=64,bComputeLightMapResolution=True,bRecalculateNormals=True,bBakeVertexData=False,bUseLandscapeCulling=False,LandscapeCullingPrecision=High,bAllowAdjacency=False,bAllowDistanceField=False,bReuseMeshLightmapUVs=False,bCreateCollision=False,bAllowVertexColors=False,bGenerateLightmapUVs=True)
+ProxyMinDrawDistance=2000.000000
+
+[/Script/Engine.StreamingSettings]
+s.AsyncLoadingThreadEnabled=True
+
+[/Script/Engine.RsStreamingSettings]
+GlobalStreamingLevel=/Game/Levels/Global/AlwaysLoaded_Streaming.AlwaysLoaded_Streaming
+
+[/Script/PythonScriptPlugin.PythonScriptPluginSettings]
++AdditionalPaths=(Path="../../../../../rtools")
++AdditionalPaths=(Path="../../../../../rtools/UnrealPython")
++AdditionalPaths=(Path="../../../../../rtools/UnrealPython/Tools")
+bDeveloperMode=False
+
+[/Script/RsGameTechRT.RsSyncSettings]
+VelocityCurveAsset=/Game/GlobalData/Curve/SyncVelocityCurve.SyncVelocityCurve
+AngularVelocityScale=80.000000
+AngularVelocityCloseness=0.500000
+AngularVelocityCurveAsset=/Game/GlobalData/Curve/SyncAngularVelocityCurve.SyncAngularVelocityCurve
+VelocityAcceleration=4500.000000
+AngularVelocityBlendCurveAsset=/Game/GlobalData/Curve/SyncAngularVelocityBlendCurve.SyncAngularVelocityBlendCurve
+NonCharacterChannel=ECC_ActorTopologyQuery
+DefaultSyncHeroStateModifierAssetRef=/Game/Characters/Hero/Logic/Definitions/HeroStateModifiers/InputFlags/HSM_Flags_noExtCancel.HSM_Flags_noExtCancel
+DefaultSyncNavHeroStateModifierAssetRef=/Game/Characters/Hero/Logic/Definitions/HeroStateModifiers/HSM_NavToSync.HSM_NavToSync
+
+[/Script/Engine.RsTelemetrySettings]
+TelemetryLogExtension=tlog
+TelemetryUploadLocation=(Path="C:/TelemetryLogs")
+bTelemetryLoggingEnabled=False
+bTelemetryLoggingEnabledInPIE=False
+bUploadTelemetryLogs=True
+
+[/Script/MovieScene.MovieScene]
+HeroClassName=/Game/Characters/Hero/Logic/BP_Hero.BP_Hero_C
+BuddyDroidClassName=/Game/Characters/BuddyDroid_01/Logic/BP_BuddyDroid.BP_BuddyDroid_C
+HeroSequenceIdentifier=BP_Hero
+BuddyDroidSequenceIdentifier=BuddyDroid_01_rig
+MantisSequenceIdentifier=Mantis_rig
+
+[/Script/Engine.RsDynamicDeformationSettings]
+RenderTargetSize=1024
+HeightDisplacementScale=30.000000
+
+[CrashReportClient]
+CrashReportClientVersion=1.0
+DataRouterUrl="https://unreal.backtrace.io/post/birddog/07d3bb40031de30c0fc74ea42fd92d7d1978d3bd61b6468cf7df3e005c10a824"
+
+[/Script/RsGameTechRT.RsNavigationSystem]
++SupportedAgents=(DefaultQueryExtent=(X=75.000000,Y=75.000000,Z=250.000000),NavigationDataClassName=/Script/NavigationSystem.RecastNavMesh,GenerationParams=(TileSizeUU=1000.000000,CellSize=19.000000,CellHeight=10.000000,AgentMaxSlope=44.000000,MinRegionArea=0.000000,MergeRegionSize=400.000000,MaxSimplificationError=1.300000,bSortNavigationAreasByCost=False,bPerformVoxelFiltering=True,bMarkLowHeightAreas=True,bFilterLowSpanSequences=False,bFilterLowSpanFromTileCache=False,bDoFullyAsyncNavDataGathering=True,bUseBetterOffsetsFromCorners=True,bStoreEmptyTileLayers=False,bAllowNavLinkAsPathEnd=False,bUseVoxelCache=False,RegionPartitioning=Watershed,LayerPartitioning=Watershed,RegionChunkSplits=2,LayerChunkSplits=2,MaxSimultaneousTileGenerationJobsCount=1024,TileSetUpdateInterval=1.000000),QueryParams=(HeuristicScale=0.999000,VerticalDeviationFromGroundCompensation=0.000000,DefaultMaxSearchNodes=2048.000000,DefaultMaxHierarchicalSearchNodes=2048.000000,bUseVirtualFilters=True),AgentRadius=50.000000,AgentHeight=176.000000,AgentStepHeight=35.000000,NavWalkingSearchHeightScale=0.500000,PreferredNavData=/Script/NavigationSystem.RecastNavMesh,Name="Default",bCanCrouch=False,bCanJump=False,bCanWalk=True,bCanSwim=False,bCanFly=False)
++SupportedAgents=(DefaultQueryExtent=(X=150.000000,Y=150.000000,Z=250.000000),NavigationDataClassName=/Script/NavigationSystem.RecastNavMesh,GenerationParams=(TileSizeUU=1000.000000,CellSize=19.000000,CellHeight=10.000000,AgentMaxSlope=44.000000,MinRegionArea=0.000000,MergeRegionSize=400.000000,MaxSimplificationError=1.300000,bSortNavigationAreasByCost=False,bPerformVoxelFiltering=True,bMarkLowHeightAreas=True,bFilterLowSpanSequences=False,bFilterLowSpanFromTileCache=False,bDoFullyAsyncNavDataGathering=True,bUseBetterOffsetsFromCorners=True,bStoreEmptyTileLayers=False,bAllowNavLinkAsPathEnd=False,bUseVoxelCache=False,RegionPartitioning=Watershed,LayerPartitioning=Watershed,RegionChunkSplits=2,LayerChunkSplits=2,MaxSimultaneousTileGenerationJobsCount=1024,TileSetUpdateInterval=1.000000),QueryParams=(HeuristicScale=0.999000,VerticalDeviationFromGroundCompensation=0.000000,DefaultMaxSearchNodes=2048.000000,DefaultMaxHierarchicalSearchNodes=2048.000000,bUseVirtualFilters=True),AgentRadius=140.000000,AgentHeight=280.000000,AgentStepHeight=35.000000,NavWalkingSearchHeightScale=0.500000,PreferredNavData=/Script/NavigationSystem.RecastNavMesh,Name="Large",bCanCrouch=False,bCanJump=False,bCanWalk=True,bCanSwim=False,bCanFly=False)
++SupportedAgents=(DefaultQueryExtent=(X=500.000000,Y=500.000000,Z=800.000000),NavigationDataClassName=/Script/NavigationSystem.RecastNavMesh,GenerationParams=(TileSizeUU=1000.000000,CellSize=19.000000,CellHeight=10.000000,AgentMaxSlope=44.000000,MinRegionArea=0.000000,MergeRegionSize=400.000000,MaxSimplificationError=1.300000,bSortNavigationAreasByCost=False,bPerformVoxelFiltering=True,bMarkLowHeightAreas=True,bFilterLowSpanSequences=False,bFilterLowSpanFromTileCache=False,bDoFullyAsyncNavDataGathering=True,bUseBetterOffsetsFromCorners=True,bStoreEmptyTileLayers=False,bAllowNavLinkAsPathEnd=False,bUseVoxelCache=False,RegionPartitioning=Watershed,LayerPartitioning=Watershed,RegionChunkSplits=2,LayerChunkSplits=2,MaxSimultaneousTileGenerationJobsCount=1024,TileSetUpdateInterval=1.000000),QueryParams=(HeuristicScale=0.999000,VerticalDeviationFromGroundCompensation=0.000000,DefaultMaxSearchNodes=2048.000000,DefaultMaxHierarchicalSearchNodes=2048.000000,bUseVirtualFilters=True),AgentRadius=250.000000,AgentHeight=1008.000000,AgentStepHeight=35.000000,NavWalkingSearchHeightScale=0.500000,PreferredNavData=/Script/NavigationSystem.RecastNavMesh,Name="ATST",bCanCrouch=False,bCanJump=False,bCanWalk=True,bCanSwim=False,bCanFly=False)
++SupportedAgents=(DefaultQueryExtent=(X=100.000000,Y=100.000000,Z=100.000000),NavigationDataClassName=/Script/NavigationSystem.RecastNavMesh,GenerationParams=(TileSizeUU=1000.000000,CellSize=8.000000,CellHeight=8.000000,AgentMaxSlope=44.000000,MinRegionArea=0.000000,MergeRegionSize=400.000000,MaxSimplificationError=1.300000,bSortNavigationAreasByCost=False,bPerformVoxelFiltering=True,bMarkLowHeightAreas=True,bFilterLowSpanSequences=False,bFilterLowSpanFromTileCache=False,bDoFullyAsyncNavDataGathering=True,bUseBetterOffsetsFromCorners=True,bStoreEmptyTileLayers=False,bAllowNavLinkAsPathEnd=False,bUseVoxelCache=False,RegionPartitioning=Watershed,LayerPartitioning=Watershed,RegionChunkSplits=2,LayerChunkSplits=2,MaxSimultaneousTileGenerationJobsCount=1024,TileSetUpdateInterval=1.000000),QueryParams=(HeuristicScale=0.999000,VerticalDeviationFromGroundCompensation=0.000000,DefaultMaxSearchNodes=2048.000000,DefaultMaxHierarchicalSearchNodes=2048.000000,bUseVirtualFilters=True),AgentRadius=0.000000,AgentHeight=100.000000,AgentStepHeight=25.000000,NavWalkingSearchHeightScale=1.000000,PreferredNavData=/Script/NavigationSystem.RecastNavMesh,Name="RsWorldQuery_NavMesh_LOD",bCanCrouch=False,bCanJump=False,bCanWalk=False,bCanSwim=False,bCanFly=False)
+
+[/Script/RsGameTechRT.RsAchievementSettings]
+AchievementEnumClass=/Game/GlobalData/Enums/Enum_Achievements.Enum_Achievements
+PS4Config=(AchievementMapPath="Config/OSS/PS4/Achievements.json",StartIndex=0,IgnoredAchievementIds="")
+XboxOneConfig=(AchievementMapPath="Config/OSS/Live/Achievements.json",StartIndex=1,IgnoredAchievementIds="CollectAllAchievements")
+OriginConfig=(AchievementMapPath="Config/OSS/Origin/Achievements.json",StartIndex=1,IgnoredAchievementIds="CollectAllAchievements")
++AchievementNames=CollectAllAchievements
++AchievementNames=VoidTears
++AchievementNames=AllCollectables
++AchievementNames=DefeatEnemies
++AchievementNames=AllJediSkills
++AchievementNames=AllHolomaps
++AchievementNames=DestroyHolocron
++AchievementNames=CompleteBracca
++AchievementNames=BoganoVault
++AchievementNames=PushTemple
++AchievementNames=PullTemple
++AchievementNames=OpenVault
++AchievementNames=CompleteRefinery
++AchievementNames=DefeatNinthSister
++AchievementNames=CompleteVenator
++AchievementNames=DefeatBat
++AchievementNames=CraftLightsaber
++AchievementNames=DefeatMalicos
++AchievementNames=ReflectKills
++AchievementNames=ParrySuccess
++AchievementNames=KickKill
++AchievementNames=LightSaberThrowKill
++AchievementNames=SlowedBoltKill
++AchievementNames=ExplosiveKills
++AchievementNames=HackedDroidKill
++AchievementNames=PerfectEvades
++AchievementNames=FallKills
++AchievementNames=SlowKills
++AchievementNames=PushKills
++AchievementNames=AllLightsaberKill
++AchievementNames=OggdoTongueSlice
++AchievementNames=AllHealCanisters
++AchievementNames=CompleteTerrarium
++AchievementNames=FullCrew
++AchievementNames=DroidMemories
++AchievementNames=CustomizeLightsaber
++AchievementNames=CustomizeLook
++AchievementNames=ScanAllEnemies
++AchievementNames=DefeatBountyHunters
++AchievementNames=ForceEchoes
+
+[Core.Log]
+LogTelemetry=all off
+
+[/Script/Engine.AudioSettings]
+PlayerAsListener=50.000000
+DebugDraw=False
+DebugDrawNames=False
+DebugDrawActorName=
+OcclusionEnabled=True
+AdditionalRayConeAngleInDegrees=50.000000
+AdditionalRayConeRadius=0.100000
+UseConeRadius=False
+PeriodOfChecks=0.100000
+MaxPeriodOfChecks=1.000000
+MinPeriodOfChecksDistane=400.000000
+MaxPeriodOfChecksDistane=4000.000000
+PeriodOfSoundPosUpdates=0.000000
+MaxPeriodOfSoundPosUpdates=0.400000
+MinPeriodOfSoundPosUpdatesDistane=500.000000
+MaxPeriodOfSoundPosUpdatesDistane=6000.000000
+ObstructionPerMeter=10.000000
+MaxOcclusionDistance=10000.000000
+AdditionalRays=4
+MaxObjectsToHit=100
+ListenerType=ListenerSplit
+DebugSurfaceEffectType=SurfaceType_Default
+MaxAudioPhysicsVelocity=1000.000000
+MaxAudioPhysicsAngularVelocity=500.000000
+MaxAudioPhysicsImpactVelocity=1000.000000
+DebugDrawImpact=False
+ImpactDelay=0.000000
+MinimumTimeBetweenTwoRagdollImpactSounds=0.500000
+MinimumTimeBetweenImpactSounds=0.000000
+GlobalUIStringTable=/Game/Narrative/LocalisedStrings/UI_Strings.UI_Strings
+GlobalRAPDatabase=/Game/GlobalData/Narrative/GlobalRAPDatabase.GlobalRAPDatabase
+SilenceUID=66
+SurfaceTypeOverrides=(("Grass", "Grass_Tall"),("Metal_Ship", "Metal_Vehicle"),("Forest", "Grass"))
+SurfaceEffectBoneMapping=(("Hmn_Cal_Foley_Climb_Foot_Jump_L", "l_ball"),("Hmn_Cal_Foley_Climb_Foot_Land_L", "l_ball"),("Hmn_Cal_Foley_Climb_Foot_Move_L", "l_ball"),("Hmn_Cal_Foley_Climb_Foot_Toe_L", "l_ball"),("Hmn_Cal_Foley_Climb_Foot_Jump_R", "r_ball"),("Hmn_Cal_Foley_Climb_Foot_Land_R", "r_ball"),("Hmn_Cal_Foley_Climb_Foot_Move_R", "r_ball"),("Hmn_Cal_Foley_Climb_Foot_Toe_R", "r_ball"),("Hmn_Cal_Foley_Climb_Hand_Grab_L", "l_wristEndSocket"),("Hmn_Cal_Foley_Climb_Hand_Lift_L", "l_wristEndSocket"),("Hmn_Cal_Foley_Climb_Hand_Pat_L", "l_wristEndSocket"),("Hmn_Cal_Foley_Climb_Hand_Slip_L", "l_wristEndSocket"),("Hmn_Cal_Foley_Climb_Hand_Grab_R", "r_wristEndSocket"),("Hmn_Cal_Foley_Climb_Hand_Lift_R", "r_wristEndSocket"),("Hmn_Cal_Foley_Climb_Hand_Pat_R", "r_wristEndSocket"),("Hmn_Cal_Foley_Climb_Hand_Slip_R", "r_wristEndSocket"),("Hmn_Cal_Foley_Footstep_Backward_R", "r_footSocket"),("Hmn_Cal_Foley_Footstep_Scuff_R", "r_footSocket"),("Hmn_Cal_Foley_Footstep_Settle_R", "r_footSocket"),("Hmn_Cal_Foley_Footstep_SideStep_R", "r_footSocket"),("Hmn_Cal_Foley_Footstep_Turn_R", "r_footSocket"),("Hmn_Cal_Foley_Footstep_Backward_L", "l_footSocket"),("Hmn_Cal_Foley_Footstep_Scuff_L", "l_footSocket"),("Hmn_Cal_Foley_Footstep_Settle_L", "l_footSocket"),("Hmn_Cal_Foley_Footstep_SideStep_L", "l_footSocket"),("Hmn_Cal_Foley_Footstep_Turn_L", "l_footSocket"))
+SilenceTrackingEvent=/Game/Audio/Audiokinetic/Cinematic/Cin_Silence.Cin_Silence
++LocalizedVOBanks=/Game/Audio/Audiokinetic/VO/VO.VO
++LocalizedVOBanks=/Game/Audio/Audiokinetic/VO/Banks/VO_BOG.VO_BOG
++LocalizedVOBanks=/Game/Audio/Audiokinetic/VO/Banks/VO_BRA.VO_BRA
++LocalizedVOBanks=/Game/Audio/Audiokinetic/VO/Banks/VO_DAT.VO_DAT
++LocalizedVOBanks=/Game/Audio/Audiokinetic/VO/Banks/VO_FRT.VO_FRT
++LocalizedVOBanks=/Game/Audio/Audiokinetic/VO/Banks/VO_HYP.VO_HYP
++LocalizedVOBanks=/Game/Audio/Audiokinetic/VO/Banks/VO_ILU.VO_ILU
++LocalizedVOBanks=/Game/Audio/Audiokinetic/VO/Banks/VO_KAS.VO_KAS
++LocalizedVOBanks=/Game/Audio/Audiokinetic/VO/Banks/VO_UFC.VO_UFC
++LocalizedVOBanks=/Game/Audio/Audiokinetic/VO/Banks/VO_ZEF.VO_ZEF
+HighlightEvent=/Game/Audio/Audiokinetic/UI/Game/UI_BlockWarning_Unblockable_Red.UI_BlockWarning_Unblockable_Red
+DefaultSoundClassName=/Engine/EngineSounds/Master.Master
+DefaultMediaSoundClassName=/Engine/EngineSounds/Master.Master
+DefaultSoundConcurrencyName=None
+DefaultBaseSoundMix=None
+VoiPSoundClass=None
+VoiPSampleRate=Low16000Hz
+VoipBufferingDelay=0.200000
+DefaultReverbSendLevel=0.200000
+MaximumConcurrentStreams=2
++QualityLevels=(DisplayName=NSLOCTEXT("AudioSettings", "DefaultSettingsName", "Default"),MaxChannels=32)
+bAllowVirtualizedSounds=True
+bDisableMasterEQ=False
+bAllowCenterChannel3DPanning=False
+MaxWaveInstances=100
+NumStoppingSources=8
+PanningMethod=Linear
+MonoChannelUpmixMethod=Linear
+DialogueFilenameFormat="{DialogueGuid}_{ContextId}"
+
+[RsPinTelemetry]
+PinTelemetryClass=/Script/SwGame.RsPinTelemetrySystem
+
+[/Script/Engine.AnimationSettings]
+CompressCommandletVersion=2
++KeyEndEffectorsMatchNameArray=IK
++KeyEndEffectorsMatchNameArray=eye
++KeyEndEffectorsMatchNameArray=weapon
++KeyEndEffectorsMatchNameArray=hand
++KeyEndEffectorsMatchNameArray=attach
++KeyEndEffectorsMatchNameArray=camera
+DefaultCompressionAlgorithm=Class'/Script/Engine.AnimCompress_Automatic'
+RotationCompressionFormat=ACF_Float96NoW
+TranslationCompressionFormat=ACF_None
+MaxCurveError=0.000000
+AlternativeCompressionThreshold=1.000000
+ForceRecompression=False
+bOnlyCheckForMissingSkeletalMeshes=False
+bForceBelowThreshold=False
+bFirstRecompressUsingCurrentOrDefault=True
+bRaiseMaxErrorToExisting=False
+bTryExhaustiveSearch=False
+bEnableSegmenting=True
+bEnablePerformanceLog=False
+bStripAnimationDataOnDedicatedServer=False
+bTickAnimationOnSkeletalMeshInit=True
+bAnimationCompressCommandletUseRespawnExtensions=True
++RespawnAnimCompressCommandletAlgorithmParametersProfiles=(ProfileName="face",PerTrackAlgorithmParameters=(MaxZeroingThreshold=0.000200,MaxPosDiffBitwise=0.007000,MaxAngleDiffBitwise=0.002000,MaxScaleDiffBitwise=0.000700,AllowedRotationFormats=(ACF_Identity,ACF_IntervalFixed32NoW,ACF_Fixed48NoW),AllowedTranslationFormats=(ACF_Identity,ACF_IntervalFixed32NoW,ACF_Fixed48NoW),AllowedScaleFormats=(ACF_Identity,ACF_IntervalFixed32NoW,ACF_Fixed48NoW),bResampleAnimation=True,ResampledFramerate=30.000000,MinKeysForResampling=10,bUseAdaptiveError=True,bUseOverrideForEndEffectors=False,TrackHeightBias=1,ParentingDivisor=2.000000,ParentingDivisorExponent=1.000000,bUseAdaptiveError2=False,RotationErrorSourceRatio=0.800000,TranslationErrorSourceRatio=0.800000,ScaleErrorSourceRatio=0.001000,MaxErrorPerTrackRatio=0.300000,PerturbationProbeSize=0.001000),RemoveLinearKeysAlgorithmParameters=(MaxPosDiff=0.100000,MaxAngleDiff=0.050000,MaxScaleDiff=0.100000,MaxEffectorDiff=0.001000,MinEffectorDiff=0.010000,EffectorDiffSocket=0.010000,ParentKeyScale=10.000000,bRetarget=False,bActuallyFilterLinearKeys=True))
++RespawnAnimCompressCommandletAlgorithmParametersProfiles=(ProfileName="body",PerTrackAlgorithmParameters=(MaxZeroingThreshold=0.010000,MaxPosDiffBitwise=0.010000,MaxAngleDiffBitwise=0.002000,MaxScaleDiffBitwise=0.010000,AllowedRotationFormats=(ACF_Identity,ACF_IntervalFixed32NoW,ACF_Fixed48NoW),AllowedTranslationFormats=(ACF_Identity,ACF_IntervalFixed32NoW,ACF_Fixed48NoW),AllowedScaleFormats=(ACF_Identity,ACF_IntervalFixed32NoW,ACF_Fixed48NoW),bResampleAnimation=True,ResampledFramerate=30.000000,MinKeysForResampling=10,bUseAdaptiveError=False,bUseOverrideForEndEffectors=False,TrackHeightBias=1,ParentingDivisor=2.000000,ParentingDivisorExponent=1.000000,bUseAdaptiveError2=False,RotationErrorSourceRatio=0.800000,TranslationErrorSourceRatio=0.800000,ScaleErrorSourceRatio=0.001000,MaxErrorPerTrackRatio=0.300000,PerturbationProbeSize=0.001000),RemoveLinearKeysAlgorithmParameters=(MaxPosDiff=0.100000,MaxAngleDiff=0.050000,MaxScaleDiff=0.100000,MaxEffectorDiff=0.001000,MinEffectorDiff=0.010000,EffectorDiffSocket=0.010000,ParentKeyScale=2.000000,bRetarget=False,bActuallyFilterLinearKeys=True))
++RespawnAnimCompressCommandletGroups=(GroupName="CinematicsBoganoFaces",bActivate=True,PathTokensRequired=("Content/Cinematics/Bogano/","face"),PathTokensProhibited=,ProfileNameWithAlgorithmParameters="face")
++RespawnAnimCompressCommandletGroups=(GroupName="CinematicsBoganoAllExceptFaces",bActivate=True,PathTokensRequired=("Content/Cinematics/Bogano/"),PathTokensProhibited=("face"),ProfileNameWithAlgorithmParameters="body")
++RespawnAnimCompressCommandletGroups=(GroupName="CinematicsBraccaFaces",bActivate=True,PathTokensRequired=("Content/Cinematics/Bracca/","face"),PathTokensProhibited=,ProfileNameWithAlgorithmParameters="face")
++RespawnAnimCompressCommandletGroups=(GroupName="CinematicsBraccaAllExceptFaces",bActivate=True,PathTokensRequired=("Content/Cinematics/Bracca/"),PathTokensProhibited=("face"),ProfileNameWithAlgorithmParameters="body")
++RespawnAnimCompressCommandletGroups=(GroupName="CinematicsDathomirFaces",bActivate=True,PathTokensRequired=("Content/Cinematics/Dathomir/","face"),PathTokensProhibited=,ProfileNameWithAlgorithmParameters="face")
++RespawnAnimCompressCommandletGroups=(GroupName="CinematicsDathomirAllExceptFaces",bActivate=True,PathTokensRequired=("Content/Cinematics/Dathomir/"),PathTokensProhibited=("face"),ProfileNameWithAlgorithmParameters="body")
++RespawnAnimCompressCommandletGroups=(GroupName="CinematicsFightClubFaces",bActivate=True,PathTokensRequired=("Content/Cinematics/FightClub/","face"),PathTokensProhibited=,ProfileNameWithAlgorithmParameters="face")
++RespawnAnimCompressCommandletGroups=(GroupName="CinematicsFightClubAllExceptFaces",bActivate=True,PathTokensRequired=("Content/Cinematics/FightClub/"),PathTokensProhibited=("face"),ProfileNameWithAlgorithmParameters="body")
++RespawnAnimCompressCommandletGroups=(GroupName="CinematicsFortressFaces",bActivate=True,PathTokensRequired=("Content/Cinematics/Fortress/","face"),PathTokensProhibited=,ProfileNameWithAlgorithmParameters="face")
++RespawnAnimCompressCommandletGroups=(GroupName="CinematicsFortressAllExceptFaces",bActivate=True,PathTokensRequired=("Content/Cinematics/Fortress/"),PathTokensProhibited=("face"),ProfileNameWithAlgorithmParameters="body")
++RespawnAnimCompressCommandletGroups=(GroupName="CinematicsGlobalFaces",bActivate=True,PathTokensRequired=("Content/Cinematics/Global/","face"),PathTokensProhibited=,ProfileNameWithAlgorithmParameters="face")
++RespawnAnimCompressCommandletGroups=(GroupName="CinematicsGlobalAllExceptFaces",bActivate=True,PathTokensRequired=("Content/Cinematics/Global/"),PathTokensProhibited=("face"),ProfileNameWithAlgorithmParameters="body")
++RespawnAnimCompressCommandletGroups=(GroupName="CinematicsIlumFaces",bActivate=True,PathTokensRequired=("Content/Cinematics/Ilum/","face"),PathTokensProhibited=,ProfileNameWithAlgorithmParameters="face")
++RespawnAnimCompressCommandletGroups=(GroupName="CinematicsIlumAllExceptFaces",bActivate=True,PathTokensRequired=("Content/Cinematics/Ilum/"),PathTokensProhibited=("face"),ProfileNameWithAlgorithmParameters="body")
++RespawnAnimCompressCommandletGroups=(GroupName="CinematicsKashyyykFaces",bActivate=True,PathTokensRequired=("Content/Cinematics/Kashyyyk/","face"),PathTokensProhibited=,ProfileNameWithAlgorithmParameters="face")
++RespawnAnimCompressCommandletGroups=(GroupName="CinematicsKashyyykAllExceptFaces",bActivate=True,PathTokensRequired=("Content/Cinematics/Kashyyyk/"),PathTokensProhibited=("face"),ProfileNameWithAlgorithmParameters="body")
++RespawnAnimCompressCommandletGroups=(GroupName="CinematicsPlanet_TravelFaces",bActivate=True,PathTokensRequired=("Content/Cinematics/Planet_Travel/","face"),PathTokensProhibited=,ProfileNameWithAlgorithmParameters="face")
++RespawnAnimCompressCommandletGroups=(GroupName="CinematicsPlanet_TravelAllExceptFaces",bActivate=True,PathTokensRequired=("Content/Cinematics/Planet_Travel/"),PathTokensProhibited=("face"),ProfileNameWithAlgorithmParameters="body")
++RespawnAnimCompressCommandletGroups=(GroupName="CinematicsVaultVoidFaces",bActivate=True,PathTokensRequired=("Content/Cinematics/VaultVoid/","face"),PathTokensProhibited=,ProfileNameWithAlgorithmParameters="face")
++RespawnAnimCompressCommandletGroups=(GroupName="CinematicsVaultVoidAllExceptFaces",bActivate=True,PathTokensRequired=("Content/Cinematics/VaultVoid/"),PathTokensProhibited=("face"),ProfileNameWithAlgorithmParameters="body")
++RespawnAnimCompressCommandletGroups=(GroupName="CinematicsZeffoFaces",bActivate=True,PathTokensRequired=("Content/Cinematics/Zeffo/","face"),PathTokensProhibited=,ProfileNameWithAlgorithmParameters="face")
++RespawnAnimCompressCommandletGroups=(GroupName="CinematicsZeffoAllExceptFaces",bActivate=True,PathTokensRequired=("Content/Cinematics/Zeffo/"),PathTokensProhibited=("face"),ProfileNameWithAlgorithmParameters="body")
++RespawnAnimCompressCommandletGroups=(GroupName="CharactersHeroAnimationFace",bActivate=True,PathTokensRequired=("Content/Characters/Hero/Animation/Face/","face"),PathTokensProhibited=,ProfileNameWithAlgorithmParameters="face")
++RespawnAnimCompressCommandletGroups=(GroupName="CharactersHeroAnimationIdles",bActivate=True,PathTokensRequired=("Content/Characters/Hero/Animation/Idles/"),PathTokensProhibited=("face"),ProfileNameWithAlgorithmParameters="body")
+
+[/Script/Engine.RsWorldWidgetPoolSettings]
++WidgetPoolInit=(InitAmount=5,WidgetToInit=/Game/UI/InWorld/UI_interact_icon.UI_interact_icon_C)
+
+[/Script/RsGameTechRT.RsConversationSettings]
+LethalDamageType=None
+CSVDatabasePath=(FilePath="../../../SW/Content/GlobalData/Narrative/Heckle_Sheets_Version.csv")
+ConversationTimeout=25.000000
+ConversationAnimsTimeout=4.000000
+ActorNamesToFacialAnimPaths=(("Cal", "/Game/Characters/Hero/Animation/SG_GameplayFacialAnims/"),("Greez", "/Game/Characters/Greeze/Animation/SG_GameplayFacialAnims/"),("Cere", "/Game/Characters/Cere/Animation/SG_GameplayFacialAnims/"),("Partisan Woman 1", "/Game/Characters/Heads/Bethany/Animations/SG_GameplayFacialAnims/"),("Partisan Woman 2", "/Game/Characters/Heads/Alison/Animations/SG_GameplayFacialAnims/"),("Partisan Woman 3", "/Game/Characters/Heads/Carrie/Animations/SG_GameplayFacialAnims/"),("Partisan Woman 5", "/Game/Characters/Heads/Danica/Animations/SG_GameplayFacialAnims/"),("Mirienna", "/Game/Characters/Heads/Mirienna/Animations/SG_GameplayFacialAnims/"),("Saw Gerrera", "/Game/Characters/Saw/Animation/SG_GameplayFacialAnims/"),("Partisan Man 1", "/Game/Characters/Heads/Charles/Animations/SG_GameplayFacialAnims/"),("Merrin", "/Game/Characters/Merrin/Animations/SG_GameplayFacialAnims/"),("Taron Malicos", "/Game/Characters/Malicos/Animation/SG_GameplayFacialAnims/"),("Prauf", "/Game/Characters/Prauf/Animation/SG_GameplayFacialAnims/"),("Aparna", "/Game/Characters/Heads/Alison/Animations/SG_GameplayFacialAnims/"),("Gritz", "/Game/Characters/Heads/Evie/Animations/SG_GameplayFacialAnims/"),("Trilla", "/Game/Characters/Inquisitor/Animations/SG_GameplayFacialAnims/"),("Ninth Sister", "/Game/Characters/Inquisitor9/Animation/SG_GameplayFacialAnims/"),("Mari Kosan", "/Game/Characters/Heads/Mari/Animations/SG_GameplayFacialAnims/"),("Jaro Tapal", "/Game/Characters/Jaro/Animations/SG_GameplayFacialAnims/"),("Evil Jaro", "/Game/Characters/Jaro/Animations/SG_GameplayFacialAnims/"),("Young Cal", "/Game/Characters/HeroYoung/Animation/SG_GameplayFacialAnims/"),("ConfusedScrapper_SG", "/Game/Characters/Heads/Danica/Animations/SG_GameplayFacialAnims/"),("Oleg", "/Game/Characters/Heads/Drew/Animations/SG_GameplayFacialAnims/"),("Yuri", "/Game/Characters/Heads/Dominic/Animations/SG_GameplayFacialAnims/"),("Stayb", "/Game/Characters/NightbrotherMelee/Animation/SG_GameplayFacialAnims/"),("Payne", "/Game/Characters/NightbrotherMelee/Animation/SG_GameplayFacialAnims/"),("Lorge", "/Game/Characters/NightbrotherMelee/Animation/SG_GameplayFacialAnims/"),("Choyyssyk", "/Game/Characters/Wookiee/Animations/fbx/SG_GameplayFacialAnims/"),("Wookiee 1", "/Game/Characters/Wookiee/Animations/fbx/SG_GameplayFacialAnims/"),("Tarfful", "/Game/Characters/Wookiee/Animations/fbx/SG_GameplayFacialAnims/"),("Wookiee 2", "/Game/Characters/Wookiee/Animations/fbx/SG_GameplayFacialAnims/"),("Wookiee 3", "/Game/Characters/Wookiee/Animations/fbx/SG_GameplayFacialAnims/"),("Wookiee Partisan", "/Game/Characters/Wookiee/Animations/fbx/SG_GameplayFacialAnims/"),("Aungur", "/Game/Characters/NightbrotherRanged/Animation/SG_GameplayFacialAnims/"),("Rane", "/Game/Characters/NightbrotherRanged/Animation/SG_GameplayFacialAnims/"),("Raje", "/Game/Characters/NightbrotherRanged/Animation/SG_GameplayFacialAnims/"),("Partisan Man 4", "/Game/Characters/Heads/Charles/Animations/SG_GameplayFacialAnims/"),("Partisan Woman 4", "/Game/Characters/Heads/Alison/Animations/SG_GameplayFacialAnims/"),("Zeffo Sage", "/Game/Characters/Zeffonian_Aristocrat/Animations/SG_GameplayFacialAnims/"))
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.AM1529")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.Aungur")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.BA3412")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.Boxy")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.CR6520")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.DT9811")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.Dylok")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.ER0198")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.FB4528")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.GN7173")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.Jaren")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.JO4879")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.Lorge")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.Martus")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.Merrin")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.NinthSister")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.Payne")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.PT0008")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.Raje")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.Rane")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.Reena")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.Scroobius")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.SecurityDroid")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.Stayb")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.TaronMalicos")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.Trilla")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.Vario")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.ZK8880")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.SorcTormo")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.JaroTapal")
++SystemicCombatSpeakerTags=(TagName="Narrative.SpeakerCharacters.Vader")
+
+[/Script/Engine.CollisionProfile]
+-Profiles=(Name="NoCollision",CollisionEnabled=NoCollision,ObjectTypeName="WorldStatic",CustomResponses=((Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore)),HelpMessage="No collision",bCanModify=False)
+-Profiles=(Name="BlockAll",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldStatic",CustomResponses=,HelpMessage="WorldStatic object that blocks all actors by default. All new custom channels will use its own default response. ",bCanModify=False)
+-Profiles=(Name="OverlapAll",CollisionEnabled=QueryOnly,ObjectTypeName="WorldStatic",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Camera",Response=ECR_Overlap),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Destructible",Response=ECR_Overlap)),HelpMessage="WorldStatic object that overlaps all actors by default. All new custom channels will use its own default response. ",bCanModify=False)
+-Profiles=(Name="BlockAllDynamic",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldDynamic",CustomResponses=,HelpMessage="WorldDynamic object that blocks all actors by default. All new custom channels will use its own default response. ",bCanModify=False)
+-Profiles=(Name="OverlapAllDynamic",CollisionEnabled=QueryOnly,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Camera",Response=ECR_Overlap),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Destructible",Response=ECR_Overlap)),HelpMessage="WorldDynamic object that overlaps all actors by default. All new custom channels will use its own default response. ",bCanModify=False)
+-Profiles=(Name="IgnoreOnlyPawn",CollisionEnabled=QueryOnly,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="Pawn",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore)),HelpMessage="WorldDynamic object that ignores Pawn and Vehicle. All other channels will be set to default.",bCanModify=False)
+-Profiles=(Name="OverlapOnlyPawn",CollisionEnabled=QueryOnly,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="Pawn",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Camera",Response=ECR_Ignore)),HelpMessage="WorldDynamic object that overlaps Pawn, Camera, and Vehicle. All other channels will be set to default. ",bCanModify=False)
+-Profiles=(Name="Pawn",CollisionEnabled=QueryAndPhysics,ObjectTypeName="Pawn",CustomResponses=((Channel="Visibility",Response=ECR_Ignore)),HelpMessage="Pawn object. Can be used for capsule of any playerable character or AI. ",bCanModify=False)
+-Profiles=(Name="Spectator",CollisionEnabled=QueryOnly,ObjectTypeName="Pawn",CustomResponses=((Channel="WorldStatic",Response=ECR_Block),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore)),HelpMessage="Pawn object that ignores all other actors except WorldStatic.",bCanModify=False)
+-Profiles=(Name="CharacterMesh",CollisionEnabled=QueryOnly,ObjectTypeName="Pawn",CustomResponses=((Channel="Pawn",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore)),HelpMessage="Pawn object that is used for Character Mesh. All other channels will be set to default.",bCanModify=False)
+-Profiles=(Name="PhysicsActor",CollisionEnabled=QueryAndPhysics,ObjectTypeName="PhysicsBody",CustomResponses=,HelpMessage="Simulating actors",bCanModify=False)
+-Profiles=(Name="Destructible",CollisionEnabled=QueryAndPhysics,ObjectTypeName="Destructible",CustomResponses=,HelpMessage="Destructible actors",bCanModify=False)
+-Profiles=(Name="InvisibleWall",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldStatic",CustomResponses=((Channel="Visibility",Response=ECR_Ignore)),HelpMessage="WorldStatic object that is invisible.",bCanModify=False)
+-Profiles=(Name="InvisibleWallDynamic",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="Visibility",Response=ECR_Ignore)),HelpMessage="WorldDynamic object that is invisible.",bCanModify=False)
+-Profiles=(Name="Trigger",CollisionEnabled=QueryOnly,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Camera",Response=ECR_Overlap),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Destructible",Response=ECR_Overlap)),HelpMessage="WorldDynamic object that is used for trigger. All other channels will be set to default.",bCanModify=False)
+-Profiles=(Name="Ragdoll",CollisionEnabled=QueryAndPhysics,ObjectTypeName="PhysicsBody",CustomResponses=((Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore)),HelpMessage="Simulating Skeletal Mesh Component. All other channels will be set to default.",bCanModify=False)
+-Profiles=(Name="Vehicle",CollisionEnabled=QueryAndPhysics,ObjectTypeName="Vehicle",CustomResponses=,HelpMessage="Vehicle object that blocks Vehicle, WorldStatic, and WorldDynamic. All other channels will be set to default.",bCanModify=False)
+-Profiles=(Name="UI",CollisionEnabled=QueryOnly,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Block),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Camera",Response=ECR_Overlap),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Destructible",Response=ECR_Overlap)),HelpMessage="WorldStatic object that overlaps all actors by default. All new custom channels will use its own default response. ",bCanModify=False)
++Profiles=(Name="ActorTopology_HeroOnly",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="ActorTopologyQuery and Hero.",bCanModify=True)
++Profiles=(Name="AIAwakeVolume",CollisionEnabled=QueryOnly,ObjectTypeName="Pawn",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Overlap),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Destructible",Response=ECR_Overlap),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Overlap),(Channel="Hero",Response=ECR_Overlap),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="BodyParts",Response=ECR_Overlap),(Channel="Debris",Response=ECR_Overlap)),HelpMessage="Same as RsNavVolume, except that Visibility is ignored and ObjectType is Pawn",bCanModify=True)
++Profiles=(Name="AILimbs",CollisionEnabled=QueryOnly,ObjectTypeName="Pawn",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore)),HelpMessage="For characters with mulitple body parts that take damage",bCanModify=True)
++Profiles=(Name="AudioObstructionOnly",CollisionEnabled=QueryOnly,ObjectTypeName="WorldStatic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="Used for obstructing audio, should only be used on trigger boxes within audio levels",bCanModify=True)
++Profiles=(Name="AudioVolume",CollisionEnabled=QueryOnly,ObjectTypeName="Trigger",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="Audio volume trigger",bCanModify=True)
++Profiles=(Name="BlockAIOnly",CollisionEnabled=PhysicsOnly,ObjectTypeName="WorldStatic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="Only blocks AI",bCanModify=True)
++Profiles=(Name="BlockAll",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldStatic",CustomResponses=((Channel="IKComplexGeoQuery",Response=ECR_Overlap),(Channel="RopeCollision")),HelpMessage="Blocks all Unreal channels, only use for level blockouts",bCanModify=False)
++Profiles=(Name="BlockAllDynamic",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="IKComplexGeoQuery",Response=ECR_Overlap),(Channel="RopeCollision")),HelpMessage="Same as BlockAll for dynamic objects",bCanModify=False)
++Profiles=(Name="BlockAllDynamicForceVisibility",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="IKComplexGeoQuery",Response=ECR_Overlap),(Channel="RopeCollision"),(Channel="ForceVisibility")),HelpMessage="Same as BlockAllDynamic except that ForceVisibility is blocked",bCanModify=True)
++Profiles=(Name="BlockAllDynamicNoAudioObstruction",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="IKComplexGeoQuery",Response=ECR_Overlap)),HelpMessage="Same as BlockAllDynamic except that audio is not obstructed",bCanModify=True)
++Profiles=(Name="BlockAll_IgnoreVisibility",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldStatic",CustomResponses=((Channel="Visibility",Response=ECR_Ignore),(Channel="IKComplexGeoQuery",Response=ECR_Overlap)),HelpMessage="Ignores Visibility to prevent incorrect physical materials being passed in",bCanModify=True)
++Profiles=(Name="BlockCameraAndAudio",CollisionEnabled=QueryOnly,ObjectTypeName="",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="Only blocks camera and audio",bCanModify=True)
++Profiles=(Name="BlockPhysicsBodyOnly",CollisionEnabled=PhysicsOnly,ObjectTypeName="",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="Only blocks PhysicsBody",bCanModify=True)
++Profiles=(Name="BodyParts",CollisionEnabled=QueryAndPhysics,ObjectTypeName="BodyParts",CustomResponses=((Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore)),HelpMessage="Use for BodyParts colliding with Hero",bCanModify=True)
++Profiles=(Name="BreakableNoCamera",CollisionEnabled=QueryAndPhysics,ObjectTypeName="Destructible",CustomResponses=((Channel="Camera",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="ForceTrace")),HelpMessage="No camera collision on breakables",bCanModify=True)
++Profiles=(Name="BuddyDroid",CollisionEnabled=QueryOnly,ObjectTypeName="Pawn",CustomResponses=((Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="ForceTrace")),HelpMessage="For the buddy droid",bCanModify=True)
++Profiles=(Name="BulletProjectiles",CollisionEnabled=QueryAndPhysics,ObjectTypeName="Bullets",CustomResponses=((Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Overlap),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Overlap),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="BodyParts",Response=ECR_Overlap),(Channel="Debris",Response=ECR_Overlap),(Channel="ForceTrace",Response=ECR_Overlap)),HelpMessage="For bullet projectiles",bCanModify=True)
++Profiles=(Name="CharacterMesh",CollisionEnabled=PhysicsOnly,ObjectTypeName="Pawn",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Overlap),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="RopeCollision")),HelpMessage="Pawn object that is used for Character Mesh",bCanModify=False)
++Profiles=(Name="Chemistry_ForceObj",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="Camera",Response=ECR_Overlap),(Channel="Chemistry",Response=ECR_Overlap),(Channel="ForceTrace"),(Channel="IKComplexGeoQuery",Response=ECR_Overlap)),HelpMessage="Needs description",bCanModify=True)
++Profiles=(Name="Chemistry_Water",CollisionEnabled=QueryOnly,ObjectTypeName="Chemistry",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Chemistry",Response=ECR_Overlap),(Channel="Hero",Response=ECR_Overlap),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="Needs description",bCanModify=True)
++Profiles=(Name="Debris",CollisionEnabled=QueryAndPhysics,ObjectTypeName="Debris",CustomResponses=((Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore)),HelpMessage="Visual debris and clutter that can be pushed around",bCanModify=True)
++Profiles=(Name="Debris_IgnoreHero",CollisionEnabled=QueryAndPhysics,ObjectTypeName="Debris",CustomResponses=((Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore)),HelpMessage="For debris that should not collide with the Hero",bCanModify=True)
++Profiles=(Name="DebrisOnly",CollisionEnabled=PhysicsOnly,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore)),HelpMessage="Only interacts with debris, useful for feet",bCanModify=True)
++Profiles=(Name="DecalsAndCamera",CollisionEnabled=QueryOnly,ObjectTypeName="WorldStatic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="Lightsaber marks and bullets appear on object, camera and audio is blocked",bCanModify=True)
++Profiles=(Name="Destructible",CollisionEnabled=QueryAndPhysics,ObjectTypeName="Destructible",CustomResponses=((Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="ForceTrace"),(Channel="IKComplexGeoQuery",Response=ECR_Overlap),(Channel="RopeCollision")),HelpMessage="Destructible actors",bCanModify=False)
++Profiles=(Name="DestructibleNoCameraNoForce",CollisionEnabled=QueryAndPhysics,ObjectTypeName="Destructible",CustomResponses=((Channel="Camera",Response=ECR_Ignore),(Channel="IKComplexGeoQuery",Response=ECR_Overlap),(Channel="RopeCollision")),HelpMessage="Same as DestructibleNoForce, except that Camera is ignored",bCanModify=True)
++Profiles=(Name="DestructibleNoForce",CollisionEnabled=QueryAndPhysics,ObjectTypeName="Destructible",CustomResponses=((Channel="IKComplexGeoQuery",Response=ECR_Overlap),(Channel="RopeCollision")),HelpMessage="Destructible Actors that cannot be affected by Force",bCanModify=True)
++Profiles=(Name="FlytrapBlockAllDynamic",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="IKComplexGeoQuery",Response=ECR_Overlap),(Channel="RopeCollision")),HelpMessage="Same as BlockAllDynamic except that ActorTopologyQuery is ignored",bCanModify=True)
++Profiles=(Name="ForceObj",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="ForceTrace"),(Channel="IKComplexGeoQuery",Response=ECR_Overlap)),HelpMessage="Force object player can interact with",bCanModify=True)
++Profiles=(Name="ForceObjNoAudioObstruction",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="ForceTrace"),(Channel="IKComplexGeoQuery",Response=ECR_Overlap)),HelpMessage="Exactly the same as ForceObj except that audio is not obstructed",bCanModify=True)
++Profiles=(Name="ForceObjNoCamera",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="Camera",Response=ECR_Overlap),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="ForceTrace"),(Channel="IKComplexGeoQuery",Response=ECR_Overlap)),HelpMessage="Force object player can interact with that doesn\'t block Camera",bCanModify=True)
++Profiles=(Name="ForceObjNoCollision",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore),(Channel="ForceTrace")),HelpMessage="An object that will interact with Force powers but will ignore everything else, primarily used for blueprints",bCanModify=True)
++Profiles=(Name="ForceOnly",CollisionEnabled=QueryOnly,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore),(Channel="ForceTrace",Response=ECR_Overlap)),HelpMessage="Only ForceTrace",bCanModify=True)
++Profiles=(Name="ForceVisibilityOnly",CollisionEnabled=QueryOnly,ObjectTypeName="",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore),(Channel="ForceVisibility")),HelpMessage="Only blocks ForceVisibility",bCanModify=True)
++Profiles=(Name="Hazard",CollisionEnabled=QueryOnly,ObjectTypeName="Chemistry",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Overlap),(Channel="Chemistry",Response=ECR_Overlap),(Channel="Hero",Response=ECR_Overlap),(Channel="LightsaberMarks",Response=ECR_Ignore)),HelpMessage="For hazard spreading",bCanModify=True)
++Profiles=(Name="Hero",CollisionEnabled=QueryOnly,ObjectTypeName="Hero",CustomResponses=((Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Chemistry",Response=ECR_Overlap),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="BodyParts"),(Channel="ForceTrace")),HelpMessage="The Hero",bCanModify=True)
++Profiles=(Name="HeroIgnoresPawns",CollisionEnabled=QueryAndPhysics,ObjectTypeName="",CustomResponses=((Channel="Pawn",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="BodyParts"),(Channel="ForceTrace")),HelpMessage="Ignores Pawn and Hero objects",bCanModify=True)
++Profiles=(Name="HitCollider_AI",CollisionEnabled=NoCollision,ObjectTypeName="HitCollision",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Overlap),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Overlap),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="For hit colliders on AI",bCanModify=True)
++Profiles=(Name="HitCollider_Hero",CollisionEnabled=NoCollision,ObjectTypeName="HitCollision",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Overlap),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="For hit colliders on the Hero",bCanModify=True)
++Profiles=(Name="HitCollisionOnly",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision"),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="Only interacts with the lightsaber, for gameplay only (no LightsaberMarks!)",bCanModify=True)
++Profiles=(Name="IgnoreActorTopologyQuery",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldStatic",CustomResponses=((Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="IKComplexGeoQuery",Response=ECR_Overlap),(Channel="RopeCollision")),HelpMessage="Same as BlockAll but ignores ActorTopologyQuery, used on elevators and the Mantis",bCanModify=True)
++Profiles=(Name="IgnoreActorTopologyQueryDynamic",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="IKComplexGeoQuery",Response=ECR_Overlap),(Channel="RopeCollision")),HelpMessage="Same as BlockAll but ignores ActorTopologyQuery, used on elevators and the Mantis",bCanModify=True)
++Profiles=(Name="IgnoreCamera",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldStatic",CustomResponses=((Channel="Camera",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="IKComplexGeoQuery",Response=ECR_Overlap)),HelpMessage="Same as BlockAll but ignores Camera",bCanModify=True)
++Profiles=(Name="IgnoreOnlyPawn",CollisionEnabled=QueryOnly,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="Pawn",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="IKComplexGeoQuery",Response=ECR_Overlap)),HelpMessage="WorldDynamic object that ignores Pawn and Vehicle, all other channels will be set to default",bCanModify=False)
++Profiles=(Name="IKComplexGeo",CollisionEnabled=QueryOnly,ObjectTypeName="",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore),(Channel="IKComplexGeoQuery")),HelpMessage="For complex geo whose only collision should be with IK queries",bCanModify=True)
++Profiles=(Name="InvisibleWall",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldStatic",CustomResponses=((Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="RopeCollision")),HelpMessage="WorldStatic object that is invisible",bCanModify=False)
++Profiles=(Name="InvisibleWallDynamic",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="RopeCollision")),HelpMessage="WorldDynamic object that is invisible",bCanModify=False)
++Profiles=(Name="InvisibleWallIgnoreActorTopologyQuery",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldStatic",CustomResponses=((Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="RopeCollision")),HelpMessage="WorldStatic object that is invisible and ignores ActorTopologyQuery, used for elevators and mantis",bCanModify=False)
++Profiles=(Name="InvisibleWallIgnoreActorTopologyQueryDynamic",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="RopeCollision")),HelpMessage="WorldDynamic object that is invisible and ignores ActorTopologyQuery, used for elevators and mantis",bCanModify=False)
++Profiles=(Name="InvisibleWallHeroOnly",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldStatic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="Invisible wall hero only",bCanModify=True)
++Profiles=(Name="LightsaberMarksGeo",CollisionEnabled=QueryOnly,ObjectTypeName="",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="LightsaberMarks traces only",bCanModify=True)
++Profiles=(Name="MantisInterior",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore),(Channel="IKComplexGeoQuery")),HelpMessage="Mantis interior collision for specific areas.",bCanModify=True)
++Profiles=(Name="NoCollision",CollisionEnabled=NoCollision,ObjectTypeName="WorldStatic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="No collision",bCanModify=False)
++Profiles=(Name="OverlapAI",CollisionEnabled=QueryOnly,ObjectTypeName="Trigger",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="BodyParts",Response=ECR_Overlap),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="Trigger to only check for AI enemies",bCanModify=True)
++Profiles=(Name="OverlapAll",CollisionEnabled=QueryOnly,ObjectTypeName="WorldStatic",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Overlap),(Channel="Camera",Response=ECR_Overlap),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Destructible",Response=ECR_Overlap),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Overlap),(Channel="Hero",Response=ECR_Overlap),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="BodyParts",Response=ECR_Overlap),(Channel="Debris",Response=ECR_Overlap)),HelpMessage="WorldStatic object that overlaps all Unreal channels",bCanModify=False)
++Profiles=(Name="OverlapAllDynamic",CollisionEnabled=QueryOnly,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Overlap),(Channel="Camera",Response=ECR_Overlap),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Destructible",Response=ECR_Overlap),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Overlap),(Channel="Hero",Response=ECR_Overlap),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="BodyParts",Response=ECR_Overlap),(Channel="Debris",Response=ECR_Overlap)),HelpMessage="WorldDynamic object that overlaps all Unreal channels",bCanModify=False)
++Profiles=(Name="OverlapHero",CollisionEnabled=QueryOnly,ObjectTypeName="WorldStatic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Overlap),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="Static object that overlaps only the Hero",bCanModify=True)
++Profiles=(Name="OverlapHeroDynamic",CollisionEnabled=QueryOnly,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Overlap),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="Dynamic object that only overlaps the Hero",bCanModify=True)
++Profiles=(Name="OverlapOnlyPawn",CollisionEnabled=QueryOnly,ObjectTypeName="Trigger",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Overlap),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="Trigger that only overlaps Pawn and Hero",bCanModify=False)
++Profiles=(Name="Pawn",CollisionEnabled=QueryOnly,ObjectTypeName="Pawn",CustomResponses=((Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Overlap),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="ForceTrace"),(Channel="IKComplexGeoQuery",Response=ECR_Overlap)),HelpMessage="Pawn object",bCanModify=False)
++Profiles=(Name="PawnBlockGeoOnly",CollisionEnabled=QueryAndPhysics,ObjectTypeName="Pawn",CustomResponses=((Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="For special-case geo blocking.",bCanModify=True)
++Profiles=(Name="PawnBlockHeroOnly",CollisionEnabled=QueryAndPhysics,ObjectTypeName="Pawn",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="Pawn collision. Only blocks hero.",bCanModify=True)
++Profiles=(Name="PhysicsActor",CollisionEnabled=QueryAndPhysics,ObjectTypeName="PhysicsBody",CustomResponses=((Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="IKComplexGeoQuery",Response=ECR_Overlap),(Channel="RopeCollision")),HelpMessage="Simulating actors",bCanModify=False)
++Profiles=(Name="PhysicsActorForce",CollisionEnabled=QueryAndPhysics,ObjectTypeName="PhysicsBody",CustomResponses=((Channel="ForceTrace")),HelpMessage="Physics actor that blocks ForceTraces",bCanModify=True)
++Profiles=(Name="PhysicsActorNoCamera",CollisionEnabled=QueryAndPhysics,ObjectTypeName="PhysicsBody",CustomResponses=((Channel="Camera",Response=ECR_Ignore),(Channel="IKComplexGeoQuery",Response=ECR_Overlap)),HelpMessage="Blocks PhysicsBody, but not the Camera",bCanModify=True)
++Profiles=(Name="PhysicsAnimation",CollisionEnabled=QueryAndPhysics,ObjectTypeName="PhysicsAnimation",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore),(Channel="PhysicsAnimation")),HelpMessage="Collision profile for PhysicsAnimation assets / visual ragdoll",bCanModify=True)
++Profiles=(Name="PhysMat",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldStatic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="Used for PhysMats, direct usage can be found on Puddle01 and Puddle02",bCanModify=True)
++Profiles=(Name="Ragdoll",CollisionEnabled=QueryAndPhysics,ObjectTypeName="PhysicsBody",CustomResponses=((Channel="Pawn",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Overlap),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="RagdollTrace"),(Channel="IKComplexGeoQuery",Response=ECR_Overlap),(Channel="RopeCollision")),HelpMessage="Simulating Skeletal Mesh Component",bCanModify=False)
++Profiles=(Name="RsNavVolume",CollisionEnabled=QueryOnly,ObjectTypeName="WorldStatic",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Camera",Response=ECR_Overlap),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Destructible",Response=ECR_Overlap),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Overlap),(Channel="Hero",Response=ECR_Overlap),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="BodyParts",Response=ECR_Overlap),(Channel="Debris",Response=ECR_Overlap)),HelpMessage="For RsNavVolume, same as OverlapAll except that Visibility is blocked",bCanModify=True)
++Profiles=(Name="RsNavVolume_IgnoreVisibility",CollisionEnabled=QueryOnly,ObjectTypeName="",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Overlap),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Destructible",Response=ECR_Overlap),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Overlap),(Channel="Hero",Response=ECR_Overlap),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="BodyParts",Response=ECR_Overlap),(Channel="Debris",Response=ECR_Overlap)),HelpMessage="Same as RsNavVolume, except that Visibility is ignored",bCanModify=True)
++Profiles=(Name="Spectator",CollisionEnabled=NoCollision,ObjectTypeName="Pawn",CustomResponses=((Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore)),HelpMessage="Pawn object that ignores all other actors except WorldStatic",bCanModify=False)
++Profiles=(Name="TraceTarget",CollisionEnabled=QueryOnly,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore)),HelpMessage="Manual trace target object, ignores all",bCanModify=True)
++Profiles=(Name="Trigger",CollisionEnabled=QueryOnly,ObjectTypeName="Trigger",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Overlap),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="Overlap trigger for the Hero",bCanModify=False)
++Profiles=(Name="TriggerOnAllObjectTypes",CollisionEnabled=QueryOnly,ObjectTypeName="Trigger",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Destructible",Response=ECR_Overlap),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Overlap),(Channel="Chemistry",Response=ECR_Overlap),(Channel="Hero",Response=ECR_Overlap),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="BodyParts",Response=ECR_Overlap),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="Same functionality as Trigger, except this will overlap all object types, for example, the RATAT_Head on KAS_World",bCanModify=True)
++Profiles=(Name="UI",CollisionEnabled=QueryOnly,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Camera",Response=ECR_Overlap),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Destructible",Response=ECR_Overlap),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore)),HelpMessage="UI channel",bCanModify=False)
++Profiles=(Name="Vehicle",CollisionEnabled=QueryAndPhysics,ObjectTypeName="Vehicle",CustomResponses=((Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="IKComplexGeoQuery",Response=ECR_Overlap)),HelpMessage="Vehicle object that blocks Vehicle, WorldStatic, and WorldDynamic, all other channels will be set to default",bCanModify=False)
++Profiles=(Name="VisiblityOnly",CollisionEnabled=QueryOnly,ObjectTypeName="WorldStatic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="Visibility collision only.",bCanModify=True)
++Profiles=(Name="WallOnlyInvisible",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldStatic",CustomResponses=((Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="RopeCollision")),HelpMessage="Only to be used as Invisible Wall. Hero cannot stand on!",bCanModify=True)
++Profiles=(Name="WindPush",CollisionEnabled=QueryOnly,ObjectTypeName="PhysicsBody",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="ForceTrace")),HelpMessage="Wind that can be Force manipulated",bCanModify=True)
++Profiles=(Name="WorldMapGeo",CollisionEnabled=QueryOnly,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="Bullets",Response=ECR_Ignore),(Channel="Hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="HitCollision",Response=ECR_Ignore),(Channel="WorldMap",Response=ECR_Overlap),(Channel="Debris",Response=ECR_Ignore)),HelpMessage="WorldMap StaticMeshes that support multi-hit raycast queries using WorldMap trace channel",bCanModify=True)
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel1,Name="Bullets",DefaultResponse=ECR_Block,bTraceType=False,bStaticObject=False)
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel2,Name="Chemistry",DefaultResponse=ECR_Ignore,bTraceType=False,bStaticObject=False)
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel3,Name="Hero",DefaultResponse=ECR_Block,bTraceType=False,bStaticObject=False)
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel4,Name="LightsaberMarks",DefaultResponse=ECR_Block,bTraceType=True,bStaticObject=False)
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel5,Name="RagdollTrace",DefaultResponse=ECR_Ignore,bTraceType=True,bStaticObject=False)
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel6,Name="Trigger",DefaultResponse=ECR_Overlap,bTraceType=False,bStaticObject=False)
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel7,Name="HitCollision",DefaultResponse=ECR_Overlap,bTraceType=False,bStaticObject=False)
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel8,Name="BodyParts",DefaultResponse=ECR_Ignore,bTraceType=False,bStaticObject=False)
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel9,Name="WorldMap",DefaultResponse=ECR_Ignore,bTraceType=True,bStaticObject=False)
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel10,Name="Debris",DefaultResponse=ECR_Block,bTraceType=False,bStaticObject=False)
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel11,Name="ForceTrace",DefaultResponse=ECR_Ignore,bTraceType=True,bStaticObject=False)
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel12,Name="PhysicsAnimation",DefaultResponse=ECR_Ignore,bTraceType=False,bStaticObject=False)
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel13,Name="IKComplexGeoQuery",DefaultResponse=ECR_Ignore,bTraceType=True,bStaticObject=False)
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel14,Name="RopeCollision",DefaultResponse=ECR_Ignore,bTraceType=True,bStaticObject=False)
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel15,Name="ForceVisibility",DefaultResponse=ECR_Ignore,bTraceType=True,bStaticObject=False)
++EditProfiles=(Name="Trigger",CustomResponses=((Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="bullets",Response=ECR_Ignore),(Channel="hero",Response=ECR_Overlap),(Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="EngineTraceChannel2",Response=ECR_Ignore),(Channel="EngineTraceChannel3",Response=ECR_Ignore),(Channel="EngineTraceChannel4",Response=ECR_Ignore),(Channel="EngineTraceChannel5",Response=ECR_Ignore),(Channel="EngineTraceChannel6",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="hitCollision",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore),(Channel="IKComplexGeoQuery",Response=ECR_Ignore),(Channel="RopeCollision",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore)))
++EditProfiles=(Name="OverlapAll",CustomResponses=((Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="bullets",Response=ECR_Overlap),(Channel="hero",Response=ECR_Overlap),(Channel="BodyParts",Response=ECR_Overlap),(Channel="forceTrace",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Overlap)))
++EditProfiles=(Name="OverlapAllDynamic",CustomResponses=((Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="bullets",Response=ECR_Overlap),(Channel="hero",Response=ECR_Overlap),(Channel="BodyParts",Response=ECR_Overlap),(Channel="forceTrace",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="IKComplexGeoQuery",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Overlap)))
++EditProfiles=(Name="UI",CustomResponses=((Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="hitCollision",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore)))
++EditProfiles=(Name="PhysicsActor",CustomResponses=((Channel="forceTrace",Response=ECR_Ignore),(Channel="Debris"),(Channel="IKComplexGeoQuery",Response=ECR_Overlap),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="RopeCollision")))
++EditProfiles=(Name="Pawn",CustomResponses=((Channel="forceTrace"),(Channel="Camera",Response=ECR_Overlap),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="IKComplexGeoQuery",Response=ECR_Overlap),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore)))
++EditProfiles=(Name="CharacterMesh",CustomResponses=((Channel="Visibility"),(Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="bullets",Response=ECR_Ignore),(Channel="hero",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="hitCollision",Response=ECR_Ignore),(Channel="forceTrace",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Overlap),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="RopeCollision")))
++EditProfiles=(Name="InvisibleWall",CustomResponses=((Channel="Camera",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="bullets",Response=ECR_Ignore),(Channel="RopeCollision")))
++EditProfiles=(Name="InvisibleWallDynamic",CustomResponses=((Channel="Camera",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="RopeCollision")))
++EditProfiles=(Name="Ragdoll",CustomResponses=((Channel="Camera",Response=ECR_Overlap),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="forceTrace",Response=ECR_Ignore),(Channel="IKComplexGeoQuery",Response=ECR_Overlap),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="RagdollTrace"),(Channel="RopeCollision"),(Channel="Visibility",Response=ECR_Ignore)))
++EditProfiles=(Name="NoCollision",CustomResponses=((Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="EngineTraceChannel2",Response=ECR_Ignore),(Channel="EngineTraceChannel3",Response=ECR_Ignore),(Channel="EngineTraceChannel4",Response=ECR_Ignore),(Channel="EngineTraceChannel5",Response=ECR_Ignore),(Channel="EngineTraceChannel6",Response=ECR_Ignore),(Channel="bullets",Response=ECR_Ignore),(Channel="hero",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="RagdollTrace",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="hitCollision",Response=ECR_Ignore),(Channel="WorldMap",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore),(Channel="RopeCollision",Response=ECR_Ignore)))
++EditProfiles=(Name="Spectator",CustomResponses=((Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="LightsaberMarks",Response=ECR_Ignore)))
++EditProfiles=(Name="OverlapOnlyPawn",CustomResponses=((Channel="IKComplexGeoQuery",Response=ECR_Ignore),(Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="ActorCollisionQuery",Response=ECR_Ignore),(Channel="ActorTopologyQuery",Response=ECR_Ignore),(Channel="AudioObstructionQuery",Response=ECR_Ignore),(Channel="EngineTraceChannel2",Response=ECR_Ignore),(Channel="EngineTraceChannel3",Response=ECR_Ignore),(Channel="EngineTraceChannel4",Response=ECR_Ignore),(Channel="EngineTraceChannel5",Response=ECR_Ignore),(Channel="EngineTraceChannel6",Response=ECR_Ignore),(Channel="bullets",Response=ECR_Ignore),(Channel="hero",Response=ECR_Overlap),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="RagdollTrace",Response=ECR_Ignore),(Channel="Trigger",Response=ECR_Ignore),(Channel="hitCollision",Response=ECR_Ignore),(Channel="WorldMap",Response=ECR_Ignore),(Channel="Debris",Response=ECR_Ignore),(Channel="RopeCollision",Response=ECR_Ignore)))
++EditProfiles=(Name="Destructible",CustomResponses=((Channel="Camera"),(Channel="IKComplexGeoQuery",Response=ECR_Overlap),(Channel="forceTrace"),(Channel="LightsaberMarks",Response=ECR_Ignore),(Channel="RopeCollision")))
++EditProfiles=(Name="IgnoreOnlyPawn",CustomResponses=((Channel="IKComplexGeoQuery",Response=ECR_Overlap),(Channel="LightsaberMarks",Response=ECR_Ignore)))
++EditProfiles=(Name="BlockAll",CustomResponses=((Channel="IKComplexGeoQuery",Response=ECR_Overlap),(Channel="LightsaberMarks"),(Channel="RopeCollision")))
++EditProfiles=(Name="BlockAllDynamic",CustomResponses=((Channel="IKComplexGeoQuery",Response=ECR_Overlap),(Channel="LightsaberMarks"),(Channel="RopeCollision")))
++EditProfiles=(Name="Vehicle",CustomResponses=((Channel="IKComplexGeoQuery",Response=ECR_Overlap),(Channel="LightsaberMarks",Response=ECR_Ignore)))
++EditProfiles=(Name="InvisibleWallIgnoreActorTopologyQuery",CustomResponses=((Channel="ActorTopologyQuery",Response=ECR_Ignore)))
++EditProfiles=(Name="InvisibleWallIgnoreActorTopologyQueryDynamic",CustomResponses=((Channel="ActorTopologyQuery",Response=ECR_Ignore)))
+-ProfileRedirects=(OldName="BlockingVolume",NewName="InvisibleWall")
+-ProfileRedirects=(OldName="InterpActor",NewName="IgnoreOnlyPawn")
+-ProfileRedirects=(OldName="StaticMeshComponent",NewName="BlockAllDynamic")
+-ProfileRedirects=(OldName="SkeletalMeshActor",NewName="PhysicsActor")
+-ProfileRedirects=(OldName="InvisibleActor",NewName="InvisibleWallDynamic")
++ProfileRedirects=(OldName="InterpActor",NewName="IgnoreOnlyPawn")
++ProfileRedirects=(OldName="BlockingVolume",NewName="InvisibleWall")
++ProfileRedirects=(OldName="StaticMeshComponent",NewName="BlockAllDynamic")
++ProfileRedirects=(OldName="SkeletalMeshActor",NewName="PhysicsActor")
++ProfileRedirects=(OldName="InvisibleActor",NewName="InvisibleWallDynamic")
++ProfileRedirects=(OldName="largeTarget",NewName="TraceTarget")
++ProfileRedirects=(OldName="verlapHeroDynamic",NewName="OverlapHeroDynamic")
++ProfileRedirects=(OldName="verlapHero",NewName="OverlapHero")
++ProfileRedirects=(OldName="limbs",NewName="AILimbs")
++ProfileRedirects=(OldName="lightsaberOnly",NewName="HitCollisionOnly")
++ProfileRedirects=(OldName="BlockCamera",NewName="BlockCameraAndAudio")
++ProfileRedirects=(OldName="LightsaberMarksAndCamera",NewName="DecalsAndCamera")
++ProfileRedirects=(OldName="onlyDebris",NewName="DebrisOnly")
++ProfileRedirects=(OldName="bullets",NewName="BulletProjectiles")
++ProfileRedirects=(OldName="ForceObject",NewName="ForceObj")
++ProfileRedirects=(OldName="ForceObjectNoCamera",NewName="ForceObjNoCamera")
++ProfileRedirects=(OldName="onlyForce",NewName="ForceOnly")
++ProfileRedirects=(OldName="BreakableNoCam",NewName="BreakableNoCamera")
++ProfileRedirects=(OldName="BlockVisibilityOnly",NewName="PhysMat")
++ProfileRedirects=(OldName="HitCollider",NewName="HitCollider_AI")
++ProfileRedirects=(OldName="BlockPhysicsBody",NewName="BlockPhysicsBodyOnly")
++ProfileRedirects=(OldName="BlockCameraOnly",NewName="BlockCameraAndAudio")
++ProfileRedirects=(OldName="Chemistry",NewName="Chemistry_Water")
+-CollisionChannelRedirects=(OldName="Static",NewName="WorldStatic")
+-CollisionChannelRedirects=(OldName="Dynamic",NewName="WorldDynamic")
+-CollisionChannelRedirects=(OldName="VehicleMovement",NewName="Vehicle")
+-CollisionChannelRedirects=(OldName="PawnMovement",NewName="Pawn")
++CollisionChannelRedirects=(OldName="Static",NewName="WorldStatic")
++CollisionChannelRedirects=(OldName="Dynamic",NewName="WorldDynamic")
++CollisionChannelRedirects=(OldName="VehicleMovement",NewName="Vehicle")
++CollisionChannelRedirects=(OldName="PawnMovement",NewName="Pawn")
++CollisionChannelRedirects=(OldName="fire",NewName="Hazard")
++CollisionChannelRedirects=(OldName="mesh",NewName="BodyParts")
++CollisionChannelRedirects=(OldName="item",NewName="largeTarget")
++CollisionChannelRedirects=(OldName="largeTarget",NewName="forceTrace")
++CollisionChannelRedirects=(OldName="cosmetic",NewName="Debris")
++CollisionChannelRedirects=(OldName="IKComplexGeo",NewName="IKComplexGeoQuery")
++CollisionChannelRedirects=(OldName="saber",NewName="hitCollision")
++CollisionChannelRedirects=(OldName="Hazard",NewName="Chemistry")
+
+[/Script/Engine.PhysicsSettings]
+DefaultGravityZ=-1225.000000
+DefaultTerminalVelocity=4000.000000
+DefaultFluidFriction=0.300000
+SimulateScratchMemorySize=262144
+RagdollAggregateThreshold=4
+TriangleMeshTriangleMinAreaThreshold=5.000000
+bEnableAsyncScene=False
+bEnableShapeSharing=False
+bEnablePCM=False
+bEnableStabilization=False
+bWarnMissingLocks=True
+bEnable2DPhysics=False
+PhysicErrorCorrection=(PingExtrapolation=0.100000,PingLimit=100.000000,ErrorPerLinearDifference=1.000000,ErrorPerAngularDifference=1.000000,MaxRestoredStateError=1.000000,MaxLinearHardSnapDistance=400.000000,PositionLerp=0.000000,AngleLerp=0.400000,LinearVelocityCoefficient=100.000000,AngularVelocityCoefficient=10.000000,ErrorAccumulationSeconds=0.500000,ErrorAccumulationDistanceSq=15.000000,ErrorAccumulationSimilarity=100.000000)
+LockedAxis=Invalid
+DefaultDegreesOfFreedom=Full3D
+BounceThresholdVelocity=200.000000
+FrictionCombineMode=Average
+RestitutionCombineMode=Average
+MaxAngularVelocity=720.000000
+MaxDepenetrationVelocity=0.000000
+ContactOffsetMultiplier=0.010000
+MinContactOffset=0.000100
+MaxContactOffset=1.000000
+bSimulateSkeletalMeshOnDedicatedServer=True
+DefaultShapeComplexity=CTF_UseSimpleAsComplex
+bDefaultHasComplexCollision=True
+bSuppressFaceRemapTable=False
+bSupportUVFromHitResults=False
+bDisableActiveActors=False
+bDisableKinematicStaticPairs=False
+bDisableKinematicKinematicPairs=False
+bDisableCCD=False
+bEnableEnhancedDeterminism=False
+MaxPhysicsDeltaTime=0.033333
+bSubstepping=False
+bSubsteppingAsync=False
+MaxSubstepDeltaTime=0.016667
+MaxSubsteps=6
+SyncSceneSmoothingFactor=0.000000
+AsyncSceneSmoothingFactor=0.990000
+InitialAverageFrameRate=0.016667
+PhysXTreeRebuildRate=10
++PhysicalSurfaces=(Type=SurfaceType1,Name="Concrete")
++PhysicalSurfaces=(Type=SurfaceType2,Name="Cloth")
++PhysicalSurfaces=(Type=SurfaceType3,Name="Snow_Thin")
++PhysicalSurfaces=(Type=SurfaceType4,Name="Grass")
++PhysicalSurfaces=(Type=SurfaceType5,Name="Metal_Solid")
++PhysicalSurfaces=(Type=SurfaceType6,Name="Gravel")
++PhysicalSurfaces=(Type=SurfaceType7,Name="Water_Puddle")
++PhysicalSurfaces=(Type=SurfaceType8,Name="Water_Shallow")
++PhysicalSurfaces=(Type=SurfaceType9,Name="Wood_Thick")
++PhysicalSurfaces=(Type=SurfaceType10,Name="Metal_Hollow")
++PhysicalSurfaces=(Type=SurfaceType11,Name="Dirt")
++PhysicalSurfaces=(Type=SurfaceType12,Name="Flesh")
++PhysicalSurfaces=(Type=SurfaceType13,Name="Mud")
++PhysicalSurfaces=(Type=SurfaceType14,Name="Water_Deep")
++PhysicalSurfaces=(Type=SurfaceType15,Name="Sand_Dry")
++PhysicalSurfaces=(Type=SurfaceType16,Name="Sand_Wet")
++PhysicalSurfaces=(Type=SurfaceType17,Name="Forest")
++PhysicalSurfaces=(Type=SurfaceType18,Name="Water_Rocky")
++PhysicalSurfaces=(Type=SurfaceType19,Name="Drivable_Vehicle")
++PhysicalSurfaces=(Type=SurfaceType20,Name="Rock")
++PhysicalSurfaces=(Type=SurfaceType21,Name="Snow_Thick")
++PhysicalSurfaces=(Type=SurfaceType22,Name="Wood_Thin")
++PhysicalSurfaces=(Type=SurfaceType23,Name="Wood_Rotted")
++PhysicalSurfaces=(Type=SurfaceType24,Name="Ice")
++PhysicalSurfaces=(Type=SurfaceType25,Name="Metal_Beam")
++PhysicalSurfaces=(Type=SurfaceType26,Name="Metal_Pipe")
++PhysicalSurfaces=(Type=SurfaceType27,Name="Metal_Grate")
++PhysicalSurfaces=(Type=SurfaceType28,Name="Metal_Rusted")
++PhysicalSurfaces=(Type=SurfaceType29,Name="Metal_Ship")
++PhysicalSurfaces=(Type=SurfaceType30,Name="Grass_Tall")
++PhysicalSurfaces=(Type=SurfaceType31,Name="Rubber")
++PhysicalSurfaces=(Type=SurfaceType32,Name="Glass")
++PhysicalSurfaces=(Type=SurfaceType33,Name="Web")
++PhysicalSurfaces=(Type=SurfaceType34,Name="Metal_Vehicle")
+DefaultBroadphaseSettings=(bUseMBPOnClient=False,bUseMBPOnServer=False,MBPBounds=(Min=(X=0.000000,Y=0.000000,Z=0.000000),Max=(X=0.000000,Y=0.000000,Z=0.000000),IsValid=0),MBPNumSubdivs=2)
+DamageFromPhysicsCollision=/Game/GlobalData/Damage/DamageCategoriesPhysicsCollision.DamageCategoriesPhysicsCollision
+DebugLogDamageFromPhysicsCollision=False
+DebugDisablePhysicalAnimation=False
+AllowDebugDrawForPhysicalAnimation=False
+DebugShowPoseFromAnimationWithoutPhysics=False
+DebugShowPoseFromAnimationWithoutPhysicsSolid=False
+DebugShowPoseFromPhysicalAnimationAfterPhysics=False
+DebugShowPhysicalAnimationActiveProfileName=False
+DebugShowPoseFromAnimationFromMotionAnalyzer=False
+DebugDrawPhysicalAnimationRootMotion=False
+DebugLogMatchingResultsForPhysicalAnimation=False
+DebugDisableCustomKickstartForRagdolls=False
+DefaultPhysicalMaterialForPhysicalAnimation=/Game/Materials/PhysicsMaterials/R4_PM_RagdollPhysAnimDefault.R4_PM_RagdollPhysAnimDefault
+DebugPhysAnimEnableFrameTimeSpikes=False
+DebugPhysAnimFrameTimeSpikesTimeBetween=2.000000
+DebugPhysAnimFrameTimeSpikesLength=1.000000
+DebugPhysAnimDisablePrediction=False
+DebugPhysAnimVisualizeDifferenceAnimationAndPhysics=False
+DebugPhysAnimVisualizeAnimationAndPhysicsBlendWeight=False
+DebugPhysicsAssetDebugRenderingScale=1.000000
+EnableDebugLogWithMaximumVelocitiesForAllRagdollBodies=False
+RagdollMaximumLinearVelocity=1000.000000
+RagdollMaximumAngularVelocity=80.000000
+EnableDebugLogForSleepingForAllRagdollBodies=False
+EnableValidationForRespawnDestructibleActors=False
+EnableDebugLogForSleepingForAllDestructionBodies=False
++WeightClassEntries=(Type=WeightClass1,Name="Small",Weight=100.000000)
++WeightClassEntries=(Type=WeightClass2,Name="Medium",Weight=200.000000)
++WeightClassEntries=(Type=WeightClass3,Name="Large",Weight=300.000000)
+
+
