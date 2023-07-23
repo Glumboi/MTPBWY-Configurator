@@ -233,6 +233,7 @@ public class MainPageViewModel : ViewModelBase
         {
             //Update settings UI
             SetProperty(ref _selectedPlugin, value);
+            Plugins[value].FireEntryPoint();
             GamePath = Plugins[value].GetGamePath();
         }
     }

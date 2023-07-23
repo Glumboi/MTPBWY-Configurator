@@ -28,7 +28,6 @@ public class Plugin : IPlugin
         _pluginDll = Path.Combine(_pluginIni.EXE, _pluginIni.Read("DllPath", "Plugin"));
         _assembly = Assembly.LoadFile(_pluginDll);
         LoadParams();
-        FireEntryPoint();
     }
 
     private void LoadParams()
@@ -37,7 +36,7 @@ public class Plugin : IPlugin
         _pluginParams = paramsString.Split(',');
     }
 
-    private void FireEntryPoint()
+    public void FireEntryPoint()
     {
         var entryPointMethod = _assembly.GetType($"{_pluginNamespace}.{_pluginClass}")?.GetMethod("EntryPoint");
         if (entryPointMethod != null)

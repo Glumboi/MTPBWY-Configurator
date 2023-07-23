@@ -25,6 +25,8 @@ public partial class ConfigSelectionPage : UiPage
 
     private void uiPage_Loaded(object sender, RoutedEventArgs e)
     {
+        if(_plugins.Count == Games_Panel.Children.Count) return;
+        
         for (int i = 0; i < _plugins.Count; i++)
         {
             Plugin plugin = _plugins[i];
