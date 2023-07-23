@@ -59,7 +59,7 @@ public class Plugin : IPlugin
         MethodInfo methodInfo = functionType.GetMethod(name);
         return (methodInfo, obj);
     }
-
+    
     public void Install(
         bool buildOnly,
         bool iniOnly,

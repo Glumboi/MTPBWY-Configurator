@@ -1,4 +1,6 @@
-﻿using MayThePerfromanceBeWithYou_Configurator.Core;
+﻿using System.IO;
+using System.Reflection;
+using MayThePerfromanceBeWithYou_Configurator.Core;
 
 namespace MayThePerfromanceBeWithYou_Configurator.Universal;
 
