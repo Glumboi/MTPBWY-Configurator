@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Windows;
@@ -83,7 +84,14 @@ public abstract class StandardPluginImplementations : IPlugin
             lastCreated = Directory.CreateDirectory($"{gameStructureLocation}\\{subFolders[i]}").FullName;
         }
 
-        File.Create(lastCreated + "\\DefaultEngine.ini").Close();
+        try
+        {
+            File.Create(lastCreated + "\\DefaultEngine.ini").Close();
+        }
+        catch
+        {
+            return;
+        }
     }
 
     protected void NotImplementedLogMsg(string nameOfFeature)
