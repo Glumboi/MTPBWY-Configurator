@@ -19,17 +19,26 @@
     <Grid x:Name="grid">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
+
 
         <TextBlock
             Padding="4"
             FontSize="15"
             FontWeight="Bold"
             Text="Which Game should receive MTPBWY?" />
+        <ui:TextBox Grid.Row="1"
+                    Icon="Filter24"
+                    x:Name="FilterTextBox"
+                    PlaceholderText="Filter" TextChanged="FilterTextBox_OnTextChanged
+        "/>
 
-        <ScrollViewer Grid.Row="1">
-            <WrapPanel x:Name="Games_Panel" Margin="0,4,0,0" />
+
+        <ScrollViewer Grid.Row="2">
+            <WrapPanel x:Name="Games_Panel" 
+                       Margin="0,4,0,0" />
         </ScrollViewer>
     </Grid>
 </ui:UiPage>

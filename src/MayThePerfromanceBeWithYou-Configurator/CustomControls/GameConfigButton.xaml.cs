@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using MayThePerfromanceBeWithYou_Configurator.Constants;
 using Wpf.Ui.Common;
 
 namespace MayThePerfromanceBeWithYou_Configurator.CustomControls
@@ -63,24 +64,15 @@ namespace MayThePerfromanceBeWithYou_Configurator.CustomControls
         public static readonly DependencyProperty OpenConfigCommandProperty =
             DependencyProperty.Register("OpenConfigCommand", typeof(ICommand), typeof(GameConfigButton));
 
-        public ICommand OpenConfigCommand
+        public int PluginIndex
         {
-            get { return (ICommand)GetValue(OpenConfigCommandProperty); }
-            set { SetValue(OpenConfigCommandProperty, value); }
+            get { return (int)GetValue(PluginIndexProperty); }
+            set { SetValue(PluginIndexProperty, value); }
         }
 
-        public void CreateOpenConfigCommand()
-        {
-            OpenConfigCommand = new RelayCommand(OpenConfig);
-        }
-
-        public void OpenConfig()
-        {
-            //_pluginIndex
-            var convertedWindow = _callerWindow as MainWindow;
-            convertedWindow.mainPage.ViewModel.SelectedPlugin = _pluginIndex;
-            convertedWindow.NavigateToPage(convertedWindow.mainPage);
-        }
+        // Using a DependencyProperty as the backing store for DesiredImageSize.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty PluginIndexProperty =
+            DependencyProperty.Register("PluginIndex", typeof(int), typeof(GameConfigButton), new PropertyMetadata(null));
 
         public int DesiredButtonSize
         {
@@ -94,10 +86,6 @@ namespace MayThePerfromanceBeWithYou_Configurator.CustomControls
 
         public static readonly DependencyProperty DownloadShaderCommandProperty =
             DependencyProperty.Register("DownloadShaderCommand", typeof(ICommand), typeof(GameConfigButton));
-
-        private int _pluginIndex;
-
-        private Window _callerWindow;
 
         private static ImageSource ConvertToImageSource(System.Drawing.Image image)
         {
@@ -130,8 +118,7 @@ namespace MayThePerfromanceBeWithYou_Configurator.CustomControls
             int desiredImageSize,
             int desiredButtonSize,
             string gameCover,
-            int myPluginIndex,
-            Window callerWindow)
+            int myPluginIndex)
         {
             InitializeComponent();
             Style = (Style)Application.Current.Resources[typeof(Wpf.Ui.Controls.Button)];
@@ -139,9 +126,8 @@ namespace MayThePerfromanceBeWithYou_Configurator.CustomControls
             DesiredButtonSize = desiredButtonSize;
             var bmp = ImageEXT.LoadImageFromUrl(gameCover, desiredImageSize, desiredImageSize);
             GameImageSource = ImageEXT.ConvertToImageSource(bmp);
-            _pluginIndex = myPluginIndex;
-            _callerWindow = callerWindow;
-            CreateOpenConfigCommand();
+            PluginIndex = myPluginIndex;
+            GameName = ConstantInstances._pluginList[PluginIndex].DisplayName;
         }
     }
 

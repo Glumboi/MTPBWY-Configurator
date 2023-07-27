@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using MayThePerfromanceBeWithYou_Configurator.Constants;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 
@@ -215,24 +216,24 @@ public class MainPageViewModel : ViewModelBase
             UpdateUiFromPreset();
         }
     }
-
-    private List<Plugin> _plugins = new List<Plugin>();
-
+    
     public List<Plugin> Plugins
     {
-        get => _plugins;
-        set => SetProperty(ref _plugins, value);
+        get => ConstantInstances._pluginList;
+        set
+        {
+            SetProperty(ref ConstantInstances._pluginList, value);
+            ConstantInstances._pluginList = value;
+        }
     }
-
-    private int _selectedPlugin = 0;
-
+    
     public int SelectedPlugin
     {
-        get => _selectedPlugin;
+        get => ConstantInstances._selectedPlugin;
         set
         {
             //Update settings UI
-            SetProperty(ref _selectedPlugin, value);
+            SetProperty(ref ConstantInstances._selectedPlugin, value);
             Plugins[value].FireEntryPoint();
             GamePath = Plugins[value].GetGamePath();
         }
@@ -335,7 +336,7 @@ public class MainPageViewModel : ViewModelBase
 
     public void LaunchGame()
     {
-        Plugins[_selectedPlugin].LaunchGame(GamePath);
+        Plugins[ConstantInstances._selectedPlugin].LaunchGame(GamePath);
         ShowNotification("Launching Game ...");
     }
 

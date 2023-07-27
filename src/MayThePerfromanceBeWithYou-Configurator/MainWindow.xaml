@@ -55,17 +55,36 @@
         <KeyBinding Key="F5" Command="{Binding Path=LaunchGameCommand}" />
     </Window.InputBindings>
 
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-
         <ui:TitleBar
             x:Name="TitleBar"
             Title="MTPBWY-Configurator"
             Icon="./Assets/MBTPBWY-Logo.png"
-            UseSnapLayout="True" />
+            UseSnapLayout="True" >
+            <ui:TitleBar.ContextMenu>
+                <ContextMenu Name="TitleBarContextMenu">
+                    <ui:MenuItem SymbolIcon="LineHorizontal120" 
+                                 x:Name="MinimizeMenuItem"
+                                 Header="Minimize"
+                                 Click="MinimizeMenuItem_OnClick"/>
+                    <ui:MenuItem SymbolIcon="Maximize24"
+                                 x:Name="MaximizeMenuItem"
+                                 Header="Maximize"
+                                 Click="MaximizeMenuItem_OnClick"/>
+                    <Separator/>
+                    <ui:MenuItem InputGestureText="ALT + F4" 
+                                 SymbolIcon="ArrowExit20" 
+                                 Header="Close"
+                                 x:Name="CloseMenuItem"
+                                 Click="CloseMenuItem_OnClick"/>
+                </ContextMenu>
+            </ui:TitleBar.ContextMenu>
+        </ui:TitleBar>
         <Border Grid.Row="1" Padding="10">
             <Grid>
                 <Grid.RowDefinitions>

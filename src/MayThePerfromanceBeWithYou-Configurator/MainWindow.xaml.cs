@@ -15,8 +15,8 @@ namespace MayThePerfromanceBeWithYou_Configurator;
 public partial class MainWindow : UiWindow
 {
     public MainPage mainPage = new MainPage();
-    public ConfigSelectionPage configPage;
-    public SplashScreenPage splashPage;
+    private ConfigSelectionPage configPage;
+    private SplashScreenPage splashPage;
 
     public MainWindow()
     {
@@ -44,7 +44,6 @@ public partial class MainWindow : UiWindow
         await tcs.Task;
 
         configPage = new ConfigSelectionPage(
-            mainPage.ViewModel.Plugins,
             mainPage.ViewModel.SelectedPlugin,
             this);
         
@@ -80,5 +79,27 @@ public partial class MainWindow : UiWindow
         {
             e.Cancel = true;
         }
+    }
+
+    private void CloseMenuItem_OnClick(object sender, RoutedEventArgs e)
+    {
+        Application.Current.Shutdown(0);
+    }
+
+    private void MaximizeMenuItem_OnClick(object sender, RoutedEventArgs e)
+    {
+        if (this.WindowState == WindowState.Maximized)
+        {
+            this.WindowState = WindowState.Normal;
+            return;
+        }
+
+        this.WindowState = WindowState.Maximized;
+    }
+
+    private void MinimizeMenuItem_OnClick(object sender, RoutedEventArgs e)
+    {
+        this.WindowState = WindowState.Minimized;
+
     }
 }
