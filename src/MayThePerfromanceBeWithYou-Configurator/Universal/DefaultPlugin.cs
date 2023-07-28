@@ -19,9 +19,12 @@ public class DefaultPlugin : StandardPluginImplementations
 
     private readonly string[] _potatoLines = new[]
     {
-        "r.Streaming.MinMipForSplitRequest", "r.Streaming.HiddenPrimitiveScale",
-        "r.Streaming.AmortizeCPUToGPUCopy", "r.Streaming.MaxNumTexturesToStreamPerFrame",
-        "r.Streaming.NumStaticComponentsProcessedPerFrame", "r.Streaming.FramesForFullUpdate"
+        "r.Streaming.MinMipForSplitRequest", 
+        "r.Streaming.HiddenPrimitiveScale",
+        "r.Streaming.AmortizeCPUToGPUCopy", 
+        "r.Streaming.MaxNumTexturesToStreamPerFrame",
+        "r.Streaming.NumStaticComponentsProcessedPerFrame", 
+        "r.Streaming.FramesForFullUpdate"
     };
 
     private readonly string[] _potatoVals = new[]

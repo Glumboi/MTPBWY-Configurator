@@ -14,7 +14,7 @@ public partial class PresetCreatorPage : UiPage
         InitializeComponent();
         ViewModelHelpers.SetViewModel<UiPage>(this, _viewModel, () =>
         {
-            _viewModel.CustomIniFile = iniFile;
+            _viewModel.TempIniFile = iniFile;
         });
     }
 }

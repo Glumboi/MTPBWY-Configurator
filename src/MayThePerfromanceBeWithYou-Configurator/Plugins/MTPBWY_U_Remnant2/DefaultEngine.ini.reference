@@ -1,0 +1,1211 @@
+[/Script/HardwareTargeting.HardwareTargetingSettings]
+TargetedHardwareClass=Desktop
+AppliedTargetedHardwareClass=Desktop
+DefaultGraphicsPerformance=Maximum
+AppliedDefaultGraphicsPerformance=Maximum
+
+[/Script/Engine.Engine]
+TinyFontName=/Engine/EngineFonts/RobotoTiny.RobotoTiny
+SmallFontName=/Engine/EngineFonts/Roboto.Roboto
+MediumFontName=/Engine/EngineFonts/Roboto.Roboto
+LargeFontName=/Engine/EngineFonts/Roboto.Roboto
+SubtitleFontName=/Engine/EngineFonts/Roboto.Roboto
+ConsoleClassName=/Script/Engine.Console
+GameViewportClientClassName=/Script/GunfireRuntime.GameViewportClientGunfire
+LocalPlayerClassName=/Script/Engine.LocalPlayer
+WorldSettingsClassName=/Script/Engine.WorldSettings
+NavigationSystemClassName=/Script/GunfireRuntime.NavigationSystemGunfire
+AvoidanceManagerClassName=/Script/Engine.AvoidanceManager
+PhysicsCollisionHandlerClassName=/Script/Engine.PhysicsCollisionHandler
+GameUserSettingsClassName=/Script/GunfireRuntime.GameUserSettingsGunfire
+AIControllerClassName=/Script/AIModule.AIController
+LevelScriptActorClassName=/Script/GunfireSaveSystem.LevelScriptActorGunfire
+DefaultBlueprintBaseClassName=/Script/Engine.Actor
+GameSingletonClassName=None
+DefaultTireTypeName=/Engine/EngineTireTypes/DefaultTireType.DefaultTireType
+DefaultPreviewPawnClassName=/Script/Engine.DefaultPawn
+PlayOnConsoleSaveDir=Autosaves
+DefaultTextureName=/Engine/EngineResources/DefaultTexture.DefaultTexture
+DefaultDiffuseTextureName=/Engine/EngineMaterials/DefaultDiffuse.DefaultDiffuse
+DefaultBSPVertexTextureName=/Engine/EditorResources/BSPVertex.BSPVertex
+HighFrequencyNoiseTextureName=/Engine/EngineMaterials/Good64x64TilingNoiseHighFreq.Good64x64TilingNoiseHighFreq
+DefaultBokehTextureName=/Engine/EngineMaterials/DefaultBokeh.DefaultBokeh
+WireframeMaterialName=/Engine/EngineDebugMaterials/WireframeMaterial.WireframeMaterial
+GeomMaterialName=/Engine/EngineDebugMaterials/GeomMaterial.GeomMaterial
+DebugMeshMaterialName=/Engine/EngineDebugMaterials/DebugMeshMaterial.DebugMeshMaterial
+LevelColorationLitMaterialName=/Engine/EngineDebugMaterials/LevelColorationLitMaterial.LevelColorationLitMaterial
+LevelColorationUnlitMaterialName=/Engine/EngineDebugMaterials/LevelColorationUnlitMaterial.LevelColorationUnlitMaterial
+LightingTexelDensityName=/Engine/EngineDebugMaterials/MAT_LevelColorationLitLightmapUV.MAT_LevelColorationLitLightmapUV
+ShadedLevelColorationLitMaterialName=/Engine/EngineDebugMaterials/ShadedLevelColorationLitMaterial.ShadedLevelColorationLitMaterial
+ShadedLevelColorationUnlitMaterialName=/Engine/EngineDebugMaterials/ShadedLevelColorationUnlitMateri.ShadedLevelColorationUnlitMateri
+RemoveSurfaceMaterialName=/Engine/EngineMaterials/RemoveSurfaceMaterial.RemoveSurfaceMaterial
+VertexColorMaterialName=/Engine/EngineDebugMaterials/VertexColorMaterial.VertexColorMaterial
+VertexColorViewModeMaterialName_ColorOnly=/Engine/EngineDebugMaterials/VertexColorViewMode_ColorOnly.VertexColorViewMode_ColorOnly
+VertexColorViewModeMaterialName_AlphaAsColor=/Engine/EngineDebugMaterials/VertexColorViewMode_AlphaAsColor.VertexColorViewMode_AlphaAsColor
+VertexColorViewModeMaterialName_RedOnly=/Engine/EngineDebugMaterials/VertexColorViewMode_RedOnly.VertexColorViewMode_RedOnly
+VertexColorViewModeMaterialName_GreenOnly=/Engine/EngineDebugMaterials/VertexColorViewMode_GreenOnly.VertexColorViewMode_GreenOnly
+VertexColorViewModeMaterialName_BlueOnly=/Engine/EngineDebugMaterials/VertexColorViewMode_BlueOnly.VertexColorViewMode_BlueOnly
+BoneWeightMaterialName=/Engine/EngineDebugMaterials/BoneWeightMaterial.BoneWeightMaterial
+ConstraintLimitMaterialName=/Engine/EditorMaterials/PhAT_JointLimitMaterial.PhAT_JointLimitMaterial
+InvalidLightmapSettingsMaterialName=/Engine/EngineMaterials/M_InvalidLightmapSettings.M_InvalidLightmapSettings
+PreviewShadowsIndicatorMaterialName=/Engine/EditorMaterials/PreviewShadowIndicatorMaterial.PreviewShadowIndicatorMaterial
+ArrowMaterialName=/Engine/EngineMaterials/GizmoMaterial.GizmoMaterial
+LightingOnlyBrightness=(R=0.300000,G=0.300000,B=0.300000,A=1.000000)
+-LightComplexityColors=(R=0,G=0,B=0,A=1)
+-LightComplexityColors=(R=0,G=255,B=0,A=1)
+-LightComplexityColors=(R=63,G=191,B=0,A=1)
+-LightComplexityColors=(R=127,G=127,B=0,A=1)
+-LightComplexityColors=(R=191,G=63,B=0,A=1)
+-LightComplexityColors=(R=255,G=0,B=0,A=1)
++LightComplexityColors=(B=0,G=0,R=0,A=1)
++LightComplexityColors=(B=0,G=255,R=0,A=1)
++LightComplexityColors=(B=0,G=191,R=63,A=1)
++LightComplexityColors=(B=0,G=127,R=127,A=1)
++LightComplexityColors=(B=0,G=63,R=191,A=1)
++LightComplexityColors=(B=0,G=0,R=255,A=1)
+-ShaderComplexityColors=(R=0.0,G=1.0,B=0.127,A=1.0)
+-ShaderComplexityColors=(R=0.0,G=1.0,B=0.0,A=1.0)
+-ShaderComplexityColors=(R=0.046,G=0.52,B=0.0,A=1.0)
+-ShaderComplexityColors=(R=0.215,G=0.215,B=0.0,A=1.0)
+-ShaderComplexityColors=(R=0.52,G=0.046,B=0.0,A=1.0)
+-ShaderComplexityColors=(R=0.7,G=0.0,B=0.0,A=1.0)
+-ShaderComplexityColors=(R=1.0,G=0.0,B=0.0,A=1.0)
+-ShaderComplexityColors=(R=1.0,G=0.0,B=0.5,A=1.0)
+-ShaderComplexityColors=(R=1.0,G=0.9,B=0.9,A=1.0)
++ShaderComplexityColors=(R=0.000000,G=1.000000,B=0.127000,A=1.000000)
++ShaderComplexityColors=(R=0.000000,G=1.000000,B=0.000000,A=1.000000)
++ShaderComplexityColors=(R=0.046000,G=0.520000,B=0.000000,A=1.000000)
++ShaderComplexityColors=(R=0.215000,G=0.215000,B=0.000000,A=1.000000)
++ShaderComplexityColors=(R=0.520000,G=0.046000,B=0.000000,A=1.000000)
++ShaderComplexityColors=(R=0.700000,G=0.000000,B=0.000000,A=1.000000)
++ShaderComplexityColors=(R=1.000000,G=0.000000,B=0.000000,A=1.000000)
++ShaderComplexityColors=(R=1.000000,G=0.000000,B=0.500000,A=1.000000)
++ShaderComplexityColors=(R=1.000000,G=0.900000,B=0.900000,A=1.000000)
+-StationaryLightOverlapColors=(R=0.0,G=1.0,B=0.127,A=1.0)
+-StationaryLightOverlapColors=(R=0.0,G=1.0,B=0.0,A=1.0)
+-StationaryLightOverlapColors=(R=0.046,G=0.52,B=0.0,A=1.0)
+-StationaryLightOverlapColors=(R=0.215,G=0.215,B=0.0,A=1.0)
+-StationaryLightOverlapColors=(R=0.52,G=0.046,B=0.0,A=1.0)
+-StationaryLightOverlapColors=(R=0.7,G=0.0,B=0.0,A=1.0)
+-StationaryLightOverlapColors=(R=1.0,G=0.0,B=0.0,A=1.0)
+-StationaryLightOverlapColors=(R=1.0,G=0.0,B=0.5,A=1.0)
+-StationaryLightOverlapColors=(R=1.0,G=0.9,B=0.9,A=1.0)
++StationaryLightOverlapColors=(R=0.000000,G=1.000000,B=0.127000,A=1.000000)
++StationaryLightOverlapColors=(R=0.000000,G=1.000000,B=0.000000,A=1.000000)
++StationaryLightOverlapColors=(R=0.046000,G=0.520000,B=0.000000,A=1.000000)
++StationaryLightOverlapColors=(R=0.215000,G=0.215000,B=0.000000,A=1.000000)
++StationaryLightOverlapColors=(R=0.520000,G=0.046000,B=0.000000,A=1.000000)
++StationaryLightOverlapColors=(R=0.700000,G=0.000000,B=0.000000,A=1.000000)
++StationaryLightOverlapColors=(R=1.000000,G=0.000000,B=0.000000,A=1.000000)
++StationaryLightOverlapColors=(R=1.000000,G=0.000000,B=0.500000,A=1.000000)
++StationaryLightOverlapColors=(R=1.000000,G=0.900000,B=0.900000,A=1.000000)
+MaxPixelShaderAdditiveComplexityCount=2000.000000
+MaxES2PixelShaderAdditiveComplexityCount=600.000000
+MinLightMapDensity=0.000000
+IdealLightMapDensity=0.200000
+MaxLightMapDensity=0.800000
+bRenderLightMapDensityGrayscale=False
+RenderLightMapDensityGrayscaleScale=1.000000
+RenderLightMapDensityColorScale=1.000000
+LightMapDensityVertexMappedColor=(R=0.650000,G=0.650000,B=0.250000,A=1.000000)
+LightMapDensitySelectedColor=(R=1.000000,G=0.200000,B=1.000000,A=1.000000)
+-StatColorMappings=(StatName="AverageFPS",ColorMap=((In=15.0,Out=(R=255)),(In=30,Out=(R=255,G=255)),(In=45.0,Out=(G=255))))
+-StatColorMappings=(StatName="Frametime",ColorMap=((In=1.0,Out=(G=255)),(In=25.0,Out=(G=255)),(In=29.0,Out=(R=255,G=255)),(In=33.0,Out=(R=255))))
+-StatColorMappings=(StatName="Streaming fudge factor",ColorMap=((In=0.0,Out=(G=255)),(In=1.0,Out=(G=255)),(In=2.5,Out=(R=255,G=255)),(In=5.0,Out=(R=255)),(In=10.0,Out=(R=255))))
++StatColorMappings=(StatName="AverageFPS",ColorMap=((In=15.000000,Out=(B=0,G=0,R=255,A=0)),(In=30.000000,Out=(B=0,G=255,R=255,A=0)),(In=45.000000,Out=(B=0,G=255,R=0,A=0))),DisableBlend=False)
++StatColorMappings=(StatName="Frametime",ColorMap=((In=1.000000,Out=(B=0,G=255,R=0,A=0)),(In=25.000000,Out=(B=0,G=255,R=0,A=0)),(In=29.000000,Out=(B=0,G=255,R=255,A=0)),(In=33.000000,Out=(B=0,G=0,R=255,A=0))),DisableBlend=False)
++StatColorMappings=(StatName="Streaming fudge factor",ColorMap=((Out=(B=0,G=255,R=0,A=0)),(In=1.000000,Out=(B=0,G=255,R=0,A=0)),(In=2.500000,Out=(B=0,G=255,R=255,A=0)),(In=5.000000,Out=(B=0,G=0,R=255,A=0)),(In=10.000000,Out=(B=0,G=0,R=255,A=0))),DisableBlend=False)
+EditorBrushMaterialName=/Engine/EngineMaterials/EditorBrushMaterial.EditorBrushMaterial
+DefaultPhysMaterialName=/Engine/EngineMaterials/DefaultPhysicalMaterial.DefaultPhysicalMaterial
+PreIntegratedSkinBRDFTextureName=/Engine/EngineMaterials/PreintegratedSkinBRDF.PreintegratedSkinBRDF
+MiniFontTextureName=/Engine/EngineMaterials/MiniFont.MiniFont
+WeightMapPlaceholderTextureName=/Engine/EngineMaterials/WeightMapPlaceholderTexture.WeightMapPlaceholderTexture
+LightMapDensityTextureName=/Engine/EngineMaterials/DefaultWhiteGrid.DefaultWhiteGrid
+NearClipPlane=10.000000
+bHardwareSurveyEnabled=True
+bSubtitlesEnabled=False
+bSubtitlesForcedOff=False
+TimeBetweenPurgingPendingKillObjects=60.000000
+bUseBackgroundLevelStreaming=True
+AsyncLoadingTimeLimit=5.000000
+bAsyncLoadingUseFullTimeLimit=True
+PriorityAsyncLoadingExtraTime=100.000000
+LevelStreamingActorsUpdateTimeLimit=5.000000
+LevelStreamingComponentsRegistrationGranularity=10
+MaximumLoopIterationCount=1000000
+bCanBlueprintsTickByDefault=True
+bEnableEditorPSysRealtimeLOD=True
+bUseFixedFrameRate=False
+FixedFrameRate=30.000000
+bSmoothFrameRate=True
+SmoothedFrameRateRange=(LowerBound=(Type=Inclusive,Value=22.000000),UpperBound=(Type=Open,Value=200.000000))
+bCheckForMultiplePawnsSpawnedInAFrame=False
+NumPawnsAllowedToBeSpawnedInAFrame=2
+bShouldGenerateLowQualityLightmaps=False
+MeshLODRange=0.000000
+bAllowMatureLanguage=False
+CameraRotationThreshold=45.000000
+CameraTranslationThreshold=10000.000000
+PrimitiveProbablyVisibleTime=4.000000
+MaxOcclusionPixelsFraction=0.050000
+bPauseOnLossOfFocus=False
+MaxParticleResize=0
+MaxParticleResizeWarn=0
+PhysicErrorCorrection=(LinearDeltaThresholdSq=5.000000,LinearInterpAlpha=0.200000,LinearRecipFixTime=1.000000,AngularDeltaThreshold=0.628319,AngularInterpAlpha=0.100000,AngularRecipFixTime=1.000000,BodySpeedThresholdSq=0.200000)
+NetClientTicksPerSecond=200.000000
+DisplayGamma=2.200000
+MinDesiredFrameRate=35.000000
+DefaultSelectedMaterialColor=(R=0.840000,G=0.920000,B=0.020000,A=1.000000)
+bEnableOnScreenDebugMessages=True
+bSuppressMapWarnings=False
+bCookSeparateSharedMPGameContent=False
+bDisableAILogging=False
+bEnableVisualLogRecordingOnStart=0
+ParticleEventManagerClassPath=/Script/Engine.ParticleEventManager
+AssetManagerClassName=/Script/Remnant.RemnantAssetManager
+
+[HTTP]
+HttpTimeout=300
+HttpConnectionTimeout=-1
+HttpReceiveTimeout=-1
+HttpSendTimeout=-1
+HttpMaxConnectionsPerServer=16
+bEnableHttp=true
+bUseNullHttp=false
+HttpDelayTime=0
+
+[/Script/EngineSettings.GameMapsSettings]
+EditorStartupMap=None
+LocalMapOptions=
+TransitionMap=
+bUseSplitscreen=True
+TwoPlayerSplitscreenLayout=Horizontal
+ThreePlayerSplitscreenLayout=FavorTop
+GameInstanceClass=/Game/_Core/Systems/BP_RemnantGameInstance.BP_RemnantGameInstance_C
+GameDefaultMap=/Game/Maps/Menus/MainMenu
+ServerDefaultMap=/Game/Maps/Main.Main
+GlobalDefaultGameMode=/Game/_Core/GameModes/TPSGameMode.TPSGameMode_C
+GlobalDefaultServerGameMode=None
+
+[/Script/Engine.RendererSettings]
+r.MobileHDR=True
+r.MobileNumDynamicPointLights=4
+r.MobileDynamicPointLightsUseStaticBranch=True
+r.AllowOcclusionQueries=True
+r.MinScreenRadiusForLights=0.010000
+r.MinScreenRadiusForDepthPrepass=0.050000
+r.PrecomputedVisibilityWarning=False
+r.TextureStreaming=True
+Compat.UseDXT5NormalMaps=False
+r.AllowStaticLighting=False
+r.NormalMapsForStaticLighting=False
+r.GenerateMeshDistanceFields=False
+r.GenerateLandscapeGIData=True
+r.TessellationAdaptivePixelsPerTriangle=48.000000
+r.SeparateTranslucency=True
+r.TranslucentSortPolicy=0
+TranslucentSortAxis=(X=0.000000,Y=-1.000000,Z=0.000000)
+r.CustomDepth=3
+r.DefaultFeature.Bloom=True
+r.DefaultFeature.AmbientOcclusion=True
+r.DefaultFeature.AmbientOcclusionStaticFraction=False
+r.DefaultFeature.AutoExposure=False
+r.DefaultFeature.MotionBlur=True
+r.DefaultFeature.LensFlare=True
+r.DefaultFeature.AntiAliasing=2
+r.EarlyZPass=2
+r.EarlyZPassMovable=True
+r.DBuffer=True
+r.ClearSceneMethod=1
+r.BasePassOutputsVelocity=True
+r.WireframeCullThreshold=5.000000
+UIScaleRule=ShortestSide
+UIScaleCurve=(EditorCurveData=(PreInfinityExtrap=RCCE_Constant,PostInfinityExtrap=RCCE_Constant,Keys=),ExternalCurve=None)
+r.SupportLowQualityLightmaps=False
+r.ReflectionCaptureResolution=64
+r.ForwardShading=False
+r.DefaultFeature.AutoExposure.Method=1
+r.LightPropagationVolume=0
+r.Mobile.AllowSoftwareOcclusion=False
+r.so.Method=2
+r.so.EnableThreading=1
+r.SupportMaterialLayers=True
+r.DefaultFeature.AutoExposure.ExtendDefaultLuminanceRange=True
+r.SupportSkyAtmosphereAffectsHeightFog=True
+r.SupportStationarySkylight=False
+r.RayTracing=False
+r.SkinCache.CompileShaders=True
+r.RayTracing.UseTextureLod=False
+r.AllowGlobalClipPlane=True
+r.TemporalAA.Upsampling=True
+bStreamSkeletalMeshLODs=(Default=True,PerPlatform=())
+r.EarlyZPassOnlyMaterialMasking=True
+r.SupportAtmosphericFog=False
+r.SkinCache.DefaultBehavior=0
+bDefaultParticleCutouts=True
+r.AntiAliasingMethod=2
+r.DynamicGlobalIlluminationMethod=2
+r.VelocityOutputPass=1
+r.Shadow.CSMCaching=False
+r.VirtualTextures=True
+r.VT.EnableAutoImport=False
+bEnableVirtualTextureOpacityMask=True
+
+[/Script/NavigationSystem.RecastNavMesh]
+RuntimeGeneration=Dynamic
+MinRegionArea=100.000000
+bForceRebuildOnLoad=True
+RegionPartitioning=ChunkyMonotone
+LayerPartitioning=Monotone
+bPerformVoxelFiltering=True
+bMarkLowHeightAreas=False
+bDoFullyAsyncNavDataGathering=False
+CellSize=10.000000
+TileSizeUU=1000.000000
+bFixedTilePoolSize=True
+MaxSimultaneousTileGenerationJobsCount=1024
+MaxSimplificationError=1.500000
+bSortNavigationAreasByCost=False
+bDrawPolyEdges=True
+AgentMaxStepHeight=20.000000
+TilePoolSize=8192
+MergeRegionSize=400.000000
+AgentHeight=200.000000
+AgentMaxHeight=200.000000
+AgentMaxSlope=44.000000
+CellHeight=10.000000
+
+[/Script/GunfireEditor.AssetMergeSettings]
+MergeSubKey=GLOM
+MergeSubFolder=Merges
+WorldWalkCountToRootFolder=0
+MergeExcludeTag=Exclude
+TriangleLimit=5000
+VolumeMinimumLimit=1
+DensityLimit=5
+LightmapResolutionDefault=8
+AssetMergeFilterBP=BlueprintGeneratedClass'/Game/_Core/AssetMerge/BP_AssetMergeFilter.BP_AssetMergeFilter_C'
+ClusterBoundRadius=36.000000
+ClusterFillingPercentage=99.000000
+ClusterMinActorCount=7
+ShadowMaterial=/Game/Materials/Masters/M_ShadowGeo.M_ShadowGeo
+LODSelectionMesh=/Game/VFX/Mesh/Mesh_Sphere_1m.Mesh_Sphere_1m
+
+[InstalledDerivedDataBackendGraph]
+Hierarchy=(Type=Hierarchical, Inner=Boot, Inner=Pak, Inner=CompressedPak, Inner=EnginePak, Inner=Local, Inner=Cloud, Inner=Shared)
+Local=(Type=FileSystem, ReadOnly=false, Clean=false, Flush=false, PurgeTransient=true, DeleteUnused=true, UnusedFileAge=34, FoldersToClean=-1, Path="%ENGINEVERSIONAGNOSTICUSERDIR%DerivedDataCache", EnvPathOverride=UE-LocalDataCachePath, EditorOverrideSetting=LocalDerivedDataCache)
+Cloud=
+Shared=(Type=FileSystem, ReadOnly=false, Clean=false, Flush=false, DeleteUnused=true, UnusedFileAge=10, FoldersToClean=10, MaxFileChecksPerSec=1, Path=\\gunfire-data\DDC\502\Remnant2, EnvPathOverride=UE-SharedDataCachePath)
+
+[DerivedDataBackendGraph]
+Hierarchy=(Type=Hierarchical, Inner=Boot, Inner=Pak, Inner=CompressedPak, Inner=EnginePak, Inner=Local, Inner=Cloud, Inner=Shared)
+Cloud=(Type=S3, Manifest="%GAMEDIR%Build/S3DDC.json", BaseUrl="https://s3.amazonaws.com/gunfire.next1.ddc/", Canary="isoutside.txt", Region="us-east-1", AccessKey="AKIAXHLH4T7MSCWYCUDX", SecretKey="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")
+Shared=(Type=FileSystem, ReadOnly=false, Clean=false, Flush=false, DeleteUnused=true, UnusedFileAge=10, FoldersToClean=10, MaxFileChecksPerSec=1, Path=\\gunfire-data\DDC\502\Remnant2, EnvPathOverride=UE-SharedDataCachePath)
+
+[EnumerateForS3DDC]
+MinimumDaysToKeepFile=7
+Root=(Type=KeyLength, Length=120, Inner=AsyncPut)
+AsyncPut=(Type=AsyncPut, Inner=Hierarchy)
+Hierarchy=(Type=Hierarchical, Inner=Shared)
+Shared=(Type=FileSystem, ReadOnly=false, Clean=false, Flush=false, DeleteUnused=true, UnusedFileAge=5, FoldersToClean=10, MaxFileChecksPerSec=1, Path=\\gunfire-data\DDC\502\Remnant2, EnvPathOverride=UE-SharedDataCachePath, WriteAccessLog="%GAMEDIR%Saved/Logs/S3DDC/DDCAccessLog.txt")
+
+[/Script/Engine.StreamingSettings]
+s.AsyncLoadingThreadEnabled=True
+s.AsyncLoadingTimeLimit=20.000000
+s.PriorityAsyncLoadingExtraTime=100.000000
+s.LevelStreamingActorsUpdateTimeLimit=15.000000
+s.LevelStreamingComponentsRegistrationGranularity=20
+s.UnregisterComponentsTimeLimit=5.000000
+
+[/Script/Engine.UserInterfaceSettings]
+RenderFocusRule=Never
+HardwareCursors=((Default, (CursorPath="Slate/Cursor/",HotSpot=(X=0.500000,Y=0.500000))))
+SoftwareCursors=()
+ApplicationScale=1.000000
+UIScaleRule=ShortestSide
+CustomScalingRuleClass=None
+UIScaleCurve=(EditorCurveData=(Keys=((Time=512.000000,Value=0.333000),(Time=720.000000,Value=0.666000),(Time=1024.000000,Value=1.000000),(Time=8640.000000,Value=8.000000)),DefaultValue=340282346638528859811704183484516925440.000000,PreInfinityExtrap=RCCE_Constant,PostInfinityExtrap=RCCE_Constant),ExternalCurve=None)
+bAllowHighDPIInGameMode=True
+DesignScreenSize=(X=1920,Y=1080)
+bLoadWidgetsOnDedicatedServer=True
+
+[EnvironmentQueryEd]
+EnableEnvironmentQueryEd=1
+
+[StaticMeshLODSettings]
+LevelArchitecture=(NumLODs=4,LightMapResolution=32,LODPercentTriangles=40,SilhouetteImportance=6,Name=LOCTEXT("LevelArchitectureLOD","Level Architecture"))
+LevelArchitectureRemnant3=(NumLODs=3,LightMapResolution=32,LODPercentTriangles=40,SilhouetteImportance=6,Name=LOCTEXT("LevelArchitectureRemnant3LOD","Level Architecture Remnant 3"))
+LevelArchitectureRemnant2=(NumLODs=2,LightMapResolution=32,LODPercentTriangles=50,SilhouetteImportance=6,Name=LOCTEXT("LevelArchitectureRemnant2LOD","Level Architecture Remnant 2"))
+SmallProp=(NumLODs=4,LODPercentTriangles=50,Name=LOCTEXT("SmallPropLOD","Small Prop"))
+LargeProp=(NumLODs=4,LODPercentTriangles=50,Name=LOCTEXT("LargePropLOD","Large Prop"))
+Deco=(NumLODs=4,LODPercentTriangles=50,Name=LOCTEXT("DecoLOD","Deco"))
+Vista=(NumLODs=1,LightMapResolution=32,BasePercentTriangles=15,LODPercentTriangles=15,PixelError=12,SilhouetteImportance=4,Name=LOCTEXT("VistaLOD","Vista"))
+Foliage=(NumLODs=2,Name=LOCTEXT("FoliageLOD","Foliage"))
+LOD2=(NumLODs=2,LightMapResolution=32,LODPercentTriangles=50,PixelError=12,SilhouetteImportance=6,Name=LOCTEXT("LOD2","LOD2"))
+LOD3=(NumLODs=3,LightMapResolution=32,LODPercentTriangles=50,PixelError=12,SilhouetteImportance=6,Name=LOCTEXT("LOD3","LOD3"))
+LOD4=(NumLODs=4,LightMapResolution=32,LODPercentTriangles=50,PixelError=12,SilhouetteImportance=6,Name=LOCTEXT("LOD4","LOD4"))
+LOD5=(NumLODs=5,LightMapResolution=32,LODPercentTriangles=50,PixelError=12,SilhouetteImportance=6,Name=LOCTEXT("LOD5","LOD5"))
+LOD6=(NumLODs=6,LightMapResolution=32,LODPercentTriangles=50,PixelError=12,SilhouetteImportance=6,Name=LOCTEXT("LOD6","LOD6"))
+-DebugExecBindings=(Key=Escape,Command="CloseEditorViewport")
+
+[/Script/GunfireRuntime.GunfireSettings]
+GroundChannel=ECC_GameTraceChannel5
+WaterChannel=ECC_WorldStatic
+bUseComplexCollisionForWaterSurfaceTraces=True
++WaterObjectTypes=ECC_GameTraceChannel14
+ProjectileChannel=ECC_GameTraceChannel2
+AOEChannel=ECC_GameTraceChannel6
+PawnChannel=ECC_GameTraceChannel8
+SpecialCollisionChannel=ECC_GameTraceChannel16
+CameraChannel=ECC_Camera
+WallChannel=ECC_Visibility
+WaterSurfaceType=SurfaceType22
+UserSettings=/Game/_Core/UserSettings.UserSettings
+VisiblitySkipComponent=None
+VisualLoggerDefaultMap=/Game/Maps/Global_Lighting.Global_Lighting
+bLoadTemplateSublevels=True
++SublevelsKeywordsToIgnore=SKY_
+HitPauseMode=AnyDamage
+bAutoMarkDamageAsResisted=True
+ResistedDamageThreshold=0.500000
+MaximumDamageReductionPerStat=0.800000
+MinimumTotalDamageReductionScalar=0.200000
+AITargetingAICooldownScale=0.500000
+TargetWeaponPhantomFrameTime=0.012500
+WeaponPhantomIgnoreDelay=0.500000
+bPlayForceFeedbackOnEnvironmentHits=True
+bPlayCameraShakeOnEnvironmentHits=True
+ReloadInteractiveMode=6
+MinimumTimeDilaton=0.010000
+TimeDilationStepSize=0.400000
+KeyboardAndMouseAimAdjustScale=0.500000
+KeyboardAndMouseSnapToTargetScale=0.000000
+GlobalTargetableRadiusScale=1.000000
+GlobalSnapRadiusScale=1.000000
+FalloffDamagePenalty=0.200000
+GlobalSwayScale=1.000000
+NoTargetColor=(B=255,G=255,R=255,A=220)
+HostileTargetColor=(B=0,G=0,R=255,A=153)
+NeutralTargetColor=(B=0,G=255,R=255,A=170)
+FriendlyTargetColor=(B=0,G=255,R=0,A=170)
+ProjectileNoTargetColor=(B=255,G=241,R=204,A=255)
+ProjectileHostileTargetColor=(B=0,G=0,R=240,A=204)
+ProjectileNeutralTargetColor=(B=25,G=237,R=255,A=153)
+ProjectileFriendlyTargetColor=(B=25,G=255,R=116,A=153)
++BreakableClasses=/Script/GunfireRuntime.DamageableActor
+MaxDebrisPieces=250
+DebrisCullingMethod=CullByTime
+bUsesUniqueAimSensitivity=True
+bUsesUniqueScopeSensitivity=True
+AreaFactor=3.000000
+NavLinkFactor=5.000000
+MaxNodesToOccupy=-1
+PenaltyBase=1.700000
+AudioInterfaceClass=/Game/Sound/GunfireAudioInterface_Wwise.GunfireAudioInterface_Wwise_C
+AudioPlayParamsStruct=/Game/Sound/GunfireAudioPlayParams_Wwise.GunfireAudioPlayParams_Wwise
+MusicManagerClass=/Game/Sound/MusicManager_Wwise.MusicManager_Wwise_C
+AmbientPriorityPolicy=ManualLevelDepth
+MinimapModelTemplate=/Game/UI/MiniMap/Explorable_Minimap_Model.Explorable_Minimap_Model_C
+MinimapThumbnailActor=/Game/UI/MiniMap/Support/MiniMap_Tile_Support_Actor.MiniMap_Tile_Support_Actor
+MinimapCaptureOffset=45800.000000
++FullscreenMinimapOverrideNavKeys=Gamepad_DPad_Up
++FullscreenMinimapOverrideNavKeys=Gamepad_DPad_Down
++FullscreenMinimapOverrideNavKeys=Gamepad_DPad_Right
++FullscreenMinimapOverrideNavKeys=Gamepad_DPad_Left
++FullscreenMinimapOverrideNavKeys=Up
++FullscreenMinimapOverrideNavKeys=Down
++FullscreenMinimapOverrideNavKeys=Left
++FullscreenMinimapOverrideNavKeys=Right
+SoftCollisionAbsoluteWeightDifference=500.000000
+bDoNotifyRateOptimzations=False
+GlobalNotifyMaximumRate=10
+bEnableMeshActivationOptimizations=True
+MeshActivationLingerTime=1.000000
+MeshActivationBoneOnlyLingerTime=0.200000
+GlobalObjectPoolCull=12
+PossessedObjectAction=/Game/_Core/Blueprints/Actions/Action_Invulnerable_Sequence.Action_Invulnerable_Sequence_C
+ImpactEffectsTable=/Game/_Core/ImpactEffects/ImpactEffectTable.ImpactEffectTable
+ImpactEffectsOverlayTable=/Game/_Core/ImpactEffects/ImpactEffectOverlayTable.ImpactEffectOverlayTable
++Challenges=/Game/_Core/Blueprints/Challenges/CL_ChallengeList_Core.CL_ChallengeList_Core
++Challenges=/Game/_Core/Achievements/CL_Challenge_List_Achievements.CL_Challenge_List_Achievements
+DirectionalAnimationFilter=DefaultToRight
+LeftSideTagName=FootL
+RightSideTagName=FootR
+MiddleSideTagName=FootM
+CinematicStopEvent=/Game/WwiseAudio/Events/Cinematics/Cinematic_Skip_Global.Cinematic_Skip_Global
+MaxAimSnapAngle=20.000000
+MaxPiercingTargets=16
+DefaultInteractAction=/Game/Characters/Player/Input/Actions/Interact.Interact
+
+[/Script/GunfireSaveSystem.GunfireSaveSystemSettings]
+SaveGameClass=/Game/_Core/Blueprints/Base/BP_RemnantSaveGame.BP_RemnantSaveGame_C
+SaveProfileClass=/Game/_Core/Blueprints/Base/BP_RemnantSaveGameProfile.BP_RemnantSaveGameProfile_C
+
+[/Script/WindowsTargetPlatform.WindowsTargetSettings]
+DefaultGraphicsRHI=DefaultGraphicsRHI_DX12
+-D3D12TargetedShaderFormats=PCD3D_SM5
++D3D12TargetedShaderFormats=PCD3D_SM6
+-D3D11TargetedShaderFormats=PCD3D_SM5
+Compiler=Default
+AudioSampleRate=48000
+AudioCallbackBufferFrameSize=1024
+AudioNumBuffersToEnqueue=1
+AudioMaxChannels=0
+AudioNumSourceWorkers=4
+SpatializationPlugin=
+SourceDataOverridePlugin=
+ReverbPlugin=
+OcclusionPlugin=
+CompressionOverrides=(bOverrideCompressionTimes=False,DurationThreshold=5.000000,MaxNumRandomBranches=0,SoundCueQualityIndex=0)
+CacheSizeKB=65536
+MaxChunkSizeOverrideKB=0
+bResampleForDevice=False
+MaxSampleRate=48000.000000
+HighSampleRate=32000.000000
+MedSampleRate=24000.000000
+LowSampleRate=12000.000000
+MinSampleRate=8000.000000
+CompressionQualityModifier=1.000000
+AutoStreamingThreshold=0.000000
+SoundCueCookQualityIndex=-1
+
+[/Script/GunfireRuntime.ImageSetSettings]
+ImageSetName=/Game/_Core/Blueprints/ImageSet/Win64/RemnantImageSet_PC.RemnantImageSet_PC
+
+[CoreRedirects]
++FunctionRedirects=(OldName="GetHeading",NewName="/Script/GunfireRuntime.MathUtil.GetHeading")
++FunctionRedirects=(OldName="GetAngleDiff",NewName="/Script/GunfireRuntime.MathUtil.GetAngleDiff")
++FunctionRedirects=(OldName="GetRelativeBasis",NewName="/Script/GunfireRuntime.MathUtil.GetRelativeBasis")
++FunctionRedirects=(OldName="GetRandomPointInsideSphere",NewName="/Script/GunfireRuntime.MathUtil.GetRandomPointInsideSphere")
++FunctionRedirects=(OldName="GetRandomPointInsideCircle",NewName="/Script/GunfireRuntime.MathUtil.GetRandomPointInsideCircle")
++FunctionRedirects=(OldName="GetDirectionVector",NewName="/Script/GunfireRuntime.MathUtil.GetDirectionVector")
++FunctionRedirects=(OldName="FindBestFitPlane",NewName="/Script/GunfireRuntime.MathUtil.FindBestFitPlane")
++FunctionRedirects=(OldName="SmoothCDFloat",NewName="/Script/GunfireRuntime.MathUtil.SmoothCDFloat")
++FunctionRedirects=(OldName="IsPointInBounds",NewName="/Script/GunfireRuntime.MathUtil.IsPointInBounds")
++FunctionRedirects=(OldName="RayIntersectsSphere",NewName="/Script/GunfireRuntime.MathUtil.RayIntersectsSphere")
++FunctionRedirects=(OldName="ApplyMod",NewName="/Script/GunfireRuntime.MathUtil.ApplyMod")
++FunctionRedirects=(OldName="GetFaction",NewName="/Script/GunfireRuntime.CombatUtil.GetFaction")
++FunctionRedirects=(OldName="GetAffiliation",NewName="/Script/GunfireRuntime.CombatUtil.GetAffiliation")
++FunctionRedirects=(OldName="IsEnemy",NewName="/Script/GunfireRuntime.CombatUtil.IsEnemy")
++FunctionRedirects=(OldName="IsFriendly",NewName="/Script/GunfireRuntime.CombatUtil.IsFriendly")
++FunctionRedirects=(OldName="IsDamageable",NewName="/Script/GunfireRuntime.CombatUtil.IsDamageable")
++FunctionRedirects=(OldName="CreateDamageInfoFromHit",NewName="/Script/GunfireRuntime.CombatUtil.CreateDamageInfoFromHit")
++FunctionRedirects=(OldName="CreateDamageInfoFromTarget",NewName="/Script/GunfireRuntime.CombatUtil.CreateDamageInfoFromTarget")
++FunctionRedirects=(OldName="ApplyDamage",NewName="/Script/GunfireRuntime.CombatUtil.ApplyDamage")
++FunctionRedirects=(OldName="ApplyDamageInfo",NewName="/Script/GunfireRuntime.CombatUtil.ApplyDamageInfo")
++FunctionRedirects=(OldName="FireProjectile",NewName="/Script/GunfireRuntime.CombatUtil.FireProjectile")
++FunctionRedirects=(OldName="FireProjectileAsync",NewName="/Script/GunfireRuntime.CombatUtil.FireProjectileAsync")
++FunctionRedirects=(OldName="GetAimPos",NewName="/Script/GunfireRuntime.CombatUtil.GetAimPos")
++FunctionRedirects=(OldName="GetAimVector",NewName="/Script/GunfireRuntime.CombatUtil.GetAimVector")
++FunctionRedirects=(OldName="GetTargetVector",NewName="/Script/GunfireRuntime.CombatUtil.GetTargetVector")
++FunctionRedirects=(OldName="SpawnImpactEffects",NewName="/Script/GunfireRuntime.CombatUtil.SpawnImpactEffects")
++FunctionRedirects=(OldName="SpawnImpactEffectsFromTrace",NewName="/Script/GunfireRuntime.CombatUtil.SpawnImpactEffectsFromTrace")
++FunctionRedirects=(OldName="SpawnImpactEffectProjectile",NewName="/Script/GunfireRuntime.CombatUtil.SpawnImpactEffectProjectile")
++FunctionRedirects=(OldName="SpawnImpactEffectAOE",NewName="/Script/GunfireRuntime.CombatUtil.SpawnImpactEffectAOE")
++FunctionRedirects=(OldName="DialogComponent.BeginDialogue",NewName="DialogComponent.BeginDialog")
++FunctionRedirects=(OldName="DialogComponent.DialogueAdvance",NewName="DialogComponent.DialogAdvance")
++FunctionRedirects=(OldName="DialogManager.GetDialogueManager",NewName="DialogManager.GetDialogManager")
++FunctionRedirects=(OldName="QuestEntity.BeginDialogue",NewName="QuestEntity.BeginDialog")
++FunctionRedirects=(OldName="IncrementObjectivesWithTags",NewName="/Script/GunfireRuntime.ChallengeBlueprintFunctions.IncrementObjectives")
++StructRedirects=(OldName="Dialogue",NewName="/Script/GunfireRuntime.Dialog")
++StructRedirects=(OldName="DialogueOption",NewName="/Script/GunfireRuntime.DialogOption")
++StructRedirects=(OldName="DialogueTokenValuePair",NewName="/Script/GunfireRuntime.DialogTokenValuePair")
++StructRedirects=(OldName="HitLocation",NewName="/Script/GunfireRuntime.HitLocationInfo")
++StructRedirects=(OldName="ChallengeObjectiveId",NewName="/Script/GunfireRuntime.ChallengeEvent")
++StructRedirects=(OldName="EnvQueryQuery",NewName="/Script/AIModule.EQSParametrizedQueryExecutionRequest")
++ClassRedirects=(OldName="DialogueComponent",NewName="/Script/GunfireRuntime.DialogComponent")
++ClassRedirects=(OldName="DialogueInfo",NewName="/Script/GunfireRuntime.DialogInfo")
++ClassRedirects=(OldName="DialogueInstance",NewName="/Script/GunfireRuntime.DialogInstance")
++ClassRedirects=(OldName="DialogueManager",NewName="/Script/GunfireRuntime.DialogManager")
++ClassRedirects=(OldName="DialogueStage",NewName="/Script/GunfireRuntime.DialogStage")
++ClassRedirects=(OldName="ProjectileComponent",NewName="/Script/GunfireRuntime.ProjectileMovementComponentGunfire")
++ClassRedirects=(OldName="PersistenceComponent",NewName="/Script/GunfireSaveSystem.PersistenceComponent")
++ClassRedirects=(OldName="PersistenceManager",NewName="/Script/GunfireSaveSystem.PersistenceManager")
++ClassRedirects=(OldName="LevelScriptActorGunfire",NewName="/Script/GunfireSaveSystem.LevelScriptActorGunfire")
++ClassRedirects=(OldName="CommitSaveWithResultCallbackProxy",NewName="/Script/GunfireSaveSystem.CommitSaveWithResultCallbackProxy")
++ClassRedirects=(OldName="LoadSaveCallbackProxy",NewName="/Script/GunfireSaveSystem.LoadSaveCallbackProxy")
++ClassRedirects=(OldName="LoadProfileSaveCallbackProxy",NewName="/Script/GunfireSaveSystem.LoadProfileSaveCallbackProxy")
++ClassRedirects=(OldName="ReadSaveCallbackProxy",NewName="/Script/GunfireSaveSystem.ReadSaveCallbackProxy")
++ClassRedirects=(OldName="HasSaveCallbackProxy",NewName="/Script/GunfireSaveSystem.HasSaveCallbackProxy")
++ClassRedirects=(OldName="DeleteSaveCallbackProxy",NewName="/Script/GunfireSaveSystem.DeleteSaveCallbackProxy")
++ClassRedirects=(OldName="DeleteProfileSaveCallbackProxy",NewName="/Script/GunfireSaveSystem.DeleteProfileSaveCallbackProxy")
++ClassRedirects=(OldName="PersistenceBlueprintFunctionLibrary",NewName="/Script/GunfireSaveSystem.PersistenceBlueprintFunctionLibrary")
++ClassRedirects=(OldName="ConsoleFloatUserSetting",NewName="/Script/GunfireRuntime.FloatUserSetting")
++ClassRedirects=(OldName="EventTreeNode_Link",NewName="/Script/GunfireRuntime.EventTreeNode_Jump")
++PropertyRedirects=(OldName="EventTreeNode_Jump.LinkedNode",NewName="EventTreeNode_Jump.JumpNode")
++StructRedirects=(OldName="PersistentReference",NewName="/Script/GunfireSaveSystem.PersistentReference")
++PropertyRedirects=(OldName="DialogComponent.AutoPlayDialogue",NewName="DialogComponent.AutoPlayDialog")
++PropertyRedirects=(OldName="DialogComponent.DialogueActive",NewName="DialogComponent.DialogActive")
++PropertyRedirects=(OldName="DialogComponent.DialogueStage",NewName="DialogComponent.DialogStage")
++PropertyRedirects=(OldName="DialogComponent.DialogueAttributes",NewName="DialogComponent.DialogAttributes")
++PropertyRedirects=(OldName="DialogComponent.Dialogue",NewName="DialogComponent.Dialog")
++PropertyRedirects=(OldName="DialogComponent.DialogueOptions",NewName="DialogComponent.DialogOptions")
++PropertyRedirects=(OldName="DialogComponent.OnDialogueBegin",NewName="DialogComponent.OnDialogBegin")
++PropertyRedirects=(OldName="DialogComponent.OnDialogueEnd",NewName="DialogComponent.OnDialogEnd")
++PropertyRedirects=(OldName="DialogComponent.OnDialogueSetStage",NewName="DialogComponent.OnDialogSetStage")
++PropertyRedirects=(OldName="DialogComponent.OnDialogueEvent",NewName="DialogComponent.OnDialogEvent")
++PropertyRedirects=(OldName="DialogComponent.OnDialogueUpdate",NewName="DialogComponent.OnDialogUpdate")
++PropertyRedirects=(OldName="DialogInfo.Dialogue",NewName="DialogInfo.Dialog")
++PropertyRedirects=(OldName="DialogManager.DialogueCullDistance",NewName="DialogManager.DialogCullDistance")
++PropertyRedirects=(OldName="DialogManager.ActiveDialogue",NewName="DialogManager.ActiveDialog")
++PropertyRedirects=(OldName="DialogStage.DialogueComponent",NewName="DialogStage.DialogComponent")
++PropertyRedirects=(OldName="EventTreeNode_Dialog.CompleteAfterDialogue",NewName="EventTreeNode_Dialog.CompleteAfterDialog")
++PropertyRedirects=(OldName="EventTreeNode_Dialog.Dialogue",NewName="EventTreeNode_Dialog.Dialog")
++ClassRedirects=(OldName="PersistenceKeysComponent",NewName="/Script/GunfireRuntime.VariableComponent")
++ClassRedirects=(OldName="BoidComponent",NewName="/Script/GunfireRuntime.BoidComponent")
+
++ClassRedirects=(OldName="StateMachineSubobject",NewName="/Script/GunfireRuntime.InheritableObject")
++StructRedirects=(OldName="StateMachineSubobjectArray",NewName="/Script/GunfireRuntime.InheritableArray")
++StructRedirects=(OldName="StateMachineSubobjectArrayElement",NewName="/Script/GunfireRuntime.InheritableArrayElement")
++StructRedirects=(OldName="StateMachineArray",NewName="/Script/GunfireRuntime.InheritableArray")
++StructRedirects=(OldName="StateMachineArrayElement",NewName="/Script/GunfireRuntime.InheritableArrayElement")
++PropertyRedirects=(OldName="InheritableObject.BaseStateMachineID",NewName="InheritableObject.BaseAssetID")
++PropertyRedirects=(OldName="InheritableObject.BaseStateMachines",NewName="InheritableObject.BaseAssets")
+
++EnumRedirects=(OldName="VisualMaterialParameterType", NewName="/Script/GunfireRuntime.ActorCustomizationMaterialParameterType")
++StructRedirects=(OldName="VisualMaterialParam", NewName="/Script/GunfireRuntime.ActorCustomizationMaterialParam")
++PropertyRedirects=(OldName="ActorCustomizationMaterialParam.ParamenterName", NewName="ParameterName")
++ClassRedirects=(OldName="ActorVisual", NewName="/Script/GunfireRuntime.ActorCustomization")
++ClassRedirects=(OldName="VisualID", NewName="/Script/GunfireRuntime.ActorCustomizationID")
++PropertyRedirects=(OldName="ActorCustomizationID.Visuals", NewName="Customizations")
++ClassRedirects=(OldName="VisualSetNode", NewName="/Script/GunfireRuntime.ActorCustomizationSetNode")
++ClassRedirects=(OldName="VisualFXNode", NewName="/Script/GunfireRuntime.ActorCustomizationEffect")
++ClassRedirects=(OldName="ActorCustomizationFXNode", NewName="/Script/GunfireRuntime.ActorCustomizationEffect")
++ClassRedirects=(OldName="VisualFXEntry", NewName="/Script/GunfireRuntime.ActorCustomizationEffectEntry")
++ClassRedirects=(OldName="VisualFX", NewName="/Script/GunfireRuntime.ActorCustomizationSetEffect")
++ClassRedirects=(OldName="ActorCustomizationFXEntry", NewName="/Script/GunfireRuntime.ActorCustomizationEffectEntry")
++ClassRedirects=(OldName="ActorCustomizationFX", NewName="/Script/GunfireRuntime.ActorCustomizationSetEffect")
++ClassRedirects=(OldName="VisualSetSlot", NewName="/Script/GunfireRuntime.ActorCustomizationSetSlot")
++PropertyRedirects=(OldName="ActorCustomizationSetSlot.VisualIDs", NewName="CustomizationIDs")
++ClassRedirects=(OldName="VisualSet", NewName="/Script/GunfireRuntime.ActorCustomizationSet")
++StructRedirects=(OldName="VisualSlot", NewName="/Script/GunfireRuntime.ActorCustomizationSlot")
++PropertyRedirects=(OldName="ActorCustomizationSlot.DefaultVisualID", NewName="DefaultCustomizationID")
++PropertyRedirects=(OldName="ActorCustomizationSlot.VisualID", NewName="CustomizationID")
++StructRedirects=(OldName="VisualSceneComponent", NewName="/Script/GunfireRuntime.ActorCustomizationSceneComponent")
++ClassRedirects=(OldName="VisualComponent", NewName="/Script/GunfireRuntime.ActorCustomizationComponent")
++FunctionRedirects=(OldName="/Script/GunfireRuntime.ActorCustomizationComponent.PlayVisualFX", NewName="/Script/GunfireRuntime.ActorCustomizationComponent.PlayCustomizationEffect")
++FunctionRedirects=(OldName="/Script/GunfireRuntime.ActorCustomizationComponent.SetVisual", NewName="/Script/GunfireRuntime.ActorCustomizationComponent.SetCustomization")
++PropertyRedirects=(OldName="ActorCustomizationComponent.SetCustomization.VisualID", NewName="CustomizationID")
++FunctionRedirects=(OldName="/Script/GunfireRuntime.ActorCustomizationComponent.SetVisualAt", NewName="/Script/GunfireRuntime.ActorCustomizationComponent.SetCustomizationAt")
++FunctionRedirects=(OldName="/Script/GunfireRuntime.ActorCustomizationComponent.GetSlotVisualID", NewName="/Script/GunfireRuntime.ActorCustomizationComponent.GetSlotCustomizationID")
++FunctionRedirects=(OldName="/Script/GunfireRuntime.ActorCustomizationComponent.GetNumVisualsForSlotID", NewName="/Script/GunfireRuntime.ActorCustomizationComponent.GetNumCustomizationsForSlotID")
++FunctionRedirects=(OldName="/Script/GunfireRuntime.ActorCustomizationComponent.GetVisualPositionInSlot", NewName="/Script/GunfireRuntime.ActorCustomizationComponent.GetCustomizationPositionInSlot")
++FunctionRedirects=(OldName="/Script/GunfireRuntime.ActorCustomizationComponent.GetVisualSlot", NewName="/Script/GunfireRuntime.ActorCustomizationComponent.GetCustomizationSlot")
++FunctionRedirects=(OldName="/Script/GunfireRuntime.ActorCustomizationComponent.ClearVisual", NewName="/Script/GunfireRuntime.ActorCustomizationComponent.ClearCustomization")
++FunctionRedirects=(OldName="/Script/GunfireRuntime.ActorCustomizationComponent.GetCustomizationFX", NewName="/Script/GunfireRuntime.ActorCustomizationComponent.GetCustomizationEffect")
++PropertyRedirects=(OldName="ActorCustomizationComponent.VisualSet", NewName="CustomizationSet")
++PropertyRedirects=(OldName="ActorCustomizationComponent.VisualTags", NewName="CustomizationTags")
++PropertyRedirects=(OldName="ActorCustomizationComponent.OnStreamedVisualApplied", NewName="OnStreamedCustomizationApplied")
++StructRedirects=(OldName="VisualMaterialReplacement", NewName="/Script/GunfireRuntime.ActorCustomizationMaterialReplacement")
++ClassRedirects=(OldName="GlobalMaterialVisual", NewName="/Script/GunfireRuntime.GlobalMaterialCustomization")
++ClassRedirects=(OldName="MaterialOverrideVisual", NewName="/Script/GunfireRuntime.MaterialOverrideCustomization")
++ClassRedirects=(OldName="SceneVisual", NewName="/Script/GunfireRuntime.SceneCustomization")
++ClassRedirects=(OldName="SkinnedMeshVisual", NewName="/Script/GunfireRuntime.SkinnedMeshCustomization")
++ClassRedirects=(OldName="StaticMeshVisual", NewName="/Script/GunfireRuntime.StaticMeshCustomization")
++ClassRedirects=(OldName="RandomSkinnedMeshVisual", NewName="/Script/GunfireRuntime.RandomSkinnedMeshCustomization")
++ClassRedirects=(OldName="RandomStaticMeshVisual", NewName="/Script/GunfireRuntime.RandomStaticMeshCustomization")
++ClassRedirects=(OldName="AudioVisual", NewName="/Script/GunfireRuntime.AudioCustomization")
++ClassRedirects=(OldName="AudioFXNode", NewName="/Script/GunfireRuntime.AudioCustomizationEffect")
++ClassRedirects=(OldName="ParticleVisual", NewName="/Script/GunfireRuntime.ParticleCustomization")
++ClassRedirects=(OldName="ParticleFXNode", NewName="/Script/GunfireRuntime.ParticleCustomizationEffect")
++ClassRedirects=(OldName="AttachActorVisual", NewName="/Script/GunfireRuntime.AttachActorCustomization")
++ClassRedirects=(OldName="SetVisibilityVisual", NewName="/Script/GunfireRuntime.SetVisibilityCustomization")
++ClassRedirects=(OldName="TagVisual", NewName="/Script/GunfireRuntime.TagCustomization")
++PropertyRedirects=(OldName="TagParticleEffectPair.VisualTag", NewName="CustomizationTag")
++ClassRedirects=(OldName="AnimNotify_PlayVisualSetParticleEffect", NewName="/Script/GunfireRuntime.AnimNotify_PlayActorCustomizationParticleEffect")
++ClassRedirects=(OldName="AnimNotifyState_VisualSetTrail", NewName="/Script/GunfireRuntime.AnimNotifyState_ActorCustomizationTrail")
++PropertyRedirects=(OldName="EquipmentSlot.VisualSlot", NewName="CustomizationSlot")
++PropertyRedirects=(OldName="Equipment.VisualID", NewName="CustomizationID")
++PropertyRedirects=(OldName="RemnantCharacter.VisualComp", NewName="Customization")
++PropertyRedirects=(OldName="RemnantCharacter.FemaleVisualSet", NewName="FemaleCustomizationSet")
++PropertyRedirects=(OldName="EquipmentMod.VisualSlot", NewName="CustomizationSlot")
++PropertyRedirects=(OldName="EquipmentMod.VisualID", NewName="CustomizationID")
++PropertyRedirects=(OldName="SavedCharacter.Visuals", NewName="Customizations")
++PropertyRedirects=(OldName="SavedCharacter.EquipmentVisuals", NewName="EquipmentCustomizations")
++FunctionRedirects=(OldName="/Script/GunfireRuntime.EventTreeComponent.GetVariableObject", NewName="/Script/GunfireRuntime.EventTreeComponent.GetContextActor")
++FunctionRedirects=(OldName="/Script/GunfireRuntime.EventTreeComponent.SetVariableObject", NewName="/Script/GunfireRuntime.EventTreeComponent.SetContextActor")
++PropertyRedirects=(OldName="SoundSet.SoundIDs", NewName="Entries")
++PropertyRedirects=(OldName="AnimationSet.Animations", NewName="Entries")
++PropertyRedirects=(OldName="RemnantAnimInstance.bIsMovingRightward", NewName="bIsMovingForward")
++PropertyRedirects=(OldName="RemnantAnimInstance.bMoveRightwardRef", NewName="bMoveForwardRef")
++EnumRedirects=(OldName="EHitValidationType",ValueChanges=(("STANDARD","Standard"),("PIERCING","Piercing")))
++EnumRedirects=(OldName="EHitscanPierce",ValueChanges=(("NONE","None"),("DAMAGEABLE","Damageable"),("CHARACTER","Character")))
++EnumRedirects=(OldName="ELadderEntryType",ValueChanges=(("BEST_APPROCH","BestApproch"),("BOTTOM_ONLY","BottomOnly"),("TOP_ONLY","TopOnly")))
++EnumRedirects=(OldName="NotificationType", NewName="/Script/GunfireRuntime.NotificationType")
++PropertyRedirects=(OldName="AnimInstanceGunfire.LookRotation", NewName="LookDirection")
++StructRedirects=(OldName="ImpactEffectOverlaySelector",NewName="ImpactEffectSelector")
++PropertyRedirects=(OldName="ImpactEffectSelector.Id", NewName="ImpactEffectName")
++ClassRedirects=(OldName="AICoordinator", NewName="AICoordinatorRanged")
++PropertyRedirects=(OldName="CombatClass.MaxInsiderWeight", NewName="MaxWeight")
++PropertyRedirects=(OldName="CombatClass.PressureLockout", NewName="AttackLockoutTime")
+
++PropertyRedirects=(OldName="TileBase.ID",NewName="TileBase.NameID")
++PropertyRedirects=(OldName="TileBase._ID",NewName="TileBase.TileID")
++PropertyRedirects=(OldName="MapTileTemplate.ID",NewName="MapTileTemplate.NameID")
++ClassRedirects=(OldName="MapTileTemplateEdge", NewName="MapTileConnector")
++ClassRedirects=(OldName="MapTileEdgeInfo", NewName="MapTileConnectorInfo")
++FunctionRedirects=(OldName="MapTileConnector.IsEdgeEnabled", NewName="MapTileConnector.IsConnectionEnabled")
+
++ClassRedirects=(OldName="CapsuleSizeStateDecorator", NewName="/Script/GunfireRuntime.CrouchStateDecorator")
+
++ClassRedirects=(OldName="/Script/GunfireRuntime.AnimNotify_AkEvent", NewName="/Script/GunfireRuntime.AnimNotify_StateSound")
++ClassRedirects=(OldName="/Script/Remnant.AnimNotify_AkEvent", NewName="/Script/GunfireRuntime.AnimNotify_StateSound")
++PropertyRedirects=(OldName="SoundEntry.Tags", NewName="SoundEntryBase.Tags")
+
++FunctionRedirects=(OldName="/Script/GunfireRuntime.GameUtil.IsUsingKeyboardAndMouse",NewName="/Script/GunfireRuntime.InputDeviceManager.IsUsingKeyboardAndMouse")
++FunctionRedirects=(OldName="/Script/GunfireRuntime.GameUtil.LoadSoftReference",NewName="/Script/GunfireRuntime.AssetUtil.LoadSoftReference")
++FunctionRedirects=(OldName="/Script/GunfireRuntime.GameUtil.LoadSoftClassReference",NewName="/Script/GunfireRuntime.AssetUtil.LoadSoftClassReference")
++FunctionRedirects=(OldName="/Script/GunfireRuntime.GameUtil.LineTraceByChannelWithContext",NewName="/Script/GunfireRuntime.PhysicsUtil.LineTraceByChannelWithContext")
+
++FunctionRedirects=(OldName="InventoryComponent.AddItem",NewName="InventoryComponent.K2_AddItem")
++FunctionRedirects=(OldName="InventoryComponent.AddItemSoft",NewName="InventoryComponent.K2_AddItemSoft")
++FunctionRedirects=(OldName="InventoryComponent.RemoveItemSoft",NewName="InventoryComponent.RemoveItem")
++FunctionRedirects=(OldName="InventoryComponent.HasItemSoft",NewName="InventoryComponent.HasItem")
++FunctionRedirects=(OldName="InventoryComponent.GetQuantitySoft",NewName="InventoryComponent.GetQuantity")
++EnumRedirects=(OldName="/Script/GunfireRuntime.CooldownScope",NewName="/Script/GunfireRuntime.ECooldownScope")
++FunctionRedirects=(OldName="/Script/GunfireRuntime.StateMachineComponent.SetState",NewName="/Script/GunfireRuntime.StateMachineComponent.K2_SetState")
+
+[/Script/HoudiniEngineRuntime.HoudiniRuntimeSettings]
+RecomputeNormalsFlag=HRSRF_Never
+RecomputeTangentsFlag=HRSRF_Always
+bUseMikkTSpace=True
+bRemoveDegenerates=False
+GenerateLightmapUVsFlag=HRSRF_Never
+bBuildAdjacencyBuffer=False
+bShowMultiAssetDialog=False
+bEnableProxyStaticMesh=False
+bShowDefaultMesh=False
+
+[/Script/Engine.Player]
+ConfiguredInternetSpeed=120000	; 100000
+ConfiguredLanSpeed=120000		; 100000
+
+[SystemSettings]
+Remnant.DemoVersion=0 ;0 is off, 1 is GamesCom, 2 is GamesComPress
+D3D12.MaxCommandsPerCommandList=35000
+
+[Core.Log]
+
+[/Script/GunfireEditor.AudioImportSettings]
+AudioDialogTable=None
+SourceDialogDirectory=(Path="../../_Source/Sound/Wwise/Remnant2/Originals/Voices")
+DestinationDialogDirectory=(Path="WwiseAudio/Events/VO")
+WiseSoundObjectDirectory=(Path="\\Actor-Mixer Hierarchy\\VO\\VO")
+WiseCinematicSoundObjectDirectory=(Path="\\Actor-Mixer Hierarchy\\VO\\VO_Cine")
+WiseEventDirectory=(Path="\\Events\\VO")
++KeyModifiedAssets=(FilePath="../../../../projects/Remnant2/_Source/Sound/Wwise/Remnant2/Actor-Mixer Hierarchy/VO.wwu")
++KeyModifiedAssets=(FilePath="../../../../projects/Remnant2/_Source/Sound/Wwise/Remnant2/Events/VO.wwu")
+AudioDialogLanguage=English(US)
+AudioDialogLanguageMap=(("English", "en"),("French", "fr"),("Italian", "it"),("German", "de"),("Spanish", "es"),("Polish", "pl"),("Russian", "ru"),("Korean", "ko"),("Japanese", "ja"),("Chinese", "zh"),("Arabic", "ar"),("Farsi", "fa"))
+AudioDialogReplacementMap=()
++AudioDialogTTSCharacterLookup=(CharacterName="AceCotterill",TTSVoice="en-US-Wavenet-C",TTSPitch=-1.000000)
++AudioDialogTTSCharacterLookup=(CharacterName="AvaMcCabe",TTSVoice="en-US-Wavenet-F",TTSPitch=0.000000)
++AudioDialogTTSCharacterLookup=(CharacterName="EllenFord",TTSVoice="en-US-Wavenet-E",TTSPitch=-1.000000)
++AudioDialogTTSCharacterLookup=(CharacterName="GemmaDerst",TTSVoice="en-US-Wavenet-C",TTSPitch=1.000000)
++AudioDialogTTSCharacterLookup=(CharacterName="ReggieMalone",TTSVoice="en-US-Wavenet-D",TTSPitch=-2.000000)
++AudioDialogTTSCharacterLookup=(CharacterName="DonRigs",TTSVoice="en-US-Wavenet-B",TTSPitch=-2.000000)
++AudioDialogTTSCharacterLookup=(CharacterName="WallaceSims",TTSVoice="en-US-Wavenet-A",TTSPitch=-2.000000)
++AudioDialogTTSCharacterLookup=(CharacterName="BoWard",TTSVoice="en-US-Wavenet-C",TTSPitch=1.000000)
+SuffixDialogVoice=_DV
+SuffixDialogWave=_DW
+SuffixDialogSoundCue=_SC
+AttenuationSettings=None
+SoundClassSettings=None
+
+[/Script/IOSRuntimeSettings.IOSRuntimeSettings]
+bSupportsPortraitOrientation=False
+bSupportsUpsideDownOrientation=False
+bSupportsLandscapeLeftOrientation=True
+PreferredLandscapeOrientation=LandscapeLeft
+
+[/Script/RenderDocPlugin.RenderDocPluginSettings]
+renderdoc.CaptureAllActivity=False
+renderdoc.CaptureCallstacks=True
+renderdoc.ReferenceAllResources=False
+renderdoc.SaveAllInitials=False
+renderdoc.ShowHelpOnStartup=False
+renderdoc.EnableCrashHandler=False
+renderdoc.BinaryPath=C:\Program Files\RenderDoc
+
+[/Script/GunfireRuntime.SequenceRenderSettings]
++CVars=r.MotionBlur.Scale = 0.2
++CVars=r.Streaming.Boost = 2.0
+
+[Animation.DefaultObjectSettings]
+BoneCompressionSettings="/ACLPlugin/ACLAnimBoneCompressionSettings"
+CurveCompressionSettings="/ACLPlugin/ACLAnimCurveCompressionSettings"
+
+[/Script/Engine.SoundGroups]
+-SoundGroupProfiles=(SoundGroup=SOUNDGROUP_Default, bAlwaysDecompressOnLoad=false, DecompressedDuration=5)
+-SoundGroupProfiles=(SoundGroup=SOUNDGROUP_Effects, bAlwaysDecompressOnLoad=false, DecompressedDuration=5)
+-SoundGroupProfiles=(SoundGroup=SOUNDGROUP_UI, bAlwaysDecompressOnLoad=false, DecompressedDuration=5)
++SoundGroupProfiles=(SoundGroup=SOUNDGROUP_Default, bAlwaysDecompressOnLoad=false, DecompressedDuration=0)
++SoundGroupProfiles=(SoundGroup=SOUNDGROUP_Effects, bAlwaysDecompressOnLoad=false, DecompressedDuration=0)
++SoundGroupProfiles=(SoundGroup=SOUNDGROUP_UI, bAlwaysDecompressOnLoad=false, DecompressedDuration=0)
+
+[/Script/Engine.AudioSettings]
+DefaultSoundClassName=None
+DefaultMediaSoundClassName=None
+DefaultSoundConcurrencyName=None
+DefaultBaseSoundMix=None
+VoiPSoundClass=None
+VoiPSampleRate=Low16000Hz
+VoipBufferingDelay=0.200000
+DefaultReverbSendLevel=0.200000
+MaximumConcurrentStreams=8
+GlobalMinPitchScale=0.400000
+GlobalMaxPitchScale=2.000000
++QualityLevels=(DisplayName="Default",MaxChannels=64)
+bAllowVirtualizedSounds=True
+bDisableMasterEQ=False
+bAllowCenterChannel3DPanning=True
+MaxWaveInstances=100
+NumStoppingSources=8
+PanningMethod=EqualPower
+MonoChannelUpmixMethod=Linear
+DialogueFilenameFormat="{DialogueGuid}_{ContextId}"
+
+[/Script/Gunfire3DNavigation.Gunfire3DNavData]
+RuntimeGeneration=Dynamic
+DefaultHeuristicScale=2.000000
+DefaultBlockedNodeCompensation=1.000000
+VoxelSize=48.000000
+AgentRadiusPaddingScalar=0.500000
+AgentHeightPaddingScalar=0.500000
+DefaultMaxSearchNodes=2048
+
+[/Script/Engine.NavMovementComponent]
+bUseAccelerationForPaths=True
+
+[/Script/Remnant.RemnantSettings]
+ModPowerSplashScalar=0.250000
+ModPowerSplashFromOtherModScalar=0.000000
+AnalogCursorMovementSettings=(Acceleration=20000.000000,MaxSpeed=1000.000000,SpeedFloor=0.050000,DeadZone=0.200000,CursorMovementMode=Direct,DoubleClickDelay=300,SlowdownAccelerationScalar=0.010000,SlowdownAccelerationTimeout=0.250000,GravityIdleDelay=0.000000,GravityDistanceToAnchorTolerance=5.000000,GravityMaxDistanceNormalized=0.150000,CursorTargetFrictionMod=0.200000,AnalogSnapThreshold=0.900000,AnalogSnapWindow=250,AnalogSnapToleranceTime=25,AnalogPostSnapCooldown=25,AnalogSnapAngleToDistanceWeight=0.330000,AnalogSnapAngleRange=135.000000,AnalogSnapMaxDistanceNormalized=0.200000,AnalogSnapMinDistance=5.000000,RepeatSnapThresholdMod=0.250000,RepeatSnapTimeout=0.400000,bLerpOnManualSnap=True,bLerpOnControllerSnap=False,LerpOnSnapSpeedRelative=10000.000000,MinLerpFrames=2,CursorLerpMovementMode=Direct)
+bAnalogCursorOverridesMouseLock=True
+AnalogCursorMouseLockMode=LockAlways
+ModDamageClass=/Game/_Core/DamageTypes/DamageClass_Mod.DamageClass_Mod_C
+
+[/Script/GunfireRuntime.FactionSettings]
+PlayerFaction=/Script/Engine.BlueprintGeneratedClass'/Game/_Core/Blueprints/Factions/Faction_Player.Faction_Player_C'
++Affiliatons=(Faction1=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_Player.Faction_Player_C"',Faction2=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_Enemy.Faction_Enemy_C"',Affiliation=Hostile)
++Affiliatons=(Faction1=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_Player.Faction_Player_C"',Faction2=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_Neutral.Faction_Neutral_C"',Affiliation=Friendly)
++Affiliatons=(Faction1=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_Enemy.Faction_Enemy_C"',Faction2=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_Neutral.Faction_Neutral_C"',Affiliation=Friendly)
++Affiliatons=(Faction1=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_NPC.Faction_NPC_C"',Faction2=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_Player.Faction_Player_C"',Affiliation=SuperFriendly)
++Affiliatons=(Faction1=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_NPC.Faction_NPC_C"',Faction2=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_Enemy.Faction_Enemy_C"',Affiliation=Hostile)
++Affiliatons=(Faction1=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_NPC.Faction_NPC_C"',Faction2=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_Neutral.Faction_Neutral_C"',Affiliation=Friendly)
++Affiliatons=(Faction1=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_Enemy_Hostile.Faction_Enemy_Hostile_C"',Faction2=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_Neutral.Faction_Neutral_C"',Affiliation=Friendly)
++Affiliatons=(Faction1=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_Enemy_Hostile.Faction_Enemy_Hostile_C"',Faction2=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_Enemy.Faction_Enemy_C"',Affiliation=Hostile)
++Affiliatons=(Faction1=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_Enemy_Hostile.Faction_Enemy_Hostile_C"',Faction2=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_Player.Faction_Player_C"',Affiliation=Hostile)
++Affiliatons=(Faction1=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_Enemy_Hostile.Faction_Enemy_Hostile_C"',Faction2=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_NPC.Faction_NPC_C"',Affiliation=Hostile)
++Affiliatons=(Faction1=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_SuperFriend.Faction_SuperFriend_C"',Faction2=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_Player.Faction_Player_C"',Affiliation=SuperFriendly)
++Affiliatons=(Faction1=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_SuperFriend.Faction_SuperFriend_C"',Faction2=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_Enemy.Faction_Enemy_C"',Affiliation=SuperFriendly)
++Affiliatons=(Faction1=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_SuperFriend.Faction_SuperFriend_C"',Faction2=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_NPC.Faction_NPC_C"',Affiliation=SuperFriendly)
++Affiliatons=(Faction1=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_SuperFriend.Faction_SuperFriend_C"',Faction2=BlueprintGeneratedClass'"/Game/_Core/Blueprints/Factions/Faction_Enemy_Hostile.Faction_Enemy_Hostile_C"',Affiliation=SuperFriendly)
+
+[/Script/GunfireRuntime.AIDataGenerationSettings]
+NavAgentName=None
+TraceChannel=ECC_WorldStatic
+QueryComplexCollision=False
+CoverCheckIncrement=5.000000
+MinimumCoverWidth=-1.000000
+CoverTestDistance=100.000000
+LongEdgeLength=100.000000
+LowCoverHeight=75.000000
+LowCoverOpenTestDistance=150.000000
+LowCoverOpenTestHeight=125.000000
+LowCoverOpenTestSize=-1.000000
+HighCoverHeight=-1.000000
+HighCornerCoverGap=20.000000
+HighCornerCoverBottom=10.000000
+FallNavArea=BlueprintGeneratedClass'/Game/_Core/NavAreas/NavArea_Fall.NavArea_Fall_C'
+MaximumFallDistance=700.000000
++VaultSettings=BlueprintGeneratedClass'/Game/_Core/TraversalConfig/Vault_Default.Vault_Default_C'
++VaultSettings=BlueprintGeneratedClass'/Game/_Core/TraversalConfig/Vault_Over_Mid.Vault_Over_Mid_C'
++VaultSettings=BlueprintGeneratedClass'/Game/_Core/TraversalConfig/Vault_Up_Mid.Vault_Up_Mid_C'
++VaultSettings=BlueprintGeneratedClass'/Game/_Core/TraversalConfig/Vault_Over_High.Vault_Over_High_C'
++VaultSettings=BlueprintGeneratedClass'/Game/_Core/TraversalConfig/Vault_Up_High.Vault_Up_High_C'
++SpawnGenerators=(EnvironmentQuery=/Game/_Core/SpawnPoints/SpawnPointGeneration/EnvQuery_SpawnPoint_Earth.EnvQuery_SpawnPoint_Earth,SpawnPointBP=/Game/_Core/SpawnPoints/SpawnPoint_Emerge_Ground.SpawnPoint_Emerge_Ground_C)
+
+[/Script/WmfMediaFactory.WmfMediaSettings]
+AllowNonStandardCodecs=True
+
+[/Script/ImgMediaFactory.ImgMediaSettings]
+DefaultFrameRate=(Numerator=30,Denominator=1)
+CacheBehindPercentage=25.000000
+CacheSizeGB=1.000000
+CacheThreads=8
+CacheThreadStackSizeKB=128
+ExrDecoderThreads=0
+DefaultProxy=proxy
+UseDefaultProxy=False
+
+[/Script/GunfireRuntime.NavigationSystemGunfire]
+DefaultAgentName=Default
++SupportedAgents=(Name="Default",Color=(B=32,G=255,R=146,A=164),DefaultQueryExtent=(X=50.000000,Y=50.000000,Z=250.000000),NavDataClass="/Script/NavigationSystem.RecastNavMesh",bCanAutoAssign=True,bSelectedByDefault=True,AgentRadius=35.000000,AgentHeight=200.000000,AgentStepHeight=21.000000,NavWalkingSearchHeightScale=0.500000,PreferredNavData="/Script/NavigationSystem.RecastNavMesh",bCanCrouch=True,bCanJump=True,bCanWalk=True,bCanSwim=False,bCanFly=False)
++SupportedAgents=(Name="Flying",Color=(B=32,G=255,R=146,A=164),DefaultQueryExtent=(X=250.000000,Y=250.000000,Z=250.000000),NavDataClass="/Script/Gunfire3DNavigation.Gunfire3DNavData",bCanAutoAssign=True,bSelectedByDefault=True,AgentRadius=32.000000,AgentHeight=64.000000,AgentStepHeight=-1.000000,NavWalkingSearchHeightScale=0.500000,PreferredNavData="/Script/Gunfire3DNavigation.Gunfire3DNavData",bCanCrouch=True,bCanJump=True,bCanWalk=True,bCanSwim=False,bCanFly=False)
++SupportedAgents=(Name="Boss",Color=(B=255,G=168,R=0,A=164),DefaultQueryExtent=(X=100.000000,Y=100.000000,Z=250.000000),NavDataClass="/Script/NavigationSystem.RecastNavMesh",bCanAutoAssign=True,bSelectedByDefault=False,AgentRadius=100.000000,AgentHeight=200.000000,AgentStepHeight=-1.000000,NavWalkingSearchHeightScale=0.500000,PreferredNavData="/Script/NavigationSystem.RecastNavMesh",bCanCrouch=True,bCanJump=True,bCanWalk=True,bCanSwim=False,bCanFly=False)
++SupportedAgents=(Name="Boss_Large",Color=(B=0,G=35,R=255,A=164),DefaultQueryExtent=(X=100.000000,Y=100.000000,Z=250.000000),NavDataClass="/Script/NavigationSystem.RecastNavMesh",bCanAutoAssign=True,bSelectedByDefault=False,AgentRadius=200.000000,AgentHeight=200.000000,AgentStepHeight=-1.000000,NavWalkingSearchHeightScale=0.500000,PreferredNavData="/Script/NavigationSystem.RecastNavMesh",bCanCrouch=True,bCanJump=True,bCanWalk=True,bCanSwim=False,bCanFly=False)
++SupportedAgents=(Name="Boss_Flying",Color=(B=0,G=255,R=255,A=255),DefaultQueryExtent=(X=250.000000,Y=250.000000,Z=250.000000),NavDataClass="/Script/Gunfire3DNavigation.Gunfire3DNavData",bCanAutoAssign=True,bSelectedByDefault=False,AgentRadius=200.000000,AgentHeight=300.000000,AgentStepHeight=-1.000000,NavWalkingSearchHeightScale=0.500000,PreferredNavData="/Script/Gunfire3DNavigation.Gunfire3DNavData",bCanCrouch=True,bCanJump=True,bCanWalk=True,bCanSwim=False,bCanFly=False)
+SupportedAgentsMask=(bSupportsAgent0=True,bSupportsAgent1=True,bSupportsAgent2=True,bSupportsAgent3=True,bSupportsAgent4=True,bSupportsAgent5=False,bSupportsAgent6=False,bSupportsAgent7=False,bSupportsAgent8=False,bSupportsAgent9=False,bSupportsAgent10=False,bSupportsAgent11=False,bSupportsAgent12=False,bSupportsAgent13=False,bSupportsAgent14=False,bSupportsAgent15=False)
+bShouldDiscardSubLevelNavData=False
+
+[/Script/Engine.PhysicsSettings]
+PhysicErrorCorrection=(PingExtrapolation=0.100000,PingLimit=100.000000,ErrorPerLinearDifference=1.000000,ErrorPerAngularDifference=1.000000,MaxRestoredStateError=1.000000,MaxLinearHardSnapDistance=400.000000,PositionLerp=0.000000,AngleLerp=0.400000,LinearVelocityCoefficient=100.000000,AngularVelocityCoefficient=10.000000,ErrorAccumulationSeconds=0.500000,ErrorAccumulationDistanceSq=15.000000,ErrorAccumulationSimilarity=100.000000)
+DefaultDegreesOfFreedom=Full3D
+bSuppressFaceRemapTable=False
+bSupportUVFromHitResults=False
+bDisableActiveActors=False
+bDisableKinematicStaticPairs=False
+bDisableKinematicKinematicPairs=False
+bDisableCCD=False
+bEnableEnhancedDeterminism=False
+AnimPhysicsMinDeltaTime=0.000000
+bSimulateAnimPhysicsAfterReset=False
+MinPhysicsDeltaTime=0.000000
+MaxPhysicsDeltaTime=0.033333
+bSubstepping=False
+bSubsteppingAsync=False
+bTickPhysicsAsync=False
+AsyncFixedTimeStepSize=0.033333
+MaxSubstepDeltaTime=0.016667
+MaxSubsteps=6
+SyncSceneSmoothingFactor=0.000000
+InitialAverageFrameRate=0.016667
+PhysXTreeRebuildRate=10
++PhysicalSurfaces=(Type=SurfaceType1,Name="ENV_Brick")
++PhysicalSurfaces=(Type=SurfaceType2,Name="ENV_Chain_Link")
++PhysicalSurfaces=(Type=SurfaceType3,Name="ENV_Concrete")
++PhysicalSurfaces=(Type=SurfaceType4,Name="ENV_Dirt")
++PhysicalSurfaces=(Type=SurfaceType5,Name="ENV_Drywall")
++PhysicalSurfaces=(Type=SurfaceType6,Name="ENV_Fabric")
++PhysicalSurfaces=(Type=SurfaceType7,Name="ENV_Glass")
++PhysicalSurfaces=(Type=SurfaceType8,Name="ENV_Ice")
++PhysicalSurfaces=(Type=SurfaceType9,Name="ENV_Lava")
++PhysicalSurfaces=(Type=SurfaceType10,Name="ENV_Metal_Grate")
++PhysicalSurfaces=(Type=SurfaceType11,Name="ENV_Metal_Hollow")
++PhysicalSurfaces=(Type=SurfaceType12,Name="ENV_Metal_Sand")
++PhysicalSurfaces=(Type=SurfaceType13,Name="ENV_Metal_Thick")
++PhysicalSurfaces=(Type=SurfaceType14,Name="ENV_Metal_Thin")
++PhysicalSurfaces=(Type=SurfaceType15,Name="ENV_Mud")
++PhysicalSurfaces=(Type=SurfaceType16,Name="ENV_Plastic")
++PhysicalSurfaces=(Type=SurfaceType17,Name="ENV_Rubber")
++PhysicalSurfaces=(Type=SurfaceType18,Name="ENV_Sand")
++PhysicalSurfaces=(Type=SurfaceType19,Name="ENV_Snow")
++PhysicalSurfaces=(Type=SurfaceType20,Name="ENV_Stone")
++PhysicalSurfaces=(Type=SurfaceType21,Name="ENV_Vegetation")
++PhysicalSurfaces=(Type=SurfaceType22,Name="ENV_Water")
++PhysicalSurfaces=(Type=SurfaceType23,Name="ENV_Wood_Plank")
++PhysicalSurfaces=(Type=SurfaceType24,Name="ENV_Wood_Tree")
++PhysicalSurfaces=(Type=SurfaceType25,Name="CHR_Armor")
++PhysicalSurfaces=(Type=SurfaceType26,Name="CHR_Bone")
++PhysicalSurfaces=(Type=SurfaceType27,Name="CHR_Flesh_Root")
++PhysicalSurfaces=(Type=SurfaceType28,Name="CHR_Flesh_Stone")
++PhysicalSurfaces=(Type=SurfaceType29,Name="CHR_Flesh_Wet")
++PhysicalSurfaces=(Type=SurfaceType30,Name="CHR_Invincible")
++PhysicalSurfaces=(Type=SurfaceType31,Name="CHR_Weakpoint_Pan")
++PhysicalSurfaces=(Type=SurfaceType32,Name="CHR_Weakpoint_Root")
++PhysicalSurfaces=(Type=SurfaceType33,Name="CHR_Invincible_PetrifiedRoot")
++PhysicalSurfaces=(Type=SurfaceType34,Name="ENV_Coal")
++PhysicalSurfaces=(Type=SurfaceType35,Name="ENV_Stone_Invisible")
++PhysicalSurfaces=(Type=SurfaceType36,Name="ENV_Sandbag")
++PhysicalSurfaces=(Type=SurfaceType37,Name="CHR_BloatKing_Shield")
++PhysicalSurfaces=(Type=SurfaceType38,Name="CHR_Weakpoint_Lab")
++PhysicalSurfaces=(Type=SurfaceType39,Name="ENV_Hardened_Glass")
++PhysicalSurfaces=(Type=SurfaceType40,Name="Ladder_Metal")
++PhysicalSurfaces=(Type=SurfaceType41,Name="Ladder_Wood")
++PhysicalSurfaces=(Type=SurfaceType42,Name="ENV_Nerud_Goo")
++PhysicalSurfaces=(Type=SurfaceType43,Name="CHR_Weakpoint_Nerud")
++PhysicalSurfaces=(Type=SurfaceType44,Name="CHR_Flesh_Nerud")
++PhysicalSurfaces=(Type=SurfaceType45,Name="CHR_Flesh_Fae")
++PhysicalSurfaces=(Type=SurfaceType46,Name="ENV_Nerud_Sludge")
++PhysicalSurfaces=(Type=SurfaceType47,Name="CHR_Glitch")
+DefaultBroadphaseSettings=(bUseMBPOnClient=True,bUseMBPOnServer=True,bUseMBPOuterBounds=False,MBPBounds=(Min=(X=-80000.000000,Y=-80000.000000,Z=-80000.000000),Max=(X=80000.000000,Y=80000.000000,Z=80000.000000),IsValid=0),MBPOuterBounds=(Min=(X=0.000000,Y=0.000000,Z=0.000000),Max=(X=0.000000,Y=0.000000,Z=0.000000),IsValid=0),MBPNumSubdivs=2)
+MinDeltaVelocityForHitEvents=0.000000
+ChaosSettings=(DefaultThreadingModel=TaskGraph,DedicatedThreadTickMode=VariableCappedWithTarget,DedicatedThreadBufferMode=Double)
+ContactOffsetMultiplier=0.010000
+MinContactOffset=0.000100
+MaxContactOffset=1.000000
+
+[/Script/GunfireRuntime.TraversalSettings]
+FeetPlantOffset=60.000000
+HandPlantOffset=60.000000
+HandAnimationOffset=-4.000000
+TestWallTraceDistanceDelta=6.000000
+bUseComplexCollisionWhenTestingForWalls=False
+ValidWallAngleThreshold=12.500000
+FacingThreshold=360.000000
++LedgeGrabChannels=ECC_WorldStatic
+LedgeGrabStartOffset=15.000000
+LedgeGrabStopOffset=145.000000
+LedgeGrabCheckIncrement=10.000000
+LedgeGrabDistance=60.000000
+SolidTestWallPointDistance=20.000000
+InsetTestWallPointDistance=40.000000
+bLedgeGrabValidateEndingLocation=True
+ClingDistance=10.000000
+ClingTestWallPointDistance=9.000000
+ClingHandOffset=100.000000
+WaterSurfaceAboveOffset=87.500000
+WaterSurfaceBelowOffset=47.500000
+WaterSurfaceEntryScaleZ=0.330000
+WaterSurfaceEntryMinVelocity=50.000000
+bWaterSurfaceEntryOnEmerge=True
+EmergeAcceleration=2000.000000
+EmergeFullStrengthDepth=100.000000
+SubmergeDepth=87.500000
+SubmergeAcceleration=2000.000000
+DiveMinDistance=2000.000000
+DiveCastDistance=3000.000000
+DiveMinWaterDepth=500.000000
++ClimbingPhysicsCollisionChannels=ECC_PhysicsBody
+ClimbingTraversalWindow=Traversing
+BodyAnimationOffset=0.000000
+
+[/Script/Engine.CollisionProfile]
+-Profiles=(Name="NoCollision",CollisionEnabled=NoCollision,ObjectTypeName="WorldStatic",CustomResponses=((Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore)),HelpMessage="No collision",bCanModify=False)
+-Profiles=(Name="BlockAll",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldStatic",CustomResponses=,HelpMessage="WorldStatic object that blocks all actors by default. All new custom channels will use its own default response. ",bCanModify=False)
+-Profiles=(Name="OverlapAll",CollisionEnabled=QueryOnly,ObjectTypeName="WorldStatic",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Camera",Response=ECR_Overlap),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Destructible",Response=ECR_Overlap)),HelpMessage="WorldStatic object that overlaps all actors by default. All new custom channels will use its own default response. ",bCanModify=False)
+-Profiles=(Name="BlockAllDynamic",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldDynamic",CustomResponses=,HelpMessage="WorldDynamic object that blocks all actors by default. All new custom channels will use its own default response. ",bCanModify=False)
+-Profiles=(Name="OverlapAllDynamic",CollisionEnabled=QueryOnly,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Camera",Response=ECR_Overlap),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Destructible",Response=ECR_Overlap)),HelpMessage="WorldDynamic object that overlaps all actors by default. All new custom channels will use its own default response. ",bCanModify=False)
+-Profiles=(Name="IgnoreOnlyPawn",CollisionEnabled=QueryOnly,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="Pawn",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore)),HelpMessage="WorldDynamic object that ignores Pawn and Vehicle. All other channels will be set to default.",bCanModify=False)
+-Profiles=(Name="OverlapOnlyPawn",CollisionEnabled=QueryOnly,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="Pawn",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Camera",Response=ECR_Ignore)),HelpMessage="WorldDynamic object that overlaps Pawn, Camera, and Vehicle. All other channels will be set to default. ",bCanModify=False)
+-Profiles=(Name="Pawn",CollisionEnabled=QueryAndPhysics,ObjectTypeName="Pawn",CustomResponses=((Channel="Visibility",Response=ECR_Ignore)),HelpMessage="Pawn object. Can be used for capsule of any playerable character or AI. ",bCanModify=False)
+-Profiles=(Name="Spectator",CollisionEnabled=QueryOnly,ObjectTypeName="Pawn",CustomResponses=((Channel="WorldStatic",Response=ECR_Block),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore)),HelpMessage="Pawn object that ignores all other actors except WorldStatic.",bCanModify=False)
+-Profiles=(Name="CharacterMesh",CollisionEnabled=QueryOnly,ObjectTypeName="Pawn",CustomResponses=((Channel="Pawn",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore)),HelpMessage="Pawn object that is used for Character Mesh. All other channels will be set to default.",bCanModify=False)
+-Profiles=(Name="PhysicsActor",CollisionEnabled=QueryAndPhysics,ObjectTypeName="PhysicsBody",CustomResponses=,HelpMessage="Simulating actors",bCanModify=False)
+-Profiles=(Name="Destructible",CollisionEnabled=QueryAndPhysics,ObjectTypeName="Destructible",CustomResponses=,HelpMessage="Destructible actors",bCanModify=False)
+-Profiles=(Name="InvisibleWall",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldStatic",CustomResponses=((Channel="Visibility",Response=ECR_Ignore)),HelpMessage="WorldStatic object that is invisible.",bCanModify=False)
+-Profiles=(Name="InvisibleWallDynamic",CollisionEnabled=QueryAndPhysics,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="Visibility",Response=ECR_Ignore)),HelpMessage="WorldDynamic object that is invisible.",bCanModify=False)
+-Profiles=(Name="Trigger",CollisionEnabled=QueryOnly,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Camera",Response=ECR_Overlap),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Destructible",Response=ECR_Overlap)),HelpMessage="WorldDynamic object that is used for trigger. All other channels will be set to default.",bCanModify=False)
+-Profiles=(Name="Ragdoll",CollisionEnabled=QueryAndPhysics,ObjectTypeName="PhysicsBody",CustomResponses=((Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore)),HelpMessage="Simulating Skeletal Mesh Component. All other channels will be set to default.",bCanModify=False)
+-Profiles=(Name="Vehicle",CollisionEnabled=QueryAndPhysics,ObjectTypeName="Vehicle",CustomResponses=,HelpMessage="Vehicle object that blocks Vehicle, WorldStatic, and WorldDynamic. All other channels will be set to default.",bCanModify=False)
+-Profiles=(Name="UI",CollisionEnabled=QueryOnly,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Block),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Camera",Response=ECR_Overlap),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Destructible",Response=ECR_Overlap)),HelpMessage="WorldStatic object that overlaps all actors by default. All new custom channels will use its own default response. ",bCanModify=False)
++Profiles=(Name="NoCollision",CollisionEnabled=NoCollision,bCanModify=False,ObjectTypeName="WorldStatic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore)),HelpMessage="No collision",bGenerateOverlapEvents=False,bCanEverAffectNavigation=False)
++Profiles=(Name="BlockAll",CollisionEnabled=QueryAndPhysics,bCanModify=False,ObjectTypeName="WorldStatic",CustomResponses=((Channel="ThrownProjectile"),(Channel="AimTrace"),(Channel="GroundTrace"),(Channel="WeaponPhantom",Response=ECR_Overlap),(Channel="MoveTrace"),(Channel="BossPawn",Response=ECR_Overlap)),HelpMessage="WorldStatic object that blocks all actors by default. All new custom channels will use its own default response. ",bGenerateOverlapEvents=False,bCanEverAffectNavigation=True)
++Profiles=(Name="OverlapAll",CollisionEnabled=QueryOnly,bCanModify=False,ObjectTypeName="WorldStatic",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Overlap),(Channel="Camera",Response=ECR_Overlap),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Destructible",Response=ECR_Overlap),(Channel="WeaponPhantom",Response=ECR_Overlap),(Channel="BossPawn",Response=ECR_Overlap)),HelpMessage="WorldStatic object that overlaps all actors by default. All new custom channels will use its own default response. ",bGenerateOverlapEvents=True,bCanEverAffectNavigation=False)
++Profiles=(Name="BlockAllDynamic",CollisionEnabled=QueryAndPhysics,bCanModify=False,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="ThrownProjectile"),(Channel="WeaponPhantom",Response=ECR_Overlap),(Channel="MoveTrace"),(Channel="BossPawn",Response=ECR_Overlap)),HelpMessage="WorldDynamic object that blocks all actors by default. All new custom channels will use its own default response. ",bGenerateOverlapEvents=False,bCanEverAffectNavigation=False)
++Profiles=(Name="OverlapAllDynamic",CollisionEnabled=QueryOnly,bCanModify=False,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Overlap),(Channel="Camera",Response=ECR_Overlap),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Destructible",Response=ECR_Overlap),(Channel="Weapon",Response=ECR_Overlap),(Channel="Projectile",Response=ECR_Ignore),(Channel="ThrownProjectile",Response=ECR_Overlap),(Channel="WeaponPhantom",Response=ECR_Overlap),(Channel="BossPawn",Response=ECR_Overlap)),HelpMessage="WorldDynamic object that overlaps all actors by default. All new custom channels will use its own default response. ",bGenerateOverlapEvents=True,bCanEverAffectNavigation=False)
++Profiles=(Name="IgnoreOnlyPawn",CollisionEnabled=QueryOnly,bCanModify=False,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="Pawn",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore)),HelpMessage="WorldDynamic object that ignores Pawn and Vehicle. All other channels will be set to default.",bGenerateOverlapEvents=False,bCanEverAffectNavigation=False)
++Profiles=(Name="OverlapOnlyPawn",CollisionEnabled=QueryOnly,bCanModify=False,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore)),HelpMessage="WorldDynamic object that overlaps Pawn, Camera, and Vehicle. All other channels will be set to default. ",bGenerateOverlapEvents=True,bCanEverAffectNavigation=False)
++Profiles=(Name="Pawn",CollisionEnabled=QueryAndPhysics,bCanModify=False,ObjectTypeName="Pawn",CustomResponses=((Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore),(Channel="WeaponPhantom",Response=ECR_Overlap),(Channel="PawnTrace"),(Channel="MoveTrace")),HelpMessage="Pawn object. Can be used for capsule of any playerable character or AI. ",bGenerateOverlapEvents=True,bCanEverAffectNavigation=False)
++Profiles=(Name="Spectator",CollisionEnabled=QueryOnly,bCanModify=False,ObjectTypeName="Pawn",CustomResponses=((Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore)),HelpMessage="Pawn object that ignores all other actors except WorldStatic.",bGenerateOverlapEvents=False,bCanEverAffectNavigation=False)
++Profiles=(Name="CharacterMesh",CollisionEnabled=QueryOnly,bCanModify=False,ObjectTypeName="Pawn",CustomResponses=((Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="ThrownProjectile"),(Channel="WeaponPhantom",Response=ECR_Overlap)),HelpMessage="Pawn object that is used for Character Mesh. All other channels will be set to default.",bGenerateOverlapEvents=False,bCanEverAffectNavigation=False)
++Profiles=(Name="PhysicsActor",CollisionEnabled=QueryAndPhysics,bCanModify=False,ObjectTypeName="PhysicsBody",CustomResponses=,HelpMessage="Simulating actors",bGenerateOverlapEvents=False,bCanEverAffectNavigation=False)
++Profiles=(Name="Destructible",CollisionEnabled=QueryAndPhysics,bCanModify=False,ObjectTypeName="Destructible",CustomResponses=((Channel="ThrownProjectile"),(Channel="AimTrace"),(Channel="GroundTrace"),(Channel="WeaponPhantom",Response=ECR_Overlap),(Channel="MoveTrace")),HelpMessage="Destructible actors",bGenerateOverlapEvents=True,bCanEverAffectNavigation=True)
++Profiles=(Name="InvisibleWall",CollisionEnabled=QueryAndPhysics,bCanModify=False,ObjectTypeName="WorldStatic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore),(Channel="AimTrace"),(Channel="GroundTrace"),(Channel="MoveTrace")),HelpMessage="WorldStatic object that is invisible.",bGenerateOverlapEvents=False,bCanEverAffectNavigation=True)
++Profiles=(Name="InvisibleWallDynamic",CollisionEnabled=QueryAndPhysics,bCanModify=False,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="Visibility",Response=ECR_Ignore),(Channel="WeaponPhantom",Response=ECR_Overlap),(Channel="MoveTrace")),HelpMessage="WorldDynamic object that is invisible.",bGenerateOverlapEvents=False,bCanEverAffectNavigation=True)
++Profiles=(Name="Trigger",CollisionEnabled=QueryOnly,bCanModify=False,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore)),HelpMessage="WorldDynamic object that is used for trigger. All other channels will be set to default.",bGenerateOverlapEvents=True,bCanEverAffectNavigation=False)
++Profiles=(Name="Ragdoll",CollisionEnabled=QueryAndPhysics,bCanModify=False,ObjectTypeName="PhysicsBody",CustomResponses=((Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="ThrownProjectile"),(Channel="WeaponPhantom",Response=ECR_Overlap)),HelpMessage="Simulating Skeletal Mesh Component. All other channels will be set to default.",bGenerateOverlapEvents=False,bCanEverAffectNavigation=False)
++Profiles=(Name="Vehicle",CollisionEnabled=QueryAndPhysics,bCanModify=False,ObjectTypeName="Vehicle",CustomResponses=,HelpMessage="Vehicle object that blocks Vehicle, WorldStatic, and WorldDynamic. All other channels will be set to default.",bGenerateOverlapEvents=False,bCanEverAffectNavigation=False)
++Profiles=(Name="UI",CollisionEnabled=QueryOnly,bCanModify=False,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Camera",Response=ECR_Overlap),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Overlap),(Channel="Destructible",Response=ECR_Overlap)),HelpMessage="WorldStatic object that overlaps all actors by default. All new custom channels will use its own default response. ",bGenerateOverlapEvents=False,bCanEverAffectNavigation=False)
++Profiles=(Name="WeaponPhantom",CollisionEnabled=NoCollision,bCanModify=True,ObjectTypeName="WeaponPhantom",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Overlap),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore),(Channel="Window",Response=ECR_Overlap),(Channel="BossPawn",Response=ECR_Overlap)),HelpMessage="Needs description",bGenerateOverlapEvents=False,bCanEverAffectNavigation=False)
++Profiles=(Name="Projectile",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="ThrownProjectile",CustomResponses=((Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore),(Channel="Window"),(Channel="BossPawn")),HelpMessage="Needs description",bGenerateOverlapEvents=True,bCanEverAffectNavigation=False)
++Profiles=(Name="Ladder",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="Ladder",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore),(Channel="LadderTrace")),HelpMessage="Needs description",bGenerateOverlapEvents=True,bCanEverAffectNavigation=False)
++Profiles=(Name="Window",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="Window",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="ThrownProjectile"),(Channel="WeaponPhantom",Response=ECR_Overlap),(Channel="WindowTrace")),HelpMessage="Windows",bGenerateOverlapEvents=True,bCanEverAffectNavigation=False)
++Profiles=(Name="Foliage",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="Foliage",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore),(Channel="Foliage",Response=ECR_Overlap)),HelpMessage="Foliage",bGenerateOverlapEvents=False,bCanEverAffectNavigation=False)
++Profiles=(Name="Water",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="Water",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="WaterTrace")),HelpMessage="This is water",bGenerateOverlapEvents=True,bCanEverAffectNavigation=False)
++Profiles=(Name="Cover",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="WorldStatic",CustomResponses=((Channel="Projectile",Response=ECR_Ignore),(Channel="ThrownProjectile"),(Channel="AimTrace"),(Channel="GroundTrace"),(Channel="WeaponPhantom"),(Channel="Ladder"),(Channel="PawnTrace"),(Channel="LadderTrace"),(Channel="MoveTrace"),(Channel="Window"),(Channel="WindowTrace"),(Channel="Foliage"),(Channel="Water"),(Channel="WaterTrace"),(Channel="BossPawn")),HelpMessage="Cover collision",bGenerateOverlapEvents=False,bCanEverAffectNavigation=True)
++Profiles=(Name="PawnSpecialCollision",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore),(Channel="SpecialCollisionTrace")),HelpMessage="Used to define collision for larger creatures like bosses",bGenerateOverlapEvents=True,bCanEverAffectNavigation=False)
++Profiles=(Name="OverlapDestructible",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="Destructible",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Overlap),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore)),HelpMessage="Used to overlap destructible objects",bGenerateOverlapEvents=True,bCanEverAffectNavigation=False)
++Profiles=(Name="Debris",CollisionEnabled=PhysicsOnly,bCanModify=True,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore)),HelpMessage="For destructible Debris",bGenerateOverlapEvents=False,bCanEverAffectNavigation=False)
++Profiles=(Name="NavModifier",CollisionEnabled=NoCollision,bCanModify=True,ObjectTypeName="",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore)),HelpMessage="Profile for Nav Modifiers Only",bGenerateOverlapEvents=False,bCanEverAffectNavigation=True)
++Profiles=(Name="AudioVolume",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Overlap),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore),(Channel="PawnTrace",Response=ECR_Overlap),(Channel="SpecialCollisionTrace",Response=ECR_Overlap)),HelpMessage="Needs description",bGenerateOverlapEvents=True,bCanEverAffectNavigation=False)
++Profiles=(Name="IA_Validation",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore)),HelpMessage="Needs description",bGenerateOverlapEvents=True,bCanEverAffectNavigation=False)
++Profiles=(Name="LevelRegion",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore),(Channel="BossPawn",Response=ECR_Overlap)),HelpMessage="Needs description",bGenerateOverlapEvents=True,bCanEverAffectNavigation=False)
++Profiles=(Name="Breakable",CollisionEnabled=NoCollision,bCanModify=True,ObjectTypeName="PhysicsBody",CustomResponses=((Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore)),HelpMessage="Needs description",bGenerateOverlapEvents=False,bCanEverAffectNavigation=False)
++Profiles=(Name="Foliage_Large",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="WorldStatic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore)),HelpMessage="Like City_Bush",bGenerateOverlapEvents=False,bCanEverAffectNavigation=True)
++Profiles=(Name="ProjectileOnly",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="WorldStatic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore)),HelpMessage="Only blocks bullets",bGenerateOverlapEvents=False,bCanEverAffectNavigation=False)
++Profiles=(Name="ProjectileCollisionCheck",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="ThrownProjectile",CustomResponses=((Channel="Pawn",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore),(Channel="GroundTrace"),(Channel="Water")),HelpMessage="For bounce checks",bGenerateOverlapEvents=False,bCanEverAffectNavigation=False)
++Profiles=(Name="TriggerEnemy",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="WeaponPhantom",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore)),HelpMessage="Checks for Enemies ",bGenerateOverlapEvents=True,bCanEverAffectNavigation=False)
++Profiles=(Name="BlockAll_OverlapWorldStatic",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="ThrownProjectile"),(Channel="AimTrace"),(Channel="GroundTrace"),(Channel="WeaponPhantom",Response=ECR_Overlap),(Channel="MoveTrace"),(Channel="BossPawn")),HelpMessage="Same as BlockAll but will not allow procedural foliage on StaticMesh",bGenerateOverlapEvents=False,bCanEverAffectNavigation=True)
++Profiles=(Name="FoliageInactive",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="Foliage",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore),(Channel="FoliageTrace")),HelpMessage="Needs description",bGenerateOverlapEvents=False,bCanEverAffectNavigation=False)
++Profiles=(Name="FoliageActive",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="Foliage",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore),(Channel="FoliageTrace")),HelpMessage="Needs description",bGenerateOverlapEvents=False,bCanEverAffectNavigation=False)
++Profiles=(Name="FoliageCollider",CollisionEnabled=PhysicsOnly,bCanModify=True,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore),(Channel="Foliage")),HelpMessage="Needs description",bGenerateOverlapEvents=False,bCanEverAffectNavigation=False)
++Profiles=(Name="BlockOnlyCamera",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="WorldStatic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore)),HelpMessage="WorldStatic object that only blocks the camera.",bGenerateOverlapEvents=True,bCanEverAffectNavigation=False)
++Profiles=(Name="BossPawn",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="BossPawn",CustomResponses=((Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore),(Channel="WeaponPhantom",Response=ECR_Overlap),(Channel="PawnTrace"),(Channel="MoveTrace")),HelpMessage="Needs description",bGenerateOverlapEvents=True,bCanEverAffectNavigation=False)
++Profiles=(Name="BossBlocker",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore),(Channel="BossPawn")),HelpMessage="Needs description",bGenerateOverlapEvents=False,bCanEverAffectNavigation=True)
++Profiles=(Name="WeaponPhantomOverlap",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="WeaponPhantom",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Overlap),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore),(Channel="Window",Response=ECR_Overlap),(Channel="BossPawn",Response=ECR_Overlap)),HelpMessage="Should match weapon phantom, but has overlaps on",bGenerateOverlapEvents=True,bCanEverAffectNavigation=False)
++Profiles=(Name="ProjectileIgnoreEnvironment",CollisionEnabled=QueryOnly,bCanModify=True,ObjectTypeName="ThrownProjectile",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore),(Channel="Window"),(Channel="BossPawn")),HelpMessage="Needs description",bGenerateOverlapEvents=True,bCanEverAffectNavigation=False)
++Profiles=(Name="ProjectileOverlapQuery",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="ThrownProjectile",CustomResponses=((Channel="WorldStatic",Response=ECR_Overlap),(Channel="WorldDynamic",Response=ECR_Overlap),(Channel="Pawn",Response=ECR_Overlap),(Channel="Visibility",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Overlap),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Overlap),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore),(Channel="Window",Response=ECR_Overlap),(Channel="BossPawn",Response=ECR_Overlap)),HelpMessage="Needs description",bGenerateOverlapEvents=True,bCanEverAffectNavigation=False)
++Profiles=(Name="MovingPlatform",CollisionEnabled=QueryAndPhysics,bCanModify=True,ObjectTypeName="WorldDynamic",CustomResponses=((Channel="ThrownProjectile"),(Channel="GroundTrace"),(Channel="WeaponPhantom",Response=ECR_Overlap),(Channel="MoveTrace"),(Channel="BossPawn")),HelpMessage="Similar to block all dynamic but blocks ground trace",bGenerateOverlapEvents=False,bCanEverAffectNavigation=False)
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel1,DefaultResponse=ECR_Block,bTraceType=True,bStaticObject=False,Name="Weapon")
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel2,DefaultResponse=ECR_Block,bTraceType=True,bStaticObject=False,Name="Projectile")
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel3,DefaultResponse=ECR_Ignore,bTraceType=False,bStaticObject=False,Name="ThrownProjectile")
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel4,DefaultResponse=ECR_Ignore,bTraceType=True,bStaticObject=False,Name="AimTrace")
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel5,DefaultResponse=ECR_Ignore,bTraceType=True,bStaticObject=False,Name="GroundTrace")
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel6,DefaultResponse=ECR_Ignore,bTraceType=False,bStaticObject=False,Name="WeaponPhantom")
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel7,DefaultResponse=ECR_Ignore,bTraceType=False,bStaticObject=False,Name="Ladder")
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel8,DefaultResponse=ECR_Ignore,bTraceType=True,bStaticObject=False,Name="PawnTrace")
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel9,DefaultResponse=ECR_Ignore,bTraceType=True,bStaticObject=False,Name="LadderTrace")
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel10,DefaultResponse=ECR_Ignore,bTraceType=True,bStaticObject=False,Name="MoveTrace")
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel11,DefaultResponse=ECR_Ignore,bTraceType=False,bStaticObject=False,Name="Window")
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel12,DefaultResponse=ECR_Ignore,bTraceType=True,bStaticObject=False,Name="WindowTrace")
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel13,DefaultResponse=ECR_Ignore,bTraceType=False,bStaticObject=False,Name="Foliage")
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel14,DefaultResponse=ECR_Ignore,bTraceType=False,bStaticObject=False,Name="Water")
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel15,DefaultResponse=ECR_Ignore,bTraceType=True,bStaticObject=False,Name="WaterTrace")
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel16,DefaultResponse=ECR_Ignore,bTraceType=True,bStaticObject=False,Name="SpecialCollisionTrace")
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel17,DefaultResponse=ECR_Ignore,bTraceType=False,bStaticObject=False,Name="BossPawn")
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel18,DefaultResponse=ECR_Ignore,bTraceType=True,bStaticObject=False,Name="FoliageTrace")
++EditProfiles=(Name="Pawn",CustomResponses=((Channel="Projectile",Response=ECR_Ignore),(Channel="ThrownProjectile",Response=ECR_Ignore),(Channel="WeaponPhantom",Response=ECR_Overlap),(Channel="MoveTrace"),(Channel="Destructible",Response=ECR_Ignore),(Channel="PawnTrace"),(Channel="Camera",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore)))
++EditProfiles=(Name="Ragdoll",CustomResponses=((Channel="Visibility",Response=ECR_Ignore),(Channel="WeaponPhantom",Response=ECR_Overlap),(Channel="Camera",Response=ECR_Ignore),(Channel="ThrownProjectile")))
++EditProfiles=(Name="BlockAll",CustomResponses=((Channel="GroundTrace"),(Channel="ThrownProjectile"),(Channel="WeaponPhantom",Response=ECR_Overlap),(Channel="MoveTrace"),(Channel="BossPawn"),(Channel="AimTrace")))
++EditProfiles=(Name="BlockAllDynamic",CustomResponses=((Channel="PawnTrace",Response=ECR_Ignore),(Channel="ThrownProjectile"),(Channel="WeaponPhantom",Response=ECR_Overlap),(Channel="MoveTrace"),(Channel="BossPawn")))
++EditProfiles=(Name="OverlapAllDynamic",CustomResponses=((Channel="ThrownProjectile",Response=ECR_Overlap),(Channel="WeaponPhantom",Response=ECR_Overlap),(Channel="Projectile",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Overlap),(Channel="BossPawn",Response=ECR_Overlap)))
++EditProfiles=(Name="CharacterMesh",CustomResponses=((Channel="WeaponPhantom",Response=ECR_Overlap),(Channel="Camera",Response=ECR_Ignore),(Channel="ThrownProjectile")))
++EditProfiles=(Name="InvisibleWall",CustomResponses=((Channel="WeaponPhantom",Response=ECR_Ignore),(Channel="MoveTrace"),(Channel="WorldStatic",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore),(Channel="GroundTrace"),(Channel="AimTrace"),(Channel="BossPawn")))
++EditProfiles=(Name="InvisibleWallDynamic",CustomResponses=((Channel="WeaponPhantom",Response=ECR_Overlap),(Channel="MoveTrace"),(Channel="BossPawn")))
++EditProfiles=(Name="OverlapOnlyPawn",CustomResponses=((Channel="WeaponPhantom",Response=ECR_Ignore),(Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Visibility",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="EngineTraceChannel2",Response=ECR_Ignore),(Channel="EngineTraceChannel3",Response=ECR_Ignore),(Channel="EngineTraceChannel4",Response=ECR_Ignore),(Channel="EngineTraceChannel5",Response=ECR_Ignore),(Channel="EngineTraceChannel6",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore),(Channel="GameTraceChannel18",Response=ECR_Ignore),(Channel="BossPawn",Response=ECR_Overlap)))
++EditProfiles=(Name="OverlapAll",CustomResponses=((Channel="WeaponPhantom",Response=ECR_Overlap),(Channel="BossPawn",Response=ECR_Overlap)))
++EditProfiles=(Name="Destructible",CustomResponses=((Channel="Pawn"),(Channel="Camera"),(Channel="Visibility"),(Channel="WorldStatic"),(Channel="WorldDynamic"),(Channel="PhysicsBody"),(Channel="Vehicle"),(Channel="Destructible"),(Channel="WeaponPhantom",Response=ECR_Overlap),(Channel="ThrownProjectile"),(Channel="PawnTrace",Response=ECR_Ignore),(Channel="GroundTrace"),(Channel="MoveTrace"),(Channel="AimTrace"),(Channel="BossPawn")))
++EditProfiles=(Name="Trigger",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Camera",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="EngineTraceChannel2",Response=ECR_Ignore),(Channel="EngineTraceChannel3",Response=ECR_Ignore),(Channel="EngineTraceChannel4",Response=ECR_Ignore),(Channel="EngineTraceChannel5",Response=ECR_Ignore),(Channel="EngineTraceChannel6",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore),(),(Channel="BossPawn",Response=ECR_Overlap)))
++EditProfiles=(Name="NoCollision",CustomResponses=((Channel="WorldStatic",Response=ECR_Ignore),(Channel="WorldDynamic",Response=ECR_Ignore),(Channel="Pawn",Response=ECR_Ignore),(Channel="PhysicsBody",Response=ECR_Ignore),(Channel="Vehicle",Response=ECR_Ignore),(Channel="Destructible",Response=ECR_Ignore),(Channel="EngineTraceChannel2",Response=ECR_Ignore),(Channel="EngineTraceChannel3",Response=ECR_Ignore),(Channel="EngineTraceChannel4",Response=ECR_Ignore),(Channel="EngineTraceChannel5",Response=ECR_Ignore),(Channel="EngineTraceChannel6",Response=ECR_Ignore),(Channel="Weapon",Response=ECR_Ignore),(Channel="Projectile",Response=ECR_Ignore),(Channel="GameTraceChannel18",Response=ECR_Ignore)))
++EditProfiles=(Name="PhysicsActor",CustomResponses=((Channel="BossPawn")))
++EditProfiles=(Name="Vehicle",CustomResponses=((Channel="BossPawn")))
++EditProfiles=(Name="UI",CustomResponses=((Channel="BossPawn",Response=ECR_Overlap)))
+-ProfileRedirects=(OldName="BlockingVolume",NewName="InvisibleWall")
+-ProfileRedirects=(OldName="InterpActor",NewName="IgnoreOnlyPawn")
+-ProfileRedirects=(OldName="StaticMeshComponent",NewName="BlockAllDynamic")
+-ProfileRedirects=(OldName="SkeletalMeshActor",NewName="PhysicsActor")
+-ProfileRedirects=(OldName="InvisibleActor",NewName="InvisibleWallDynamic")
++ProfileRedirects=(OldName="BlockingVolume",NewName="InvisibleWall")
++ProfileRedirects=(OldName="InterpActor",NewName="IgnoreOnlyPawn")
++ProfileRedirects=(OldName="StaticMeshComponent",NewName="BlockAllDynamic")
++ProfileRedirects=(OldName="SkeletalMeshActor",NewName="PhysicsActor")
++ProfileRedirects=(OldName="InvisibleActor",NewName="InvisibleWallDynamic")
++ProfileRedirects=(OldName="BlockAll_IgnoreWorldStatic",NewName="BlockAll_OverlapWorldStatic")
++ProfileRedirects=(OldName="FoliageInteractor",NewName="FoliageCollider")
+-CollisionChannelRedirects=(OldName="Static",NewName="WorldStatic")
+-CollisionChannelRedirects=(OldName="Dynamic",NewName="WorldDynamic")
+-CollisionChannelRedirects=(OldName="VehicleMovement",NewName="Vehicle")
+-CollisionChannelRedirects=(OldName="PawnMovement",NewName="Pawn")
++CollisionChannelRedirects=(OldName="Static",NewName="WorldStatic")
++CollisionChannelRedirects=(OldName="Dynamic",NewName="WorldDynamic")
++CollisionChannelRedirects=(OldName="VehicleMovement",NewName="Vehicle")
++CollisionChannelRedirects=(OldName="PawnMovement",NewName="Pawn")
++CollisionChannelRedirects=(OldName="SpecialCollision",NewName="SpecialCollisionTrace")
++CollisionChannelRedirects=(OldName="IA_Validation",NewName="BossPawn")
+
+[/Script/PythonScriptPlugin.PythonScriptPluginSettings]
++AdditionalPaths=(Path="")
+bDeveloperMode=False
+bRemoteExecution=False
+RemoteExecutionMulticastGroupEndpoint=239.0.0.1:6766
+RemoteExecutionMulticastBindAddress=0.0.0.0
+RemoteExecutionSendBufferSizeBytes=2097152
+RemoteExecutionReceiveBufferSizeBytes=2097152
+RemoteExecutionMulticastTtl=0
+
+[/Script/DLSS.DLSSSettings]
+bEnableDLSSD3D11=False
+bEnableScreenpercentageManipulationInDLSSEditorViewports=False
+bShowDLSSSDebugOnScreenMessages=False
+bEnableDLSSInEditorViewports=True
+
+[DevOptions.Shaders]
+bAllowCompilingThroughWorkers=True
+NeedsShaderStableKeys=True
+WorkerProcessPriority=1
+ProcessGameThreadTargetTime=.002
+
+[OnlineSubsystem]
+PollingIntervalInMs=20
+bHasVoiceEnabled=false
+
+bUseBuildIdOverride=true
+BuildIdOverride=382788
+[OnlineSubsystemEOS]
+bEnabled=false
+
+[OnlineSubsystemEOSPlus]
+bEnabled=false
+
+[/Script/OnlineSubsystemUtils.OnlineEngineInterfaceImpl]
++CompatibleUniqueNetIdTypes=EOS
++CompatibleUniqueNetIdTypes=EOSPlus
+
+[/Script/OnlineSubsystemEOS.NetDriverEOS]
+bIsUsingP2PSockets=true
+
+[/Script/OnlineSubsystemEOS.EOSSettings]
+CacheDir=CacheDir
+DefaultArtifactName=fee8dcfa82c347f7b98e04176fbe3250
+Artifacts=(ArtifactName="fee8dcfa82c347f7b98e04176fbe3250",ClientId="xyza7891B7LinhCdCnvcv5TOXU6M7RSp",ClientSecret="CmPy0M+2aTvvtO2VpidScd+wqaZyPlbswAASyblpIvU",ProductId="d92c1b9cd1b64c1b8e9f720dce7b8965",SandboxId="aa598567414d42378187b8861da550f7",DeploymentId="10ba81d28f5e47d899e2e50c86f75192",EncryptionKey="d630be1677e0fca471c0bff4f07b172881beb64391ed74d47827b1fc7ede33de")
+TickBudgetInMilliseconds=0
+bEnableOverlay=True
+bEnableSocialOverlay=True
+TitleStorageReadChunkLength=0
+bShouldEnforceBeingLaunchedByEGS=False
+bUseEAS=False
+bUseEOSConnect=True
+bUseEOSSessions=True
+bMirrorStatsToEOS=False
+bMirrorAchievementsToEOS=False
+bMirrorPresenceToEAS=False
+
+[/Script/Engine.GameEngine]
+!NetDriverDefinitions=ClearArray
++NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="/Script/OnlineSubsystemUtils.IpNetDriver",DriverClassNameFallback="/Script/OnlineSubsystemUtils.IpNetDriver")
++NetDriverDefinitions=(DefName="DemoNetDriver",DriverClassName="/Script/Engine.DemoNetDriver",DriverClassNameFallback="/Script/Engine.DemoNetDriver")
+
+
+[GameNetDriver PacketHandlerProfileConfig]
++Components=OodleNetworkHandlerComponent
+
+[PendingNetDriver PacketHandlerProfileConfig]
++Components=OodleNetworkHandlerComponent
+
+[DemoNetDriver PacketHandlerProfileConfig]
++Components=OodleNetworkHandlerComponent
+
+[PacketHandlerComponents]
+Components=OodleNetworkHandlerComponent
+
+
+[OodleNetworkHandlerComponent]
+bEnableOodle=true
+PacketLogFile=PacketDump
+ServerDictionary=Content\Oodle\Remnant2Output.udic
+ClientDictionary=Content\Oodle\Remnant2Input.udic
+ServerEnableMode=AlwaysEnabled
+ClientEnableMode=AlwaysEnabled
+
+[Voice]
+bEnabled=False
+
+[/Script/Engine.GarbageCollectionSettings]
+gc.MaxObjectsNotConsideredByGC=23142
+gc.SizeOfPermanentObjectPool=5603464
+
+[/Script/GunfireRuntime.GunfireUserInterfaceSettings]
+HardwareCursorProperties=((KeyboardAndMouse, (HardwareCursorStyles=((Default, (CursorImagePath="T_UI_Cursor_PC_White",CursorImagePathHighRes="T_UI_Cursor_PC_White_Large",CursorHotSpot=(X=0.500000,Y=0.500000))),(Hovered, (CursorImagePath="T_UI_Cursor_PC_Yellow",CursorImagePathHighRes="T_UI_Cursor_PC_Yellow_Large",CursorHotSpot=(X=0.500000,Y=0.500000)))))),(Gamepad, (HardwareCursorStyles=((Default, (CursorImagePath="T_UI_Cursor_Console_White",CursorImagePathHighRes="T_UI_Cursor_Console_White_Large",CursorHotSpot=(X=0.500000,Y=0.500000))),(Hovered, (CursorImagePath="T_UI_Cursor_Console_Yellow",CursorImagePathHighRes="T_UI_Cursor_Console_Yellow_Large",CursorHotSpot=(X=0.500000,Y=0.500000)))))))
+MinResolutionForHighResCursor=2160.000000
+
+[/Script/AndroidFileServerEditor.AndroidFileServerRuntimeSettings]
+bEnablePlugin=True
+bAllowNetworkConnection=True
+SecurityToken=96C342CE453F125313D151B5BA81F52E
+bIncludeInShipping=False
+bAllowExternalStartInShipping=False
+bCompileAFSProject=False
+bUseCompression=False
+bLogFiles=False
+bReportStats=False
+ConnectionType=USBOnly
+bUseManualIPAddress=False
+ManualIPAddress=
+
+[AlternateTextureCompression]
+TextureFormatPrefix="OODLE_"
+bEnableInEditor=True
+
+[/Script/FSR2TemporalUpscaling.FSR2Settings]
+r.FidelityFX.FSR2.Enabled=False
+r.FidelityFX.FSR2.EnabledInEditorViewport=True
+
+[/Script/Engine.TextureEncodingProjectSettings]
+bFinalUsesRDO=True
+bFastUsesRDO=True
+
+[CrashReportClient]
+CrashReportClientVersion=1.0
+DataRouterUrl="https://o311543.ingest.sentry.io/api/5504727/unreal/1c6fc12d07834577aa262b6935dfb3cc/"

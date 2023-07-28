@@ -19,13 +19,13 @@ public class PresetCreatorPageViewModel : ViewModelBase
         }
     }    
     
-    private IniFile _customIniFile;
-    public IniFile CustomIniFile
+    private IniFile _tempIniFile;
+    public IniFile TempIniFile
     {
-        get => _customIniFile;
+        get => _tempIniFile;
         set
         {
-            SetProperty(ref _customIniFile, value);
+            SetProperty(ref _tempIniFile, value);
         }
     }
     
@@ -48,14 +48,11 @@ public class PresetCreatorPageViewModel : ViewModelBase
             return;
         }
         
-        string presetsDirectory = Path.Combine(CustomIniFile.EXE, "CustomPresets");
+        string presetsDirectory = Path.Combine(TempIniFile.EXE, "CustomPresets");
         
-        if (!Directory.Exists(presetsDirectory))
-        {
-            Directory.CreateDirectory(presetsDirectory);
-        }
-        
-        string customPresetContent = File.ReadAllText(CustomIniFile.Path);
+        if (!Directory.Exists(presetsDirectory)) Directory.CreateDirectory(presetsDirectory);
+
+        string customPresetContent = File.ReadAllText(TempIniFile.Path);
         string destination = Path.Combine(presetsDirectory, PresetName + ".txt");
 
         if (File.Exists(destination))
@@ -79,7 +76,7 @@ public class PresetCreatorPageViewModel : ViewModelBase
 
     private void CopyPreset(string content, string dest, bool existsAlready = false)
     {
-        string customPresetsDataBase = Path.Combine(CustomIniFile.EXE, "CustomPresets.txt");
+        string customPresetsDataBase = Path.Combine(TempIniFile.EXE, "CustomPresets.txt");
         Preset newPreset = new Preset(dest, PresetName);
         File.WriteAllText(dest, content);
 
