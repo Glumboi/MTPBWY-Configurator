@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using MayThePerfromanceBeWithYou_Configurator.Constants;
+using MayThePerfromanceBeWithYou_Configurator.Core;
 using Wpf.Ui.Controls;
 
 namespace MayThePerfromanceBeWithYou_Configurator.Pages;
@@ -34,6 +35,9 @@ public partial class ConfigSelectionPage : UiPage
                 155,
                 plugin.GetGameCover(),
                 i);
+
+            ModSettings.Load(@"C:\Users\merli\OneDrive\Desktop\MTPBWY-Settings.xml");
+            
             Games_Panel.Children.Add(button);
             button.Click += (o, args) =>
             {

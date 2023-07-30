@@ -154,8 +154,8 @@ public class Mod
         bool iniOnly,
         IniFile tempIni,
         PoolSize poolSize,
-        string gameDir,
-        ModSettings modSettings)
+        string gameDir)
+        //ModSettings modSettings)
     {
         if (string.IsNullOrWhiteSpace(gameDir) && !buildOnly) return;
 
@@ -165,7 +165,7 @@ public class Mod
         string tempIniPath = tempIni.Path;
         string newIni = Path.Combine(pakCreator + pakIniLocation, "DefaultEngine.ini");
 
-        int trueToneMapperSharpening = modSettings.ToneMapperSharpening / 10;
+       /* int trueToneMapperSharpening = modSettings.ToneMapperSharpening / 10;
         float trueViewDistance = modSettings.ViewDistance / 100f;
 
         ToggleIniVariable("r.BloomQuality", "SystemSettings", modSettings.DisableBloom, tempIni);
@@ -191,7 +191,7 @@ public class Mod
         ToggleRtFixes(modSettings.RtFixes, tempIni);
 
         if (!File.Exists(tempIniPath)) return;
-
+*/
         if (iniOnly) return;
 
         File.Copy(tempIniPath, newIni, true);

@@ -98,8 +98,7 @@ public class Plugin : IPlugin
         bool iniOnly,
         IniFile tempIni,
         PoolSize poolSize,
-        string gameDir,
-        ModSettings modSettings)
+        string gameDir)
     {
         var parameters = new List<object> { buildOnly, iniOnly, tempIni, poolSize, gameDir, modSettings };
         var func = GetFunctionFromPlugin("Install");
