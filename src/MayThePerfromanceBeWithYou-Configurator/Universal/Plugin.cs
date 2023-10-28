@@ -55,7 +55,8 @@ public class Plugin : IPlugin
                     $"\\{_pluginIni.Read("GameDefaultEngineReference", "Plugin")}",
                     _pluginIni.Read("GamePaksLocation", "Plugin"),
                     _pluginIni.Read("GameExeLocation", "Plugin"),
-                    _pluginIni.Read("GameSavePath", "Plugin"));
+                    _pluginIni.Read("GameSavePath", "Plugin"),
+                    _pluginIni.Read("IniName", "Plugin"));
                 break;
             default:
                 _pluginInstance = new UndefinedPlugin("plugin with namespace: " + _pluginNamespace);
@@ -158,13 +159,14 @@ public class Plugin : IPlugin
     {
         List<Plugin> rtn = new List<Plugin>();
         var dirs = Directory.GetDirectories(
-            Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Plugins"));
+            Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Plugins")).AsSpan();
+
         foreach (var dir in dirs)
         {
-            var files = Directory.GetFiles(dir);
+            var files = Directory.GetFiles(dir).AsSpan();
             foreach (var file in files)
             {
-                if (file.EndsWith(".ini"))
+                if (file.AsSpan().EndsWith(".ini"))
                 {
                     rtn.Add(new Plugin(file));
                 }

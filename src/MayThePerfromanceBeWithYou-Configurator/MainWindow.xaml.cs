@@ -27,8 +27,6 @@ public partial class MainWindow : UiWindow
 
     private async void CheckLoadCompleted()
     {
-        var tcs = new TaskCompletionSource<bool>();
-
         // Poll the ContentLoaded property until it becomes true
         while (!mainPage.ViewModel.ContentLoaded)
         {
@@ -39,16 +37,21 @@ public partial class MainWindow : UiWindow
         splashPage.Dispatcher.Invoke(() => splashPage.FadeOutAnimation.Begin());
 
         // Wait for the fade-out animation to complete
-        tcs = new TaskCompletionSource<bool>();
-        splashPage.FadeOutAnimation.Completed += (sender, e) => tcs.SetResult(true);
+        var tcs = new TaskCompletionSource<bool>();
+        
+        splashPage.FadeOutAnimation.Completed += (sender, e) => OnFadeOutCompletion(tcs);
+        
         await tcs.Task;
-
         configPage = new ConfigSelectionPage(
             mainPage.ViewModel.SelectedPlugin,
             this);
-        
         NavigateToPage(configPage);
         BackButton.Visibility = Visibility.Visible;
+    }
+
+    void OnFadeOutCompletion(TaskCompletionSource<bool> tcs)
+    {
+        tcs.SetResult(true);
     }
 
     public void NavigateToPage(UiPage page)
@@ -100,6 +103,5 @@ public partial class MainWindow : UiWindow
     private void MinimizeMenuItem_OnClick(object sender, RoutedEventArgs e)
     {
         this.WindowState = WindowState.Minimized;
-
     }
 }

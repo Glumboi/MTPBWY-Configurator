@@ -212,7 +212,6 @@ public class MainPageViewModel : ViewModelBase
         {
             //Update settings UI
             SetProperty(ref _selectedPreset, value);
-
             UpdateUiFromPreset();
         }
     }

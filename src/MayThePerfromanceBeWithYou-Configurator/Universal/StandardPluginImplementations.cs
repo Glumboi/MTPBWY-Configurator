@@ -85,15 +85,6 @@ public abstract class StandardPluginImplementations : IPlugin
 
             lastCreated = Directory.CreateDirectory($"{gameStructureLocation}\\{subFolders[i]}").FullName;
         }
-
-        try
-        {
-            File.Create(lastCreated + "\\DefaultEngine.ini").Close();
-        }
-        catch
-        {
-            return;
-        }
     }
 
     protected void NotImplementedLogMsg(string nameOfFeature)

@@ -23,7 +23,6 @@ public partial class App : Application
         AppLogging.SayToLogFile(errorMessage, AppLogging.LogFileMsgType.ERROR);
         MessageBox.Show(errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         e.Handled = true;
-        
     }
 
     protected override void OnStartup(StartupEventArgs e)

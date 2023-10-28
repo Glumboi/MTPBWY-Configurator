@@ -13,8 +13,12 @@ public static class IniMerger
     {
         List<string> tempIniLines = tempIni.Split('\n').ToList();
         tempIniLines.Remove($"[{sectionName}]");
-
         List<string> targetLines = targetIniContent.Split(Environment.NewLine).ToList();
+        if (!tempIniLines.Contains($"[{sectionName}]"))
+        {
+            tempIniLines.Insert(0, $"[{sectionName}]");
+        }
+
         targetLines.InsertRange(targetLines.IndexOf($"[{sectionName}]") + 1, tempIniLines);
         File.WriteAllLines(targetFilePath, targetLines);
     }

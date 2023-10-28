@@ -15,6 +15,7 @@ public class DefaultPlugin : StandardPluginImplementations
     private string _gamesPaksLocation;
     private string _gamesExeLocation;
     private string _gameSavePath;
+    private string _iniName;
     private const string _modPak = "pakchunk99-Mods_MayThePerformanceBeWithYou_P.pak";
 
     private readonly string[] _potatoLines = new[]
@@ -56,13 +57,15 @@ public class DefaultPlugin : StandardPluginImplementations
         string gameDefaultEngineIniLocation,
         string gamesPaksLocation,
         string gamesExeLocation,
-        string gameSavePath)
+        string gameSavePath,
+        string iniName)
     {
         _pakCreatorSubFolders = pakCreatorSubFolders;
         _gameDefaultEngineIniLocation = gameDefaultEngineIniLocation;
         _gamesExeLocation = gamesExeLocation;
         _gamesPaksLocation = gamesPaksLocation;
         _gameSavePath = gameSavePath;
+        _iniName = iniName;
         PluginDebugIdentifier = pluginDebugIdentifier;
     }
 
@@ -87,7 +90,7 @@ public class DefaultPlugin : StandardPluginImplementations
         }
 
         string tempIniPath = tempIni.Path;
-        string newIni = pakIniLocation + "\\DefaultEngine.ini";
+        string newIni = pakIniLocation + $"\\{_iniName}.ini";
 
         int trueToneMapperSharpening = modSettings.ToneMapperSharpening / 10;
         float trueViewDistance = modSettings.ViewDistance / 100f;

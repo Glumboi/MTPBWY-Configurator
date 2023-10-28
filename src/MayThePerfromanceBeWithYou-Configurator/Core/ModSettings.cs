@@ -128,5 +128,4 @@ public struct ModSettings
         
         return returnList;
     }
-    
 }
