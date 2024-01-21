@@ -1,0 +1,10 @@
+﻿{
+  "settingName": "View Distance",
+  "settingType": "RANGE",
+  "settingSection": "SystemSettings",
+  "settingKey": "r.ViewDistanceScale",
+  "defaultValue": "0",
+  "maxValue": "100",
+  "minValue": "0"
+
+}

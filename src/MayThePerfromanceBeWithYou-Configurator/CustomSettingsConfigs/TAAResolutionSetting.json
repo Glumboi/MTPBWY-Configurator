@@ -1,0 +1,11 @@
+﻿{
+  "settingName": "TAA Resolution",
+  "settingType": "RANGE",
+  "settingSection": "SystemSettings",
+  "settingKey": "r.ScreenPercentage",
+  "defaultValue": "100",
+  "maxValue": "200",
+  "minValue": "1",
+  "dependsOn": "NODEPENDS"
+
+}

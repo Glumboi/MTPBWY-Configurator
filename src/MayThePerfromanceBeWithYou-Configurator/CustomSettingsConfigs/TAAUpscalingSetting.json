@@ -1,0 +1,10 @@
+﻿{
+  "settingName": "TAA Upscaling",
+  "settingType": "CHECKBOX",
+  "settingSection": "SystemSettings",
+  "settingKey": "r.TemporalAA.Upsampling",
+  "defaultValue": "NODEFAULT",
+  "maxValue": "NOMAX",
+  "minValue": "NOMIN",
+  "dependsOn": "TAA Gen 5"
+}

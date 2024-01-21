@@ -1,0 +1,12 @@
+﻿{
+  "settingName": "ToneMapper Sharpening",
+  "settingType": "RANGE",
+  "settingSection": "SystemSettings",
+  "settingKey": "r.Tonemapper.Sharpen",
+  "defaultValue": "0",
+  "maxValue": "100",
+  "minValue": "0",
+  "dependsOn": "NODEPENDS"
+
+
+}

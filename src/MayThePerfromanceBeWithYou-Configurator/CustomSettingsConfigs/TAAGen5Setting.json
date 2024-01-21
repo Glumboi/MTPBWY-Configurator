@@ -1,0 +1,10 @@
+﻿{
+    "settingName": "TAA Gen 5",
+    "settingType": "CHECKBOX",
+    "settingSection": "SystemSettings",
+    "settingKey": "r.TemporalAA.Algorithm",
+    "defaultValue": "NODEFAULT",
+    "maxValue": "NOMAX",
+    "minValue": "NOMIN",
+    "dependsOn": "NODEPENDS"
+}

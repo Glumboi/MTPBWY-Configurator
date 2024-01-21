@@ -12,6 +12,8 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using MayThePerfromanceBeWithYou_Configurator.Constants;
+using MayThePerfromanceBeWithYou_Configurator.CustomControls;
+using MayThePerfromanceBeWithYou_Configurator.CustomSettings;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 
@@ -215,7 +217,7 @@ public class MainPageViewModel : ViewModelBase
             UpdateUiFromPreset();
         }
     }
-    
+
     public List<Plugin> Plugins
     {
         get => ConstantInstances._pluginList;
@@ -225,7 +227,7 @@ public class MainPageViewModel : ViewModelBase
             ConstantInstances._pluginList = value;
         }
     }
-    
+
     public int SelectedPlugin
     {
         get => ConstantInstances._selectedPlugin;

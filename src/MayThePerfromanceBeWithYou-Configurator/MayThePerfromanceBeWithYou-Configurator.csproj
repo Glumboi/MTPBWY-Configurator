@@ -34,6 +34,39 @@
 		<None Remove="Plugins\MTPBWY_U_JediSurvivor\MTPBWY_U_JediSurvivor.dll" />
 		<None Remove="Plugins\MTPBWY_U_JediSurvivor\MTPBWY_U_JediSurvivor.ini" />
 		<None Remove="PasteBinDataBaseManager_Custom\**" />
+		<None Update="CustomSettingsConfigs\LumenSetting.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="CustomSettingsConfigs\TAAUpscalingSetting.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="CustomSettingsConfigs\TAAGen5Setting.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="CustomSettingsConfigs\BloomSetting.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="CustomSettingsConfigs\LensFlareSetting.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="CustomSettingsConfigs\DepthOfFieldSetting.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="CustomSettingsConfigs\LimitPoolToVramSetting.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="CustomSettingsConfigs\TAAResolutionSetting.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="CustomSettingsConfigs\ToneMapperSharpening.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="CustomSettingsConfigs\ViewDistance.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="CustomSettingsConfigs\DefualtSetting_Test.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
 	</ItemGroup>
 
 	<ItemGroup>

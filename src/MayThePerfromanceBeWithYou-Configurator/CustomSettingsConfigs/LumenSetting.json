@@ -1,0 +1,10 @@
+﻿{
+  "settingName": "Toggle Lumen",
+  "settingType": "CHECKBOX",
+  "settingSection": "SystemSettings",
+  "settingKey": "r.DynamicGlobalIlluminationMethod",
+  "defaultValue": "NODEFAULT",
+  "maxValue": "NOMAX",
+  "minValue": "NOMIN",
+  "dependsOn": "NODEPENDS"
+}

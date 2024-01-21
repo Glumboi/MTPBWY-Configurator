@@ -1,0 +1,10 @@
+﻿{
+  "settingName": "Bloom",
+  "settingType": "CHECKBOX",
+  "settingSection": "SystemSettings",
+  "settingKey": "r.BloomQuality",
+  "defaultValue": "NODEFAULT",
+  "maxValue": "NOMAX",
+  "minValue": "NOMIN",
+  "dependsOn": "NODEPENDS"
+}

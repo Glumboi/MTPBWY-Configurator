@@ -1,0 +1,11 @@
+﻿{
+    "settingName": "Lens Flare",
+    "settingType": "CHECKBOX",
+    "settingSection": "SystemSettings",
+    "settingKey": "r.LensFlareQuality",
+    "defaultValue": "NODEFAULT",
+    "maxValue": "NOMAX",
+    "minValue": "NOMIN",
+    "dependsOn": "NODEPENDS"
+
+}

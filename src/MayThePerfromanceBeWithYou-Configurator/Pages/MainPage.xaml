@@ -1,18 +1,18 @@
 ﻿<ui:UiPage
+    Background="Black"
+    Title="MainPage"
+    d:DesignHeight="500"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
     x:Class="MayThePerfromanceBeWithYou_Configurator.Pages.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Custom="clr-namespace:MayThePerfromanceBeWithYou_Configurator.CustomControls"
     xmlns:VM="clr-namespace:MayThePerfromanceBeWithYou_Configurator.ViewModels"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:MayThePerfromanceBeWithYou_Configurator.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="MainPage"
-    d:DesignHeight="500"
-    d:DesignWidth="800"
-    Background="Black"
-    mc:Ignorable="d">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Page.DataContext>
         <VM:MainPageViewModel />
@@ -43,31 +43,33 @@
             </Grid.ColumnDefinitions>
 
             <ui:TextBox
-                Name="GamePath_TextBox"
                 Margin="0,0,2,0"
-                VerticalAlignment="Stretch"
+                Name="GamePath_TextBox"
                 PlaceholderText="Game Path here"
-                Text="{Binding Path=GamePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                Text="{Binding Path=GamePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                VerticalAlignment="Stretch" />
 
             <StackPanel Grid.Column="1" Orientation="Horizontal">
                 <ui:Button
-                    Margin="2,0,0,0"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
                     Command="{Binding Path=BrowseFolderCommand}"
                     Content="Browse Location"
-                    Icon="Folder32" />
+                    HorizontalAlignment="Stretch"
+                    Icon="Folder32"
+                    Margin="2,0,0,0"
+                    VerticalAlignment="Stretch" />
 
                 <ui:Button
-                    Margin="4,0,0,0"
+                    Command="{Binding Path=LaunchGameCommand}"
                     HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Command="{Binding Path=LaunchGameCommand}">
+                    Margin="4,0,0,0"
+                    VerticalAlignment="Stretch">
                     <Grid>
-                        <Image
-                            Height="15"
-                            RenderOptions.BitmapScalingMode="HighQuality"
-                            Source="/Assets/play.png" />
+                        <StackPanel Orientation="Horizontal">
+                            <Image
+                                Height="15"
+                                RenderOptions.BitmapScalingMode="HighQuality"
+                                Source="/Assets/play.png" />
+                        </StackPanel>
                     </Grid>
                 </ui:Button>
             </StackPanel>
@@ -82,21 +84,21 @@
                     </Grid.ColumnDefinitions>
 
                     <ui:Button
-                        Margin="0,6,2,0"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
                         Command="{Binding Path=InstallModCommand}"
                         Content="Install Mod"
-                        Icon="ArrowDownload48" />
+                        HorizontalAlignment="Stretch"
+                        Icon="ArrowDownload48"
+                        Margin="0,6,2,0"
+                        VerticalAlignment="Stretch" />
 
                     <ui:Button
-                        Grid.Column="1"
-                        Margin="2,6,0,0"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
                         Command="{Binding Path=BuildModCommand}"
                         Content="Build Mod"
-                        Icon="Wrench24" />
+                        Grid.Column="1"
+                        HorizontalAlignment="Stretch"
+                        Icon="Wrench24"
+                        Margin="2,6,0,0"
+                        VerticalAlignment="Stretch" />
                 </Grid>
 
                 <Grid>
@@ -106,35 +108,35 @@
                     </Grid.ColumnDefinitions>
 
                     <ui:Button
-                        Margin="0,6,2,0"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
                         Command="{Binding Path=UninstallModCommand}"
                         Content="Uninstall Mod"
-                        Icon="Recycle32" />
+                        HorizontalAlignment="Stretch"
+                        Icon="Recycle32"
+                        Margin="0,6,2,0"
+                        VerticalAlignment="Stretch" />
 
                     <ui:Button
-                        Grid.Column="1"
-                        Margin="2,6,0,0"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
                         Command="{Binding Path=BrowseSaveCommand}"
                         Content="Take me to my Saves Location"
-                        Icon="Save24" />
+                        Grid.Column="1"
+                        HorizontalAlignment="Stretch"
+                        Icon="Save24"
+                        Margin="2,6,0,0"
+                        VerticalAlignment="Stretch" />
                 </Grid>
 
                 <ui:Button
-                    Margin="0,6,0,0"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
                     Command="{Binding Path=OpenSettingsViewerCommand}"
                     Content="View current Mod Settings"
-                    Icon="Bug24" />
+                    HorizontalAlignment="Stretch"
+                    Icon="Bug24"
+                    Margin="0,6,0,0"
+                    VerticalAlignment="Stretch" />
 
                 <TextBlock
-                    Padding="4"
                     FontSize="14"
                     FontWeight="Bold"
+                    Padding="4"
                     Text="Installer Config" />
 
                 <ComboBox
@@ -162,34 +164,35 @@
 
                     <StackPanel Margin="0,0,2,0">
                         <TextBlock
-                            Padding="4"
                             FontSize="13"
                             FontWeight="Bold"
+                            Padding="4"
                             Text="Presets" />
                         <ComboBox
-                            VerticalAlignment="Top"
                             DisplayMemberPath="Name"
                             ItemsSource="{Binding Path=IniPresets}"
-                            SelectedIndex="{Binding Path=SelectedPreset}" />
+                            SelectedIndex="{Binding Path=SelectedPreset}"
+                            VerticalAlignment="Top" />
                     </StackPanel>
 
                     <StackPanel Grid.Column="1" Margin="2,0,0,0">
                         <TextBlock
-                            Padding="4"
                             FontSize="13"
                             FontWeight="Bold"
+                            Padding="4"
                             Text="GPU VRAM for Pool Size Optimizations" />
                         <ComboBox
-                            VerticalAlignment="Top"
                             DisplayMemberPath="VramSize"
                             ItemsSource="{Binding Path=PoolSizes}"
-                            SelectedIndex="{Binding Path=SelectedPoolSize}" />
+                            SelectedIndex="{Binding Path=SelectedPoolSize}"
+                            VerticalAlignment="Top" />
                     </StackPanel>
                 </Grid>
             </StackPanel>
 
             <Grid Grid.Row="2">
-                <StackPanel>
+                <Custom:SettingsControl />
+                <!--<StackPanel>
                     <WrapPanel Orientation="Horizontal">
                         <CheckBox
                             Margin="8,0,0,0"
@@ -254,6 +257,15 @@
                             Content="AO Culling and RT Crash Fixes"
                             IsChecked="{Binding Path=RtFixes}"
                             ToolTip="This option will toggle the fix for RT white culling problems as well as fixing the crashes." />
+
+                        <ItemsControl ItemsSource="{Binding CheckBoxControls}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel IsItemsHost="True" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+
                     </WrapPanel>
                     <Grid Margin="0,6,0,0">
                         <Grid.ColumnDefinitions>
@@ -324,12 +336,11 @@
                             </Grid>
                         </StackPanel>
                     </Grid>
-                </StackPanel>
+                </StackPanel>-->
             </Grid>
         </Grid>
 
         <Grid Grid.Row="4">
-
             <Grid>
 
                 <Grid.ColumnDefinitions>
@@ -339,33 +350,33 @@
                 </Grid.ColumnDefinitions>
 
                 <ui:Button
-                    Margin="0,6,0,0"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
                     Command="{Binding Path=EditIniCommand}"
                     Content="I want to edit the Mod myself"
-                    Icon="Open48" />
+                    HorizontalAlignment="Stretch"
+                    Icon="Open48"
+                    Margin="0,6,0,0"
+                    VerticalAlignment="Bottom" />
 
                 <ui:Button
-                    Grid.Column="1"
-                    Margin="4,6,0,0"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
                     Command="{Binding Path=SaveCustomPresetCommand}"
                     Content="Save custom Preset"
-                    Icon="SaveCopy24" />
+                    Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    Icon="SaveCopy24"
+                    Margin="4,6,0,0"
+                    VerticalAlignment="Bottom" />
 
                 <ui:Button
-                    Grid.Column="2"
-                    Margin="4,6,0,0"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
                     Command="{Binding Path=ReinitializePresetsCommand}"
                     Content="Reinitialize Presets"
-                    Icon="Database24" />
+                    Grid.Column="2"
+                    HorizontalAlignment="Stretch"
+                    Icon="Database24"
+                    Margin="4,6,0,0"
+                    VerticalAlignment="Bottom" />
             </Grid>
         </Grid>
 
-        <ui:Snackbar x:Name="NotificationBar_SnackBar" Grid.RowSpan="5" />
+        <ui:Snackbar Grid.RowSpan="5" x:Name="NotificationBar_SnackBar" />
     </Grid>
 </ui:UiPage>
