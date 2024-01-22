@@ -29,6 +29,14 @@ public class MainPageViewModel : ViewModelBase
 
     private Snackbar NotificationBar { get; set; }
 
+    private SettingsControl _universalModSettings;
+
+    public SettingsControl UniversalModSettings
+    {
+        get => _universalModSettings;
+        set => SetProperty(ref _universalModSettings, value);
+    }
+
     private bool _contentLoaded = false;
 
     public bool ContentLoaded
@@ -448,7 +456,7 @@ public class MainPageViewModel : ViewModelBase
 
     public void InstallMod(bool buildOnly, bool iniOnly = false)
     {
-        LoadModSettings();
+       // LoadModSettings();
 
         Plugins[SelectedPlugin].Install(
             buildOnly,
@@ -482,8 +490,7 @@ public class MainPageViewModel : ViewModelBase
 
     private void OpenSettingsViewer()
     {
-        LoadModSettings();
-        new ModSettingsViewerWindow(_modSettings, LoadModSettings).Show();
+        new ModSettingsViewerWindow(LoadModSettings).Show();
     }
 
     public ICommand BrowseFolderCommand { get; internal set; }
@@ -503,28 +510,16 @@ public class MainPageViewModel : ViewModelBase
         }
     }
 
-    private ModSettings LoadModSettings()
+    private Dictionary<string, string> LoadModSettings()
     {
-        return _modSettings = new ModSettings
+        Dictionary<string, string> modSettings = new Dictionary<string, string>();
+        var dataContext = UniversalModSettings.DataContext as SettingsControlViewModel;
+        foreach (var setting in dataContext.Settings)
         {
-            EnablePoolSizeToVramLimit = LimitPoolSizeToVram,
-            DisableAntiAliasing = DisableAntiAliasing,
-            ToneMapperSharpening = ToneMapperSharpening,
-            DisableBloom = DisableBloom,
-            DisableLensFlare = DisableLensFlare,
-            PotatoTextures = PotatoTextures,
-            DisableFog = DisableFog,
-            ViewDistance = ViewDistance,
-            DisableDof = DisableDOF,
-            TaaSettings = new TAASettings
-            {
-                TaaResolution = TaaResolution,
-                TaaGen5 = TAAGen5,
-                TaaUpscaling = TAAUpscaling
-            },
-            UseExperimentalStutterFix = ExperimentalStutterFix,
-            RtFixes = RtFixes
-        };
+            modSettings.Add(setting.JsonData.SettingName, setting.JsonData.SettingKey);
+        }
+
+        return modSettings;
     }
 
     private void LoadInstallState()
@@ -599,6 +594,8 @@ public class MainPageViewModel : ViewModelBase
 
             ContentLoaded = true;
         });
+
+        UniversalModSettings = new SettingsControl();
     }
 
     private void ShowNotification(string content, SymbolRegular icon = SymbolRegular.Info28)

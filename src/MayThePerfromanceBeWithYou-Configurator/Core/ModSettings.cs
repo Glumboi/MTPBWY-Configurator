@@ -2,96 +2,49 @@
 using System.Collections.Generic;
 using System.Reflection;
 using System.Windows.Documents;
+using MayThePerfromanceBeWithYou_Configurator.CustomSettings;
 
 namespace MayThePerfromanceBeWithYou_Configurator.Core;
 
 public struct ModSettings
 {
-    public TAASettings TaaSettings
-    {
-        get;
-        set;
-    }
+    public TAASettings TaaSettings { get; set; }
 
-    public bool DisableBloom    
-    {
-        get;
-        set;
-    }
+    public bool DisableBloom { get; set; }
 
-    public bool DisableLensFlare    
-    {
-        get;
-        set;
-    }
-    
-    public bool PotatoTextures    
-    {
-        get;
-        set;
-    }
-    
-    public int ToneMapperSharpening    
-    {
-        get;
-        set;
-    }
-    
-    public bool DisableDof    
-    {
-        get;
-        set;
-    }
-    
-    public bool DisableFog    
-    {
-        get;
-        set;
-    }
-    
-    public int ViewDistance   
-    {
-        get;
-        set;
-    }
-    
-    public bool UseExperimentalStutterFix    
-    {
-        get; 
-        set;
-    }
-    
-    public bool DisableAntiAliasing    
-    {
-        get; 
-        set;
-    }
-    
-    public bool EnablePoolSizeToVramLimit    
-    {
-        get;
-        set;
-    }    
-   
-    public bool RtFixes    
-    {
-        get;
-        set;
-    }
+    public bool DisableLensFlare { get; set; }
+
+    public bool PotatoTextures { get; set; }
+
+    public int ToneMapperSharpening { get; set; }
+
+    public bool DisableDof { get; set; }
+
+    public bool DisableFog { get; set; }
+
+    public int ViewDistance { get; set; }
+
+    public bool UseExperimentalStutterFix { get; set; }
+
+    public bool DisableAntiAliasing { get; set; }
+
+    public bool EnablePoolSizeToVramLimit { get; set; }
+
+    public bool RtFixes { get; set; }
 
     private PropertyInfo[] _properties;
     private PropertyInfo[] _propertiesOfTAASettings;
-    
+
     public ModSettings(
-        bool enablePoolSizeToVramLimit, 
-        bool disableAntiAliasing, 
-        bool useExperimentalStutterFix, 
-        int viewDistance, 
-        bool disableFog, 
+        bool enablePoolSizeToVramLimit,
+        bool disableAntiAliasing,
+        bool useExperimentalStutterFix,
+        int viewDistance,
+        bool disableFog,
         int toneMapperSharpening,
-        bool potatoTextures, 
-        bool disableLensFlare, 
-        bool disableBloom, 
+        bool potatoTextures,
+        bool disableLensFlare,
+        bool disableBloom,
         bool rtFixes,
         TAASettings taaSettings)
     {
@@ -114,10 +67,10 @@ public struct ModSettings
         _propertiesOfTAASettings = TaaSettings.GetType().GetProperties();
 
         List<string> returnList = new List<string>();
-        
+
         foreach (var prop in _properties)
         {
-            if(prop.Name == "TaaSettings") continue;
+            if (prop.Name == "TaaSettings") continue;
             returnList.Add(prop.Name + " = " + prop.GetValue(this));
         }
 
@@ -125,7 +78,7 @@ public struct ModSettings
         {
             returnList.Add(prop.Name + " = " + prop.GetValue(TaaSettings));
         }
-        
+
         return returnList;
     }
 }

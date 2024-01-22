@@ -191,7 +191,10 @@
             </StackPanel>
 
             <Grid Grid.Row="2">
-                <Custom:SettingsControl />
+                <UserControl Content="{Binding UniversalModSettings}" />
+
+                <!-- <Custom:SettingsControl x:Name="Universal_ModSettings" /> -->
+
                 <!--<StackPanel>
                     <WrapPanel Orientation="Horizontal">
                         <CheckBox

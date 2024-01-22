@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using MayThePerfromanceBeWithYou_Configurator.Core;
@@ -11,14 +12,13 @@ namespace MayThePerfromanceBeWithYou_Configurator.Windows;
 public partial class ModSettingsViewerWindow : UiWindow
 {
     private readonly ModSettingsViewerPage _page = new ModSettingsViewerPage();
-    public ModSettingsViewerWindow(ModSettings modSettings, Func<ModSettings> reloadModSettingsFunction)
+
+    public ModSettingsViewerWindow(Func<Dictionary<string, string>> reloadModSettingsFunction)
     {
         InitializeComponent();
         ModSettingsViewerViewModel viewModel = _page.DataContext as ModSettingsViewerViewModel;
-        ViewModelHelpers.SetViewModel<UiWindow>(this, viewModel, () =>
-        {
-            viewModel.InitializeViewModel(modSettings, reloadModSettingsFunction);
-        });
+        ViewModelHelpers.SetViewModel<UiWindow>(this, viewModel,
+            () => { viewModel.InitializeViewModel(new Dictionary<string, string>(), reloadModSettingsFunction); });
         WindowFrame.Navigate(_page);
     }
 }

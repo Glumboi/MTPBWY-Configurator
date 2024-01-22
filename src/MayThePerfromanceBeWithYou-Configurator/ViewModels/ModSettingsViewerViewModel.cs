@@ -12,49 +12,47 @@ namespace MayThePerfromanceBeWithYou_Configurator.ViewModels;
 public class ModSettingsViewerViewModel : ViewModelBase
 {
     private List<string> _modSettings = new List<string>();
-    
+
     public List<string> ModSettings
     {
         get => _modSettings;
         set => SetProperty(ref _modSettings, value);
     }
-    
-    private Func<ModSettings> _reloadModSettingsFunction;
 
-    public Func<ModSettings> ReloadModSettingsFunction
+    private Func<Dictionary<string, string>> _reloadModSettingsFunction;
+
+    public Func<Dictionary<string, string>> ReloadModSettingsFunction
     {
         get => _reloadModSettingsFunction;
         set => SetProperty(ref _reloadModSettingsFunction, value);
     }
 
-    public ICommand ReloadModSettingsCommand
-    {
-        get;
-        internal set;
-    }
+    public ICommand ReloadModSettingsCommand { get; internal set; }
 
     private void CreateReloadModSettingsCommand()
     {
-        ReloadModSettingsCommand = new RelayCommand(Reload, () =>
-        {
-            return ReloadModSettingsFunction != null;
-        });
+        ReloadModSettingsCommand = new RelayCommand(Reload, () => { return ReloadModSettingsFunction != null; });
     }
 
     private void Reload()
     {
-        ModSettings = ReloadModSettingsFunction.Invoke().GetSettingsInfo();
+        ModSettings.Clear();
+        var dic = ReloadModSettingsFunction.Invoke();
+        foreach (var setting in dic)
+        {
+            ModSettings.Add(setting.Key + " | {ini key}:  " + setting.Value);
+        }
     }
 
-    public void InitializeViewModel(ModSettings modSettings, Func<ModSettings> reloadModSettingsFunction)
+    public void InitializeViewModel(Dictionary<string, string> settings,
+        Func<Dictionary<string, string>> reloadModSettingsFunction)
     {
-        ModSettings = modSettings.GetSettingsInfo();
         ReloadModSettingsFunction = reloadModSettingsFunction;
+        Reload();
     }
-    
+
     public ModSettingsViewerViewModel()
     {
         CreateReloadModSettingsCommand();
     }
-
 }
