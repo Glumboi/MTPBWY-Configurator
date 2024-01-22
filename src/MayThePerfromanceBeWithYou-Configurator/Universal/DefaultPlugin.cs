@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using MayThePerfromanceBeWithYou_Configurator.Core;
+using MayThePerfromanceBeWithYou_Configurator.CustomSettings;
 using MTPBWY_U_JediSurvivor;
 using NvAPIWrapper.Native.GPU.Structures;
 
@@ -20,11 +21,11 @@ public class DefaultPlugin : StandardPluginImplementations
 
     private readonly string[] _potatoLines = new[]
     {
-        "r.Streaming.MinMipForSplitRequest", 
+        "r.Streaming.MinMipForSplitRequest",
         "r.Streaming.HiddenPrimitiveScale",
-        "r.Streaming.AmortizeCPUToGPUCopy", 
+        "r.Streaming.AmortizeCPUToGPUCopy",
         "r.Streaming.MaxNumTexturesToStreamPerFrame",
-        "r.Streaming.NumStaticComponentsProcessedPerFrame", 
+        "r.Streaming.NumStaticComponentsProcessedPerFrame",
         "r.Streaming.FramesForFullUpdate"
     };
 
@@ -77,7 +78,7 @@ public class DefaultPlugin : StandardPluginImplementations
     }
 
     public override void Install(bool buildOnly, bool iniOnly, IniFile tempIni, PoolSize poolSize, string gameDir,
-        ModSettings modSettings)
+        CustomSetting[] modSettings)
     {
         if (string.IsNullOrWhiteSpace(gameDir) && !buildOnly) return;
 
@@ -92,33 +93,42 @@ public class DefaultPlugin : StandardPluginImplementations
         string tempIniPath = tempIni.Path;
         string newIni = pakIniLocation + $"\\{_iniName}.ini";
 
-        int trueToneMapperSharpening = modSettings.ToneMapperSharpening / 10;
-        float trueViewDistance = modSettings.ViewDistance / 100f;
+        //int trueToneMapperSharpening = modSettings.ToneMapperSharpening / 10;
+        //float trueViewDistance = modSettings.ViewDistance / 100f;
 
-        ToggleIniVariable("r.BloomQuality", "SystemSettings", modSettings.DisableBloom, tempIni);
-        ToggleIniVariable("r.LensFlareQuality", "SystemSettings", modSettings.DisableLensFlare, tempIni);
-        ToggleIniVariable("r.DepthOfFieldQuality", "SystemSettings", modSettings.DisableDof, tempIni);
-        ToggleIniVariable("r.PostProcessAAQuality", "SystemSettings", modSettings.DisableAntiAliasing, tempIni);
+        foreach (var setting in modSettings)
+        {
+            if (setting.JsonData.DefaultValue != setting.JsonData.InitialDefault)
+            {
+                WriteIniVariable(setting.JsonData.SettingKey, setting.JsonData.SettingSection,
+                    setting.JsonData.DefaultValue, tempIni);
+            }
+        }
 
-        SetIniVariable("r.Streaming.PoolSize", "SystemSettings", poolSize.PoolSizeMatchingVram.ToString(), false,
-            tempIni);
-        EnableExperimentalStutterFix(modSettings.UseExperimentalStutterFix, tempIni);
-        DisableFog(modSettings.DisableFog, tempIni);
+        /* ToggleIniVariable("r.BloomQuality", "SystemSettings", modSettings.DisableBloom, tempIni);
+         ToggleIniVariable("r.LensFlareQuality", "SystemSettings", modSettings.DisableLensFlare, tempIni);
+         ToggleIniVariable("r.DepthOfFieldQuality", "SystemSettings", modSettings.DisableDof, tempIni);
+         ToggleIniVariable("r.PostProcessAAQuality", "SystemSettings", modSettings.DisableAntiAliasing, tempIni);
 
-        ToggleIniValueFromSliderValue("r.Tonemapper.Sharpen", "SystemSettings", trueToneMapperSharpening.ToString(),
-            trueToneMapperSharpening < 1, tempIni);
-        ToggleIniValueFromSliderValue("r.ViewDistanceScale", "SystemSettings",
-            trueViewDistance.ToString("0.00").Replace(',', '.'),
-            trueViewDistance == 0, tempIni);
+         SetIniVariable("r.Streaming.PoolSize", "SystemSettings", poolSize.PoolSizeMatchingVram.ToString(), false,
+             tempIni);
+         EnableExperimentalStutterFix(modSettings.UseExperimentalStutterFix, tempIni);
+         DisableFog(modSettings.DisableFog, tempIni);
 
-        TogglePotatoTextures(modSettings.PotatoTextures, tempIni);
-        ChangeTAARes(modSettings.TaaSettings.TaaResolution, tempIni);
-        ToggleTAASettings(modSettings.TaaSettings.TaaGen5, modSettings.TaaSettings.TaaUpscaling, tempIni);
-        EnableLimitPoolSizeToVram(!modSettings.EnablePoolSizeToVramLimit, tempIni);
-        ToggleRtFixes(modSettings.RtFixes, tempIni);
+         ToggleIniValueFromSliderValue("r.Tonemapper.Sharpen", "SystemSettings", trueToneMapperSharpening.ToString(),
+             trueToneMapperSharpening < 1, tempIni);
+         ToggleIniValueFromSliderValue("r.ViewDistanceScale", "SystemSettings",
+             trueViewDistance.ToString("0.00").Replace(',', '.'),
+             trueViewDistance == 0, tempIni);
 
+         TogglePotatoTextures(modSettings.PotatoTextures, tempIni);
+         ChangeTAARes(modSettings.TaaSettings.TaaResolution, tempIni);
+         ToggleTAASettings(modSettings.TaaSettings.TaaGen5, modSettings.TaaSettings.TaaUpscaling, tempIni);
+         EnableLimitPoolSizeToVram(!modSettings.EnablePoolSizeToVramLimit, tempIni);
+         ToggleRtFixes(modSettings.RtFixes, tempIni);
+
+        */
         string newTempIniPath = tempIni.Path + ".new";
-
         IniMerger.MergeInis(
             File.ReadAllText(tempIniPath),
             File.ReadAllText(_gameDefaultEngineIniLocation),
@@ -127,19 +137,20 @@ public class DefaultPlugin : StandardPluginImplementations
 
         if (!File.Exists(newTempIniPath)) return;
         if (iniOnly) return;
-        
+
         File.Copy(newTempIniPath, newIni, true);
         Process.Start(Path.Combine(tempIni.EXE, @"PakCreator\CreateMod.bat")).WaitForExit();
         File.Delete(newTempIniPath);
-        
+
         if (buildOnly)
         {
             //"explorer.exe", _saveLocation
             Process.Start("explorer.exe", Path.Combine(tempIni.EXE, @"PakCreator"));
             return;
         }
-        
-        File.Copy(Path.Combine(tempIni.EXE, $@"PakCreator\{_modPak}"), gameDir + @$"\{_gamesPaksLocation}\{_modPak}", true);
+
+        File.Copy(Path.Combine(tempIni.EXE, $@"PakCreator\{_modPak}"), gameDir + @$"\{_gamesPaksLocation}\{_modPak}",
+            true);
     }
 
 
@@ -232,6 +243,11 @@ public class DefaultPlugin : StandardPluginImplementations
             return;
         }
 
+        ini.Write(key, value, section);
+    }
+
+    private void WriteIniVariable(string key, string section, string value, IniFile ini)
+    {
         ini.Write(key, value, section);
     }
 

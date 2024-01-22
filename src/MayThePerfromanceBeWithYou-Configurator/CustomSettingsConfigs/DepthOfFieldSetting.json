@@ -1,11 +1,11 @@
 ﻿{
-    "settingName": "Depth of Field",
-    "settingType": "CHECKBOX",
-    "settingSection": "SystemSettings",
-    "settingKey": "r.DepthOfFieldQuality",
-    "defaultValue": "NODEFAULT",
-    "maxValue": "NOMAX",
-    "minValue": "NOMIN",
-    "dependsOn": "NODEPENDS"
-
+  "settingName": "Depth of Field",
+  "settingType": "CHECKBOX",
+  "settingSection": "SystemSettings",
+  "settingKey": "r.DepthOfFieldQuality",
+  "defaultValue": "NODEFAULT",
+  "maxValue": "NOMAX",
+  "minValue": "NOMIN",
+  "dependsOn": "NODEPENDS",
+  "ignoreIfDefault": true
 }

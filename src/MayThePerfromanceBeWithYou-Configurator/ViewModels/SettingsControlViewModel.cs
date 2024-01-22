@@ -5,9 +5,9 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Input;
+using MayThePerfromanceBeWithYou_Configurator.CustomControls;
 using MayThePerfromanceBeWithYou_Configurator.CustomSettings;
-using Wpf.Ui.Common;
+using TextBox = Wpf.Ui.Controls.TextBox;
 
 namespace MayThePerfromanceBeWithYou_Configurator.ViewModels;
 
@@ -46,7 +46,7 @@ public class SettingsControlViewModel : ViewModelBase
         set => SetProperty(ref _textboxSetting, value);
     }
 
-    public SettingsControlViewModel()
+    public void RealoadSettings()
     {
         foreach (var file in Directory.GetFiles("CustomSettingsConfigs"))
         {
@@ -54,7 +54,6 @@ public class SettingsControlViewModel : ViewModelBase
             switch (setting.JsonData.SettingType)
             {
                 case CustomSettingType.CHECKBOX:
-
                     var cb = new CheckBox()
                     {
                         Content = setting.JsonData.SettingName,
@@ -74,10 +73,14 @@ public class SettingsControlViewModel : ViewModelBase
                                 }
                             }
                         }
+
+                        setting.JsonData.DefaultValue = cb.IsChecked == true ? 1.ToString() : 0.ToString();
                     };
 
-                    cb.Unchecked += (sender, args) => { };
-
+                    cb.Unchecked += (sender, args) =>
+                    {
+                        setting.JsonData.DefaultValue = cb.IsChecked == true ? 1.ToString() : 0.ToString();
+                    };
                     CheckBoxSettings.Add(cb);
                     break;
                 case CustomSettingType.RANGE:
@@ -89,7 +92,10 @@ public class SettingsControlViewModel : ViewModelBase
                         Minimum = Int32.Parse(setting.JsonData.MinValue)
                     };
 
-                    var slValBinding = new Binding { Source = sl, Path = new PropertyPath("Value") };
+                    sl.ValueChanged += (sender, args) => { setting.JsonData.DefaultValue = sl.Value.ToString("0"); };
+
+                    var slValBinding = new Binding
+                        { Source = sl, Path = new PropertyPath("Value") };
                     var tbVal = new TextBlock()
                     {
                         Text = "(0)",
@@ -140,11 +146,15 @@ public class SettingsControlViewModel : ViewModelBase
                     });
                     break;
                 case CustomSettingType.UNDEFINED:
-                    TextboxSettings.Add(new Wpf.Ui.Controls.TextBox()
+                    var undefinedTb = new TextBox()
                     {
                         Text = setting.JsonData.DefaultValue,
                         PlaceholderText = setting.JsonData.SettingName
-                    });
+                    };
+
+                    undefinedTb.TextChanged += (sender, args) => { setting.JsonData.DefaultValue = undefinedTb.Text; };
+                    TextboxSettings.Add(undefinedTb);
+                    //                           
                     break;
                 default:
                     throw new Exception(
@@ -153,5 +163,10 @@ public class SettingsControlViewModel : ViewModelBase
 
             Settings.Add(setting);
         }
+    }
+
+    public SettingsControlViewModel()
+    {
+        RealoadSettings();
     }
 }

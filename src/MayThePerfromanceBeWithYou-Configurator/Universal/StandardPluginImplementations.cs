@@ -4,6 +4,7 @@ using System.IO;
 using System.Reflection;
 using System.Windows;
 using MayThePerfromanceBeWithYou_Configurator.Core;
+using MayThePerfromanceBeWithYou_Configurator.CustomSettings;
 
 namespace MayThePerfromanceBeWithYou_Configurator.Universal;
 
@@ -19,7 +20,7 @@ public abstract class StandardPluginImplementations : IPlugin
     }
 
     public virtual void Install(bool buildOnly, bool iniOnly, IniFile tempIni, PoolSize poolSize, string gameDir,
-        ModSettings modSettings)
+        CustomSetting[] modSettings)
     {
         NotImplementedLogMsg("Install");
     }

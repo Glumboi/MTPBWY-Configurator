@@ -2,9 +2,10 @@
   "settingName": "Undefined",
   "settingType": "UNDEFINED",
   "settingSection": "SystemSettings",
-  "settingKey": "r.BloomQuality",
+  "settingKey": "r.keyHere",
   "defaultValue": "NODEFAULT",
   "maxValue": "NOMAX",
   "minValue": "NOMIN",
-  "dependsOn": "NODEPENDS"
+  "dependsOn": "NODEPENDS",
+  "ignoreIfDefault": true
 }

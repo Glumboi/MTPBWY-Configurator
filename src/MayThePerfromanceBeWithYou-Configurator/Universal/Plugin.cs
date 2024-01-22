@@ -5,6 +5,7 @@ using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
 using MayThePerfromanceBeWithYou_Configurator.Core;
+using MayThePerfromanceBeWithYou_Configurator.CustomSettings;
 
 namespace MayThePerfromanceBeWithYou_Configurator.Universal;
 
@@ -100,7 +101,7 @@ public class Plugin : IPlugin
         IniFile tempIni,
         PoolSize poolSize,
         string gameDir,
-        ModSettings modSettings)
+        CustomSetting[] modSettings)
     {
         var parameters = new List<object> { buildOnly, iniOnly, tempIni, poolSize, gameDir, modSettings };
         var func = GetFunctionFromPlugin("Install");

@@ -5,6 +5,6 @@
   "settingKey": "r.ViewDistanceScale",
   "defaultValue": "0",
   "maxValue": "100",
-  "minValue": "0"
-
+  "minValue": "0",
+  "ignoreIfDefault": true
 }

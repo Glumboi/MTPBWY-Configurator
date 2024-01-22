@@ -6,5 +6,6 @@
   "defaultValue": "NODEFAULT",
   "maxValue": "NOMAX",
   "minValue": "NOMIN",
-  "dependsOn": "TAA Gen 5"
+  "dependsOn": "TAA Gen 5",
+  "ignoreIfDefault": true
 }

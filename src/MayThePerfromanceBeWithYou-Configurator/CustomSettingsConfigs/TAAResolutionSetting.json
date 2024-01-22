@@ -6,6 +6,6 @@
   "defaultValue": "100",
   "maxValue": "200",
   "minValue": "1",
-  "dependsOn": "NODEPENDS"
-
+  "dependsOn": "NODEPENDS",
+  "ignoreIfDefault": true
 }

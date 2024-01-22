@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Reflection;
 using MayThePerfromanceBeWithYou_Configurator.Core;
+using MayThePerfromanceBeWithYou_Configurator.CustomSettings;
 
 namespace MayThePerfromanceBeWithYou_Configurator.Universal;
 
@@ -12,7 +13,7 @@ public interface IPlugin
         IniFile tempIni,
         PoolSize poolSize,
         string gameDir,
-        ModSettings modSettings);
+        CustomSetting[] modSettings);
 
     public bool IsModInstalled(string gameDir);
 

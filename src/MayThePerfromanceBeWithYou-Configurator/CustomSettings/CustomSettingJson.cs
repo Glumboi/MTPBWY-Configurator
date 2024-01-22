@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Text.Json.Serialization;
 
 namespace MayThePerfromanceBeWithYou_Configurator.CustomSettings;
 
@@ -21,4 +22,21 @@ public class CustomSettingJson
     [JsonPropertyName("minValue")] public string MinValue { get; set; }
 
     [JsonPropertyName("dependsOn")] public string DependsOn { get; set; }
+
+    [JsonPropertyName("ignoreIfDefault")] public bool IgnoreIfDefault { get; set; }
+
+    public string InitialDefault { get; set; }
+
+    public CustomSettingJson(string settingName, string settingSection, string settingKey, string defaultValue,
+        string maxValue, string minValue, string dependsOn, string initialDefault)
+    {
+        SettingName = settingName;
+        SettingSection = settingSection;
+        SettingKey = settingKey;
+        DefaultValue = defaultValue;
+        MaxValue = maxValue;
+        MinValue = minValue;
+        DependsOn = dependsOn;
+        InitialDefault = defaultValue;
+    }
 }

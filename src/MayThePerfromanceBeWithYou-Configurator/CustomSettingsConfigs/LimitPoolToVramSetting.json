@@ -1,11 +1,11 @@
 ﻿{
-    "settingName": "Limit Pool to VRAM",
-    "settingType": "CHECKBOX",
-    "settingSection": "SystemSettings",
-    "settingKey": "r.Streaming.LimitPoolSizeToVRAM",
-    "defaultValue": "NODEFAULT",
-    "maxValue": "NOMAX",
-    "minValue": "NOMIN",
-    "dependsOn": "NODEPENDS"
-
+  "settingName": "Limit Pool to VRAM",
+  "settingType": "CHECKBOX",
+  "settingSection": "SystemSettings",
+  "settingKey": "r.Streaming.LimitPoolSizeToVRAM",
+  "defaultValue": "NODEFAULT",
+  "maxValue": "NOMAX",
+  "minValue": "NOMIN",
+  "dependsOn": "NODEPENDS",
+  "ignoreIfDefault": true
 }

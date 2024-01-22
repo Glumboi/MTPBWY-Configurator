@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Threading;
 using MayThePerfromanceBeWithYou_Configurator.Constants;
 using MayThePerfromanceBeWithYou_Configurator.CustomControls;
 using MayThePerfromanceBeWithYou_Configurator.CustomSettings;
@@ -250,11 +251,11 @@ public class MainPageViewModel : ViewModelBase
 
     private List<PoolSize> _poolSizes = new List<PoolSize>()
     {
-        new PoolSize("Above 12 GB", 6144),
-        new PoolSize("11 GB - 12 GB", 4069),
-        new PoolSize("8 GB - 10 GB", 3072),
-        new PoolSize("6 GB", 2048),
-        new PoolSize("1 GB - 4 GB", 1024),
+        new("Above 12 GB", 6144),
+        new("11 GB - 12 GB", 4069),
+        new("8 GB - 10 GB", 3072),
+        new("6 GB", 2048),
+        new("1 GB - 4 GB", 1024),
     };
 
     public List<PoolSize> PoolSizes
@@ -305,7 +306,12 @@ public class MainPageViewModel : ViewModelBase
             _presetIni = new IniFile(_iniPresets[_selectedPreset].IniUrl);
         }
 
-        TaaResolution = LoadSlider(_presetIni.Read("r.ScreenPercentage", "SystemSettings"), 100);
+        foreach (var set in GetModSettings())
+        {
+            set.JsonData.DefaultValue = _presetIni.Read(set.JsonData.SettingKey, set.JsonData.SettingSection);
+        }
+
+        /*TaaResolution = LoadSlider(_presetIni.Read("r.ScreenPercentage", "SystemSettings"), 100);
         ToneMapperSharpening = LoadSlider(_presetIni.Read("r.Tonemapper.Sharpen", "SystemSettings"), 0) * 10;
         ViewDistance = LoadSlider(_presetIni.Read("r.ViewDistanceScale", "SystemSettings"), 0);
 
@@ -324,16 +330,7 @@ public class MainPageViewModel : ViewModelBase
         DisableAntiAliasing = MathHelpers.ParseInt(_presetIni.Read("r.PostProcessAAQuality", "SystemSettings")) == 0;
         LimitPoolSizeToVram =
             MathHelpers.ParseInt(_presetIni.Read("r.Streaming.LimitPoolSizeToVRAM", "SystemSettings")) == 1;
-        RtFixes = MathHelpers.ParseInt(_presetIni.Read("r.HZBOcclusion", "SystemSettings")) == 1;
-    }
-
-    public int LoadSlider(string src, int defaultValue)
-    {
-        int rtrn = 0;
-
-        return string.IsNullOrWhiteSpace(src) ? defaultValue :
-            !MathHelpers.IsFloatOrInt(src) ? (int)(MathHelpers.ParseFloat(src)) :
-            Int32.TryParse(src, out rtrn) ? rtrn : defaultValue;
+        RtFixes = MathHelpers.ParseInt(_presetIni.Read("r.HZBOcclusion", "SystemSettings")) == 1;*/
     }
 
     public ICommand LaunchGameCommand { get; internal set; }
@@ -394,7 +391,6 @@ public class MainPageViewModel : ViewModelBase
     public void EditIni()
     {
         Process.Start("notepad.exe", "tempIni.ini").WaitForExit();
-
         _presetIni = new IniFile(_presetIni.Path, true);
         UpdateUiFromPreset(false);
     }
@@ -456,7 +452,7 @@ public class MainPageViewModel : ViewModelBase
 
     public void InstallMod(bool buildOnly, bool iniOnly = false)
     {
-       // LoadModSettings();
+        // GetModSettings();
 
         Plugins[SelectedPlugin].Install(
             buildOnly,
@@ -464,7 +460,7 @@ public class MainPageViewModel : ViewModelBase
             _presetIni,
             PoolSizes[SelectedPoolSize],
             GamePath,
-            _modSettings);
+            GetModSettings().ToArray());
 
         if (iniOnly)
         {
@@ -490,7 +486,7 @@ public class MainPageViewModel : ViewModelBase
 
     private void OpenSettingsViewer()
     {
-        new ModSettingsViewerWindow(LoadModSettings).Show();
+        new ModSettingsViewerWindow(GetModSettings).Show();
     }
 
     public ICommand BrowseFolderCommand { get; internal set; }
@@ -510,16 +506,12 @@ public class MainPageViewModel : ViewModelBase
         }
     }
 
-    private Dictionary<string, string> LoadModSettings()
+    private List<CustomSetting> GetModSettings()
     {
-        Dictionary<string, string> modSettings = new Dictionary<string, string>();
-        var dataContext = UniversalModSettings.DataContext as SettingsControlViewModel;
-        foreach (var setting in dataContext.Settings)
-        {
-            modSettings.Add(setting.JsonData.SettingName, setting.JsonData.SettingKey);
-        }
-
-        return modSettings;
+        SettingsControlViewModel dataContext = null;
+        Application.Current.Dispatcher
+            .Invoke(() => dataContext = (SettingsControlViewModel)UniversalModSettings.DataContext);
+        return dataContext.Settings;
     }
 
     private void LoadInstallState()
@@ -564,6 +556,7 @@ public class MainPageViewModel : ViewModelBase
 
     private void InitializeViewModel()
     {
+        UniversalModSettings = new SettingsControl();
         Task.Run(() =>
         {
             Plugins = Plugin.GetPlugins();
@@ -594,8 +587,6 @@ public class MainPageViewModel : ViewModelBase
 
             ContentLoaded = true;
         });
-
-        UniversalModSettings = new SettingsControl();
     }
 
     private void ShowNotification(string content, SymbolRegular icon = SymbolRegular.Info28)

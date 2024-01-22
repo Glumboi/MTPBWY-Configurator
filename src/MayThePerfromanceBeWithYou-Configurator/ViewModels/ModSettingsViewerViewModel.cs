@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
-using System.Windows.Documents;
 using System.Windows.Input;
-using MayThePerfromanceBeWithYou_Configurator.Core;
-using Microsoft.WindowsAPICodePack.Dialogs;
+using MayThePerfromanceBeWithYou_Configurator.CustomSettings;
 using Wpf.Ui.Common;
 
 namespace MayThePerfromanceBeWithYou_Configurator.ViewModels;
@@ -19,9 +16,9 @@ public class ModSettingsViewerViewModel : ViewModelBase
         set => SetProperty(ref _modSettings, value);
     }
 
-    private Func<Dictionary<string, string>> _reloadModSettingsFunction;
+    private Func<List<CustomSetting>> _reloadModSettingsFunction;
 
-    public Func<Dictionary<string, string>> ReloadModSettingsFunction
+    public Func<List<CustomSetting>> ReloadModSettingsFunction
     {
         get => _reloadModSettingsFunction;
         set => SetProperty(ref _reloadModSettingsFunction, value);
@@ -37,15 +34,16 @@ public class ModSettingsViewerViewModel : ViewModelBase
     private void Reload()
     {
         ModSettings.Clear();
-        var dic = ReloadModSettingsFunction.Invoke();
-        foreach (var setting in dic)
+        var settings = ReloadModSettingsFunction.Invoke();
+        foreach (var setting in settings)
         {
-            ModSettings.Add(setting.Key + " | {ini key}:  " + setting.Value);
+            ModSettings.Add(setting.JsonData.SettingName + " | " + setting.JsonData.SettingKey + " | " +
+                            setting.JsonData.SettingType + " | " + setting.JsonData.DefaultValue);
         }
     }
 
-    public void InitializeViewModel(Dictionary<string, string> settings,
-        Func<Dictionary<string, string>> reloadModSettingsFunction)
+    public void InitializeViewModel(List<CustomSetting> settings,
+        Func<List<CustomSetting>> reloadModSettingsFunction)
     {
         ReloadModSettingsFunction = reloadModSettingsFunction;
         Reload();
