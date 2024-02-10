@@ -9,4 +9,6 @@ public class CheckboxSettingViewModel : CustomSettingViewModelBase
         get => bool.TryParse(Value, out _);
         set => Value = value.ToString();
     }
+    
+    
 }

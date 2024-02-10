@@ -24,10 +24,9 @@ public class MainPageViewModel : ViewModelBase
 {
     private PresetDatabase _database;
     private CustomPresetsDatabase _customPresetDatabase;
-    private IniFile _presetIni;
     private string _unrealEngineGamePath;
     private ModSettings _modSettings;
-
+    private IniFile _temprorayPresetIni;
     private Snackbar NotificationBar { get; set; }
 
     private SettingsControl _universalModSettings;
@@ -303,34 +302,34 @@ public class MainPageViewModel : ViewModelBase
     {
         if (useList)
         {
-            _presetIni = new IniFile(_iniPresets[_selectedPreset].IniUrl);
+            _temprorayPresetIni = new IniFile(_iniPresets[_selectedPreset].IniUrl);
         }
 
         foreach (var set in GetModSettings())
         {
-            set.JsonData.DefaultValue = _presetIni.Read(set.JsonData.SettingKey, set.JsonData.SettingSection);
+            set.JsonData.DefaultValue = _temprorayPresetIni.Read(set.JsonData.SettingKey, set.JsonData.SettingSection);
         }
 
-        /*TaaResolution = LoadSlider(_presetIni.Read("r.ScreenPercentage", "SystemSettings"), 100);
-        ToneMapperSharpening = LoadSlider(_presetIni.Read("r.Tonemapper.Sharpen", "SystemSettings"), 0) * 10;
-        ViewDistance = LoadSlider(_presetIni.Read("r.ViewDistanceScale", "SystemSettings"), 0);
+        /*TaaResolution = LoadSlider(_temprorayPresetIni.Read("r.ScreenPercentage", "SystemSettings"), 100);
+        ToneMapperSharpening = LoadSlider(_temprorayPresetIni.Read("r.Tonemapper.Sharpen", "SystemSettings"), 0) * 10;
+        ViewDistance = LoadSlider(_temprorayPresetIni.Read("r.ViewDistanceScale", "SystemSettings"), 0);
 
-        TAAUpscaling = MathHelpers.ParseInt(_presetIni.Read("r.TemporalAA.Upsampling", "SystemSettings"), true) != 0;
-        TAAGen5 = MathHelpers.ParseInt(_presetIni.Read("r.TemporalAA.Algorithm", "SystemSettings"), true) != 0;
-        PotatoTextures = MathHelpers.ParseInt(_presetIni.Read("r.Streaming.AmortizeCPUToGPUCopy", "SystemSettings")) !=
+        TAAUpscaling = MathHelpers.ParseInt(_temprorayPresetIni.Read("r.TemporalAA.Upsampling", "SystemSettings"), true) != 0;
+        TAAGen5 = MathHelpers.ParseInt(_temprorayPresetIni.Read("r.TemporalAA.Algorithm", "SystemSettings"), true) != 0;
+        PotatoTextures = MathHelpers.ParseInt(_temprorayPresetIni.Read("r.Streaming.AmortizeCPUToGPUCopy", "SystemSettings")) !=
                          9999;
 
-        DisableLensFlare = MathHelpers.ParseInt(_presetIni.Read("r.LensFlareQuality", "SystemSettings")) == 0;
-        DisableBloom = MathHelpers.ParseInt(_presetIni.Read("r.BloomQuality", "SystemSettings")) == 0;
-        DisableFog = MathHelpers.ParseInt(_presetIni.Read("r.VolumetricFog", "SystemSettings")) == 0 &&
-                     MathHelpers.ParseInt(_presetIni.Read("r.Fog", "SystemSettings")) == 0;
-        DisableDOF = MathHelpers.ParseInt(_presetIni.Read("r.DepthOfFieldQuality", "SystemSettings")) == 0;
+        DisableLensFlare = MathHelpers.ParseInt(_temprorayPresetIni.Read("r.LensFlareQuality", "SystemSettings")) == 0;
+        DisableBloom = MathHelpers.ParseInt(_temprorayPresetIni.Read("r.BloomQuality", "SystemSettings")) == 0;
+        DisableFog = MathHelpers.ParseInt(_temprorayPresetIni.Read("r.VolumetricFog", "SystemSettings")) == 0 &&
+                     MathHelpers.ParseInt(_temprorayPresetIni.Read("r.Fog", "SystemSettings")) == 0;
+        DisableDOF = MathHelpers.ParseInt(_temprorayPresetIni.Read("r.DepthOfFieldQuality", "SystemSettings")) == 0;
         ExperimentalStutterFix =
-            MathHelpers.ParseInt(_presetIni.Read("s.ForceGCAfterLevelStreamedOut", "SystemSettings")) == 0;
-        DisableAntiAliasing = MathHelpers.ParseInt(_presetIni.Read("r.PostProcessAAQuality", "SystemSettings")) == 0;
+            MathHelpers.ParseInt(_temprorayPresetIni.Read("s.ForceGCAfterLevelStreamedOut", "SystemSettings")) == 0;
+        DisableAntiAliasing = MathHelpers.ParseInt(_temprorayPresetIni.Read("r.PostProcessAAQuality", "SystemSettings")) == 0;
         LimitPoolSizeToVram =
-            MathHelpers.ParseInt(_presetIni.Read("r.Streaming.LimitPoolSizeToVRAM", "SystemSettings")) == 1;
-        RtFixes = MathHelpers.ParseInt(_presetIni.Read("r.HZBOcclusion", "SystemSettings")) == 1;*/
+            MathHelpers.ParseInt(_temprorayPresetIni.Read("r.Streaming.LimitPoolSizeToVRAM", "SystemSettings")) == 1;
+        RtFixes = MathHelpers.ParseInt(_temprorayPresetIni.Read("r.HZBOcclusion", "SystemSettings")) == 1;*/
     }
 
     public ICommand LaunchGameCommand { get; internal set; }
@@ -370,7 +369,7 @@ public class MainPageViewModel : ViewModelBase
     public void CreatePreset()
     {
         InstallMod(true, true);
-        new CustomPresetCreatorWindow(_presetIni).ShowDialog();
+        new CustomPresetCreatorWindow(_temprorayPresetIni).ShowDialog();
         SelectedPreset = 0;
         Task.Run(InitializePresets);
         ShowNotification("Reinitialized the Databases, if a custom Preset got created it should now be available!");
@@ -391,7 +390,7 @@ public class MainPageViewModel : ViewModelBase
     public void EditIni()
     {
         Process.Start("notepad.exe", "tempIni.ini").WaitForExit();
-        _presetIni = new IniFile(_presetIni.Path, true);
+        _temprorayPresetIni = new IniFile(_temprorayPresetIni.Path, true);
         UpdateUiFromPreset(false);
     }
 
@@ -457,7 +456,7 @@ public class MainPageViewModel : ViewModelBase
         Plugins[SelectedPlugin].Install(
             buildOnly,
             iniOnly,
-            _presetIni,
+            _temprorayPresetIni,
             PoolSizes[SelectedPoolSize],
             GamePath,
             GetModSettings().ToArray());
@@ -514,6 +513,14 @@ public class MainPageViewModel : ViewModelBase
         return dataContext.Settings;
     }
 
+    void ReloadModSettingsFromTempIni()
+    {
+        foreach (var setting in GetModSettings())
+        {
+            //setting.JsonData.DefaultValue = 
+        }
+    }
+
     private void LoadInstallState()
     {
         if (IsModAlreadyInstalled())
@@ -532,7 +539,7 @@ public class MainPageViewModel : ViewModelBase
         try
         {
             _database = new PresetDatabase(
-                "https://gistcdn.githack.com/Glumboi/957d2376a5e85b865b4a5d9e362cd0e5/raw/2e818a83119de68a781576c67be8ec6570b4e257/MTPBWY-U-Presets.txt");
+                "https://gist.githack.com/Glumboi/957d2376a5e85b865b4a5d9e362cd0e5/raw/304a0b07607edbd90ff09da123684150588e5861/MTPBWY-U-Presets.txt");
             IniPresets = _database.GetPresets();
             _database.CreateLocalDatabase();
         }
@@ -583,7 +590,7 @@ public class MainPageViewModel : ViewModelBase
             {
                 SelectedPreset = 1;
                 SelectedPreset = 0;
-            } while (_presetIni == null);
+            } while (_temprorayPresetIni == null);
 
             ContentLoaded = true;
         });

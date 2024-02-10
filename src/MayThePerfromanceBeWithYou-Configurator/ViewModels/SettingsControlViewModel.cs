@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
-using MayThePerfromanceBeWithYou_Configurator.CustomControls;
+using MayThePerfromanceBeWithYou_Configurator.Core;
 using MayThePerfromanceBeWithYou_Configurator.CustomSettings;
 using TextBox = Wpf.Ui.Controls.TextBox;
 
@@ -48,6 +50,11 @@ public class SettingsControlViewModel : ViewModelBase
 
     public void RealoadSettings()
     {
+        Settings.Clear();
+        SliderSettings.Clear();
+        CheckBoxSettings.Clear();
+        TextboxSettings.Clear();
+
         foreach (var file in Directory.GetFiles("CustomSettingsConfigs"))
         {
             var setting = new CustomSetting(file);
@@ -94,8 +101,18 @@ public class SettingsControlViewModel : ViewModelBase
 
                     sl.ValueChanged += (sender, args) => { setting.JsonData.DefaultValue = sl.Value.ToString("0"); };
 
-                    var slValBinding = new Binding
-                        { Source = sl, Path = new PropertyPath("Value") };
+                    var slTextBoxValueBinding = new Binding
+                    {
+                        Source = sl,
+                        Path = new PropertyPath("Value")
+                    };
+
+                    Binding sliderValueBinding = new Binding("DefaultValue");
+                    sliderValueBinding.Source = setting;
+                    sliderValueBinding.Mode =
+                        BindingMode.TwoWay; // If you want changes in the slider to update DefaultValue
+                    BindingOperations.SetBinding(sl, RangeBase.ValueProperty, sliderValueBinding);
+
                     var tbVal = new TextBlock()
                     {
                         Text = "(0)",
@@ -103,8 +120,8 @@ public class SettingsControlViewModel : ViewModelBase
                         Margin = new Thickness(4, 5, 0, 0)
                     };
 
-                    slValBinding.StringFormat = $"{setting.JsonData.SettingName}: {0:N0}";
-                    tbVal.SetBinding(TextBlock.TextProperty, slValBinding);
+                    slTextBoxValueBinding.StringFormat = $"{setting.JsonData.SettingName}: {0:N0}";
+                    tbVal.SetBinding(TextBlock.TextProperty, slTextBoxValueBinding);
 
                     var gridLower = new Grid()
                     {
@@ -160,6 +177,8 @@ public class SettingsControlViewModel : ViewModelBase
                     throw new Exception(
                         $"The setting with the path: {file} does not specify a control type!\nPlease ensure that the setting is valid or delete it!");
             }
+
+      
 
             Settings.Add(setting);
         }
