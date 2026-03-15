@@ -16,7 +16,11 @@
     ToolTip="{Binding GameName}">
     <ui:Button.Content>
         <Grid>
-            <Rectangle
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Rectangle Grid.Row="0"
                 Width="{Binding DesiredImageSize}"
                 Height="{Binding DesiredImageSize}"
                 HorizontalAlignment="Center"
@@ -29,6 +33,11 @@
                     <ImageBrush ImageSource="{Binding GameImageSource}" />
                 </Rectangle.Fill>
             </Rectangle>
+            <TextBlock Grid.Row="1"
+                Text="{Binding GameName}"
+                HorizontalAlignment="Center"
+                Margin="0,5,0,0"
+                FontWeight="SemiBold" />
         </Grid>
     </ui:Button.Content>
 </ui:Button>

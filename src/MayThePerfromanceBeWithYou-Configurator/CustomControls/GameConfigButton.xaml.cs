@@ -1,17 +1,20 @@
-﻿using MayThePerfromanceBeWithYou_Configurator.Pages;
+﻿using MayThePerfromanceBeWithYou_Configurator.Constants;
+using MayThePerfromanceBeWithYou_Configurator.Pages;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using MayThePerfromanceBeWithYou_Configurator.Constants;
+using System.Windows.Navigation;
 using Wpf.Ui.Common;
 
 namespace MayThePerfromanceBeWithYou_Configurator.CustomControls
@@ -125,6 +128,11 @@ namespace MayThePerfromanceBeWithYou_Configurator.CustomControls
             DesiredImageSize = desiredImageSize;
             DesiredButtonSize = desiredButtonSize;
             var bmp = ImageEXT.LoadImageFromUrl(gameCover, desiredImageSize, desiredImageSize);
+            if (bmp == null)
+            {
+                bmp = ImageEXT.LoadBitmapFromLocalFile(gameCover, desiredImageSize, desiredImageSize);
+            }
+            // TODO: FIX COVER DOWNLOADS!
             GameImageSource = ImageEXT.ConvertToImageSource(bmp);
             PluginIndex = myPluginIndex;
             GameName = ConstantInstances._pluginList[PluginIndex].DisplayName;
@@ -150,39 +158,87 @@ namespace MayThePerfromanceBeWithYou_Configurator.CustomControls
             }
         }
 
+        private static Bitmap CreateEmptyBitmap(int maxWidth, int maxHeight)
+        {
+            Bitmap ret = new(maxWidth, maxHeight);
+            for (int x = 0; x < maxWidth; x++)
+            {
+                for (int y = 0; y < maxHeight; y++)
+                {
+                    ret.SetPixel(x, y, System.Drawing.Color.White);
+                }
+            }
+
+            return ret;
+        }
+
+        public static Bitmap LoadBitmapFromLocalFile(string file, int maxWidth, int maxHeight)
+        {
+            if (!File.Exists(file))
+                return CreateEmptyBitmap(maxWidth, maxHeight);
+            Bitmap scaled;
+            using (Bitmap original = new Bitmap(file))
+            {
+                try
+                {
+                    scaled = new Bitmap(original, new System.Drawing.Size(maxWidth, maxHeight));
+                }
+                catch (Exception)
+                {
+                    return CreateEmptyBitmap(maxWidth, maxHeight);
+                }
+            }
+            return scaled;
+        }
+
+
         public static Bitmap LoadImageFromUrl(string url, int maxWidth, int maxHeight)
         {
-            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
-            HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-            Stream responseStream = httpWebResponse.GetResponseStream();
-
-            using (System.Drawing.Image originalImage = System.Drawing.Image.FromStream(responseStream))
+            using (HttpClient client = new HttpClient())
             {
-                int newWidth = originalImage.Width;
-                int newHeight = originalImage.Height;
-
-                // Scale the image down if it is larger than the maximum size
-                if (originalImage.Width > maxWidth)
+                client.BaseAddress = new Uri(url);
+                var msg = new HttpRequestMessage(HttpMethod.Get, url);
+                var response = client.Send(msg);
+                try
                 {
-                    newWidth = maxWidth;
-                    newHeight = (int)(originalImage.Height * ((float)maxWidth / originalImage.Width));
+                    response.EnsureSuccessStatusCode();
+                    var content = response.Content;
+                    var stream = content.ReadAsStream();
+                    using (System.Drawing.Image originalImage = System.Drawing.Image.FromStream(stream))
+                    {
+                        int newWidth = originalImage.Width;
+                        int newHeight = originalImage.Height;
+
+                        // Scale the image down if it is larger than the maximum size
+                        if (originalImage.Width > maxWidth)
+                        {
+                            newWidth = maxWidth;
+                            newHeight = (int)(originalImage.Height * ((float)maxWidth / originalImage.Width));
+                        }
+                        if (newHeight > maxHeight)
+                        {
+                            newHeight = maxHeight;
+                            newWidth = (int)(originalImage.Width * ((float)maxHeight / originalImage.Height));
+                        }
+
+                        // Create a new Bitmap object with the scaled size
+                        Bitmap newBitmap = new Bitmap(newWidth, newHeight);
+                        using (Graphics graphics = Graphics.FromImage(newBitmap))
+                        {
+                            // Draw the original image onto the new Bitmap object with the scaled size
+                            graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                            graphics.DrawImage(originalImage, 0, 0, newWidth, newHeight);
+                        }
+                        stream.Close();
+                        response.Dispose();
+                        return newBitmap;
+                    }
                 }
-                if (newHeight > maxHeight)
+                catch (Exception)
                 {
-                    newHeight = maxHeight;
-                    newWidth = (int)(originalImage.Width * ((float)maxHeight / originalImage.Height));
+                    return ImageEXT.LoadBitmapFromLocalFile(url, maxWidth, maxHeight);
                 }
 
-                // Create a new Bitmap object with the scaled size
-                Bitmap newBitmap = new Bitmap(newWidth, newHeight);
-                using (Graphics graphics = Graphics.FromImage(newBitmap))
-                {
-                    // Draw the original image onto the new Bitmap object with the scaled size
-                    graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                    graphics.DrawImage(originalImage, 0, 0, newWidth, newHeight);
-                }
-
-                return newBitmap;
             }
         }
     }
